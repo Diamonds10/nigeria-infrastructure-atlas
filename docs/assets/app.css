@@ -33,6 +33,7 @@
     --layer-power-plants: #D62828;
     --layer-refineries: #E86A00;
     --layer-gas-infrastructure: #2A9D8F;
+    --layer-oil-spills: #BB3E03;
     --layer-protected-areas: #40916C;
     --layer-demand-centers: #C9184A;
     --layer-roads: #6C757D;
@@ -92,6 +93,7 @@
       --layer-power-plants: #FF6B6B;
       --layer-refineries: #FF9F1C;
       --layer-gas-infrastructure: #52B788;
+      --layer-oil-spills: #FF8552;
       --layer-protected-areas: #74C69D;
       --layer-demand-centers: #FF7096;
       --layer-roads: #ADB5BD;
@@ -147,6 +149,7 @@
     --layer-power-plants: #FF6B6B;
     --layer-refineries: #FF9F1C;
     --layer-gas-infrastructure: #52B788;
+    --layer-oil-spills: #FF8552;
     --layer-protected-areas: #74C69D;
     --layer-demand-centers: #FF7096;
     --layer-roads: #ADB5BD;

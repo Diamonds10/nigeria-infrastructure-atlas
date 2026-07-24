@@ -125,6 +125,15 @@ CATALOGUE = {
         "quality_note": "Status, operator, and capacity fields are inconsistently populated. Records matching a facility already tracked in refineries or LNG terminals above are excluded here to avoid double-counting.",
         "path": "data/processed/02_infrastructure/se4all_gas_infrastructure_nigeria_2026-07.csv",
     },
+    "oil_spills": {
+        "description": "Oil spill incidents reported to NOSDRA (National Oil Spill Detection and Response Agency), with cause, contaminant, facility type, and operator.",
+        "source": "NOSDRA, via the Nigerian Oil Spill Monitor public API",
+        "source_date": "2026-07-25",
+        "license": "Not stated on the site; confirm terms before redistributing",
+        "quality": "B",
+        "quality_note": "21,124 incident records, 2006-present, updated live (most recent incident 2026-07-16 at time of extraction) -- unlike most sources in this atlas, this is an actively maintained feed, not a static snapshot. 16,326 of 21,124 records (77.3%) have valid coordinates within Nigeria; the remainder have company/date/cause but no mappable location. 66.8% of records with a coded cause are attributed to sabotage/theft (pipeline vandalism or illegal bunkering), not equipment failure -- a genuine proxy indicator for security exposure, not just an environmental record. Code legends (status/cause/contaminant/facility/state) were read directly from the site's own filter-picker UI, not guessed.",
+        "path": "data/processed/03_environmental/nosdra_oil_spills_nigeria.csv",
+    },
     "protected_areas": {
         "description": "Protected and conserved areas including forest reserves, parks, and wetlands.",
         "source": "UNEP-WCMC / IUCN Protected Planet",
@@ -965,6 +974,21 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
         "name",
         exclude_notna="possible_duplicate_of",
     )
+    oil_spills = point_features(
+        PROCESSED / "03_environmental/nosdra_oil_spills_nigeria.csv",
+        "longitude", "latitude",
+        [
+            "company", "incidentdate", "status_label", "cause_label", "is_sabotage_attributed",
+            "contaminant_label", "facility_label", "habitat_label", "estimatedquantity",
+            "state_label", "lga", "sitelocationname",
+        ],
+        "sitelocationname",
+    )
+    for item in oil_spills:
+        if "is_sabotage_attributed" in item["properties"]:
+            item["properties"]["is_sabotage_attributed"] = (
+                "Yes" if item["properties"]["is_sabotage_attributed"] else "No"
+            )
     protected_areas = wkt_features(
         PROCESSED / "03_environmental/wdpa_protected_areas_nigeria.csv",
         "geometry",
@@ -1109,6 +1133,7 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
             "environmental": {
                 "label": "Environmental",
                 "sublayers": {
+                    "oil_spills": sublayer("Oil Spill Incidents (NOSDRA)", "point", oil_spills),
                     "protected_areas": sublayer(
                         "Protected Areas (WDPA)", "polygon", protected_areas
                     )

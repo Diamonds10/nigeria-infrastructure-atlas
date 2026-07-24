@@ -94,6 +94,13 @@
       "endpoint": "layers/gas_infrastructure.geojson"
     },
     {
+      "key": "oil_spills",
+      "label": "Oil Spill Incidents (NOSDRA)",
+      "category": "environmental",
+      "record_count": 16326,
+      "endpoint": "layers/oil_spills.geojson"
+    },
+    {
       "key": "protected_areas",
       "label": "Protected Areas (WDPA)",
       "category": "environmental",

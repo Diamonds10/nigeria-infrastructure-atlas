@@ -8,7 +8,7 @@
   "profiles": {
     "Nigeria": {
       "name": "Nigeria",
-      "mapped_records": 12525,
+      "mapped_records": 28851,
       "counts": {
         "fields_oil": 33,
         "fields_gas": 147,
@@ -20,6 +20,7 @@
         "power_plants": 193,
         "refineries": 4,
         "gas_infrastructure": 98,
+        "oil_spills": 16326,
         "protected_areas": 1005,
         "demand_centers": 28,
         "roads": 5124,
@@ -38,7 +39,7 @@
       "category_counts": {
         "resource": 304,
         "infrastructure": 358,
-        "environmental": 1005,
+        "environmental": 17331,
         "demand": 28,
         "connectivity": 7992,
         "renewables": 80,
@@ -55,7 +56,7 @@
         "proposed": 120,
         "inactive": 43,
         "other": 1011,
-        "unknown": 10911
+        "unknown": 27237
       },
       "people_access": {
         "worldpop_population_2025": 237527782.00200003,
@@ -84,7 +85,7 @@
     },
     "Cross River": {
       "name": "Cross River",
-      "mapped_records": 286,
+      "mapped_records": 289,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -96,6 +97,7 @@
         "power_plants": 11,
         "refineries": 0,
         "gas_infrastructure": 1,
+        "oil_spills": 3,
         "protected_areas": 22,
         "demand_centers": 1,
         "roads": 153,
@@ -114,7 +116,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 17,
-        "environmental": 22,
+        "environmental": 25,
         "demand": 1,
         "connectivity": 176,
         "renewables": 2,
@@ -131,7 +133,7 @@
         "proposed": 6,
         "inactive": 4,
         "other": 22,
-        "unknown": 245
+        "unknown": 248
       },
       "people_access": {
         "worldpop_population_2025": 2566393.397,
@@ -158,7 +160,7 @@
     },
     "Abuja Federal Capital Territory": {
       "name": "Abuja Federal Capital Territory",
-      "mapped_records": 650,
+      "mapped_records": 739,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -170,6 +172,7 @@
         "power_plants": 3,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 89,
         "protected_areas": 21,
         "demand_centers": 0,
         "roads": 468,
@@ -188,7 +191,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 6,
-        "environmental": 21,
+        "environmental": 110,
         "demand": 0,
         "connectivity": 569,
         "renewables": 4,
@@ -205,7 +208,7 @@
         "proposed": 1,
         "inactive": 0,
         "other": 22,
-        "unknown": 619
+        "unknown": 708
       },
       "people_access": {
         "worldpop_population_2025": 3735905.649,
@@ -232,7 +235,7 @@
     },
     "Ogun": {
       "name": "Ogun",
-      "mapped_records": 569,
+      "mapped_records": 587,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -244,6 +247,7 @@
         "power_plants": 4,
         "refineries": 0,
         "gas_infrastructure": 1,
+        "oil_spills": 18,
         "protected_areas": 21,
         "demand_centers": 6,
         "roads": 266,
@@ -262,7 +266,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 9,
-        "environmental": 21,
+        "environmental": 39,
         "demand": 6,
         "connectivity": 467,
         "renewables": 4,
@@ -279,7 +283,7 @@
         "proposed": 1,
         "inactive": 2,
         "other": 22,
-        "unknown": 529
+        "unknown": 547
       },
       "people_access": {
         "worldpop_population_2025": 12934343.05,
@@ -318,6 +322,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 0,
         "protected_areas": 26,
         "demand_centers": 0,
         "roads": 336,
@@ -392,6 +397,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 0,
         "protected_areas": 36,
         "demand_centers": 1,
         "roads": 107,
@@ -454,7 +460,7 @@
     },
     "Zamfara": {
       "name": "Zamfara",
-      "mapped_records": 278,
+      "mapped_records": 293,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -466,6 +472,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 15,
         "protected_areas": 23,
         "demand_centers": 0,
         "roads": 139,
@@ -484,7 +491,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 1,
-        "environmental": 23,
+        "environmental": 38,
         "demand": 0,
         "connectivity": 171,
         "renewables": 0,
@@ -501,7 +508,7 @@
         "proposed": 1,
         "inactive": 0,
         "other": 23,
-        "unknown": 254
+        "unknown": 269
       },
       "people_access": {
         "worldpop_population_2025": 3564209.261,
@@ -528,7 +535,7 @@
     },
     "Lagos": {
       "name": "Lagos",
-      "mapped_records": 837,
+      "mapped_records": 884,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -540,6 +547,7 @@
         "power_plants": 28,
         "refineries": 1,
         "gas_infrastructure": 2,
+        "oil_spills": 47,
         "protected_areas": 2,
         "demand_centers": 2,
         "roads": 478,
@@ -558,7 +566,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 36,
-        "environmental": 2,
+        "environmental": 49,
         "demand": 2,
         "connectivity": 753,
         "renewables": 1,
@@ -575,7 +583,7 @@
         "proposed": 21,
         "inactive": 2,
         "other": 2,
-        "unknown": 797
+        "unknown": 844
       },
       "people_access": {
         "worldpop_population_2025": 12582855.93,
@@ -602,7 +610,7 @@
     },
     "Akwa Ibom": {
       "name": "Akwa Ibom",
-      "mapped_records": 262,
+      "mapped_records": 317,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -614,6 +622,7 @@
         "power_plants": 16,
         "refineries": 0,
         "gas_infrastructure": 2,
+        "oil_spills": 55,
         "protected_areas": 5,
         "demand_centers": 0,
         "roads": 146,
@@ -632,7 +641,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 25,
-        "environmental": 5,
+        "environmental": 60,
         "demand": 0,
         "connectivity": 182,
         "renewables": 1,
@@ -649,7 +658,7 @@
         "proposed": 10,
         "inactive": 5,
         "other": 4,
-        "unknown": 232
+        "unknown": 287
       },
       "people_access": {
         "worldpop_population_2025": 4281013.948,
@@ -676,7 +685,7 @@
     },
     "Bayelsa": {
       "name": "Bayelsa",
-      "mapped_records": 131,
+      "mapped_records": 4865,
       "counts": {
         "fields_oil": 1,
         "fields_gas": 14,
@@ -688,6 +697,7 @@
         "power_plants": 7,
         "refineries": 0,
         "gas_infrastructure": 10,
+        "oil_spills": 4734,
         "protected_areas": 14,
         "demand_centers": 0,
         "roads": 0,
@@ -706,7 +716,7 @@
       "category_counts": {
         "resource": 35,
         "infrastructure": 24,
-        "environmental": 14,
+        "environmental": 4748,
         "demand": 0,
         "connectivity": 7,
         "renewables": 2,
@@ -723,7 +733,7 @@
         "proposed": 7,
         "inactive": 0,
         "other": 19,
-        "unknown": 78
+        "unknown": 4812
       },
       "people_access": {
         "worldpop_population_2025": 2523453.676,
@@ -750,7 +760,7 @@
     },
     "Ondo": {
       "name": "Ondo",
-      "mapped_records": 196,
+      "mapped_records": 212,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 2,
@@ -762,6 +772,7 @@
         "power_plants": 8,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 16,
         "protected_areas": 27,
         "demand_centers": 0,
         "roads": 57,
@@ -780,7 +791,7 @@
       "category_counts": {
         "resource": 2,
         "infrastructure": 11,
-        "environmental": 27,
+        "environmental": 43,
         "demand": 0,
         "connectivity": 95,
         "renewables": 5,
@@ -797,7 +808,7 @@
         "proposed": 5,
         "inactive": 2,
         "other": 25,
-        "unknown": 151
+        "unknown": 167
       },
       "people_access": {
         "worldpop_population_2025": 5658396.028,
@@ -824,7 +835,7 @@
     },
     "Delta": {
       "name": "Delta",
-      "mapped_records": 440,
+      "mapped_records": 2837,
       "counts": {
         "fields_oil": 11,
         "fields_gas": 23,
@@ -836,6 +847,7 @@
         "power_plants": 47,
         "refineries": 1,
         "gas_infrastructure": 27,
+        "oil_spills": 2397,
         "protected_areas": 21,
         "demand_centers": 2,
         "roads": 68,
@@ -854,7 +866,7 @@
       "category_counts": {
         "resource": 58,
         "infrastructure": 86,
-        "environmental": 21,
+        "environmental": 2418,
         "demand": 2,
         "connectivity": 209,
         "renewables": 1,
@@ -871,7 +883,7 @@
         "proposed": 20,
         "inactive": 24,
         "other": 24,
-        "unknown": 302
+        "unknown": 2699
       },
       "people_access": {
         "worldpop_population_2025": 7712872.39,
@@ -898,7 +910,7 @@
     },
     "Rivers": {
       "name": "Rivers",
-      "mapped_records": 349,
+      "mapped_records": 7145,
       "counts": {
         "fields_oil": 3,
         "fields_gas": 17,
@@ -910,6 +922,7 @@
         "power_plants": 15,
         "refineries": 1,
         "gas_infrastructure": 18,
+        "oil_spills": 6796,
         "protected_areas": 11,
         "demand_centers": 4,
         "roads": 80,
@@ -928,7 +941,7 @@
       "category_counts": {
         "resource": 42,
         "infrastructure": 61,
-        "environmental": 11,
+        "environmental": 6807,
         "demand": 4,
         "connectivity": 173,
         "renewables": 4,
@@ -945,7 +958,7 @@
         "proposed": 9,
         "inactive": 2,
         "other": 14,
-        "unknown": 254
+        "unknown": 7050
       },
       "people_access": {
         "worldpop_population_2025": 6863907.13,
@@ -972,7 +985,7 @@
     },
     "Kwara": {
       "name": "Kwara",
-      "mapped_records": 389,
+      "mapped_records": 391,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -984,6 +997,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 2,
         "protected_areas": 33,
         "demand_centers": 0,
         "roads": 237,
@@ -1002,7 +1016,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 1,
-        "environmental": 33,
+        "environmental": 35,
         "demand": 0,
         "connectivity": 273,
         "renewables": 1,
@@ -1019,7 +1033,7 @@
         "proposed": 2,
         "inactive": 0,
         "other": 32,
-        "unknown": 354
+        "unknown": 356
       },
       "people_access": {
         "worldpop_population_2025": 4687187.345,
@@ -1046,7 +1060,7 @@
     },
     "Kogi": {
       "name": "Kogi",
-      "mapped_records": 498,
+      "mapped_records": 581,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1058,6 +1072,7 @@
         "power_plants": 23,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 83,
         "protected_areas": 37,
         "demand_centers": 4,
         "roads": 160,
@@ -1076,7 +1091,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 29,
-        "environmental": 37,
+        "environmental": 120,
         "demand": 4,
         "connectivity": 347,
         "renewables": 2,
@@ -1093,7 +1108,7 @@
         "proposed": 19,
         "inactive": 0,
         "other": 36,
-        "unknown": 426
+        "unknown": 509
       },
       "people_access": {
         "worldpop_population_2025": 4479439.153,
@@ -1120,7 +1135,7 @@
     },
     "Benue": {
       "name": "Benue",
-      "mapped_records": 306,
+      "mapped_records": 307,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1132,6 +1147,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 1,
         "protected_areas": 35,
         "demand_centers": 1,
         "roads": 137,
@@ -1150,7 +1166,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 1,
-        "environmental": 35,
+        "environmental": 36,
         "demand": 1,
         "connectivity": 191,
         "renewables": 2,
@@ -1167,7 +1183,7 @@
         "proposed": 0,
         "inactive": 0,
         "other": 35,
-        "unknown": 267
+        "unknown": 268
       },
       "people_access": {
         "worldpop_population_2025": 9067209.083,
@@ -1206,6 +1222,7 @@
         "power_plants": 1,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 0,
         "protected_areas": 78,
         "demand_centers": 0,
         "roads": 113,
@@ -1268,7 +1285,7 @@
     },
     "Katsina": {
       "name": "Katsina",
-      "mapped_records": 316,
+      "mapped_records": 318,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1280,6 +1297,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 2,
         "protected_areas": 71,
         "demand_centers": 0,
         "roads": 137,
@@ -1298,7 +1316,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 0,
-        "environmental": 71,
+        "environmental": 73,
         "demand": 0,
         "connectivity": 172,
         "renewables": 2,
@@ -1315,7 +1333,7 @@
         "proposed": 0,
         "inactive": 0,
         "other": 71,
-        "unknown": 243
+        "unknown": 245
       },
       "people_access": {
         "worldpop_population_2025": 10522942.91,
@@ -1342,7 +1360,7 @@
     },
     "Plateau": {
       "name": "Plateau",
-      "mapped_records": 311,
+      "mapped_records": 313,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1354,6 +1372,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 2,
         "protected_areas": 37,
         "demand_centers": 0,
         "roads": 130,
@@ -1372,7 +1391,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 0,
-        "environmental": 37,
+        "environmental": 39,
         "demand": 0,
         "connectivity": 198,
         "renewables": 5,
@@ -1389,7 +1408,7 @@
         "proposed": 0,
         "inactive": 0,
         "other": 37,
-        "unknown": 269
+        "unknown": 271
       },
       "people_access": {
         "worldpop_population_2025": 5771080.854,
@@ -1416,7 +1435,7 @@
     },
     "Edo": {
       "name": "Edo",
-      "mapped_records": 433,
+      "mapped_records": 728,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 5,
@@ -1428,6 +1447,7 @@
         "power_plants": 11,
         "refineries": 0,
         "gas_infrastructure": 4,
+        "oil_spills": 295,
         "protected_areas": 48,
         "demand_centers": 2,
         "roads": 152,
@@ -1446,7 +1466,7 @@
       "category_counts": {
         "resource": 9,
         "infrastructure": 22,
-        "environmental": 48,
+        "environmental": 343,
         "demand": 2,
         "connectivity": 280,
         "renewables": 4,
@@ -1463,7 +1483,7 @@
         "proposed": 8,
         "inactive": 0,
         "other": 46,
-        "unknown": 353
+        "unknown": 648
       },
       "people_access": {
         "worldpop_population_2025": 6633884.179,
@@ -1502,6 +1522,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 0,
         "protected_areas": 71,
         "demand_centers": 0,
         "roads": 18,
@@ -1564,7 +1585,7 @@
     },
     "Anambra": {
       "name": "Anambra",
-      "mapped_records": 188,
+      "mapped_records": 198,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1576,6 +1597,7 @@
         "power_plants": 4,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 10,
         "protected_areas": 12,
         "demand_centers": 0,
         "roads": 92,
@@ -1594,7 +1616,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 4,
-        "environmental": 12,
+        "environmental": 22,
         "demand": 0,
         "connectivity": 120,
         "renewables": 4,
@@ -1611,7 +1633,7 @@
         "proposed": 2,
         "inactive": 3,
         "other": 11,
-        "unknown": 168
+        "unknown": 178
       },
       "people_access": {
         "worldpop_population_2025": 5788664.686,
@@ -1638,7 +1660,7 @@
     },
     "Kano": {
       "name": "Kano",
-      "mapped_records": 378,
+      "mapped_records": 383,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1650,6 +1672,7 @@
         "power_plants": 4,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 5,
         "protected_areas": 16,
         "demand_centers": 0,
         "roads": 133,
@@ -1668,7 +1691,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 5,
-        "environmental": 16,
+        "environmental": 21,
         "demand": 0,
         "connectivity": 287,
         "renewables": 2,
@@ -1685,7 +1708,7 @@
         "proposed": 4,
         "inactive": 0,
         "other": 16,
-        "unknown": 355
+        "unknown": 360
       },
       "people_access": {
         "worldpop_population_2025": 18771133.63,
@@ -1724,6 +1747,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 0,
         "protected_areas": 34,
         "demand_centers": 0,
         "roads": 107,
@@ -1798,6 +1822,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 0,
         "protected_areas": 17,
         "demand_centers": 0,
         "roads": 67,
@@ -1860,7 +1885,7 @@
     },
     "Imo": {
       "name": "Imo",
-      "mapped_records": 131,
+      "mapped_records": 591,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 3,
@@ -1872,6 +1897,7 @@
         "power_plants": 4,
         "refineries": 0,
         "gas_infrastructure": 2,
+        "oil_spills": 460,
         "protected_areas": 5,
         "demand_centers": 0,
         "roads": 55,
@@ -1890,7 +1916,7 @@
       "category_counts": {
         "resource": 3,
         "infrastructure": 7,
-        "environmental": 5,
+        "environmental": 465,
         "demand": 0,
         "connectivity": 71,
         "renewables": 0,
@@ -1907,7 +1933,7 @@
         "proposed": 1,
         "inactive": 1,
         "other": 5,
-        "unknown": 116
+        "unknown": 576
       },
       "people_access": {
         "worldpop_population_2025": 6592131.419,
@@ -1934,7 +1960,7 @@
     },
     "Gombe": {
       "name": "Gombe",
-      "mapped_records": 243,
+      "mapped_records": 251,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1946,6 +1972,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 8,
         "protected_areas": 34,
         "demand_centers": 1,
         "roads": 67,
@@ -1964,7 +1991,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 0,
-        "environmental": 34,
+        "environmental": 42,
         "demand": 1,
         "connectivity": 147,
         "renewables": 3,
@@ -1981,7 +2008,7 @@
         "proposed": 0,
         "inactive": 0,
         "other": 34,
-        "unknown": 205
+        "unknown": 213
       },
       "people_access": {
         "worldpop_population_2025": 4477433.215,
@@ -2020,6 +2047,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 0,
         "protected_areas": 21,
         "demand_centers": 0,
         "roads": 163,
@@ -2094,6 +2122,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 0,
         "protected_areas": 40,
         "demand_centers": 0,
         "roads": 68,
@@ -2156,7 +2185,7 @@
     },
     "Abia": {
       "name": "Abia",
-      "mapped_records": 177,
+      "mapped_records": 314,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 1,
@@ -2168,6 +2197,7 @@
         "power_plants": 6,
         "refineries": 0,
         "gas_infrastructure": 3,
+        "oil_spills": 137,
         "protected_areas": 7,
         "demand_centers": 1,
         "roads": 65,
@@ -2186,7 +2216,7 @@
       "category_counts": {
         "resource": 3,
         "infrastructure": 11,
-        "environmental": 7,
+        "environmental": 144,
         "demand": 1,
         "connectivity": 110,
         "renewables": 0,
@@ -2203,7 +2233,7 @@
         "proposed": 1,
         "inactive": 1,
         "other": 7,
-        "unknown": 158
+        "unknown": 295
       },
       "people_access": {
         "worldpop_population_2025": 3924169.25,
@@ -2230,7 +2260,7 @@
     },
     "Ekiti": {
       "name": "Ekiti",
-      "mapped_records": 67,
+      "mapped_records": 68,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2242,6 +2272,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 1,
         "protected_areas": 14,
         "demand_centers": 0,
         "roads": 0,
@@ -2260,7 +2291,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 0,
-        "environmental": 14,
+        "environmental": 15,
         "demand": 0,
         "connectivity": 6,
         "renewables": 0,
@@ -2277,7 +2308,7 @@
         "proposed": 0,
         "inactive": 0,
         "other": 14,
-        "unknown": 53
+        "unknown": 54
       },
       "people_access": {
         "worldpop_population_2025": 3060453.429,
@@ -2304,7 +2335,7 @@
     },
     "Osun": {
       "name": "Osun",
-      "mapped_records": 179,
+      "mapped_records": 180,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 1,
@@ -2316,6 +2347,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 1,
         "protected_areas": 11,
         "demand_centers": 0,
         "roads": 59,
@@ -2334,7 +2366,7 @@
       "category_counts": {
         "resource": 1,
         "infrastructure": 2,
-        "environmental": 11,
+        "environmental": 12,
         "demand": 0,
         "connectivity": 114,
         "renewables": 1,
@@ -2351,7 +2383,7 @@
         "proposed": 1,
         "inactive": 0,
         "other": 11,
-        "unknown": 164
+        "unknown": 165
       },
       "people_access": {
         "worldpop_population_2025": 5595659.114,
@@ -2378,7 +2410,7 @@
     },
     "Bauchi": {
       "name": "Bauchi",
-      "mapped_records": 364,
+      "mapped_records": 368,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2390,6 +2422,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 4,
         "protected_areas": 71,
         "demand_centers": 0,
         "roads": 105,
@@ -2408,7 +2441,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 0,
-        "environmental": 71,
+        "environmental": 75,
         "demand": 0,
         "connectivity": 180,
         "renewables": 5,
@@ -2425,7 +2458,7 @@
         "proposed": 0,
         "inactive": 0,
         "other": 71,
-        "unknown": 288
+        "unknown": 292
       },
       "people_access": {
         "worldpop_population_2025": 8781376.998,
@@ -2452,7 +2485,7 @@
     },
     "Niger": {
       "name": "Niger",
-      "mapped_records": 596,
+      "mapped_records": 660,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2464,6 +2497,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 64,
         "protected_areas": 88,
         "demand_centers": 1,
         "roads": 175,
@@ -2482,7 +2516,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 3,
-        "environmental": 88,
+        "environmental": 152,
         "demand": 1,
         "connectivity": 366,
         "renewables": 5,
@@ -2499,7 +2533,7 @@
         "proposed": 4,
         "inactive": 0,
         "other": 87,
-        "unknown": 499
+        "unknown": 563
       },
       "people_access": {
         "worldpop_population_2025": 7303220.252,
@@ -2526,7 +2560,7 @@
     },
     "Kaduna": {
       "name": "Kaduna",
-      "mapped_records": 881,
+      "mapped_records": 1026,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2538,6 +2572,7 @@
         "power_plants": 1,
         "refineries": 1,
         "gas_infrastructure": 0,
+        "oil_spills": 145,
         "protected_areas": 85,
         "demand_centers": 1,
         "roads": 313,
@@ -2556,7 +2591,7 @@
       "category_counts": {
         "resource": 0,
         "infrastructure": 5,
-        "environmental": 85,
+        "environmental": 230,
         "demand": 1,
         "connectivity": 688,
         "renewables": 4,
@@ -2573,7 +2608,7 @@
         "proposed": 2,
         "inactive": 0,
         "other": 85,
-        "unknown": 786
+        "unknown": 931
       },
       "people_access": {
         "worldpop_population_2025": 11233188.31,
@@ -2612,6 +2647,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 0,
         "protected_areas": 14,
         "demand_centers": 0,
         "roads": 112,
@@ -2686,6 +2722,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 0,
         "protected_areas": 42,
         "demand_centers": 0,
         "roads": 202,
@@ -2760,6 +2797,7 @@
         "power_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
+        "oil_spills": 0,
         "protected_areas": 10,
         "demand_centers": 0,
         "roads": 57,

@@ -64,6 +64,7 @@
     power_plants:        { colorVar: "--layer-power-plants", shape: "bolt", size: 17 },
     refineries:          { colorVar: "--layer-refineries", shape: "factory", size: 18 },
     gas_infrastructure:  { colorVar: "--layer-gas-infrastructure", shape: "diamond", size: 14 },
+    oil_spills:          { colorVar: "--layer-oil-spills", shape: "droplet", size: 12 },
     protected_areas:     { colorVar: "--layer-protected-areas", shape: "square", size: 10, weight: 1.1, fillOpacity: 0.15 },
     demand_centers:      { colorVar: "--layer-demand-centers", shape: "target", size: 16 },
     roads:               { colorVar: "--layer-roads", shape: "circle", size: 9, weight: 2.4 },
@@ -97,6 +98,7 @@
     power_plants: true,
     refineries: true,
     gas_infrastructure: true,
+    oil_spills: false,
     protected_areas: false,
     demand_centers: true,
     roads: false,
@@ -265,9 +267,13 @@
     distance_to_existing_hv_transmission_lines: "Distance to HV transmission (km)",
     distance_to_gridlight_targets: "Distance to grid-light target (km)",
     main_road_access: "Main-road access", dist_main_road_km: "Distance to main road (km)",
-    has_education_facility: "Education facility signal", has_health_facility: "Health facility signal"
+    has_education_facility: "Education facility signal", has_health_facility: "Health facility signal",
+    incidentdate: "Incident date", status_label: "Report status", cause_label: "Cause",
+    is_sabotage_attributed: "Sabotage-attributed", contaminant_label: "Contaminant",
+    facility_label: "Facility type", habitat_label: "Habitat", estimatedquantity: "Est. quantity (bbl)",
+    state_label: "State", sitelocationname: "Location"
   };
-  var SKIP_IN_ROWS = { project: 1, url: 1, NAME: 1, demand_center: 1, name: 1, PORT_NAME: 1, status: 1, STATUS: 1, asset_name: 1, source_url: 1 };
+  var SKIP_IN_ROWS = { project: 1, url: 1, NAME: 1, demand_center: 1, name: 1, PORT_NAME: 1, status: 1, STATUS: 1, asset_name: 1, source_url: 1, sitelocationname: 1 };
 
   function titleOf(props) {
     return props._label || props.project || props.NAME || props.demand_center || props.name || props.PORT_NAME || props.asset_name || "Untitled asset";

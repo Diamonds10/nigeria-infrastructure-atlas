@@ -156,6 +156,21 @@
       "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/se4all_gas_infrastructure_nigeria_2026-07.csv"
     },
     {
+      "description": "Oil spill incidents reported to NOSDRA (National Oil Spill Detection and Response Agency), with cause, contaminant, facility type, and operator.",
+      "source": "NOSDRA, via the Nigerian Oil Spill Monitor public API",
+      "source_date": "2026-07-25",
+      "license": "Not stated on the site; confirm terms before redistributing",
+      "quality": "B",
+      "quality_note": "21,124 incident records, 2006-present, updated live (most recent incident 2026-07-16 at time of extraction) -- unlike most sources in this atlas, this is an actively maintained feed, not a static snapshot. 16,326 of 21,124 records (77.3%) have valid coordinates within Nigeria; the remainder have company/date/cause but no mappable location. 66.8% of records with a coded cause are attributed to sabotage/theft (pipeline vandalism or illegal bunkering), not equipment failure -- a genuine proxy indicator for security exposure, not just an environmental record. Code legends (status/cause/contaminant/facility/state) were read directly from the site's own filter-picker UI, not guessed.",
+      "path": "data/processed/03_environmental/nosdra_oil_spills_nigeria.csv",
+      "key": "oil_spills",
+      "label": "Oil Spill Incidents (NOSDRA)",
+      "category": "environmental",
+      "category_label": "Environmental",
+      "record_count": 16326,
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/03_environmental/nosdra_oil_spills_nigeria.csv"
+    },
+    {
       "description": "Protected and conserved areas including forest reserves, parks, and wetlands.",
       "source": "UNEP-WCMC / IUCN Protected Planet",
       "source_date": "2026-07-22",
