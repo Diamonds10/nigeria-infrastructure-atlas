@@ -23,5 +23,17 @@ jobs:
         run: python -m compileall -q scripts
       - name: Validate JavaScript syntax
         run: node --check docs/assets/app.js
+      - name: Validate distributed-energy contribution template
+        run: >-
+          python scripts/07_renewables/03_validate_distributed_energy_submission.py
+          data/contributions/07_renewables/distributed_energy_submission_template.csv
+          --allow-empty
+      - name: Validate proposed distributed-energy contribution files
+        run: >-
+          find data/contributions/07_renewables -type f -name '*.csv'
+          ! -name 'distributed_energy_submission_template.csv'
+          -exec python
+          scripts/07_renewables/03_validate_distributed_energy_submission.py
+          '{}' ';'
       - name: Run release checks
         run: python -m unittest discover -s tests -v

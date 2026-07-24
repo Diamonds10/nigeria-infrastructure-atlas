@@ -4,14 +4,15 @@ The atlas is built as a reproducible geospatial evidence pipeline that converts 
 
 ## Core design
 
-The `v0.5` public atlas is organized around seven implemented analytical layers:
+The `v0.6` public atlas is organized around seven implemented analytical layers:
 
 - Resource: reserves, production, discoveries, and field-level site information.
 - Infrastructure: pipelines, LNG terminals, refineries, and power assets.
 - Environmental: flaring and protected-area context.
 - Demand: industrial and demand-center locations relevant to gas consumption.
 - Connectivity: roads, rail, ports, and grid infrastructure.
-- Renewables: site-level off-grid and mini-grid assets.
+- Distributed Energy: community mini-grids, captive/institutional off-grid
+  systems, standalone systems, and interconnected mini-grids.
 - People & Access: population, settlement, night-light, and grid-distance
   screening context.
 
@@ -69,7 +70,12 @@ The accompanying audit covers all 36 states and the FCT. It distinguishes:
   geocoded commissioned record;
 - public-evidence gaps.
 
-Counts are therefore labelled **catalogued mini-grid and off-grid sites**. Zero means the
+Every record retains its source `asset_type` and receives one canonical
+`distributed_energy_class` through a tested deterministic mapping. The current
+80 records resolve to 68 community mini-grids, 10 captive/institutional
+off-grid systems, 2 interconnected mini-grids, and 0 standalone systems.
+
+Counts are therefore labelled **catalogued distributed-energy sites**. Zero means the
 implemented sources did not yield a verified map record; it never establishes
 that a state has no off-grid assets. Programme announcements and tenders are
 not promoted to asset records until location and delivery status are supported.

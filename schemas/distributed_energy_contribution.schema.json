@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/schemas/distributed_energy_contribution.schema.json",
+  "title": "Nigeria Infrastructure Atlas distributed-energy contribution",
+  "type": "object",
+  "required": [
+    "submission_id",
+    "asset_name",
+    "distributed_energy_class",
+    "state",
+    "status",
+    "technology",
+    "latitude",
+    "longitude",
+    "geocode_precision",
+    "source_name",
+    "source_url",
+    "source_date_accessed",
+    "evidence_level",
+    "verification_status",
+    "attestation"
+  ],
+  "properties": {
+    "submission_id": {
+      "type": "string",
+      "pattern": "^contrib-[a-z0-9][a-z0-9-]*$"
+    },
+    "asset_name": {"type": "string", "minLength": 3},
+    "distributed_energy_class": {
+      "enum": [
+        "community_mini_grid",
+        "captive_institutional_off_grid",
+        "standalone_system",
+        "interconnected_mini_grid"
+      ]
+    },
+    "asset_type": {"type": "string"},
+    "state": {"type": "string"},
+    "lga": {"type": "string"},
+    "community": {"type": "string"},
+    "status": {
+      "enum": [
+        "operational",
+        "commissioned",
+        "under_construction",
+        "under_rehabilitation",
+        "proposed",
+        "unknown"
+      ]
+    },
+    "technology": {"type": "string"},
+    "capacity_kw": {"type": ["number", "null"], "minimum": 0},
+    "customers_served": {"type": ["integer", "null"], "minimum": 0},
+    "latitude": {"type": "number", "minimum": 3.9, "maximum": 14.0},
+    "longitude": {"type": "number", "minimum": 2.5, "maximum": 14.8},
+    "geocode_precision": {
+      "enum": [
+        "exact_site",
+        "facility",
+        "campus",
+        "community",
+        "lga",
+        "state",
+        "derived_centroid"
+      ]
+    },
+    "source_name": {"type": "string", "minLength": 3},
+    "source_url": {"type": "string", "format": "uri"},
+    "source_publication_date": {"type": ["string", "null"], "format": "date"},
+    "source_date_accessed": {"type": "string", "format": "date"},
+    "evidence_level": {
+      "enum": [
+        "official_operational",
+        "official_commissioned",
+        "official_current_status",
+        "regulator_record",
+        "operator_record",
+        "institutional_record",
+        "credible_secondary"
+      ]
+    },
+    "verification_status": {"const": "submitted"},
+    "submitter_name": {"type": "string"},
+    "submitter_contact": {"type": "string"},
+    "notes": {"type": "string"},
+    "attestation": {"const": "true"}
+  },
+  "additionalProperties": false
+}

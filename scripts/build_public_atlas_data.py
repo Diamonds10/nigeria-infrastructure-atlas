@@ -27,6 +27,12 @@ DEFAULT_API_DIR = ROOT / "docs" / "api" / "v1"
 PUBLIC_SIMPLIFY_TOLERANCE = 0.005
 PUBLIC_COORDINATE_PRECISION = 5
 REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main"
+DISTRIBUTED_ENERGY_SUBLAYERS = {
+    "community_minigrids",
+    "captive_offgrid_systems",
+    "standalone_systems",
+    "interconnected_minigrids",
+}
 
 CATALOGUE = {
     "fields_oil": {
@@ -191,13 +197,46 @@ CATALOGUE = {
         "quality_note": "Locations are stable, but facility attributes come from a 2017 source file.",
         "path": "data/processed/05_connectivity/world_port_index_nigeria.csv",
     },
-    "minigrids": {
-        "description": "Named public-source mini-grid, captive off-grid, and public-institution solar facilities with technology, status, capacity, and coordinate precision.",
+    "community_minigrids": {
+        "description": "Community-serving mini-grids with a local generation system and distribution network.",
         "source": "Nigeria SE4ALL Open Data Portal; REA/NEP/DARES; ECREEE; NEMSA; institutional sources",
         "source_date": "2026-07-24",
         "license": "Mixed public-source terms; review each record and source",
         "quality": "B",
-        "quality_note": "80 catalogued records: 66 SE4ALL source sites plus 14 official-source additions. Coordinates range from exact site to campus/community centroids. This is not a complete operating registry; zero catalogued records never means zero assets.",
+        "quality_note": "68 records classified from explicit mini_grid asset types. This is a public-source screening inventory, not a complete national registry.",
+        "path": "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+        "coverage_audit_path": "data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+        "supplement_path": "data/curated/07_renewables/verified_public_offgrid_supplement.csv",
+    },
+    "captive_offgrid_systems": {
+        "description": "Captive and institutional off-grid systems serving a defined campus, hospital, department, or facility.",
+        "source": "REA/NEP/DARES; ECREEE; institutional sources",
+        "source_date": "2026-07-24",
+        "license": "Mixed public-source terms; review each record and source",
+        "quality": "B",
+        "quality_note": "10 records classified from captive_off_grid, public_institution_off_grid, and facility-specific off_grid_solar asset types. These are not community mini-grids.",
+        "path": "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+        "coverage_audit_path": "data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+        "supplement_path": "data/curated/07_renewables/verified_public_offgrid_supplement.csv",
+    },
+    "standalone_systems": {
+        "description": "Standalone household, shop, facility, or solar-home systems without a local distribution network.",
+        "source": "Public-source distributed-energy evidence",
+        "source_date": "2026-07-24",
+        "license": "Mixed public-source terms; review each record and source",
+        "quality": "C",
+        "quality_note": "No named, geocoded standalone-system record currently meets the publication threshold. The zero is an evidence gap, not evidence that Nigeria has no standalone systems.",
+        "path": "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+        "coverage_audit_path": "data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+        "supplement_path": "data/curated/07_renewables/verified_public_offgrid_supplement.csv",
+    },
+    "interconnected_minigrids": {
+        "description": "Mini-grids designed to operate with, or interconnect to, an existing distribution network.",
+        "source": "REA/NEP; NEMSA; official programme sources",
+        "source_date": "2026-07-24",
+        "license": "Mixed public-source terms; review each record and source",
+        "quality": "B",
+        "quality_note": "2 official-source interconnected mini-grid records. This is a conservative named-site inventory, not a complete national registry.",
         "path": "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
         "coverage_audit_path": "data/processed/07_renewables/minigrid_state_coverage_audit.csv",
         "supplement_path": "data/curated/07_renewables/verified_public_offgrid_supplement.csv",
@@ -440,7 +479,7 @@ def update_profile(
         profile["capacity"]["power_mw"] += float(props.get("capacity") or 0)
     elif sublayer_key == "refineries":
         profile["capacity"]["refinery_bpd"] += float(props.get("capacity_bpd") or 0)
-    elif sublayer_key == "minigrids":
+    elif sublayer_key in DISTRIBUTED_ENERGY_SUBLAYERS:
         profile["capacity"]["minigrid_kw"] += float(props.get("capacity_kw") or 0)
 
 
@@ -607,13 +646,24 @@ def add_catalogue_and_state_profiles(
                 for column in minigrid_audit.columns
                 if column != "state"
             }
+    distributed_energy_registry = pd.read_csv(
+        PROCESSED / "07_renewables/renewable_offgrid_minigrid_nigeria.csv"
+    )
     profiles["Nigeria"]["minigrid_coverage"] = {
-        "catalogued_record_count": int(len(
-            pd.read_csv(
-                PROCESSED
-                / "07_renewables/renewable_offgrid_minigrid_nigeria.csv"
+        "catalogued_record_count": int(len(distributed_energy_registry)),
+        "distributed_energy_class_counts": {
+            class_name: int(
+                distributed_energy_registry["distributed_energy_class"]
+                .value_counts()
+                .get(class_name, 0)
             )
-        )),
+            for class_name in [
+                "community_mini_grid",
+                "captive_institutional_off_grid",
+                "standalone_system",
+                "interconnected_mini_grid",
+            ]
+        },
         "states_or_territories_with_records": int(
             minigrid_audit["catalogued_record_count"].gt(0).sum()
         ),
@@ -627,9 +677,9 @@ def add_catalogue_and_state_profiles(
     }
 
     bundle["release"] = {
-        "version": "0.5.0",
+        "version": "0.6.0",
         "date": "2026-07-24",
-        "title": "Gas Field Taxonomy and Map Symbology Audit",
+        "title": "Structured Distributed Energy and Open Contributions",
     }
     bundle["catalogue"] = catalogue
     bundle["state_profiles"] = profiles
@@ -681,6 +731,59 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
                 }
             )
 
+    distributed_energy_features = [
+        item
+        for sublayer_key in [
+            "community_minigrids",
+            "captive_offgrid_systems",
+            "standalone_systems",
+            "interconnected_minigrids",
+        ]
+        for item in bundle["layers"]["renewables"]["sublayers"][sublayer_key][
+            "data"
+        ]["features"]
+    ]
+    compatibility_endpoints = {
+        "minigrids": {
+            "endpoint": "layers/minigrids.geojson",
+            "record_count": len(distributed_energy_features),
+            "status": "backward_compatible_aggregate",
+            "replacement_layers": [
+                "community_minigrids",
+                "captive_offgrid_systems",
+                "standalone_systems",
+                "interconnected_minigrids",
+            ],
+        }
+    }
+    compatibility_payload = {
+        "type": "FeatureCollection",
+        "name": "minigrids",
+        "atlas_release": bundle["release"],
+        "metadata": {
+            "key": "minigrids",
+            "label": "Distributed Energy · Compatibility Aggregate",
+            "record_count": len(distributed_energy_features),
+            "compatibility_alias": True,
+            "quality_note": (
+                "Backward-compatible aggregate of the four structured "
+                "distributed-energy layers. New integrations should use the "
+                "replacement layers listed in manifest.json."
+            ),
+        },
+        "features": distributed_energy_features,
+    }
+    (layers_dir / "minigrids.geojson").write_text(
+        json.dumps(
+            compatibility_payload,
+            ensure_ascii=False,
+            separators=(",", ":"),
+            allow_nan=False,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
     states_payload = {
         "type": "FeatureCollection",
         "name": "nigeria_adm1",
@@ -696,6 +799,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
             {
                 "atlas_release": bundle["release"],
                 "datasets": bundle["catalogue"],
+                "compatibility_endpoints": compatibility_endpoints,
             },
             ensure_ascii=False,
             indent=2,
@@ -774,6 +878,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
             "states": "states.geojson",
         },
         "layers": manifest_layers,
+        "compatibility_endpoints": compatibility_endpoints,
     }
     (api_dir / "manifest.json").write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
@@ -908,11 +1013,13 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
         "PORT_NAME",
         centroid=True,
     )
-    minigrids = point_features(
+    distributed_energy = point_features(
         PROCESSED / "07_renewables/renewable_offgrid_minigrid_nigeria.csv",
         "longitude", "latitude",
         [
-            "asset_name", "asset_type", "program_name", "state", "lga",
+            "asset_id", "asset_name", "asset_type", "distributed_energy_class",
+            "classification_basis", "classification_confidence",
+            "program_name", "state", "lga",
             "community", "technology", "status", "capacity_kw",
             "customers_served", "developer", "owner_operator",
             "financing_source", "geocode_precision", "coordinate_source",
@@ -921,6 +1028,19 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
         ],
         "asset_name",
     )
+    distributed_energy_by_class = {
+        class_name: [
+            item
+            for item in distributed_energy
+            if item["properties"].get("distributed_energy_class") == class_name
+        ]
+        for class_name in {
+            "community_mini_grid",
+            "captive_institutional_off_grid",
+            "standalone_system",
+            "interconnected_mini_grid",
+        }
+    }
     population_access = point_features(
         PROCESSED / "08_context/population_access_grid_nigeria.csv",
         "grid_lon",
@@ -1012,11 +1132,32 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
                 },
             },
             "renewables": {
-                "label": "Renewables",
+                "label": "Distributed Energy",
                 "sublayers": {
-                    "minigrids": sublayer(
-                        "Catalogued Mini-grid & Off-grid Sites", "point", minigrids
-                    )
+                    "community_minigrids": sublayer(
+                        "Community Mini-grids",
+                        "point",
+                        distributed_energy_by_class["community_mini_grid"],
+                    ),
+                    "captive_offgrid_systems": sublayer(
+                        "Captive & Institutional Off-grid",
+                        "point",
+                        distributed_energy_by_class[
+                            "captive_institutional_off_grid"
+                        ],
+                    ),
+                    "standalone_systems": sublayer(
+                        "Standalone Systems",
+                        "point",
+                        distributed_energy_by_class["standalone_system"],
+                    ),
+                    "interconnected_minigrids": sublayer(
+                        "Interconnected Mini-grids",
+                        "point",
+                        distributed_energy_by_class[
+                            "interconnected_mini_grid"
+                        ],
+                    ),
                 },
             },
             "context": {

@@ -2,11 +2,14 @@
 
 ## What the current public benchmark shows
 
-The mini-grid layer in this repository is now strong enough to support public screening and benchmarking.
+The Distributed Energy section in this repository is now strong enough to support public screening and benchmarking.
 
 ### Current evidence quality
 
-- 80 catalogued mini-grid and off-grid records
+- 68 community mini-grids
+- 10 captive or institutional off-grid systems
+- 2 interconnected mini-grids
+- 0 verified standalone-system records in the implemented sources
 - 30 states and the FCT covered
 - 52 operational sites
 - 13 under construction
@@ -39,6 +42,6 @@ verified.
 The right framing for external readers is:
 
 - a credible public screening layer
-- a site-level mini-grid evidence layer
+- a site-level distributed-energy evidence layer with explicit asset classes
 - a benchmarkable asset layer with strong geocoding and status visibility
 - not a complete registry of all solar home systems or all informal distributed energy assets

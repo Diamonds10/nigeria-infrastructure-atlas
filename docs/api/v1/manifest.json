@@ -1,9 +1,9 @@
 {
   "api_version": "v1",
   "atlas_release": {
-    "version": "0.5.0",
+    "version": "0.6.0",
     "date": "2026-07-24",
-    "title": "Gas Field Taxonomy and Map Symbology Audit"
+    "title": "Structured Distributed Energy and Open Contributions"
   },
   "base_url": "https://diamonds10.github.io/Nigeria-gas-atlas/api/v1/",
   "formats": [
@@ -150,11 +150,32 @@
       "endpoint": "layers/ports.geojson"
     },
     {
-      "key": "minigrids",
-      "label": "Catalogued Mini-grid & Off-grid Sites",
+      "key": "community_minigrids",
+      "label": "Community Mini-grids",
       "category": "renewables",
-      "record_count": 80,
-      "endpoint": "layers/minigrids.geojson"
+      "record_count": 68,
+      "endpoint": "layers/community_minigrids.geojson"
+    },
+    {
+      "key": "captive_offgrid_systems",
+      "label": "Captive & Institutional Off-grid",
+      "category": "renewables",
+      "record_count": 10,
+      "endpoint": "layers/captive_offgrid_systems.geojson"
+    },
+    {
+      "key": "standalone_systems",
+      "label": "Standalone Systems",
+      "category": "renewables",
+      "record_count": 0,
+      "endpoint": "layers/standalone_systems.geojson"
+    },
+    {
+      "key": "interconnected_minigrids",
+      "label": "Interconnected Mini-grids",
+      "category": "renewables",
+      "record_count": 2,
+      "endpoint": "layers/interconnected_minigrids.geojson"
     },
     {
       "key": "population_access",
@@ -170,5 +191,18 @@
       "record_count": 1480,
       "endpoint": "layers/settlements.geojson"
     }
-  ]
+  ],
+  "compatibility_endpoints": {
+    "minigrids": {
+      "endpoint": "layers/minigrids.geojson",
+      "record_count": 80,
+      "status": "backward_compatible_aggregate",
+      "replacement_layers": [
+        "community_minigrids",
+        "captive_offgrid_systems",
+        "standalone_systems",
+        "interconnected_minigrids"
+      ]
+    }
+  }
 }

@@ -1,0 +1,88 @@
+name: Distributed-energy record
+description: Propose a new site or correct an existing distributed-energy record
+title: "[Distributed energy]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Submissions are reviewed before publication. Please provide public evidence and do not include private personal data.
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Request type
+      options:
+        - New asset
+        - Correction to an existing asset
+    validations:
+      required: true
+  - type: input
+    id: asset_name
+    attributes:
+      label: Asset name
+    validations:
+      required: true
+  - type: dropdown
+    id: distributed_energy_class
+    attributes:
+      label: Distributed-energy class
+      options:
+        - Community mini-grid
+        - Captive or institutional off-grid system
+        - Standalone system or solar-home system
+        - Interconnected mini-grid
+        - Unsure — maintainer review needed
+    validations:
+      required: true
+  - type: input
+    id: existing_asset_id
+    attributes:
+      label: Existing asset ID
+      description: Required only for a correction
+  - type: input
+    id: state
+    attributes:
+      label: State or FCT
+    validations:
+      required: true
+  - type: input
+    id: lga_community
+    attributes:
+      label: LGA and community or host facility
+    validations:
+      required: true
+  - type: textarea
+    id: system_details
+    attributes:
+      label: System details
+      description: Include technology, status, capacity, customers served, developer, and operator where known.
+    validations:
+      required: true
+  - type: input
+    id: coordinates
+    attributes:
+      label: Coordinates
+      description: Latitude, longitude, and whether this is an exact site, facility, campus, or community point
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: Public evidence URL
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: What does the source verify?
+      description: Explain which claims the source supports and any uncertainty.
+    validations:
+      required: true
+  - type: checkboxes
+    id: attestation
+    attributes:
+      label: Contributor attestation
+      options:
+        - label: I have the right to submit this contribution and understand that third-party source terms still apply.
+          required: true
+        - label: I understand that submission does not guarantee publication.
+          required: true

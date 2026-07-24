@@ -31,7 +31,7 @@ python scripts/build_output_gallery.py
 | Environmental | [gallery/environmental.png](gallery/environmental.png) | 1,005 |
 | Demand | [gallery/demand.png](gallery/demand.png) | 28 |
 | Connectivity | [gallery/connectivity.png](gallery/connectivity.png) | 7,992 |
-| Renewables | [gallery/renewables.png](gallery/renewables.png) | 80 |
+| Distributed Energy | [gallery/renewables.png](gallery/renewables.png) | 80 |
 | People & Access | [gallery/context.png](gallery/context.png) | 2,758 |
 
 ![Resource layer thumbnail](gallery/resource.png)
@@ -39,7 +39,7 @@ python scripts/build_output_gallery.py
 ![Environmental layer thumbnail](gallery/environmental.png)
 ![Demand layer thumbnail](gallery/demand.png)
 ![Connectivity layer thumbnail](gallery/connectivity.png)
-![Renewables layer thumbnail](gallery/renewables.png)
+![Distributed Energy layer thumbnail](gallery/renewables.png)
 ![People & Access layer thumbnail](gallery/context.png)
 
 All seven thumbnails are clipped to Nigeria's extent (matching `NIGERIA_BOUNDS`
@@ -59,9 +59,11 @@ The snapshot is best understood as a public screening view rather than a complet
 - 193 power-producing plant records are shown
 - 390 substation records are shown
 - 28 demand-centre records are shown
-- 80 catalogued mini-grid and off-grid records are shown
+- 80 catalogued distributed-energy records are shown across four explicit classes
 
-The mini-grid layer is especially useful because it provides a public, site-level, geocoded distributed-energy view with evidence on status and technology mix.
+The Distributed Energy section provides separate community mini-grid,
+captive/institutional off-grid, standalone-system, and interconnected-mini-grid
+views with evidence on status and technology mix.
 
 ## Benchmark interpretation
 

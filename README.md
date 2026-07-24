@@ -33,10 +33,10 @@ The current public atlas is organized into seven published analytical layers:
 3. Environmental
 4. Demand
 5. Connectivity
-6. Renewables
+6. Distributed Energy
 7. People & Access
 
-A security layer is planned, but it is not part of the `v0.5` processed
+A security layer is planned, but it is not part of the `v0.6` processed
 dataset or public map. This boundary is intentional: the source register records
 candidate security sources without presenting them as implemented evidence.
 
@@ -44,10 +44,10 @@ The public value of the atlas is not any single output file. It is the combinati
 
 ## Current public-facing value
 
-A live `v0.5` state-intelligence experience is available at
+A live `v0.6` state-intelligence experience is available at
 [diamonds10.github.io/Nigeria-gas-atlas](https://diamonds10.github.io/Nigeria-gas-atlas/).
 It provides profiles for all 36 states and the FCT, state-specific shareable
-links and GeoJSON downloads, and a searchable catalogue covering all 21
+links and GeoJSON downloads, and a searchable catalogue covering all 24
 published map datasets. Normalized status and evidence-year filters apply
 consistently to the map, search results, visible counts, shared URLs, and
 downloads.
@@ -70,7 +70,10 @@ Public evidence-quality signal from the current benchmark:
 
 - 147 source-classified gas-producing field points and 33 source-classified
   oil-only field points, with independent gas and mixed-field boundary layers
-- 80 catalogued mini-grid and off-grid sites across 30 states and the FCT
+- 80 catalogued distributed-energy sites across 30 states and the FCT:
+  68 community mini-grids, 10 captive/institutional off-grid systems,
+  2 interconnected mini-grids, and no standalone record yet meeting the
+  publication threshold
 - 52 operational, 13 under construction, 13 commissioned, 1 under
   rehabilitation, and 1 unknown
 - 66 Nigeria SE4ALL records plus 14 named official-source additions
@@ -141,7 +144,8 @@ The repository already contains a meaningful evidence base for screening and res
 - a public-source off-grid inventory covering 80 named records across 30 states
   and the FCT, with source-specific status, capacity, coordinate precision, and
   operator context
-- a first conservative intake framework for renewable off-grid and mini-grid assets beyond the currently structured mini-grid layer
+- a structured distributed-energy taxonomy and an open, verification-gated
+  contribution workflow for new public records and corrections
 - 154,319 processed settlement clusters, a compact 1,278-cell population/access
   web layer, and 2025 population estimates for every state and the FCT
 
@@ -150,7 +154,7 @@ Current verified public-facing asset snapshot:
 - 193 oil/gas power-producing plant records
 - 390 substation records
 - 28 demand-centre records
-- 80 catalogued mini-grid and off-grid records
+- 80 catalogued distributed-energy records across four explicit classes
 
 The interactive map now surfaces state-level screening summaries, direct
 processed-data downloads, quality grades, source dates, licensing caveats, and

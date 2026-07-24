@@ -40,7 +40,9 @@ COLOR_BY_SUBLAYER = {
     "roads": "#6C757D", "railways": "#5A189A",
     "rail_stations": "#9D4EDD", "power_grid": "#B07D00",
     "substations": "#8A6A00", "ports": "#1D4E89",
-    "minigrids": "#B85600", "population_access": "#6A4C93",
+    "community_minigrids": "#B85600", "captive_offgrid_systems": "#A33D73",
+    "standalone_systems": "#3659C9", "interconnected_minigrids": "#007C6C",
+    "population_access": "#6A4C93",
     "settlements": "#D95D39",
 }
 
@@ -49,14 +51,18 @@ MARKER_BY_SUBLAYER = {
     "fields_oil": "o", "fields_gas": "^",
     "lng_terminals": "h", "power_plants": "P", "refineries": "s",
     "gas_infrastructure": "D", "demand_centers": "X", "rail_stations": "v",
-    "substations": "^", "ports": "*", "minigrids": "*", "settlements": "o",
+    "substations": "^", "ports": "*", "community_minigrids": "*",
+    "captive_offgrid_systems": "s", "standalone_systems": "D",
+    "interconnected_minigrids": "X", "settlements": "o",
     "population_access": ".",
 }
 SIZE_BY_SUBLAYER = {
     "fields_oil": 24, "fields_gas": 28, "lng_terminals": 38,
     "power_plants": 28, "refineries": 48, "gas_infrastructure": 22,
     "demand_centers": 34, "rail_stations": 20, "substations": 18,
-    "ports": 42, "minigrids": 40, "population_access": 5,
+    "ports": 42, "community_minigrids": 40,
+    "captive_offgrid_systems": 36, "standalone_systems": 30,
+    "interconnected_minigrids": 42, "population_access": 5,
     "settlements": 7,
 }
 LINEWIDTH_BY_SUBLAYER = {
@@ -82,11 +88,20 @@ def plot_sublayers(ax, category: dict) -> list:
     legend_handles = []
     for sub_key, sub in category["sublayers"].items():
         features = sub["data"]["features"]
-        if not features:
-            continue
-        geoms = to_geoseries(features)
         geom_type = sub["geomType"]
         color = COLOR_BY_SUBLAYER.get(sub_key, "#334155")
+        if not features:
+            if geom_type == "point":
+                marker = MARKER_BY_SUBLAYER.get(sub_key, DEFAULT_MARKER)
+                legend_handles.append(
+                    Line2D(
+                        [0], [0], marker=marker, color="w",
+                        markerfacecolor=color, markersize=8,
+                        label=f"{sub['label']} (0)",
+                    )
+                )
+            continue
+        geoms = to_geoseries(features)
         if geom_type == "point":
             marker = MARKER_BY_SUBLAYER.get(sub_key, DEFAULT_MARKER)
             size = SIZE_BY_SUBLAYER.get(

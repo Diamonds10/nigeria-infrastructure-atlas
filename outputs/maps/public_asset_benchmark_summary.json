@@ -30,11 +30,17 @@
       "campus": 8,
       "community": 3,
       "facility": 2
+    },
+    "distributed_energy_class_distribution": {
+      "community_mini_grid": 68,
+      "captive_institutional_off_grid": 10,
+      "standalone_system": 0,
+      "interconnected_mini_grid": 2
     }
   },
   "public_dashboard_signal": {
     "best_for": [
-      "site-level mini-grid screening",
+      "site-level distributed-energy screening",
       "state coverage benchmarking",
       "status and capacity scans",
       "public distributed-energy context"

@@ -1,5 +1,10 @@
 # Renewable off-grid and mini-grid asset layer specification
 
+Implementation update (`v0.6`): the public map now exposes four structured,
+non-overlapping Distributed Energy layers—community mini-grids,
+captive/institutional off-grid systems, standalone systems, and interconnected
+mini-grids—while retaining the original source asset type for provenance.
+
 **Status: implemented and nationally audited (updated 2026-07-24).** An
 80-record public off-grid inventory is built at
 `data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv` via

@@ -46,7 +46,7 @@
 Overpass queries were run against Nigeria's OSM boundary (relation 192787 / area 3600192787) rather than a bounding box, to avoid picking up slivers of neighboring countries. Public Overpass instances are shared, rate-limited infrastructure — the download script retries across three mirrors (overpass-api.de, overpass.kumi.systems, overpass.openstreetmap.fr) with backoff, since single-mirror 406/429/504 errors were common during collection.
 
 ## Layer 6 — Security
-**Implementation status: planned, not published in `v0.5`.** The entries below
+**Implementation status: planned, not published in `v0.6`.** The entries below
 are candidate sources only. No tracked download/processing script, processed
 dataset, or public-map security layer currently exists.
 
@@ -55,7 +55,7 @@ dataset, or public-map security layer currently exists.
 | Energy infrastructure attacks | CFR Nigeria Security Tracker | — | — | To verify | 2011–2023 | Candidate energy/O&G subset; not yet processed |
 | ACLED conflict events | ACLED | https://acleddata.com | | CC-BY | 1997–present | |
 
-## Layer 7 — Renewables (off-grid & mini-grid)
+## Layer 7 — Distributed Energy
 | Dataset | Source | URL | Date accessed | License | Coverage | Known limitations |
 |---|---|---|---|---|---|---|
 | Mini-grid source inventory | Nigeria SE4ALL Open Data Portal (GeoNode/GeoServer instance) | https://data.nigeriase4all.gov.ng/catalogue/#/dataset/1 | 2026-07-23 | Not explicitly stated on the dataset page — public government/SE4ALL open data portal; confirm terms before redistributing | 66 mini-grid records across 26 states and the FCT | Genuine site-level records found through the portal's WFS backend, but materially incomplete: it omitted Kano and other documented installations. `state` is derived by point-in-polygon join. The source does not include standalone solar-home systems. |
@@ -66,6 +66,11 @@ The canonical output now merges the original structured SE4ALL inventory with
 a conservative official-source supplement. The merge is reproducible through
 `scripts/07_renewables/02_process_minigrids.py`; stable IDs prevent duplicate
 append operations.
+
+The public layer uses the canonical `distributed_energy_class` field to expose
+68 community mini-grids, 10 captive/institutional off-grid systems, 0 verified
+standalone systems, and 2 interconnected mini-grids. The original
+source-specific `asset_type` remains available for provenance.
 
 ## Layer 8 — Population, settlements & electricity-access context
 

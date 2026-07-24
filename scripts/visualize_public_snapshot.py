@@ -87,6 +87,16 @@ def build_benchmark_summary(
     mini_status = mini_grids["status"].value_counts(dropna=False).to_dict()
     mini_technology = mini_grids["technology"].value_counts(dropna=False).to_dict()
     mini_precision = mini_grids["geocode_precision"].value_counts(dropna=False).to_dict()
+    class_counts = mini_grids["distributed_energy_class"].value_counts()
+    distributed_energy_classes = {
+        class_name: int(class_counts.get(class_name, 0))
+        for class_name in [
+            "community_mini_grid",
+            "captive_institutional_off_grid",
+            "standalone_system",
+            "interconnected_mini_grid",
+        ]
+    }
 
     benchmark = {
         "asset_counts": {
@@ -104,10 +114,11 @@ def build_benchmark_summary(
             "status_distribution": mini_status,
             "technology_distribution": mini_technology,
             "geocode_precision_distribution": mini_precision,
+            "distributed_energy_class_distribution": distributed_energy_classes,
         },
         "public_dashboard_signal": {
             "best_for": [
-                "site-level mini-grid screening",
+                "site-level distributed-energy screening",
                 "state coverage benchmarking",
                 "status and capacity scans",
                 "public distributed-energy context",
@@ -205,7 +216,7 @@ def main() -> int:
         Line2D([0], [0], marker="o", color="w", markerfacecolor="#b22234", markersize=8, label=f"Power-producing plants ({len(power_plants)})"),
         Line2D([0], [0], marker="o", color="w", markerfacecolor="#1f77b4", markersize=7, label=f"Substations ({len(substations)})"),
         Line2D([0], [0], marker="o", color="w", markerfacecolor="#2ca02c", markersize=10, label=f"Demand centres ({len(demand)})"),
-        Line2D([0], [0], marker="o", color="w", markerfacecolor="#f0ad4e", markersize=9, label=f"Mini-grids ({len(mini_grids)})"),
+        Line2D([0], [0], marker="o", color="w", markerfacecolor="#f0ad4e", markersize=9, label=f"Distributed energy ({len(mini_grids)})"),
     ]
 
     ax.set_title(
@@ -246,8 +257,8 @@ def main() -> int:
             f"{benchmark['asset_counts']['power_plants']} power-producing plants, "
             f"{benchmark['asset_counts']['substations']} substations, "
             f"{benchmark['asset_counts']['demand_centres']} demand centres, and "
-            f"{benchmark['asset_counts']['mini_grids']} mini-grids. "
-            f"Mini-grid benchmark: {benchmark['mini_grid_benchmark']['states_covered']} states/territories, "
+            f"{benchmark['asset_counts']['mini_grids']} distributed-energy sites. "
+            f"Distributed-energy benchmark: {benchmark['mini_grid_benchmark']['states_covered']} states/territories, "
             f"{benchmark['mini_grid_benchmark']['capacity_coverage']} with reported capacity, "
             f"{benchmark['mini_grid_benchmark']['customers_coverage']} with customer counts."
         ),

@@ -68,6 +68,16 @@ PROGRAMME_ONLY_EVIDENCE = {
     },
 }
 
+DISTRIBUTED_ENERGY_CLASS_BY_ASSET_TYPE = {
+    "mini_grid": "community_mini_grid",
+    "captive_off_grid": "captive_institutional_off_grid",
+    "public_institution_off_grid": "captive_institutional_off_grid",
+    "off_grid_solar": "captive_institutional_off_grid",
+    "solar_home_system": "standalone_system",
+    "standalone_solar": "standalone_system",
+    "interconnected_mini_grid": "interconnected_mini_grid",
+}
+
 
 def get_input_path(input_dir: Path) -> Path:
     path = input_dir / RAW_FILENAME
@@ -205,6 +215,21 @@ def process(input_path: Path, output_path: Path) -> None:
         )
     supplement = supplement[df.columns]
     df = pd.concat([df, supplement], ignore_index=True)
+    df["distributed_energy_class"] = df["asset_type"].map(
+        DISTRIBUTED_ENERGY_CLASS_BY_ASSET_TYPE
+    )
+    unclassified = sorted(
+        df.loc[df["distributed_energy_class"].isna(), "asset_type"]
+        .dropna()
+        .unique()
+    )
+    if unclassified:
+        raise ValueError(
+            "Unclassified distributed-energy asset_type values: "
+            f"{unclassified}"
+        )
+    df["classification_basis"] = "deterministic_asset_type_mapping"
+    df["classification_confidence"] = "high"
     if not df["asset_id"].is_unique:
         duplicates = df.loc[df["asset_id"].duplicated(), "asset_id"].tolist()
         raise ValueError(f"Duplicate asset_id values after merge: {duplicates}")

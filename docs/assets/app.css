@@ -41,7 +41,10 @@
     --layer-power-grid: #B07D00;
     --layer-substations: #8A6A00;
     --layer-ports: #1D4E89;
-    --layer-minigrids: #B85600;
+    --layer-community-minigrids: #B85600;
+    --layer-captive-offgrid: #A33D73;
+    --layer-standalone-systems: #3659C9;
+    --layer-interconnected-minigrids: #007C6C;
     --layer-population-access: #6A4C93;
     --layer-settlements: #D95D39;
 
@@ -97,7 +100,10 @@
       --layer-power-grid: #F4D35E;
       --layer-substations: #FFE066;
       --layer-ports: #74C0FC;
-      --layer-minigrids: #FFB703;
+      --layer-community-minigrids: #FFB703;
+      --layer-captive-offgrid: #FF85C2;
+      --layer-standalone-systems: #82A3FF;
+      --layer-interconnected-minigrids: #42D3B2;
       --layer-population-access: #B8A1E3;
       --layer-settlements: #FF8A65;
 
@@ -149,7 +155,10 @@
     --layer-power-grid: #F4D35E;
     --layer-substations: #FFE066;
     --layer-ports: #74C0FC;
-    --layer-minigrids: #FFB703;
+    --layer-community-minigrids: #FFB703;
+    --layer-captive-offgrid: #FF85C2;
+    --layer-standalone-systems: #82A3FF;
+    --layer-interconnected-minigrids: #42D3B2;
     --layer-population-access: #B8A1E3;
     --layer-settlements: #FF8A65;
     --status-good: #4fd15a;
@@ -268,6 +277,7 @@
     font-weight: 650;
     letter-spacing: 0.025em;
     cursor: pointer;
+    text-decoration: none;
   }
   header.topbar .top-action:hover { background: rgba(255,255,255,0.14); }
   header.topbar .top-action:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

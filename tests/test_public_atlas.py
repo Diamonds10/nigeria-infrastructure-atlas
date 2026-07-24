@@ -68,11 +68,31 @@ class PublicAtlasTests(unittest.TestCase):
                 "power_grid": 931,
                 "substations": 390,
                 "ports": 25,
-                "minigrids": 80,
+                "community_minigrids": 68,
+                "captive_offgrid_systems": 10,
+                "standalone_systems": 0,
+                "interconnected_minigrids": 2,
                 "population_access": 1278,
                 "settlements": 1480,
             },
         )
+        distributed_energy = [
+            feature
+            for key in [
+                "community_minigrids",
+                "captive_offgrid_systems",
+                "standalone_systems",
+                "interconnected_minigrids",
+            ]
+            for feature in layers["renewables"]["sublayers"][key]["data"][
+                "features"
+            ]
+        ]
+        asset_ids = [
+            feature["properties"]["asset_id"] for feature in distributed_energy
+        ]
+        self.assertEqual(len(asset_ids), 80)
+        self.assertEqual(len(set(asset_ids)), 80)
 
     def test_coordinates_and_required_processed_columns(self):
         checks = {
@@ -84,6 +104,8 @@ class PublicAtlasTests(unittest.TestCase):
             },
             "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv": {
                 "asset_name", "latitude", "longitude", "status",
+                "distributed_energy_class", "classification_basis",
+                "classification_confidence",
             },
             "data/processed/08_context/population_access_grid_nigeria.csv": {
                 "cell_id", "grid_lat", "grid_lon", "population_estimate",
@@ -107,6 +129,19 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertEqual(
             minigrids["record_origin"].value_counts().to_dict(),
             {"nigeria_se4all": 66, "official_supplement": 14},
+        )
+        self.assertEqual(
+            minigrids["distributed_energy_class"].value_counts().to_dict(),
+            {
+                "community_mini_grid": 68,
+                "captive_institutional_off_grid": 10,
+                "interconnected_mini_grid": 2,
+            },
+        )
+        self.assertTrue(
+            minigrids["classification_basis"]
+            .eq("deterministic_asset_type_mapping")
+            .all()
         )
         kano = minigrids[minigrids["state"] == "Kano"]
         self.assertEqual(len(kano), 2)
@@ -226,6 +261,17 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertEqual(counts["substations"], 390)
         self.assertEqual(counts["demand_centres"], 28)
         self.assertEqual(counts["mini_grids"], 80)
+        self.assertEqual(
+            benchmark["mini_grid_benchmark"][
+                "distributed_energy_class_distribution"
+            ],
+            {
+                "community_mini_grid": 68,
+                "captive_institutional_off_grid": 10,
+                "standalone_system": 0,
+                "interconnected_mini_grid": 2,
+            },
+        )
 
     def test_state_profiles_are_complete_and_consistent(self):
         bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
@@ -241,7 +287,19 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertEqual(national["mapped_records"], 12525)
         self.assertEqual(national["counts"]["power_plants"], 193)
         self.assertEqual(national["counts"]["substations"], 390)
-        self.assertEqual(national["counts"]["minigrids"], 80)
+        self.assertEqual(national["counts"]["community_minigrids"], 68)
+        self.assertEqual(national["counts"]["captive_offgrid_systems"], 10)
+        self.assertEqual(national["counts"]["standalone_systems"], 0)
+        self.assertEqual(national["counts"]["interconnected_minigrids"], 2)
+        self.assertEqual(
+            national["minigrid_coverage"]["distributed_energy_class_counts"],
+            {
+                "community_mini_grid": 68,
+                "captive_institutional_off_grid": 10,
+                "standalone_system": 0,
+                "interconnected_mini_grid": 2,
+            },
+        )
         self.assertAlmostEqual(national["capacity"]["minigrid_kw"], 33680.4)
         self.assertEqual(national["people_access"]["settlement_count"], 154319)
         self.assertAlmostEqual(
@@ -327,8 +385,19 @@ class PublicAtlasTests(unittest.TestCase):
 
         manifest = json.loads((API_DIR / "manifest.json").read_text())
         self.assertEqual(manifest["api_version"], "v1")
-        self.assertEqual(manifest["atlas_release"]["version"], "0.5.0")
-        self.assertEqual(len(manifest["layers"]), 21)
+        self.assertEqual(manifest["atlas_release"]["version"], "0.6.0")
+        self.assertEqual(len(manifest["layers"]), 24)
+        compatibility = manifest["compatibility_endpoints"]["minigrids"]
+        self.assertEqual(compatibility["record_count"], 80)
+        self.assertEqual(
+            set(compatibility["replacement_layers"]),
+            {
+                "community_minigrids",
+                "captive_offgrid_systems",
+                "standalone_systems",
+                "interconnected_minigrids",
+            },
+        )
         for layer in manifest["layers"]:
             endpoint = API_DIR / layer["endpoint"]
             payload = json.loads(endpoint.read_text())

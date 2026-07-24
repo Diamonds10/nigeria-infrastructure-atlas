@@ -1,5 +1,10 @@
 # Public sources for renewable off-grid and mini-grid assets in Nigeria
 
+The implemented `v0.6` Distributed Energy section separates community
+mini-grids, captive/institutional off-grid systems, standalone systems, and
+interconnected mini-grids. These source notes support discovery; only named,
+geocodable records that pass the verification workflow enter the public map.
+
 **Status: active source audit (updated 2026-07-24).** The Nigeria SE4ALL portal
 provided the initial 66 geocoded records, but a national state review confirmed
 that it is not complete. Official REA/NEP/DARES, ECREEE, NEMSA, and beneficiary

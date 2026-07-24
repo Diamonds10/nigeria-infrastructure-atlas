@@ -1,8 +1,8 @@
 {
   "atlas_release": {
-    "version": "0.5.0",
+    "version": "0.6.0",
     "date": "2026-07-24",
-    "title": "Gas Field Taxonomy and Map Symbology Audit"
+    "title": "Structured Distributed Energy and Open Contributions"
   },
   "datasets": [
     {
@@ -276,20 +276,77 @@
       "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/05_connectivity/world_port_index_nigeria.csv"
     },
     {
-      "description": "Named public-source mini-grid, captive off-grid, and public-institution solar facilities with technology, status, capacity, and coordinate precision.",
+      "description": "Community-serving mini-grids with a local generation system and distribution network.",
       "source": "Nigeria SE4ALL Open Data Portal; REA/NEP/DARES; ECREEE; NEMSA; institutional sources",
       "source_date": "2026-07-24",
       "license": "Mixed public-source terms; review each record and source",
       "quality": "B",
-      "quality_note": "80 catalogued records: 66 SE4ALL source sites plus 14 official-source additions. Coordinates range from exact site to campus/community centroids. This is not a complete operating registry; zero catalogued records never means zero assets.",
+      "quality_note": "68 records classified from explicit mini_grid asset types. This is a public-source screening inventory, not a complete national registry.",
       "path": "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
       "coverage_audit_path": "data/processed/07_renewables/minigrid_state_coverage_audit.csv",
       "supplement_path": "data/curated/07_renewables/verified_public_offgrid_supplement.csv",
-      "key": "minigrids",
-      "label": "Catalogued Mini-grid & Off-grid Sites",
+      "key": "community_minigrids",
+      "label": "Community Mini-grids",
       "category": "renewables",
-      "category_label": "Renewables",
-      "record_count": 80,
+      "category_label": "Distributed Energy",
+      "record_count": 68,
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
+    },
+    {
+      "description": "Captive and institutional off-grid systems serving a defined campus, hospital, department, or facility.",
+      "source": "REA/NEP/DARES; ECREEE; institutional sources",
+      "source_date": "2026-07-24",
+      "license": "Mixed public-source terms; review each record and source",
+      "quality": "B",
+      "quality_note": "10 records classified from captive_off_grid, public_institution_off_grid, and facility-specific off_grid_solar asset types. These are not community mini-grids.",
+      "path": "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+      "coverage_audit_path": "data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+      "supplement_path": "data/curated/07_renewables/verified_public_offgrid_supplement.csv",
+      "key": "captive_offgrid_systems",
+      "label": "Captive & Institutional Off-grid",
+      "category": "renewables",
+      "category_label": "Distributed Energy",
+      "record_count": 10,
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
+    },
+    {
+      "description": "Standalone household, shop, facility, or solar-home systems without a local distribution network.",
+      "source": "Public-source distributed-energy evidence",
+      "source_date": "2026-07-24",
+      "license": "Mixed public-source terms; review each record and source",
+      "quality": "C",
+      "quality_note": "No named, geocoded standalone-system record currently meets the publication threshold. The zero is an evidence gap, not evidence that Nigeria has no standalone systems.",
+      "path": "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+      "coverage_audit_path": "data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+      "supplement_path": "data/curated/07_renewables/verified_public_offgrid_supplement.csv",
+      "key": "standalone_systems",
+      "label": "Standalone Systems",
+      "category": "renewables",
+      "category_label": "Distributed Energy",
+      "record_count": 0,
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
+    },
+    {
+      "description": "Mini-grids designed to operate with, or interconnect to, an existing distribution network.",
+      "source": "REA/NEP; NEMSA; official programme sources",
+      "source_date": "2026-07-24",
+      "license": "Mixed public-source terms; review each record and source",
+      "quality": "B",
+      "quality_note": "2 official-source interconnected mini-grid records. This is a conservative named-site inventory, not a complete national registry.",
+      "path": "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+      "coverage_audit_path": "data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+      "supplement_path": "data/curated/07_renewables/verified_public_offgrid_supplement.csv",
+      "key": "interconnected_minigrids",
+      "label": "Interconnected Mini-grids",
+      "category": "renewables",
+      "category_label": "Distributed Energy",
+      "record_count": 2,
       "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
       "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
       "supplement_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
@@ -324,5 +381,18 @@
       "record_count": 1480,
       "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/08_context/major_settlements_nigeria.csv"
     }
-  ]
+  ],
+  "compatibility_endpoints": {
+    "minigrids": {
+      "endpoint": "layers/minigrids.geojson",
+      "record_count": 80,
+      "status": "backward_compatible_aggregate",
+      "replacement_layers": [
+        "community_minigrids",
+        "captive_offgrid_systems",
+        "standalone_systems",
+        "interconnected_minigrids"
+      ]
+    }
+  }
 }

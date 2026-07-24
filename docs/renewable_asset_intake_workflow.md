@@ -5,7 +5,9 @@ SE4ALL WFS supplies 66 structured source records. A state-by-state audit showed
 that this omits documented assets, including Bayero University Kano. The current
 processor therefore merges that source with
 `data/curated/07_renewables/verified_public_offgrid_supplement.csv` and writes
-both the 80-record canonical registry and a 37-state/FCT coverage audit.
+both the 80-record canonical registry and a 37-state/FCT coverage audit. The
+processor also assigns every record to one of four non-overlapping
+distributed-energy classes.
 
 ## Objective
 
@@ -40,6 +42,26 @@ This workflow provides a first practical intake path for adding renewable off-gr
 - `data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv`
 - `data/processed/07_renewables/minigrid_state_coverage_audit.csv`
 
+The canonical `distributed_energy_class` values are:
+
+- `community_mini_grid`
+- `captive_institutional_off_grid`
+- `standalone_system`
+- `interconnected_mini_grid`
+
+The source-specific `asset_type` is retained alongside this classification.
+
 Only named records with defensible public evidence and usable location
 precision enter the map. Programme agreements, tenders, and announced targets
 remain coverage-audit evidence until commissioning and location can be verified.
+
+## Open contribution intake
+
+Community proposals use the CSV template in
+`data/contributions/07_renewables/` or the GitHub distributed-energy issue
+form. The validator checks structure, enumerations, dates, coordinates, URLs,
+state names, and contributor attestation. Passing validation does not publish a
+record: maintainers must complete evidence, geospatial, duplication,
+classification, and reuse reviews before adding it to the curated supplement.
+
+See `docs/distributed_energy_contribution_guide.md` for the complete process.

@@ -1,5 +1,21 @@
 # Release notes
 
+## v0.6.0 — Structured Distributed Energy and Open Contributions
+
+Released: 24 July 2026
+
+- classified all 80 public records into community mini-grids (68),
+  captive/institutional off-grid systems (10), standalone systems (0), and
+  interconnected mini-grids (2)
+- split the website, state profiles, catalogue, and API into four
+  non-overlapping distributed-energy layers
+- preserved `/api/v1/layers/minigrids.geojson` as a backward-compatible
+  aggregate endpoint
+- added a contribution CSV template, JSON Schema, command-line validator,
+  verification guide, issue form, pull-request checklist, and CI checks
+- established manual evidence, geospatial, duplicate, classification, and
+  licensing review before community records are promoted to the live atlas
+
 ## v0.5.0 — Gas Field Taxonomy and Map Symbology Audit
 
 Released: 24 July 2026

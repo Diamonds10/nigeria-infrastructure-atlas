@@ -16,6 +16,17 @@ API key and supports normal HTTP caching. Start with `manifest.json`.
 - `states.geojson` — simplified Nigeria ADM1 boundaries
 - `layers/{layer-key}.geojson` — one GeoJSON FeatureCollection per public map layer
 
+The Distributed Energy section exposes:
+
+- `layers/community_minigrids.geojson`
+- `layers/captive_offgrid_systems.geojson`
+- `layers/standalone_systems.geojson`
+- `layers/interconnected_minigrids.geojson`
+
+`layers/minigrids.geojson` remains a backward-compatible 80-record aggregate.
+New integrations should use the four structured endpoints. The manifest lists
+this under `compatibility_endpoints`.
+
 ## Filter fields
 
 Layer features include:
@@ -39,6 +50,6 @@ The `population_access` and `settlements` endpoints contain modelled screening
 context. Their night-light fields are not measured household
 electricity-access rates.
 
-The `minigrids` endpoint contains catalogued public records from multiple
+Distributed-energy endpoints contain catalogued public records from multiple
 sources. State counts are not exhaustive, and a zero count does not establish
-that no off-grid asset exists in that state.
+that no asset of that class exists in a state.

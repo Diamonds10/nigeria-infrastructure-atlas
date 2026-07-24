@@ -72,7 +72,10 @@
     power_grid:          { colorVar: "--layer-power-grid", shape: "circle", size: 9, weight: 1.7, dash: "3,4" },
     substations:         { colorVar: "--layer-substations", shape: "triangle", size: 14 },
     ports:               { colorVar: "--layer-ports", shape: "anchor", size: 17 },
-    minigrids:           { colorVar: "--layer-minigrids", shape: "sun", size: 18 },
+    community_minigrids: { colorVar: "--layer-community-minigrids", shape: "sun", size: 18 },
+    captive_offgrid_systems: { colorVar: "--layer-captive-offgrid", shape: "building", size: 17 },
+    standalone_systems:  { colorVar: "--layer-standalone-systems", shape: "panel", size: 16 },
+    interconnected_minigrids: { colorVar: "--layer-interconnected-minigrids", shape: "network", size: 18 },
     population_access:   { colorVar: "--layer-population-access", shape: "circle", size: 10 },
     settlements:         { colorVar: "--layer-settlements", shape: "circle", size: 11 }
   };
@@ -102,7 +105,10 @@
     power_grid: false,
     substations: true,
     ports: true,
-    minigrids: true,
+    community_minigrids: true,
+    captive_offgrid_systems: true,
+    standalone_systems: true,
+    interconnected_minigrids: true,
     population_access: false,
     settlements: false
   };
@@ -181,6 +187,15 @@
       case "sun":
         inner = '<circle cx="' + h + '" cy="' + h + '" r="' + (h*0.34) + '" fill="' + fillValue + '" stroke="' + color + '" stroke-width="1.2"/><path d="M' + h + ' 1 V3 M' + h + ' ' + (s-3) + ' V' + (s-1) + ' M1 ' + h + ' H3 M' + (s-3) + ' ' + h + ' H' + (s-1) + ' M3 3 L4.5 4.5 M' + (s-3) + ' 3 L' + (s-4.5) + ' 4.5 M3 ' + (s-3) + ' L4.5 ' + (s-4.5) + ' M' + (s-3) + ' ' + (s-3) + ' L' + (s-4.5) + ' ' + (s-4.5) + '" fill="none" stroke="' + color + '" stroke-width="1.4" stroke-linecap="round"/>';
         break;
+      case "building":
+        inner = '<path d="M3 ' + (s-2) + ' V4 L' + h + ' 1 L' + (s-3) + ' 4 V' + (s-2) + ' Z" fill="' + fillValue + '" stroke="' + strokeValue + '" stroke-width="' + strokeWidth + '"/><path d="M' + (h-2) + ' ' + (s-2) + ' V' + (h+2) + ' H' + (h+2) + ' V' + (s-2) + '" fill="none" stroke="' + color + '" stroke-width="1.1"/>';
+        break;
+      case "panel":
+        inner = '<polygon points="2,4 ' + (s-3) + ',2 ' + (s-2) + ',' + (s-5) + ' 3,' + (s-3) + '" fill="' + fillValue + '" stroke="' + strokeValue + '" stroke-width="' + strokeWidth + '"/><path d="M' + h + ' 3 L' + h + ' ' + (s-4) + ' M2.5 ' + h + ' L' + (s-2.5) + ' ' + (h-1) + ' M' + h + ' ' + (s-4) + ' V' + (s-2) + ' M' + (h-3) + ' ' + (s-2) + ' H' + (h+3) + '" fill="none" stroke="' + color + '" stroke-width="1"/>';
+        break;
+      case "network":
+        inner = '<path d="M4 4 L' + (s-4) + ' 4 L' + h + ' ' + (s-4) + ' Z" fill="none" stroke="' + color + '" stroke-width="1.4"/><circle cx="4" cy="4" r="2.2" fill="' + fillValue + '" stroke="' + color + '" stroke-width="1"/><circle cx="' + (s-4) + '" cy="4" r="2.2" fill="' + fillValue + '" stroke="' + color + '" stroke-width="1"/><circle cx="' + h + '" cy="' + (s-4) + '" r="2.2" fill="' + fillValue + '" stroke="' + color + '" stroke-width="1"/>';
+        break;
       default:
         inner = '<circle cx="' + h + '" cy="' + h + '" r="' + (h - 2) + '" fill="' + fillValue + '" stroke="' + strokeValue + '" stroke-width="' + strokeWidth + '"/>';
     }
@@ -222,12 +237,15 @@
     railway: "Type", gauge: "Gauge", power: "Type", voltage: "Voltage",
     PORT_NAME: "Port", HARBORSIZE: "Harbor size", HARBORTYPE: "Harbor type",
     CARGOWHARF: "Cargo wharf", CRANEFIXED: "Fixed crane", RAILWAY: "Rail service", MAX_VESSEL: "Max vessel size",
-    asset_name: "Site", lga: "LGA", capacity_kw: "Capacity (kW)", customers_served: "Customers served",
+    asset_id: "Asset ID", asset_name: "Site", lga: "LGA", capacity_kw: "Capacity (kW)", customers_served: "Customers served",
     financing_source: "Financing", source_url: "Source",
     field_type: "Field type", in_goget_fields: "Also in GOGET inventory",
     type: "Asset type", company: "Operator", location: "Location",
     design_cap: "Design capacity", date_of_co: "Commissioned",
     asset_type: "Asset type", program_name: "Programme",
+    distributed_energy_class: "Distributed-energy class",
+    classification_basis: "Classification basis",
+    classification_confidence: "Classification confidence",
     community: "Community / site", owner_operator: "Owner / operator",
     geocode_precision: "Coordinate precision",
     coordinate_source: "Coordinate source", source_name: "Evidence source",
@@ -529,7 +547,7 @@
     fields_gas: "147 non-overlapping points that GOGET classifies gas-only or oil-and-gas. This is a much better gas-producing footprint than the former two-record gas-only display, but the source still mislabels some known gas sites as oil."
   };
   var listEl = document.getElementById("category-list");
-  var CAT_LABELS = { resource: "Resource", infrastructure: "Infrastructure", environmental: "Environmental", demand: "Demand", connectivity: "Connectivity", renewables: "Renewables", context: "People & Access" };
+  var CAT_LABELS = { resource: "Resource", infrastructure: "Infrastructure", environmental: "Environmental", demand: "Demand", connectivity: "Connectivity", renewables: "Distributed Energy", context: "People & Access" };
 
   CAT_ORDER.forEach(function (catKey) {
     var cat = ATLAS.layers[catKey];
@@ -632,7 +650,7 @@
     var scopeLabel = selectedState ? "records intersecting state" : "national public-map records";
     var capacityBits = [];
     if (capacity.power_mw) capacityBits.push("<strong>" + formatNumber(capacity.power_mw, 1) + " MW</strong> reported power");
-    if (capacity.minigrid_kw) capacityBits.push("<strong>" + formatNumber(capacity.minigrid_kw, 1) + " kW</strong> mini-grid");
+    if (capacity.minigrid_kw) capacityBits.push("<strong>" + formatNumber(capacity.minigrid_kw, 1) + " kW</strong> distributed energy");
     if (capacity.refinery_bpd) capacityBits.push("<strong>" + formatNumber(capacity.refinery_bpd) + " bpd</strong> refinery");
 
     stateProfileEl.innerHTML =
@@ -644,13 +662,16 @@
         profileMetric(counts.power_plants, "Power-plant units") +
         profileMetric(counts.substations, "Substations") +
         profileMetric(counts.demand_centers, "Demand centres") +
-        profileMetric(counts.minigrids, "Catalogued mini-grid & off-grid sites") +
+        profileMetric(counts.community_minigrids, "Community mini-grids") +
+        profileMetric(counts.captive_offgrid_systems, "Captive/institutional off-grid") +
+        profileMetric(counts.standalone_systems, "Standalone systems") +
+        profileMetric(counts.interconnected_minigrids, "Interconnected mini-grids") +
         profileMetric(counts.fields_oil + counts.fields_gas, "Source-classified field points") +
         profileMetric(counts.ports, "Ports & terminals") +
       '</div>' +
       (capacityBits.length ? '<div class="capacity-strip">' + capacityBits.join(" · ") + '</div>' : "") +
       (minigridCoverage.coverage_interpretation
-        ? '<div class="coverage-strip"><strong>Mini-grid & off-grid coverage note:</strong> ' +
+        ? '<div class="coverage-strip"><strong>Distributed-energy coverage note:</strong> ' +
           escapeHtml(minigridCoverage.coverage_interpretation) +
           (minigridCoverage.programme_evidence
             ? ' ' + escapeHtml(minigridCoverage.programme_evidence)
