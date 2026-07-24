@@ -4,8 +4,8 @@ title: "Nigeria Infrastructure Atlas"
 type: dataset
 authors:
   - name: "Nigeria Infrastructure Atlas contributors"
-repository-code: "https://github.com/Diamonds10/Nigeria-gas-atlas"
-url: "https://diamonds10.github.io/Nigeria-gas-atlas/"
+repository-code: "https://github.com/Diamonds10/nigeria-infrastructure-atlas"
+url: "https://diamonds10.github.io/nigeria-infrastructure-atlas/"
 license: CC0-1.0
 version: 0.6.0
 date-released: 2026-07-24

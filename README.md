@@ -45,7 +45,7 @@ The public value of the atlas is not any single output file. It is the combinati
 ## Current public-facing value
 
 A live `v0.6` state-intelligence experience is available at
-[diamonds10.github.io/Nigeria-gas-atlas](https://diamonds10.github.io/Nigeria-gas-atlas/).
+[diamonds10.github.io/nigeria-infrastructure-atlas](https://diamonds10.github.io/nigeria-infrastructure-atlas/).
 It provides profiles for all 36 states and the FCT, state-specific shareable
 links and GeoJSON downloads, and a searchable catalogue covering all 24
 published map datasets. Normalized status and evidence-year filters apply
@@ -58,7 +58,7 @@ Night-light detection is published only as an electricity-access screening
 signal, not as a measured household electrification rate.
 
 Developers can use the versioned, read-only static API at
-[diamonds10.github.io/Nigeria-gas-atlas/api/](https://diamonds10.github.io/Nigeria-gas-atlas/api/).
+[diamonds10.github.io/nigeria-infrastructure-atlas/api/](https://diamonds10.github.io/nigeria-infrastructure-atlas/api/).
 API v1 publishes a manifest, catalogue, state profiles, ADM1 boundaries, and
 one GeoJSON endpoint per public map layer without requiring an API key.
 

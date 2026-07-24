@@ -2,7 +2,7 @@
 
 Base URL:
 
-`https://diamonds10.github.io/Nigeria-gas-atlas/api/v1/`
+`https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/`
 
 This is a versioned, read-only static API served by GitHub Pages. It needs no
 API key and supports normal HTTP caching. Start with `manifest.json`.

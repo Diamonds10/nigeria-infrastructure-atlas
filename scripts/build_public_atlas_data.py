@@ -26,7 +26,7 @@ DEFAULT_OUTPUT = ROOT / "docs" / "assets" / "atlas_data.json"
 DEFAULT_API_DIR = ROOT / "docs" / "api" / "v1"
 PUBLIC_SIMPLIFY_TOLERANCE = 0.005
 PUBLIC_COORDINATE_PRECISION = 5
-REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main"
+REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main"
 DISTRIBUTED_ENERGY_SUBLAYERS = {
     "community_minigrids",
     "captive_offgrid_systems",
@@ -822,7 +822,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
     )
     schema = {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
-        "$id": "https://diamonds10.github.io/Nigeria-gas-atlas/api/v1/schema.json",
+        "$id": "https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/schema.json",
         "title": "Nigeria Infrastructure Atlas public GeoJSON feature",
         "type": "object",
         "required": ["type", "properties", "geometry"],
@@ -863,7 +863,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
     manifest = {
         "api_version": "v1",
         "atlas_release": bundle["release"],
-        "base_url": "https://diamonds10.github.io/Nigeria-gas-atlas/api/v1/",
+        "base_url": "https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/",
         "formats": ["GeoJSON", "JSON"],
         "filter_fields": {
             "_states": "ADM1 names intersected by the public display geometry",

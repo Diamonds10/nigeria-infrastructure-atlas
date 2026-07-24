@@ -18,7 +18,7 @@
       "category": "resource",
       "category_label": "Resource",
       "record_count": 33,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/01_resource/goget_fields_nigeria_2023-08.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/01_resource/goget_fields_nigeria_2023-08.csv"
     },
     {
       "description": "Site-level Nigerian gas-producing fields classified gas-only or oil-and-gas by GOGET, with status, operator, and ownership context.",
@@ -33,7 +33,7 @@
       "category": "resource",
       "category_label": "Resource",
       "record_count": 147,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/01_resource/goget_fields_nigeria_2023-08.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/01_resource/goget_fields_nigeria_2023-08.csv"
     },
     {
       "description": "Gas-only field boundary polygons, including field names not present in the GOGET point inventory above.",
@@ -48,7 +48,7 @@
       "category": "resource",
       "category_label": "Resource",
       "record_count": 62,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/01_resource/se4all_gas_fields_nigeria_2026-07.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/01_resource/se4all_gas_fields_nigeria_2026-07.csv"
     },
     {
       "description": "Oil-and-gas field boundary polygons, including field names not present in the GOGET point inventory above.",
@@ -63,7 +63,7 @@
       "category": "resource",
       "category_label": "Resource",
       "record_count": 62,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/01_resource/se4all_gas_fields_nigeria_2026-07.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/01_resource/se4all_gas_fields_nigeria_2026-07.csv"
     },
     {
       "description": "Gas transmission pipeline routes that include Nigeria.",
@@ -78,7 +78,7 @@
       "category": "infrastructure",
       "category_label": "Infrastructure",
       "record_count": 24,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/02_infrastructure/ggit_gas_pipelines_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/ggit_gas_pipelines_nigeria.csv"
     },
     {
       "description": "Oil and NGL transmission pipeline routes that include Nigeria.",
@@ -93,7 +93,7 @@
       "category": "infrastructure",
       "category_label": "Infrastructure",
       "record_count": 15,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/02_infrastructure/goit_oil_ngl_pipelines_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/goit_oil_ngl_pipelines_nigeria.csv"
     },
     {
       "description": "Nigerian LNG terminal train records with capacity and status context.",
@@ -108,7 +108,7 @@
       "category": "infrastructure",
       "category_label": "Infrastructure",
       "record_count": 24,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/02_infrastructure/ggit_lng_terminals_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/ggit_lng_terminals_nigeria.csv"
     },
     {
       "description": "Oil- and gas-fired generating units across Nigerian power stations.",
@@ -123,7 +123,7 @@
       "category": "infrastructure",
       "category_label": "Infrastructure",
       "record_count": 193,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/02_infrastructure/gogpt_oil_gas_plants_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/gogpt_oil_gas_plants_nigeria.csv"
     },
     {
       "description": "Major Nigerian refinery sites with nameplate capacity and public status context.",
@@ -138,7 +138,7 @@
       "category": "infrastructure",
       "category_label": "Infrastructure",
       "record_count": 4,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/02_infrastructure/refineries_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/refineries_nigeria.csv"
     },
     {
       "description": "Upstream and midstream oil/gas point infrastructure: compressor stations, gas plants, flow stations, and FPSOs (floating production, storage & offloading vessels).",
@@ -153,7 +153,7 @@
       "category": "infrastructure",
       "category_label": "Infrastructure",
       "record_count": 98,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/02_infrastructure/se4all_gas_infrastructure_nigeria_2026-07.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/se4all_gas_infrastructure_nigeria_2026-07.csv"
     },
     {
       "description": "Protected and conserved areas including forest reserves, parks, and wetlands.",
@@ -168,7 +168,7 @@
       "category": "environmental",
       "category_label": "Environmental",
       "record_count": 1005,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/03_environmental/wdpa_protected_areas_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/03_environmental/wdpa_protected_areas_nigeria.csv"
     },
     {
       "description": "Cross-category industrial demand centres covering cement, steel, fertiliser, and refining.",
@@ -183,7 +183,7 @@
       "category": "demand",
       "category_label": "Demand",
       "record_count": 28,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/04_demand/demand_centers_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/04_demand/demand_centers_nigeria.csv"
     },
     {
       "description": "Motorway and trunk road segments used in the public web map.",
@@ -198,7 +198,7 @@
       "category": "connectivity",
       "category_label": "Connectivity",
       "record_count": 5124,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/05_connectivity/osm_roads_major_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/05_connectivity/osm_roads_major_nigeria.csv"
     },
     {
       "description": "Mapped Nigerian railway line segments.",
@@ -213,7 +213,7 @@
       "category": "connectivity",
       "category_label": "Connectivity",
       "record_count": 1381,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/05_connectivity/osm_railways_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/05_connectivity/osm_railways_nigeria.csv"
     },
     {
       "description": "Mapped Nigerian railway stations.",
@@ -228,7 +228,7 @@
       "category": "connectivity",
       "category_label": "Connectivity",
       "record_count": 141,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/05_connectivity/osm_railways_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/05_connectivity/osm_railways_nigeria.csv"
     },
     {
       "description": "Mapped electricity transmission and minor-line segments.",
@@ -243,7 +243,7 @@
       "category": "connectivity",
       "category_label": "Connectivity",
       "record_count": 931,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/05_connectivity/osm_power_grid_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/05_connectivity/osm_power_grid_nigeria.csv"
     },
     {
       "description": "Mapped electricity substations represented as display points.",
@@ -258,7 +258,7 @@
       "category": "connectivity",
       "category_label": "Connectivity",
       "record_count": 390,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/05_connectivity/osm_power_grid_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/05_connectivity/osm_power_grid_nigeria.csv"
     },
     {
       "description": "Nigerian seaports and offshore oil and gas terminals.",
@@ -273,7 +273,7 @@
       "category": "connectivity",
       "category_label": "Connectivity",
       "record_count": 25,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/05_connectivity/world_port_index_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/05_connectivity/world_port_index_nigeria.csv"
     },
     {
       "description": "Community-serving mini-grids with a local generation system and distribution network.",
@@ -290,9 +290,9 @@
       "category": "renewables",
       "category_label": "Distributed Energy",
       "record_count": 68,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
-      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
-      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
     },
     {
       "description": "Captive and institutional off-grid systems serving a defined campus, hospital, department, or facility.",
@@ -309,9 +309,9 @@
       "category": "renewables",
       "category_label": "Distributed Energy",
       "record_count": 10,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
-      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
-      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
     },
     {
       "description": "Standalone household, shop, facility, or solar-home systems without a local distribution network.",
@@ -328,9 +328,9 @@
       "category": "renewables",
       "category_label": "Distributed Energy",
       "record_count": 0,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
-      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
-      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
     },
     {
       "description": "Mini-grids designed to operate with, or interconnect to, an existing distribution network.",
@@ -347,9 +347,9 @@
       "category": "renewables",
       "category_label": "Distributed Energy",
       "record_count": 2,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
-      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
-      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
     },
     {
       "description": "Quarter-degree settlement-population grid with night-light and grid-distance screening signals.",
@@ -364,7 +364,7 @@
       "category": "context",
       "category_label": "People & Access",
       "record_count": 1278,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/08_context/population_access_grid_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/08_context/population_access_grid_nigeria.csv"
     },
     {
       "description": "Major settlement clusters, retaining the 40 highest-population source records per state for a responsive web map.",
@@ -379,7 +379,7 @@
       "category": "context",
       "category_label": "People & Access",
       "record_count": 1480,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/08_context/major_settlements_nigeria.csv"
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/08_context/major_settlements_nigeria.csv"
     }
   ],
   "compatibility_endpoints": {

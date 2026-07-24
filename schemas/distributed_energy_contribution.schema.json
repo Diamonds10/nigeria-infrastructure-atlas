@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/schemas/distributed_energy_contribution.schema.json",
+  "$id": "https://github.com/Diamonds10/nigeria-infrastructure-atlas/blob/main/schemas/distributed_energy_contribution.schema.json",
   "title": "Nigeria Infrastructure Atlas distributed-energy contribution",
   "type": "object",
   "required": [

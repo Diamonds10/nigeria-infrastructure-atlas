@@ -5,7 +5,7 @@
     "date": "2026-07-24",
     "title": "Structured Distributed Energy and Open Contributions"
   },
-  "base_url": "https://diamonds10.github.io/Nigeria-gas-atlas/api/v1/",
+  "base_url": "https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/",
   "formats": [
     "GeoJSON",
     "JSON"
