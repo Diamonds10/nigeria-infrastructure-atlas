@@ -1,5 +1,20 @@
 # Release notes
 
+## v0.5.0 — Gas Field Taxonomy and Map Symbology Audit
+
+Released: 24 July 2026
+
+- replaced the misleading two-record gas-only point layer with 147
+  source-classified gas-producing fields (`gas` plus `oil and gas`)
+- retained 33 source-classified oil-only fields as a separate, non-overlapping
+  layer, preserving the 180-point GOGET total without double counting
+- retained independent SE4ALL gas-only and mixed field-boundary layers
+- documented that GOGET's fuel label still misclassifies some known
+  gas-producing sites as oil
+- assigned every public sublayer a distinct colour and audited point icons,
+  marker sizes, line weights, dash patterns, polygon fills, legends, and
+  dark/light-theme refresh behavior
+
 ## v0.4.2 — Mini-grid and Off-grid Layer Clarification
 
 Released: 24 July 2026

@@ -50,32 +50,42 @@
   };
   var CAT_ORDER = ["resource", "infrastructure", "environmental", "demand", "connectivity", "renewables", "context"];
 
-  var SHAPE_BY_SUB = {
-    fields_oil: "circle",
-    fields_gas: "diamond",
-    fields_mixed: "hex",
-    lng_terminals: "hex",
-    power_plants: "square",
-    refineries: "triangle",
-    gas_infrastructure: "diamond",
-    demand_centers: "diamond",
-    rail_stations: "square",
-    substations: "triangle",
-    ports: "star",
-    minigrids: "plus",
-    settlements: "circle"
+  // Every public sublayer has an explicit visual identity. Colour identifies
+  // the asset class, shape identifies point types, and size/weight establishes
+  // a usable hierarchy at national zoom.
+  var SUB_STYLE = {
+    fields_oil:          { colorVar: "--layer-fields-oil", shape: "droplet", size: 15 },
+    fields_gas:          { colorVar: "--layer-fields-gas", shape: "flame", size: 16 },
+    field_polygons_gas:  { colorVar: "--layer-field-polygons-gas", shape: "flame", size: 12, weight: 1.6, fillOpacity: 0.16 },
+    field_polygons_mixed:{ colorVar: "--layer-field-polygons-mixed", shape: "hex", size: 12, weight: 1.3, fillOpacity: 0.12, dash: "5,3" },
+    gas_pipelines:       { colorVar: "--layer-gas-pipelines", shape: "circle", size: 10, weight: 3.2 },
+    oil_pipelines:       { colorVar: "--layer-oil-pipelines", shape: "circle", size: 10, weight: 2.8, dash: "8,5" },
+    lng_terminals:       { colorVar: "--layer-lng-terminals", shape: "hex", size: 17 },
+    power_plants:        { colorVar: "--layer-power-plants", shape: "bolt", size: 17 },
+    refineries:          { colorVar: "--layer-refineries", shape: "factory", size: 18 },
+    gas_infrastructure:  { colorVar: "--layer-gas-infrastructure", shape: "diamond", size: 14 },
+    protected_areas:     { colorVar: "--layer-protected-areas", shape: "square", size: 10, weight: 1.1, fillOpacity: 0.15 },
+    demand_centers:      { colorVar: "--layer-demand-centers", shape: "target", size: 16 },
+    roads:               { colorVar: "--layer-roads", shape: "circle", size: 9, weight: 2.4 },
+    railways:            { colorVar: "--layer-railways", shape: "circle", size: 9, weight: 2.2, dash: "2,6" },
+    rail_stations:       { colorVar: "--layer-rail-stations", shape: "train", size: 15 },
+    power_grid:          { colorVar: "--layer-power-grid", shape: "circle", size: 9, weight: 1.7, dash: "3,4" },
+    substations:         { colorVar: "--layer-substations", shape: "triangle", size: 14 },
+    ports:               { colorVar: "--layer-ports", shape: "anchor", size: 17 },
+    minigrids:           { colorVar: "--layer-minigrids", shape: "sun", size: 18 },
+    population_access:   { colorVar: "--layer-population-access", shape: "circle", size: 10 },
+    settlements:         { colorVar: "--layer-settlements", shape: "circle", size: 11 }
   };
-  var LINEDASH_BY_SUB = {
-    gas_pipelines: null,
-    oil_pipelines: "6,5",
-    roads: null,
-    railways: "1,6",
-    power_grid: "2,4"
-  };
+  function visualStyle(catKey, subKey) {
+    return SUB_STYLE[subKey] || {
+      colorVar: CAT_META[catKey].colorVar,
+      shape: "circle",
+      size: 13
+    };
+  }
   var DEFAULT_ON = {
     fields_oil: true,
     fields_gas: true,
-    fields_mixed: true,
     field_polygons_gas: false,
     field_polygons_mixed: false,
     gas_pipelines: true,
@@ -147,19 +157,44 @@
         var arm = s * 0.2;
         inner = '<path d="M ' + (h-arm) + ' 2 L ' + (h+arm) + ' 2 L ' + (h+arm) + ' ' + (h-arm) + ' L ' + (s-2) + ' ' + (h-arm) + ' L ' + (s-2) + ' ' + (h+arm) + ' L ' + (h+arm) + ' ' + (h+arm) + ' L ' + (h+arm) + ' ' + (s-2) + ' L ' + (h-arm) + ' ' + (s-2) + ' L ' + (h-arm) + ' ' + (h+arm) + ' L 2 ' + (h+arm) + ' L 2 ' + (h-arm) + ' L ' + (h-arm) + ' ' + (h-arm) + ' Z" fill="' + fillValue + '" stroke="' + strokeValue + '" stroke-width="' + strokeWidth + '" stroke-linejoin="round"/>';
         break;
+      case "droplet":
+        inner = '<path d="M ' + h + ' 1 C ' + (h-1) + ' 3 3 ' + (h+2) + ' 3 ' + (s-5) + ' C 3 ' + (s-3) + ' ' + (h-1) + ' ' + (s-1) + ' ' + h + ' ' + (s-1) + ' C ' + (s-h+1) + ' ' + (s-1) + ' ' + (s-3) + ' ' + (s-3) + ' ' + (s-3) + ' ' + (s-5) + ' C ' + (s-3) + ' ' + (h+2) + ' ' + (h+1) + ' 3 ' + h + ' 1 Z" fill="' + fillValue + '" stroke="' + strokeValue + '" stroke-width="' + strokeWidth + '"/>';
+        break;
+      case "flame":
+        inner = '<path d="M ' + h + ' 1 C ' + (h+2) + ' 4 ' + (s-3) + ' 6 ' + (s-3) + ' ' + (h+2) + ' C ' + (s-3) + ' ' + (s-2) + ' ' + (h+2) + ' ' + (s-1) + ' ' + h + ' ' + (s-1) + ' C 4 ' + (s-1) + ' 2 ' + (s-4) + ' 3 ' + (h+1) + ' C 4 ' + (h-1) + ' ' + (h-1) + ' ' + (h-2) + ' ' + h + ' 1 Z" fill="' + fillValue + '" stroke="' + strokeValue + '" stroke-width="' + strokeWidth + '"/>';
+        break;
+      case "bolt":
+        inner = '<polygon points="' + (h+1) + ',1 3,' + (h+1) + ' ' + (h-1) + ',' + (h+1) + ' ' + (h-2) + ',' + (s-1) + ' ' + (s-3) + ',' + (h-2) + ' ' + (h+1) + ',' + (h-2) + '" fill="' + fillValue + '" stroke="' + strokeValue + '" stroke-width="' + strokeWidth + '" stroke-linejoin="round"/>';
+        break;
+      case "factory":
+        inner = '<path d="M2 ' + (s-2) + ' V' + h + ' L' + (h-1) + ' ' + (h-2) + ' V' + h + ' L' + (s-4) + ' ' + (h-2) + ' V3 H' + (s-2) + ' V' + (s-2) + ' Z" fill="' + fillValue + '" stroke="' + strokeValue + '" stroke-width="' + strokeWidth + '" stroke-linejoin="round"/>';
+        break;
+      case "target":
+        inner = '<circle cx="' + h + '" cy="' + h + '" r="' + (h-2) + '" fill="' + fillValue + '" stroke="' + color + '" stroke-width="1.4"/><circle cx="' + h + '" cy="' + h + '" r="' + (h*0.34) + '" fill="' + (filled === false ? "none" : "#fff") + '" stroke="' + color + '" stroke-width="1.2"/>';
+        break;
+      case "train":
+        inner = '<rect x="2" y="1.5" width="' + (s-4) + '" height="' + (s-5) + '" rx="2.5" fill="' + fillValue + '" stroke="' + strokeValue + '" stroke-width="' + strokeWidth + '"/><path d="M4 ' + (h-1) + ' H' + (s-4) + ' M5 ' + (s-3) + ' L3 ' + (s-1) + ' M' + (s-5) + ' ' + (s-3) + ' L' + (s-3) + ' ' + (s-1) + '" fill="none" stroke="' + color + '" stroke-width="1.2"/>';
+        break;
+      case "anchor":
+        inner = '<path d="M' + h + ' 2 V' + (s-4) + ' M' + (h-3) + ' 5 A3 3 0 1 0 ' + (h+3) + ' 5 A3 3 0 1 0 ' + (h-3) + ' 5 M2 ' + (h+2) + ' C3 ' + (s-2) + ' ' + (h-2) + ' ' + (s-1) + ' ' + h + ' ' + (s-3) + ' C' + (h+2) + ' ' + (s-1) + ' ' + (s-3) + ' ' + (s-2) + ' ' + (s-2) + ' ' + (h+2) + '" fill="none" stroke="' + color + '" stroke-width="1.8" stroke-linecap="round"/>';
+        break;
+      case "sun":
+        inner = '<circle cx="' + h + '" cy="' + h + '" r="' + (h*0.34) + '" fill="' + fillValue + '" stroke="' + color + '" stroke-width="1.2"/><path d="M' + h + ' 1 V3 M' + h + ' ' + (s-3) + ' V' + (s-1) + ' M1 ' + h + ' H3 M' + (s-3) + ' ' + h + ' H' + (s-1) + ' M3 3 L4.5 4.5 M' + (s-3) + ' 3 L' + (s-4.5) + ' 4.5 M3 ' + (s-3) + ' L4.5 ' + (s-4.5) + ' M' + (s-3) + ' ' + (s-3) + ' L' + (s-4.5) + ' ' + (s-4.5) + '" fill="none" stroke="' + color + '" stroke-width="1.4" stroke-linecap="round"/>';
+        break;
       default:
         inner = '<circle cx="' + h + '" cy="' + h + '" r="' + (h - 2) + '" fill="' + fillValue + '" stroke="' + strokeValue + '" stroke-width="' + strokeWidth + '"/>';
     }
     return '<svg width="' + s + '" height="' + s + '" viewBox="0 0 ' + s + ' ' + s + '" xmlns="http://www.w3.org/2000/svg">' + inner + '</svg>';
   }
 
-  function divIcon(shape, color, filled) {
+  function divIcon(shape, color, filled, size) {
+    size = size || 14;
     return L.divIcon({
-      html: shapeSvg(shape, color, 14, filled),
+      html: shapeSvg(shape, color, size, filled),
       className: "atlas-marker",
-      iconSize: [14, 14],
-      iconAnchor: [7, 7],
-      popupAnchor: [0, -7]
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+      popupAnchor: [0, -(size / 2)]
     });
   }
 
@@ -333,20 +368,35 @@
   var registry = {}; // subKey -> { leafletLayer, catKey, meta, count }
   var allFeaturesIndex = []; // for search: {label, subKey, catKey, feature, latlng}
 
-  function lineStyle(catColor, subKey) {
-    var dash = LINEDASH_BY_SUB[subKey];
-    var weight = subKey === "roads" ? 2 : subKey === "power_grid" ? 1.4 : 2.2;
-    return { color: catColor, weight: weight, opacity: 0.85, dashArray: dash || null, lineCap: "round" };
+  function lineStyle(style) {
+    return {
+      color: cssVar(style.colorVar),
+      weight: style.weight || 2.2,
+      opacity: 0.88,
+      dashArray: style.dash || null,
+      lineCap: "round"
+    };
+  }
+
+  function polygonStyle(style) {
+    var color = cssVar(style.colorVar);
+    return {
+      color: color,
+      weight: style.weight || 1.2,
+      opacity: 0.85,
+      dashArray: style.dash || null,
+      fillColor: color,
+      fillOpacity: style.fillOpacity === undefined ? 0.18 : style.fillOpacity
+    };
   }
 
   function buildSublayer(catKey, subKey, sub) {
-    var catColorVar = CAT_META[catKey].colorVar;
-    var catColor = cssVar(catColorVar);
+    var style = visualStyle(catKey, subKey);
+    var color = cssVar(style.colorVar);
     var geomType = sub.geomType;
     var layer;
 
     if (geomType === "point") {
-      var shape = SHAPE_BY_SUB[subKey] || "circle";
       layer = L.geoJSON(sub.data, {
         pointToLayer: function (feature, latlng) {
           if (subKey === "population_access") {
@@ -354,21 +404,23 @@
             var radius = Math.max(3, Math.min(12, 2 + Math.log10(Math.max(population, 1))));
             var contextMarker = L.circleMarker(latlng, {
               radius: radius,
-              color: cssVar(catColorVar),
+              color: color,
               weight: 0.8,
-              fillColor: cssVar(catColorVar),
+              fillColor: color,
               fillOpacity: 0.48
             });
             contextMarker._ngraContextGrid = true;
             return contextMarker;
           }
           var filled = isOperating(feature.properties);
-          var marker = L.marker(latlng, { icon: divIcon(shape, cssVar(catColorVar), filled) });
+          var marker = L.marker(latlng, {
+            icon: divIcon(style.shape, color, filled, style.size)
+          });
           marker._ngraFilled = filled;
           return marker;
         },
         onEachFeature: function (feature, lyr) {
-          lyr.bindPopup(popupHtml(sub.label, catColorVar, feature.properties), { maxWidth: 300 });
+          lyr.bindPopup(popupHtml(sub.label, style.colorVar, feature.properties), { maxWidth: 300 });
           var lbl = titleOf(feature.properties);
           if (lbl && subKey !== "population_access") {
             allFeaturesIndex.push({ label: lbl, subKey: subKey, catKey: catKey, subLabel: sub.label, layer: lyr, feature: feature });
@@ -377,31 +429,33 @@
       });
     } else if (geomType === "line") {
       layer = L.geoJSON(sub.data, {
-        style: function () { return lineStyle(catColor, subKey); },
+        style: function () { return lineStyle(style); },
         // Guards against any stray Point feature inside a line-typed sublayer --
         // without this, Leaflet silently falls back to its (unstyled, broken-
         // image) default marker icon instead of using our design system.
         pointToLayer: function (feature, latlng) {
-          return L.marker(latlng, { icon: divIcon("circle", catColor) });
+          return L.marker(latlng, {
+            icon: divIcon(style.shape, color, true, style.size)
+          });
         },
         onEachFeature: function (feature, lyr) {
-          lyr.bindPopup(popupHtml(sub.label, catColorVar, feature.properties), { maxWidth: 300 });
+          lyr.bindPopup(popupHtml(sub.label, style.colorVar, feature.properties), { maxWidth: 300 });
           var lbl = titleOf(feature.properties);
           if (lbl && lbl !== "Untitled asset") allFeaturesIndex.push({ label: lbl, subKey: subKey, catKey: catKey, subLabel: sub.label, layer: lyr, feature: feature });
         }
       });
     } else {
       layer = L.geoJSON(sub.data, {
-        style: function () {
-          return { color: catColor, weight: 1.2, opacity: 0.8, fillColor: catColor, fillOpacity: 0.18 };
-        },
+        style: function () { return polygonStyle(style); },
         // Same guard as above -- WDPA in particular mixes polygon boundaries
         // with point-only records (protected areas with no mapped footprint).
         pointToLayer: function (feature, latlng) {
-          return L.marker(latlng, { icon: divIcon("circle", catColor) });
+          return L.marker(latlng, {
+            icon: divIcon(style.shape, color, true, style.size)
+          });
         },
         onEachFeature: function (feature, lyr) {
-          lyr.bindPopup(popupHtml(sub.label, catColorVar, feature.properties), { maxWidth: 300 });
+          lyr.bindPopup(popupHtml(sub.label, style.colorVar, feature.properties), { maxWidth: 300 });
           var lbl = titleOf(feature.properties);
           if (lbl) allFeaturesIndex.push({ label: lbl, subKey: subKey, catKey: catKey, subLabel: sub.label, layer: lyr, feature: feature });
         }
@@ -439,25 +493,29 @@
       Object.keys(cat.sublayers).forEach(function (subKey) {
         var entry = registry[subKey];
         if (!entry) return;
-        var catColor = cssVar(CAT_META[catKey].colorVar);
+        var style = visualStyle(catKey, subKey);
+        var color = cssVar(style.colorVar);
         if (entry.geomType === "point") {
-          var shape = SHAPE_BY_SUB[subKey] || "circle";
           entry.leafletLayer.eachLayer(function (lyr) {
             if (lyr._ngraContextGrid && lyr.setStyle) {
-              lyr.setStyle({ color: catColor, fillColor: catColor });
+              lyr.setStyle({ color: color, fillColor: color });
             } else if (lyr.setIcon) {
-              lyr.setIcon(divIcon(shape, catColor, lyr._ngraFilled));
+              lyr.setIcon(divIcon(style.shape, color, lyr._ngraFilled, style.size));
             }
           });
         } else if (entry.geomType === "line") {
-          entry.leafletLayer.setStyle(lineStyle(catColor, subKey));
+          entry.leafletLayer.setStyle(lineStyle(style));
           entry.leafletLayer.eachLayer(function (lyr) {
-            if (lyr.setIcon) lyr.setIcon(divIcon("circle", catColor));
+            if (lyr.setIcon) {
+              lyr.setIcon(divIcon(style.shape, color, true, style.size));
+            }
           });
         } else {
-          entry.leafletLayer.setStyle({ color: catColor, fillColor: catColor });
+          entry.leafletLayer.setStyle(polygonStyle(style));
           entry.leafletLayer.eachLayer(function (lyr) {
-            if (lyr.setIcon) lyr.setIcon(divIcon("circle", catColor));
+            if (lyr.setIcon) {
+              lyr.setIcon(divIcon(style.shape, color, true, style.size));
+            }
           });
         }
       });
@@ -466,14 +524,9 @@
   }
 
   // ---------------- Panel UI ----------------
-  // GOGET's fuel_type field is unreliable at the field level: verified against
-  // the raw source, major gas sites (Soku, Bonny, Gbaran) are labeled "oil".
-  // This split is a straight pass-through of that field, so it's flagged
-  // in-place rather than silently trusted -- see docs/data_sources.md.
   var CAVEAT_BY_SUB = {
-    fields_oil: "GOGET's fuel_type field is unreliable at the field level — several major gas sites (e.g. Soku, Bonny, Gbaran) are labeled \"oil\" in this source. Treat this split as indicative, not authoritative.",
-    fields_gas: "GOGET's fuel_type field undercounts true gas-producing fields — most Nigerian gas comes from fields this source labels \"oil\" or \"oil and gas\", not \"gas\". Treat this split as indicative, not authoritative.",
-    fields_mixed: "GOGET's fuel_type field is unreliable at the field level — some major gas sites (e.g. Soku, Bonny, Gbaran) are labeled \"oil\" and so are NOT included here. Treat this split as indicative, not authoritative."
+    fields_oil: "33 points that GOGET classifies oil-only. The source fuel label is not an authoritative reservoir classification; known gas-producing sites such as Soku, Bonny, and Gbaran are labelled oil.",
+    fields_gas: "147 non-overlapping points that GOGET classifies gas-only or oil-and-gas. This is a much better gas-producing footprint than the former two-record gas-only display, but the source still mislabels some known gas sites as oil."
   };
   var listEl = document.getElementById("category-list");
   var CAT_LABELS = { resource: "Resource", infrastructure: "Infrastructure", environmental: "Environmental", demand: "Demand", connectivity: "Connectivity", renewables: "Renewables", context: "People & Access" };
@@ -502,11 +555,13 @@
       var sub = cat.sublayers[subKey];
       var row = document.createElement("label");
       row.className = "sub-row";
+      var style = visualStyle(catKey, subKey);
+      var color = cssVar(style.colorVar);
       var glyphHtml = sub.geomType === "point"
-        ? shapeSvg(SHAPE_BY_SUB[subKey] || "circle", cssVar(CAT_META[catKey].colorVar), 12)
+        ? shapeSvg(style.shape, color, Math.min(style.size || 12, 16))
         : sub.geomType === "line"
-          ? '<svg width="16" height="12" viewBox="0 0 16 12"><line x1="1" y1="6" x2="15" y2="6" stroke="' + cssVar(CAT_META[catKey].colorVar) + '" stroke-width="2.4" stroke-dasharray="' + (LINEDASH_BY_SUB[subKey] || "") + '" stroke-linecap="round"/></svg>'
-          : '<svg width="14" height="12" viewBox="0 0 14 12"><rect x="1" y="1" width="12" height="10" rx="2" fill="' + cssVar(CAT_META[catKey].colorVar) + '" opacity="0.35" stroke="' + cssVar(CAT_META[catKey].colorVar) + '" stroke-width="1.3"/></svg>';
+          ? '<svg width="18" height="12" viewBox="0 0 18 12"><line x1="1" y1="6" x2="17" y2="6" stroke="' + color + '" stroke-width="' + (style.weight || 2.2) + '" stroke-dasharray="' + (style.dash || "") + '" stroke-linecap="round"/></svg>'
+          : '<svg width="16" height="12" viewBox="0 0 16 12"><rect x="1" y="1" width="14" height="10" rx="2" fill="' + color + '" opacity="' + (style.fillOpacity || 0.18) + '" stroke="' + color + '" stroke-width="' + (style.weight || 1.2) + '" stroke-dasharray="' + (style.dash || "") + '"/></svg>';
       var caveat = CAVEAT_BY_SUB[subKey];
       var caveatHtml = caveat ? ' <span class="caveat-flag" title="' + escapeAttr(caveat) + '">⚠</span>' : '';
       row.innerHTML =
@@ -590,7 +645,7 @@
         profileMetric(counts.substations, "Substations") +
         profileMetric(counts.demand_centers, "Demand centres") +
         profileMetric(counts.minigrids, "Catalogued mini-grid & off-grid sites") +
-        profileMetric(counts.fields_oil + counts.fields_gas + counts.fields_mixed, "Oil & gas fields") +
+        profileMetric(counts.fields_oil + counts.fields_gas, "Source-classified field points") +
         profileMetric(counts.ports, "Ports & terminals") +
       '</div>' +
       (capacityBits.length ? '<div class="capacity-strip">' + capacityBits.join(" · ") + '</div>' : "") +

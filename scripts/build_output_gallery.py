@@ -28,25 +28,44 @@ OUTPUT_DIR = ROOT / "outputs" / "maps" / "gallery"
 NIGERIA_LON_RANGE = (2.5, 14.8)
 NIGERIA_LAT_RANGE = (3.9, 14.0)
 
-# Light-mode category colors, copied from docs/assets/app.css so the static
-# gallery matches the interactive map's validated, colorblind-checked palette.
-CATEGORY_COLORS = {
-    "resource": "#9A640E",
-    "infrastructure": "#007C90",
-    "environmental": "#24763F",
-    "demand": "#AD3F76",
-    "connectivity": "#35548F",
-    "renewables": "#545B00",
-    "context": "#6B4C9A",
+# Light-mode sublayer colors mirror docs/assets/app.css. Every mapped class has
+# an independent visual identity rather than inheriting a category-wide color.
+COLOR_BY_SUBLAYER = {
+    "fields_oil": "#8B5A2B", "fields_gas": "#168AAD",
+    "field_polygons_gas": "#237F9A", "field_polygons_mixed": "#9C6644",
+    "gas_pipelines": "#008F83", "oil_pipelines": "#6F4518",
+    "lng_terminals": "#7B2CBF", "power_plants": "#D62828",
+    "refineries": "#E86A00", "gas_infrastructure": "#2A9D8F",
+    "protected_areas": "#40916C", "demand_centers": "#C9184A",
+    "roads": "#6C757D", "railways": "#5A189A",
+    "rail_stations": "#9D4EDD", "power_grid": "#B07D00",
+    "substations": "#8A6A00", "ports": "#1D4E89",
+    "minigrids": "#B85600", "population_access": "#6A4C93",
+    "settlements": "#D95D39",
 }
 
-# Mirrors docs/assets/app.js's SHAPE_BY_SUB, mapped to matplotlib marker codes.
+# Matplotlib approximations of the distinct web SVG glyphs.
 MARKER_BY_SUBLAYER = {
-    "fields_oil": "o", "fields_gas": "D", "fields_mixed": "h",
-    "lng_terminals": "h", "power_plants": "s", "refineries": "^",
-    "gas_infrastructure": "D", "demand_centers": "D", "rail_stations": "s",
-    "substations": "^", "ports": "*", "minigrids": "P", "settlements": "o",
+    "fields_oil": "o", "fields_gas": "^",
+    "lng_terminals": "h", "power_plants": "P", "refineries": "s",
+    "gas_infrastructure": "D", "demand_centers": "X", "rail_stations": "v",
+    "substations": "^", "ports": "*", "minigrids": "*", "settlements": "o",
     "population_access": ".",
+}
+SIZE_BY_SUBLAYER = {
+    "fields_oil": 24, "fields_gas": 28, "lng_terminals": 38,
+    "power_plants": 28, "refineries": 48, "gas_infrastructure": 22,
+    "demand_centers": 34, "rail_stations": 20, "substations": 18,
+    "ports": 42, "minigrids": 40, "population_access": 5,
+    "settlements": 7,
+}
+LINEWIDTH_BY_SUBLAYER = {
+    "gas_pipelines": 1.8, "oil_pipelines": 1.5, "roads": 1.0,
+    "railways": 1.1, "power_grid": 0.8,
+}
+LINESTYLE_BY_SUBLAYER = {
+    "oil_pipelines": (0, (8, 5)), "railways": (0, (2, 6)),
+    "power_grid": (0, (3, 4)),
 }
 DEFAULT_MARKER = "o"
 
@@ -59,7 +78,7 @@ def to_geoseries(features: list) -> gpd.GeoSeries:
     return gpd.GeoSeries([shape(f["geometry"]) for f in features], crs="EPSG:4326")
 
 
-def plot_sublayers(ax, category: dict, color: str) -> list:
+def plot_sublayers(ax, category: dict) -> list:
     legend_handles = []
     for sub_key, sub in category["sublayers"].items():
         features = sub["data"]["features"]
@@ -67,9 +86,12 @@ def plot_sublayers(ax, category: dict, color: str) -> list:
             continue
         geoms = to_geoseries(features)
         geom_type = sub["geomType"]
+        color = COLOR_BY_SUBLAYER.get(sub_key, "#334155")
         if geom_type == "point":
             marker = MARKER_BY_SUBLAYER.get(sub_key, DEFAULT_MARKER)
-            size = 5 if len(features) > 500 else (12 if len(features) > 100 else 26)
+            size = SIZE_BY_SUBLAYER.get(
+                sub_key, 5 if len(features) > 500 else (12 if len(features) > 100 else 26)
+            )
             geoms.plot(ax=ax, color=color, markersize=size, marker=marker, alpha=0.85, linewidth=0)
             legend_handles.append(
                 Line2D(
@@ -78,9 +100,17 @@ def plot_sublayers(ax, category: dict, color: str) -> list:
                 )
             )
         elif geom_type == "line":
-            geoms.plot(ax=ax, color=color, linewidth=1.1, alpha=0.8)
+            linewidth = LINEWIDTH_BY_SUBLAYER.get(sub_key, 1.1)
+            linestyle = LINESTYLE_BY_SUBLAYER.get(sub_key, "solid")
+            geoms.plot(
+                ax=ax, color=color, linewidth=linewidth, linestyle=linestyle,
+                alpha=0.82,
+            )
             legend_handles.append(
-                Line2D([0], [0], color=color, linewidth=2, label=f"{sub['label']} ({len(features)})")
+                Line2D(
+                    [0], [0], color=color, linewidth=max(2, linewidth),
+                    linestyle=linestyle, label=f"{sub['label']} ({len(features)})",
+                )
             )
         else:  # polygon
             geoms.plot(ax=ax, facecolor=color, edgecolor="none", alpha=0.3)
@@ -95,12 +125,11 @@ def plot_sublayers(ax, category: dict, color: str) -> list:
 
 
 def render_category(states: gpd.GeoDataFrame, category_key: str, category: dict, output_path: Path) -> int:
-    color = CATEGORY_COLORS.get(category_key, "#334155")
     fig, ax = plt.subplots(figsize=(9, 8.2), facecolor="#f8f7f4")
     ax.set_facecolor("#f8f7f4")
     states.plot(ax=ax, facecolor="#efeee9", edgecolor="#b9b6ac", linewidth=0.5)
 
-    handles = plot_sublayers(ax, category, color)
+    handles = plot_sublayers(ax, category)
     total = sum(len(sub["data"]["features"]) for sub in category["sublayers"].values())
 
     ax.set_title(f"{category['label']} — {total:,} mapped records", fontsize=15, weight="bold", color="#1c1a16", pad=12)

@@ -1,9 +1,9 @@
 {
   "api_version": "v1",
   "atlas_release": {
-    "version": "0.4.2",
+    "version": "0.5.0",
     "date": "2026-07-24",
-    "title": "Mini-grid and Off-grid Layer Clarification"
+    "title": "Gas Field Taxonomy and Map Symbology Audit"
   },
   "base_url": "https://diamonds10.github.io/Nigeria-gas-atlas/api/v1/",
   "formats": [
@@ -25,24 +25,17 @@
   "layers": [
     {
       "key": "fields_oil",
-      "label": "Oil Fields",
+      "label": "Oil-only Fields · Source Classified",
       "category": "resource",
       "record_count": 33,
       "endpoint": "layers/fields_oil.geojson"
     },
     {
       "key": "fields_gas",
-      "label": "Gas Fields",
+      "label": "Gas-producing Fields · Source Classified",
       "category": "resource",
-      "record_count": 2,
+      "record_count": 147,
       "endpoint": "layers/fields_gas.geojson"
-    },
-    {
-      "key": "fields_mixed",
-      "label": "Oil & Gas Fields (mixed)",
-      "category": "resource",
-      "record_count": 145,
-      "endpoint": "layers/fields_mixed.geojson"
     },
     {
       "key": "field_polygons_gas",

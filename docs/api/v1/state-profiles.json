@@ -1,8 +1,8 @@
 {
   "atlas_release": {
-    "version": "0.4.2",
+    "version": "0.5.0",
     "date": "2026-07-24",
-    "title": "Mini-grid and Off-grid Layer Clarification"
+    "title": "Gas Field Taxonomy and Map Symbology Audit"
   },
   "method": "Public-map records whose display geometry intersects each ADM1 boundary.",
   "profiles": {
@@ -11,8 +11,7 @@
       "mapped_records": 12525,
       "counts": {
         "fields_oil": 33,
-        "fields_gas": 2,
-        "fields_mixed": 145,
+        "fields_gas": 147,
         "field_polygons_gas": 62,
         "field_polygons_mixed": 62,
         "gas_pipelines": 24,
@@ -80,7 +79,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 1,
@@ -152,7 +150,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 2,
@@ -224,7 +221,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 4,
@@ -295,8 +291,7 @@
       "mapped_records": 540,
       "counts": {
         "fields_oil": 0,
-        "fields_gas": 0,
-        "fields_mixed": 1,
+        "fields_gas": 1,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 2,
@@ -368,7 +363,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 0,
@@ -440,7 +434,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 1,
@@ -512,7 +505,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 4,
@@ -584,7 +576,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 4,
@@ -655,8 +646,7 @@
       "mapped_records": 131,
       "counts": {
         "fields_oil": 1,
-        "fields_gas": 1,
-        "fields_mixed": 13,
+        "fields_gas": 14,
         "field_polygons_gas": 14,
         "field_polygons_mixed": 6,
         "gas_pipelines": 1,
@@ -727,8 +717,7 @@
       "mapped_records": 196,
       "counts": {
         "fields_oil": 0,
-        "fields_gas": 0,
-        "fields_mixed": 2,
+        "fields_gas": 2,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 3,
@@ -799,8 +788,7 @@
       "mapped_records": 440,
       "counts": {
         "fields_oil": 11,
-        "fields_gas": 0,
-        "fields_mixed": 23,
+        "fields_gas": 23,
         "field_polygons_gas": 2,
         "field_polygons_mixed": 22,
         "gas_pipelines": 5,
@@ -871,8 +859,7 @@
       "mapped_records": 349,
       "counts": {
         "fields_oil": 3,
-        "fields_gas": 0,
-        "fields_mixed": 17,
+        "fields_gas": 17,
         "field_polygons_gas": 2,
         "field_polygons_mixed": 20,
         "gas_pipelines": 9,
@@ -944,7 +931,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 1,
@@ -1016,7 +1002,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 5,
@@ -1088,7 +1073,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 1,
@@ -1160,7 +1144,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 0,
@@ -1232,7 +1215,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 0,
@@ -1304,7 +1286,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 0,
@@ -1375,8 +1356,7 @@
       "mapped_records": 433,
       "counts": {
         "fields_oil": 0,
-        "fields_gas": 0,
-        "fields_mixed": 5,
+        "fields_gas": 5,
         "field_polygons_gas": 2,
         "field_polygons_mixed": 2,
         "gas_pipelines": 6,
@@ -1448,7 +1428,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 0,
@@ -1520,7 +1499,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 0,
@@ -1592,7 +1570,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 1,
@@ -1663,8 +1640,7 @@
       "mapped_records": 282,
       "counts": {
         "fields_oil": 4,
-        "fields_gas": 0,
-        "fields_mixed": 31,
+        "fields_gas": 31,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 2,
@@ -1736,7 +1712,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 0,
@@ -1807,8 +1782,7 @@
       "mapped_records": 131,
       "counts": {
         "fields_oil": 0,
-        "fields_gas": 0,
-        "fields_mixed": 3,
+        "fields_gas": 3,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 1,
@@ -1880,7 +1854,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 0,
@@ -1952,7 +1925,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 0,
@@ -2024,7 +1996,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 0,
@@ -2095,8 +2066,7 @@
       "mapped_records": 177,
       "counts": {
         "fields_oil": 0,
-        "fields_gas": 0,
-        "fields_mixed": 1,
+        "fields_gas": 1,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 2,
         "gas_pipelines": 2,
@@ -2168,7 +2138,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 0,
@@ -2239,8 +2208,7 @@
       "mapped_records": 179,
       "counts": {
         "fields_oil": 0,
-        "fields_gas": 0,
-        "fields_mixed": 1,
+        "fields_gas": 1,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 2,
@@ -2312,7 +2280,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 0,
@@ -2384,7 +2351,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 2,
@@ -2456,7 +2422,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 2,
@@ -2528,7 +2493,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 1,
@@ -2600,7 +2564,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 0,
@@ -2672,7 +2635,6 @@
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
-        "fields_mixed": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 1,

@@ -5,6 +5,7 @@ from __future__ import annotations
 import importlib.util
 import json
 from pathlib import Path
+import re
 import tempfile
 import unittest
 
@@ -14,6 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 BUNDLE_PATH = ROOT / "docs" / "assets" / "atlas_data.json"
 BUILDER_PATH = ROOT / "scripts" / "build_public_atlas_data.py"
 API_DIR = ROOT / "docs" / "api" / "v1"
+APP_PATH = ROOT / "docs" / "assets" / "app.js"
+CSS_PATH = ROOT / "docs" / "assets" / "app.css"
 
 
 def load_builder():
@@ -48,8 +51,7 @@ class PublicAtlasTests(unittest.TestCase):
             counts,
             {
                 "fields_oil": 33,
-                "fields_gas": 2,
-                "fields_mixed": 145,
+                "fields_gas": 147,
                 "field_polygons_gas": 62,
                 "field_polygons_mixed": 62,
                 "gas_pipelines": 24,
@@ -135,6 +137,85 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertFalse(context["worldpop_population_2025"].isna().any())
         self.assertFalse(context["settlement_count"].isna().any())
         self.assertTrue(context["nightlight_population_share_pct"].between(0, 100).all())
+
+    def test_field_taxonomy_is_non_overlapping_and_gas_inclusive(self):
+        bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
+        resource = bundle["layers"]["resource"]["sublayers"]
+        self.assertNotIn("fields_mixed", resource)
+        oil = resource["fields_oil"]["data"]["features"]
+        gas = resource["fields_gas"]["data"]["features"]
+        self.assertEqual(len(oil), 33)
+        self.assertEqual(len(gas), 147)
+        self.assertEqual(len(oil) + len(gas), 180)
+        self.assertEqual(
+            {item["properties"]["fuel_type"] for item in oil},
+            {"oil"},
+        )
+        self.assertEqual(
+            {item["properties"]["fuel_type"] for item in gas},
+            {"gas", "oil and gas"},
+        )
+
+    def test_map_symbology_covers_every_public_sublayer(self):
+        bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
+        sublayer_keys = {
+            key
+            for category in bundle["layers"].values()
+            for key in category["sublayers"]
+        }
+        app_source = APP_PATH.read_text(encoding="utf-8")
+        style_keys = set(
+            re.findall(
+                r"^\s{4}([a-z_]+):\s*\{\s*colorVar:\s*\"--layer-",
+                app_source,
+                flags=re.MULTILINE,
+            )
+        )
+        self.assertEqual(style_keys, sublayer_keys)
+
+        css_source = CSS_PATH.read_text(encoding="utf-8")
+        color_declarations = re.findall(
+            r"^\s*--(layer-[a-z-]+):\s*(#[0-9A-Fa-f]{6});",
+            css_source,
+            flags=re.MULTILINE,
+        )
+        layer_colors = dict(color_declarations)
+        self.assertEqual(len(layer_colors), len(sublayer_keys))
+        self.assertEqual(
+            len(set(layer_colors.values())),
+            len(layer_colors),
+            "Every public sublayer should have a distinct color",
+        )
+
+        def relative_luminance(hex_color):
+            channels = [
+                int(hex_color[index:index + 2], 16) / 255
+                for index in (1, 3, 5)
+            ]
+            linear = [
+                value / 12.92
+                if value <= 0.04045
+                else ((value + 0.055) / 1.055) ** 2.4
+                for value in channels
+            ]
+            return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2]
+
+        def contrast(first, second):
+            lighter, darker = sorted(
+                (relative_luminance(first), relative_luminance(second)),
+                reverse=True,
+            )
+            return (lighter + 0.05) / (darker + 0.05)
+
+        palette_size = len(sublayer_keys)
+        light_palette = dict(color_declarations[:palette_size])
+        dark_palette = dict(color_declarations[palette_size:palette_size * 2])
+        self.assertTrue(
+            all(contrast(color, "#F6F7F2") >= 3 for color in light_palette.values())
+        )
+        self.assertTrue(
+            all(contrast(color, "#16281F") >= 3 for color in dark_palette.values())
+        )
 
     def test_benchmark_matches_processed_assets(self):
         benchmark = json.loads(
@@ -246,8 +327,8 @@ class PublicAtlasTests(unittest.TestCase):
 
         manifest = json.loads((API_DIR / "manifest.json").read_text())
         self.assertEqual(manifest["api_version"], "v1")
-        self.assertEqual(manifest["atlas_release"]["version"], "0.4.2")
-        self.assertEqual(len(manifest["layers"]), 22)
+        self.assertEqual(manifest["atlas_release"]["version"], "0.5.0")
+        self.assertEqual(len(manifest["layers"]), 21)
         for layer in manifest["layers"]:
             endpoint = API_DIR / layer["endpoint"]
             payload = json.loads(endpoint.read_text())

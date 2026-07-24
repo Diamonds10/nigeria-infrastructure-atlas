@@ -22,6 +22,29 @@
     --cat-renewables: #545B00;
     --cat-context: #6B4C9A;
 
+    /* Sublayer symbology: one deliberate colour per mapped asset class. */
+    --layer-fields-oil: #8B5A2B;
+    --layer-fields-gas: #168AAD;
+    --layer-field-polygons-gas: #237F9A;
+    --layer-field-polygons-mixed: #9C6644;
+    --layer-gas-pipelines: #008F83;
+    --layer-oil-pipelines: #6F4518;
+    --layer-lng-terminals: #7B2CBF;
+    --layer-power-plants: #D62828;
+    --layer-refineries: #E86A00;
+    --layer-gas-infrastructure: #2A9D8F;
+    --layer-protected-areas: #40916C;
+    --layer-demand-centers: #C9184A;
+    --layer-roads: #6C757D;
+    --layer-railways: #5A189A;
+    --layer-rail-stations: #9D4EDD;
+    --layer-power-grid: #B07D00;
+    --layer-substations: #8A6A00;
+    --layer-ports: #1D4E89;
+    --layer-minigrids: #B85600;
+    --layer-population-access: #6A4C93;
+    --layer-settlements: #D95D39;
+
     --status-good: #0ca30c;
     --status-warning: #b8790a;
     --status-serious: #c1592f;
@@ -56,6 +79,28 @@
       --cat-renewables: #84862D;
       --cat-context: #B89AE8;
 
+      --layer-fields-oil: #C98A4B;
+      --layer-fields-gas: #48CAE4;
+      --layer-field-polygons-gas: #90E0EF;
+      --layer-field-polygons-mixed: #D4A373;
+      --layer-gas-pipelines: #2EC4B6;
+      --layer-oil-pipelines: #C68642;
+      --layer-lng-terminals: #C77DFF;
+      --layer-power-plants: #FF6B6B;
+      --layer-refineries: #FF9F1C;
+      --layer-gas-infrastructure: #52B788;
+      --layer-protected-areas: #74C69D;
+      --layer-demand-centers: #FF7096;
+      --layer-roads: #ADB5BD;
+      --layer-railways: #B197FC;
+      --layer-rail-stations: #D0A2F7;
+      --layer-power-grid: #F4D35E;
+      --layer-substations: #FFE066;
+      --layer-ports: #74C0FC;
+      --layer-minigrids: #FFB703;
+      --layer-population-access: #B8A1E3;
+      --layer-settlements: #FF8A65;
+
       --status-good: #4fd15a;
       --status-warning: #e0a83a;
       --status-serious: #e08258;
@@ -86,6 +131,27 @@
     --cat-connectivity: #7C9BD9;
     --cat-renewables: #84862D;
     --cat-context: #B89AE8;
+    --layer-fields-oil: #C98A4B;
+    --layer-fields-gas: #48CAE4;
+    --layer-field-polygons-gas: #90E0EF;
+    --layer-field-polygons-mixed: #D4A373;
+    --layer-gas-pipelines: #2EC4B6;
+    --layer-oil-pipelines: #C68642;
+    --layer-lng-terminals: #C77DFF;
+    --layer-power-plants: #FF6B6B;
+    --layer-refineries: #FF9F1C;
+    --layer-gas-infrastructure: #52B788;
+    --layer-protected-areas: #74C69D;
+    --layer-demand-centers: #FF7096;
+    --layer-roads: #ADB5BD;
+    --layer-railways: #B197FC;
+    --layer-rail-stations: #D0A2F7;
+    --layer-power-grid: #F4D35E;
+    --layer-substations: #FFE066;
+    --layer-ports: #74C0FC;
+    --layer-minigrids: #FFB703;
+    --layer-population-access: #B8A1E3;
+    --layer-settlements: #FF8A65;
     --status-good: #4fd15a;
     --status-warning: #e0a83a;
     --status-serious: #e08258;

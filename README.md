@@ -36,7 +36,7 @@ The current public atlas is organized into seven published analytical layers:
 6. Renewables
 7. People & Access
 
-A security layer is planned, but it is not part of the `v0.4` processed
+A security layer is planned, but it is not part of the `v0.5` processed
 dataset or public map. This boundary is intentional: the source register records
 candidate security sources without presenting them as implemented evidence.
 
@@ -44,10 +44,10 @@ The public value of the atlas is not any single output file. It is the combinati
 
 ## Current public-facing value
 
-A live `v0.4` state-intelligence experience is available at
+A live `v0.5` state-intelligence experience is available at
 [diamonds10.github.io/Nigeria-gas-atlas](https://diamonds10.github.io/Nigeria-gas-atlas/).
 It provides profiles for all 36 states and the FCT, state-specific shareable
-links and GeoJSON downloads, and a searchable catalogue covering all 22
+links and GeoJSON downloads, and a searchable catalogue covering all 21
 published map datasets. Normalized status and evidence-year filters apply
 consistently to the map, search results, visible counts, shared URLs, and
 downloads.
@@ -68,6 +68,8 @@ The snapshot image itself is explicitly framed as a public screening snapshot, n
 
 Public evidence-quality signal from the current benchmark:
 
+- 147 source-classified gas-producing field points and 33 source-classified
+  oil-only field points, with independent gas and mixed-field boundary layers
 - 80 catalogued mini-grid and off-grid sites across 30 states and the FCT
 - 52 operational, 13 under construction, 13 commissioned, 1 under
   rehabilitation, and 1 unknown
@@ -125,7 +127,10 @@ and `THIRD_PARTY_DATA.md` for each dataset’s license, access terms, attributio
 and limitations. The repository's CC0 dedication does not override third-party
 data rights.
 
-The current map palette has been chosen for clear UI visibility: distinct red, blue, green, and orange asset markers with soft state boundary contrast. It is suitable for public-facing screen and print use, while the `outputs/maps/README.md` notes how the snapshot should be interpreted.
+The map now assigns every public sublayer its own colour and gives every point
+asset class a deliberate icon and size. Line layers also have differentiated
+weights and dash patterns, while polygon layers use separate outlines and fill
+strengths. Status remains readable through solid versus hollow point symbols.
 
 The repository already contains a meaningful evidence base for screening and research, including:
 

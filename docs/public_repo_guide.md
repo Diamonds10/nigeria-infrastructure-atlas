@@ -10,7 +10,7 @@ This repository is designed to help four audiences use the same evidence base in
 
 ## What the atlas contains
 
-The `v0.4` public atlas organizes Nigeria's infrastructure system into seven
+The `v0.5` public atlas organizes Nigeria's infrastructure system into seven
 implemented layers:
 
 1. Resource
@@ -81,7 +81,7 @@ power, refinery, and mini-grid capacities, plus WorldPop 2025 population and
 World Bank settlement/night-light context. Clicking a state creates a shareable
 URL, zooms to its boundary, and enables a state-specific GeoJSON download.
 
-The website's data catalogue documents all 22 public sublayers with their
+The website's data catalogue documents all 21 public sublayers with their
 sources, access dates, reuse terms, quality grades, limitations, record counts,
 and direct processed-CSV links.
 

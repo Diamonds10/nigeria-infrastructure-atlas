@@ -4,7 +4,7 @@ Nigeria Infrastructure Atlas is a multi-layer geospatial repository that brings
 together public evidence on Nigeria's resource base, supporting infrastructure,
 environmental footprint, industrial demand centers, connectivity, and
 renewables, with population, settlement, and electricity-access screening
-context. Security is documented as a planned layer, not an implemented `v0.4`
+context. Security is documented as a planned layer, not an implemented `v0.5`
 dataset.
 
 ## What the project shows

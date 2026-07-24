@@ -30,30 +30,21 @@ REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas
 
 CATALOGUE = {
     "fields_oil": {
-        "description": "Site-level Nigerian oil fields (fuel_type = oil only) with status, operator, and ownership context.",
+        "description": "Site-level Nigerian fields classified oil-only by the GOGET source, with status, operator, and ownership context.",
         "source": "Global Energy Monitor / GreenInfo Network GOGET mirror",
         "source_date": "2026-07-21",
         "license": "CC BY 4.0 inferred; verify before redistribution",
         "quality": "B",
-        "quality_note": "Verified source points; field snapshot dates from August 2023. 33 of 180 GOGET fields are classified oil-only. CAVEAT: fuel_type is unreliable at the field level -- verified against the raw source, major gas sites (Soku, Bonny, Gbaran) are labeled oil here. Treat this split as indicative, not authoritative.",
+        "quality_note": "33 of 180 GOGET field points are source-classified oil-only. GOGET's fuel_type is not an authoritative reservoir classification: known gas-producing sites including Soku, Bonny, and Gbaran are labelled oil. Use this layer as source-classified screening evidence.",
         "path": "data/processed/01_resource/goget_fields_nigeria_2023-08.csv",
     },
     "fields_gas": {
-        "description": "Site-level Nigerian gas fields (fuel_type = gas only) with status, operator, and ownership context.",
+        "description": "Site-level Nigerian gas-producing fields classified gas-only or oil-and-gas by GOGET, with status, operator, and ownership context.",
         "source": "Global Energy Monitor / GreenInfo Network GOGET mirror",
         "source_date": "2026-07-21",
         "license": "CC BY 4.0 inferred; verify before redistribution",
         "quality": "B",
-        "quality_note": "Verified source points; field snapshot dates from August 2023. Only 2 of 180 GOGET fields are classified gas-only. CAVEAT: this undercounts true gas-producing fields -- most Nigerian gas comes from fields this source labels oil or oil and gas, including major gas sites like Soku, Bonny, and Gbaran (see Oil Fields and Oil & Gas Fields above). Treat this split as indicative, not authoritative.",
-        "path": "data/processed/01_resource/goget_fields_nigeria_2023-08.csv",
-    },
-    "fields_mixed": {
-        "description": "Site-level Nigerian fields producing both oil and gas (fuel_type = oil and gas) with status, operator, and ownership context.",
-        "source": "Global Energy Monitor / GreenInfo Network GOGET mirror",
-        "source_date": "2026-07-21",
-        "license": "CC BY 4.0 inferred; verify before redistribution",
-        "quality": "B",
-        "quality_note": "Verified source points; field snapshot dates from August 2023. 145 of 180 GOGET fields (81%) are classified oil and gas -- the majority case for Nigerian fields. CAVEAT: fuel_type is unreliable at the field level -- major gas sites (Soku, Bonny, Gbaran) are labeled oil, not oil and gas, and so are NOT included here. Treat this split as indicative, not authoritative.",
+        "quality_note": "147 of 180 GOGET field points are source-classified gas-only (2) or oil-and-gas (145). This non-overlapping display group replaces the misleading gas-only count. GOGET's fuel_type still omits some known gas-producing sites that it labels oil; use the SE4ALL field boundaries and source caveat alongside this layer.",
         "path": "data/processed/01_resource/goget_fields_nigeria_2023-08.csv",
     },
     "field_polygons_gas": {
@@ -383,7 +374,6 @@ def feature_year(sublayer_key: str, props: dict[str, Any]) -> tuple[int | None, 
     candidates = {
         "fields_oil": ("discovery_year", "Discovery year"),
         "fields_gas": ("discovery_year", "Discovery year"),
-        "fields_mixed": ("discovery_year", "Discovery year"),
         "gas_pipelines": ("start_year", "Start year"),
         "oil_pipelines": ("start_year", "Start year"),
         "lng_terminals": ("start_year", "Start year"),
@@ -637,9 +627,9 @@ def add_catalogue_and_state_profiles(
     }
 
     bundle["release"] = {
-        "version": "0.4.2",
+        "version": "0.5.0",
         "date": "2026-07-24",
-        "title": "Mini-grid and Off-grid Layer Clarification",
+        "title": "Gas Field Taxonomy and Map Symbology Audit",
     }
     bundle["catalogue"] = catalogue
     bundle["state_profiles"] = profiles
@@ -806,12 +796,7 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
     fields_gas = point_features(
         PROCESSED / "01_resource/goget_fields_nigeria_2023-08.csv",
         "lng", "lat", GOGET_FIELDS_COLUMNS, "project",
-        where=("fuel_type", {"gas"}),
-    )
-    fields_mixed = point_features(
-        PROCESSED / "01_resource/goget_fields_nigeria_2023-08.csv",
-        "lng", "lat", GOGET_FIELDS_COLUMNS, "project",
-        where=("fuel_type", {"oil and gas"}),
+        where=("fuel_type", {"gas", "oil and gas"}),
     )
 
     SE4ALL_FIELD_POLYGON_COLUMNS = ["name", "field_type", "in_goget_fields"]
@@ -984,9 +969,8 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
             "resource": {
                 "label": "Resource",
                 "sublayers": {
-                    "fields_oil": sublayer("Oil Fields", "point", fields_oil),
-                    "fields_gas": sublayer("Gas Fields", "point", fields_gas),
-                    "fields_mixed": sublayer("Oil & Gas Fields (mixed)", "point", fields_mixed),
+                    "fields_oil": sublayer("Oil-only Fields · Source Classified", "point", fields_oil),
+                    "fields_gas": sublayer("Gas-producing Fields · Source Classified", "point", fields_gas),
                     "field_polygons_gas": sublayer("Gas Field Boundaries", "polygon", field_polygons_gas),
                     "field_polygons_mixed": sublayer("Oil & Gas Field Boundaries (mixed)", "polygon", field_polygons_mixed),
                 },
