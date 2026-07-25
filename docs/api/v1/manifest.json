@@ -82,6 +82,13 @@
       "endpoint": "layers/power_plants.geojson"
     },
     {
+      "key": "hydro_plants",
+      "label": "Hydroelectric Power Plants",
+      "category": "infrastructure",
+      "record_count": 7,
+      "endpoint": "layers/hydro_plants.geojson"
+    },
+    {
       "key": "refineries",
       "label": "Refineries",
       "category": "infrastructure",

@@ -174,6 +174,27 @@
       }
     },
     {
+      "description": "Nigerian hydroelectric power stations, operating and planned, with capacity and status.",
+      "source": "Global Energy Monitor / GreenInfo Network Global Hydropower Tracker mirror",
+      "source_date": "2026-07-26",
+      "license": "CC BY 4.0 inferred; verify before redistribution",
+      "quality": "B",
+      "quality_note": "7 Nigerian hydro plants, all at GEM-reported 'exact' coordinate accuracy: 4 operating (Kainji, Jebba, Shiroro, Zungeru; ~2,638 MW combined), 1 pre-construction (Gurara II), 2 shelved (Makurdi, and the long-delayed Mambilla mega-project). This closes a real gap -- the power_plants layer above (GOGPT) covers only oil- and gas-fired generation by design and never included hydro.",
+      "path": "data/processed/02_infrastructure/ght_hydropower_nigeria.csv",
+      "key": "hydro_plants",
+      "label": "Hydroelectric Power Plants",
+      "category": "infrastructure",
+      "category_label": "Infrastructure",
+      "record_count": 7,
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/ght_hydropower_nigeria.csv",
+      "refresh": {
+        "cadence": "annual_or_source_release",
+        "last_checked": "2026-07-26",
+        "next_review_due": "2027-07-27",
+        "review_status": "current"
+      }
+    },
+    {
       "description": "Major Nigerian refinery sites with nameplate capacity and public status context.",
       "source": "Atlas compilation from public reporting",
       "source_date": "2026-07-21",

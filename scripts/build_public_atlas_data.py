@@ -145,6 +145,15 @@ CATALOGUE = {
         "quality_note": "Unit-level records; counts are not unique power-station counts.",
         "path": "data/processed/02_infrastructure/gogpt_oil_gas_plants_nigeria.csv",
     },
+    "hydro_plants": {
+        "description": "Nigerian hydroelectric power stations, operating and planned, with capacity and status.",
+        "source": "Global Energy Monitor / GreenInfo Network Global Hydropower Tracker mirror",
+        "source_date": "2026-07-26",
+        "license": "CC BY 4.0 inferred; verify before redistribution",
+        "quality": "B",
+        "quality_note": "7 Nigerian hydro plants, all at GEM-reported 'exact' coordinate accuracy: 4 operating (Kainji, Jebba, Shiroro, Zungeru; ~2,638 MW combined), 1 pre-construction (Gurara II), 2 shelved (Makurdi, and the long-delayed Mambilla mega-project). This closes a real gap -- the power_plants layer above (GOGPT) covers only oil- and gas-fired generation by design and never included hydro.",
+        "path": "data/processed/02_infrastructure/ght_hydropower_nigeria.csv",
+    },
     "refineries": {
         "description": "Major Nigerian refinery sites with nameplate capacity and public status context.",
         "source": "Atlas compilation from public reporting",
@@ -480,6 +489,7 @@ def feature_year(sublayer_key: str, props: dict[str, Any]) -> tuple[int | None, 
         "oil_pipelines": ("start_year", "Start year"),
         "lng_terminals": ("start_year", "Start year"),
         "power_plants": ("start_year", "Start year"),
+        "hydro_plants": ("start_year", "Start year"),
         "refineries": ("commissioned_year", "Commissioned year"),
         "oil_spills": ("incident_year", "Reported incident year"),
         "protected_areas": ("STATUS_YR", "Designation/status year"),
@@ -590,7 +600,7 @@ def update_profile(
                 spill["yearly_counts"].get(year, 0) + 1
             )
 
-    if sublayer_key == "power_plants":
+    if sublayer_key in ("power_plants", "hydro_plants"):
         profile["capacity"]["power_mw"] += float(props.get("capacity") or 0)
     elif sublayer_key == "refineries":
         profile["capacity"]["refinery_bpd"] += float(props.get("capacity_bpd") or 0)
@@ -1232,6 +1242,12 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
         ],
         "project",
     )
+    hydro_plants = point_features(
+        PROCESSED / "02_infrastructure/ght_hydropower_nigeria.csv",
+        "lng", "lat",
+        ["project", "capacity", "units", "type", "status", "start_year", "owner", "operator", "url"],
+        "project",
+    )
     refineries = point_features(
         PROCESSED / "02_infrastructure/refineries_nigeria.csv",
         "lng", "lat",
@@ -1422,6 +1438,7 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
                     "oil_pipelines": sublayer("Oil & NGL Pipelines", "line", oil_pipelines),
                     "lng_terminals": sublayer("LNG Terminals", "point", lng_terminals),
                     "power_plants": sublayer("Gas & Oil Power Plants", "point", power_plants),
+                    "hydro_plants": sublayer("Hydroelectric Power Plants", "point", hydro_plants),
                     "refineries": sublayer("Refineries", "point", refineries),
                     "gas_infrastructure": sublayer("Gas & Oil Point Infrastructure", "point", gas_infrastructure),
                 },

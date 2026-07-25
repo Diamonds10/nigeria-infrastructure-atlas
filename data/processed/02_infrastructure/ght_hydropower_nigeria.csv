@@ -1,0 +1,8 @@
+project,capacity,units,type,status,start_year,owner,operator,lat,lng,accuracy,url,countries,region,subregion
+Gurara II hydroelectric plant,390,MW,unknown,pre-construction,,,,9.6463,7.7332,exact,https://gem.wiki/Gurara_II_hydroelectric_plant,Nigeria,Africa,Sub-Saharan Africa
+Jebba hydroelectric plant,578,MW,conventional storage,operating,1985.0,,Mainstream Energy Solutions LTD,9.1409,4.7896,exact,https://gem.wiki/Jebba_hydroelectric_plant,Nigeria,Africa,Sub-Saharan Africa
+Kainji hydroelectric plant,760,MW,conventional storage,operating,1968.0,,Mainstream Energy Solutions LTD,9.8637,4.6121,exact,https://gem.wiki/Kainji_hydroelectric_plant,Nigeria,Africa,Sub-Saharan Africa
+Makurdi hydroelectric plant,1000,MW,unknown,shelved,,,,7.7403,8.5732,exact,https://gem.wiki/Makurdi_hydroelectric_plant,Nigeria,Africa,Sub-Saharan Africa
+Mambilla hydroelectric plant,3050,MW,conventional storage,shelved,,,,7.3279,11.7199,exact,https://gem.wiki/Mambilla_hydroelectric_plant,Nigeria,Africa,Sub-Saharan Africa
+Shiroro hydroelectric plant,600,MW,conventional storage,operating,1990.0,,,9.9751,6.8344,exact,https://gem.wiki/Shiroro_hydroelectric_plant,Nigeria,Africa,Sub-Saharan Africa
+Zungeru hydroelectric plant,700,MW,conventional storage,operating,2022.0,,,9.9006,6.295,exact,https://gem.wiki/Zungeru_hydroelectric_plant,Nigeria,Africa,Sub-Saharan Africa

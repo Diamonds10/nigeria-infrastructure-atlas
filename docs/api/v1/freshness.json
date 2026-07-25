@@ -6,8 +6,8 @@
   },
   "interpretation": "Review dates are maintenance targets, not guarantees that an upstream publisher has issued new data.",
   "summary": {
-    "dataset_count": 26,
-    "current": 26,
+    "dataset_count": 27,
+    "current": 27,
     "due": 0
   },
   "datasets": [
@@ -81,6 +81,15 @@
       "cadence": "annual_or_source_release",
       "last_checked": "2026-07-21",
       "next_review_due": "2027-07-22",
+      "review_status": "current"
+    },
+    {
+      "key": "hydro_plants",
+      "label": "Hydroelectric Power Plants",
+      "source": "Global Energy Monitor / GreenInfo Network Global Hydropower Tracker mirror",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-26",
+      "next_review_due": "2027-07-27",
       "review_status": "current"
     },
     {

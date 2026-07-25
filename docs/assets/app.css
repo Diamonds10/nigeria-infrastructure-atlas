@@ -32,6 +32,7 @@
     --layer-oil-pipelines: #6F4518;
     --layer-lng-terminals: #7B2CBF;
     --layer-power-plants: #D62828;
+    --layer-hydro-plants: #023E8A;
     --layer-refineries: #E86A00;
     --layer-gas-infrastructure: #2A9D8F;
     --layer-oil-spills: #BB3E03;
@@ -94,6 +95,7 @@
       --layer-oil-pipelines: #C68642;
       --layer-lng-terminals: #C77DFF;
       --layer-power-plants: #FF6B6B;
+      --layer-hydro-plants: #4EA8DE;
       --layer-refineries: #FF9F1C;
       --layer-gas-infrastructure: #52B788;
       --layer-oil-spills: #FF8552;
@@ -152,6 +154,7 @@
     --layer-oil-pipelines: #C68642;
     --layer-lng-terminals: #C77DFF;
     --layer-power-plants: #FF6B6B;
+    --layer-hydro-plants: #4EA8DE;
     --layer-refineries: #FF9F1C;
     --layer-gas-infrastructure: #52B788;
     --layer-oil-spills: #FF8552;

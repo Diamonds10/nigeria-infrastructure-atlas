@@ -16,6 +16,18 @@ PROCESSED_DIR = Path(__file__).resolve().parents[2] / "data" / "processed" / "02
 RAW_FILENAME = "gogpt_oil_gas_plants_all_countries.csv"
 OUTPUT_FILENAME = "gogpt_oil_gas_plants_nigeria.csv"
 
+# Manual coordinate corrections for known errors in GEM's own source data,
+# verified against GEM's own listed location text (not guessed). GEM's
+# Hudson_power_station wiki page lists location "Ifako-Ijaiye, Lagos,
+# Nigeria" directly beside coordinates (11.887084, 8.732243) that actually
+# sit near Kano/Katsina, ~700km from Lagos -- a clear internal inconsistency
+# in the source, not an error introduced by this repo's extraction. Corrected
+# coordinate is OSM Nominatim's match for "Ifako Ijaiye" (LGA-level, not an
+# exact plant-site geocode).
+COORDINATE_CORRECTIONS = {
+    "Hudson power station": {"lat": 6.6636025, "lng": 3.2894910},
+}
+
 
 def get_input_path(input_dir: Path) -> Path:
     path = input_dir / RAW_FILENAME
@@ -49,6 +61,13 @@ def main() -> int:
     df["country"] = df["country"].astype(str).str.strip()
     normalized = args.country.strip().lower()
     filtered = df[df["country"].str.lower() == normalized].reset_index(drop=True)
+
+    for project, coords in COORDINATE_CORRECTIONS.items():
+        mask = filtered["project"] == project
+        if mask.any():
+            filtered.loc[mask, "lat"] = coords["lat"]
+            filtered.loc[mask, "lng"] = coords["lng"]
+            print(f"Applied coordinate correction: {project} -> ({coords['lat']}, {coords['lng']})")
 
     output_path = processed_dir / OUTPUT_FILENAME
     output_path.parent.mkdir(parents=True, exist_ok=True)

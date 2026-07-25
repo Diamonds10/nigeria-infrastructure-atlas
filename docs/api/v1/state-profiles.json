@@ -8,7 +8,7 @@
   "profiles": {
     "Nigeria": {
       "name": "Nigeria",
-      "mapped_records": 29091,
+      "mapped_records": 29098,
       "counts": {
         "fields_oil": 33,
         "fields_gas": 147,
@@ -18,6 +18,7 @@
         "oil_pipelines": 15,
         "lng_terminals": 24,
         "power_plants": 193,
+        "hydro_plants": 7,
         "refineries": 4,
         "gas_infrastructure": 98,
         "oil_spills": 16326,
@@ -39,7 +40,7 @@
       },
       "category_counts": {
         "resource": 304,
-        "infrastructure": 358,
+        "infrastructure": 365,
         "environmental": 17331,
         "security": 227,
         "demand": 28,
@@ -48,7 +49,7 @@
         "context": 2758
       },
       "capacity": {
-        "power_mw": 36108.0,
+        "power_mw": 43186.0,
         "refinery_bpd": 1095000.0,
         "minigrid_kw": 33680.4
       },
@@ -122,10 +123,10 @@
         }
       },
       "status": {
-        "operating": 401,
-        "development": 47,
+        "operating": 405,
+        "development": 48,
         "proposed": 120,
-        "inactive": 43,
+        "inactive": 45,
         "other": 17342,
         "unknown": 11138
       },
@@ -179,6 +180,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 4,
         "power_plants": 11,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 1,
         "oil_spills": 3,
@@ -307,6 +309,7 @@
         "oil_pipelines": 1,
         "lng_terminals": 0,
         "power_plants": 3,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 89,
@@ -441,6 +444,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 4,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 1,
         "oil_spills": 18,
@@ -582,6 +586,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 0,
@@ -705,6 +710,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 0,
@@ -824,6 +830,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 15,
@@ -949,7 +956,7 @@
     },
     "Lagos": {
       "name": "Lagos",
-      "mapped_records": 884,
+      "mapped_records": 885,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -958,7 +965,8 @@
         "gas_pipelines": 4,
         "oil_pipelines": 0,
         "lng_terminals": 1,
-        "power_plants": 28,
+        "power_plants": 29,
+        "hydro_plants": 0,
         "refineries": 1,
         "gas_infrastructure": 2,
         "oil_spills": 47,
@@ -980,7 +988,7 @@
       },
       "category_counts": {
         "resource": 0,
-        "infrastructure": 36,
+        "infrastructure": 37,
         "environmental": 49,
         "security": 0,
         "demand": 2,
@@ -989,7 +997,7 @@
         "context": 43
       },
       "capacity": {
-        "power_mw": 7410.0,
+        "power_mw": 7560.0,
         "refinery_bpd": 650000.0,
         "minigrid_kw": 505.0
       },
@@ -1052,7 +1060,7 @@
       "status": {
         "operating": 14,
         "development": 1,
-        "proposed": 21,
+        "proposed": 22,
         "inactive": 2,
         "other": 49,
         "unknown": 797
@@ -1106,6 +1114,7 @@
         "oil_pipelines": 3,
         "lng_terminals": 0,
         "power_plants": 16,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 2,
         "oil_spills": 55,
@@ -1256,6 +1265,7 @@
         "oil_pipelines": 6,
         "lng_terminals": 0,
         "power_plants": 7,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 10,
         "oil_spills": 4734,
@@ -1410,6 +1420,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 8,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 16,
@@ -1550,6 +1561,7 @@
         "oil_pipelines": 6,
         "lng_terminals": 0,
         "power_plants": 47,
+        "hydro_plants": 0,
         "refineries": 1,
         "gas_infrastructure": 27,
         "oil_spills": 2397,
@@ -1706,6 +1718,7 @@
         "oil_pipelines": 3,
         "lng_terminals": 15,
         "power_plants": 15,
+        "hydro_plants": 0,
         "refineries": 1,
         "gas_infrastructure": 18,
         "oil_spills": 6796,
@@ -1864,6 +1877,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 2,
@@ -1992,6 +2006,7 @@
         "oil_pipelines": 1,
         "lng_terminals": 0,
         "power_plants": 23,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 83,
@@ -2118,7 +2133,7 @@
     },
     "Benue": {
       "name": "Benue",
-      "mapped_records": 316,
+      "mapped_records": 317,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2128,6 +2143,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 1,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 1,
@@ -2149,7 +2165,7 @@
       },
       "category_counts": {
         "resource": 0,
-        "infrastructure": 1,
+        "infrastructure": 2,
         "environmental": 36,
         "security": 9,
         "demand": 1,
@@ -2158,7 +2174,7 @@
         "context": 76
       },
       "capacity": {
-        "power_mw": 0.0,
+        "power_mw": 1000.0,
         "refinery_bpd": 0.0,
         "minigrid_kw": 8324.0
       },
@@ -2204,7 +2220,7 @@
         "operating": 4,
         "development": 0,
         "proposed": 0,
-        "inactive": 0,
+        "inactive": 1,
         "other": 36,
         "unknown": 276
       },
@@ -2257,6 +2273,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 1,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 0,
@@ -2380,6 +2397,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 2,
@@ -2502,6 +2520,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 2,
@@ -2631,6 +2650,7 @@
         "oil_pipelines": 1,
         "lng_terminals": 0,
         "power_plants": 11,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 4,
         "oil_spills": 295,
@@ -2783,6 +2803,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 0,
@@ -2902,6 +2923,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 4,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 10,
@@ -3029,7 +3051,7 @@
     },
     "Kano": {
       "name": "Kano",
-      "mapped_records": 386,
+      "mapped_records": 385,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -3038,7 +3060,8 @@
         "gas_pipelines": 1,
         "oil_pipelines": 0,
         "lng_terminals": 0,
-        "power_plants": 4,
+        "power_plants": 3,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 5,
@@ -3060,7 +3083,7 @@
       },
       "category_counts": {
         "resource": 0,
-        "infrastructure": 5,
+        "infrastructure": 4,
         "environmental": 21,
         "security": 3,
         "demand": 0,
@@ -3069,7 +3092,7 @@
         "context": 68
       },
       "capacity": {
-        "power_mw": 1500.0,
+        "power_mw": 1350.0,
         "refinery_bpd": 0.0,
         "minigrid_kw": 6079.0
       },
@@ -3115,7 +3138,7 @@
       "status": {
         "operating": 1,
         "development": 2,
-        "proposed": 4,
+        "proposed": 3,
         "inactive": 0,
         "other": 21,
         "unknown": 358
@@ -3169,6 +3192,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 0,
@@ -3291,6 +3315,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 0,
@@ -3407,6 +3432,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 4,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 2,
         "oil_spills": 460,
@@ -3559,6 +3585,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 8,
@@ -3686,6 +3713,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 0,
@@ -3809,6 +3837,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 0,
@@ -3932,6 +3961,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 6,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 3,
         "oil_spills": 137,
@@ -4079,6 +4109,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 1,
@@ -4201,6 +4232,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 1,
@@ -4329,6 +4361,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 4,
@@ -4444,7 +4477,7 @@
     },
     "Niger": {
       "name": "Niger",
-      "mapped_records": 671,
+      "mapped_records": 675,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -4454,6 +4487,7 @@
         "oil_pipelines": 1,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 4,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 64,
@@ -4475,7 +4509,7 @@
       },
       "category_counts": {
         "resource": 0,
-        "infrastructure": 3,
+        "infrastructure": 7,
         "environmental": 152,
         "security": 11,
         "demand": 1,
@@ -4484,7 +4518,7 @@
         "context": 133
       },
       "capacity": {
-        "power_mw": 0.0,
+        "power_mw": 2638.0,
         "refinery_bpd": 0.0,
         "minigrid_kw": 283.0
       },
@@ -4534,7 +4568,7 @@
         }
       },
       "status": {
-        "operating": 6,
+        "operating": 10,
         "development": 0,
         "proposed": 4,
         "inactive": 0,
@@ -4580,7 +4614,7 @@
     },
     "Kaduna": {
       "name": "Kaduna",
-      "mapped_records": 1037,
+      "mapped_records": 1038,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -4590,6 +4624,7 @@
         "oil_pipelines": 1,
         "lng_terminals": 0,
         "power_plants": 1,
+        "hydro_plants": 1,
         "refineries": 1,
         "gas_infrastructure": 0,
         "oil_spills": 145,
@@ -4611,7 +4646,7 @@
       },
       "category_counts": {
         "resource": 0,
-        "infrastructure": 5,
+        "infrastructure": 6,
         "environmental": 230,
         "security": 11,
         "demand": 1,
@@ -4620,7 +4655,7 @@
         "context": 98
       },
       "capacity": {
-        "power_mw": 900.0,
+        "power_mw": 1290.0,
         "refinery_bpd": 110000.0,
         "minigrid_kw": 214.0
       },
@@ -4680,7 +4715,7 @@
       },
       "status": {
         "operating": 6,
-        "development": 2,
+        "development": 3,
         "proposed": 2,
         "inactive": 0,
         "other": 230,
@@ -4735,6 +4770,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 0,
@@ -4845,7 +4881,7 @@
     },
     "Taraba": {
       "name": "Taraba",
-      "mapped_records": 392,
+      "mapped_records": 393,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -4855,6 +4891,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 1,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 0,
@@ -4876,7 +4913,7 @@
       },
       "category_counts": {
         "resource": 0,
-        "infrastructure": 0,
+        "infrastructure": 1,
         "environmental": 42,
         "security": 12,
         "demand": 0,
@@ -4885,7 +4922,7 @@
         "context": 121
       },
       "capacity": {
-        "power_mw": 0.0,
+        "power_mw": 3050.0,
         "refinery_bpd": 0.0,
         "minigrid_kw": 91.0
       },
@@ -4925,7 +4962,7 @@
         "operating": 0,
         "development": 1,
         "proposed": 0,
-        "inactive": 0,
+        "inactive": 1,
         "other": 42,
         "unknown": 349
       },
@@ -4978,6 +5015,7 @@
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
+        "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 0,
         "oil_spills": 0,
