@@ -13,12 +13,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.10"
       - name: Install validation dependencies
-        run: pip install pandas shapely
+        run: python -m pip install pandas==2.3.3 shapely==2.1.2
+      - name: Report validation environment
+        run: |
+          python -VV
+          python -c "import pandas, shapely; print('pandas', pandas.__version__, 'shapely', shapely.__version__)"
       - name: Compile Python scripts
         run: python -m compileall -q scripts
       - name: Validate JavaScript syntax
@@ -36,4 +40,6 @@ jobs:
           scripts/07_renewables/03_validate_distributed_energy_submission.py
           '{}' ';'
       - name: Run release checks
+        env:
+          PYTHONHASHSEED: "0"
         run: python -m unittest discover -s tests -v
