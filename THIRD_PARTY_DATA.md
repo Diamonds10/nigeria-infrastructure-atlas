@@ -8,6 +8,9 @@ requirements, access terms, or other rights attached to third-party source data.
 Processed datasets and map bundles may contain or derive from third-party data.
 Anyone redistributing or commercially using those materials must review
 `docs/data_sources.md` and comply with each applicable source's terms.
+The machine-readable preservation gate is
+`docs/redistribution_rights_register.csv`; see
+`docs/zenodo_release_readiness.md` before creating an archival release.
 
 Important examples include:
 

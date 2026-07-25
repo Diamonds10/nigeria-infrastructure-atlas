@@ -201,6 +201,8 @@ To understand the repository quickly, start in this order:
 10. Use `docs/citation_and_reuse.md` when you plan to cite or reuse the repository externally.
 11. Check `docs/release_notes.md` for the current release boundary.
 12. Read `THIRD_PARTY_DATA.md` before redistributing derived datasets.
+13. Review `docs/zenodo_release_readiness.md` and the machine-readable rights
+    register before creating any permanent archival release.
 
 ## Public repo interpretation
 

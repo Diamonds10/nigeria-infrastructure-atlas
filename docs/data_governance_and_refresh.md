@@ -64,3 +64,7 @@ updated tests, and a matching version in `CITATION.cff`. Archived DOI releases
 should be created only after the maintainer connects the repository to an
 appropriate preservation service and verifies third-party redistribution
 conditions; the atlas must never invent or pre-announce a DOI.
+
+The executable preservation gate is `scripts/check_zenodo_readiness.py`, backed
+by `docs/redistribution_rights_register.csv`. A permanent whole-repository
+deposit is prohibited while that command reports unresolved source families.
