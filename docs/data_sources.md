@@ -47,14 +47,18 @@
 Overpass queries were run against Nigeria's OSM boundary (relation 192787 / area 3600192787) rather than a bounding box, to avoid picking up slivers of neighboring countries. Public Overpass instances are shared, rate-limited infrastructure — the download script retries across three mirrors (overpass-api.de, overpass.kumi.systems, overpass.openstreetmap.fr) with backoff, since single-mirror 406/429/504 errors were common during collection.
 
 ## Layer 6 — Security
-**Implementation status: planned, not published as a standalone layer in `v0.9`.** The entries below
-are candidate sources only. No tracked download/processing script, processed
-dataset, or public-map security layer currently exists.
+**Implementation status: published in `v0.10`.** The public layer is deliberately
+historical and aggregated.
 
-| Candidate dataset | Source | URL | Date accessed | License | Potential coverage | Known limitations |
+| Dataset | Source | URL | Date accessed | License | Coverage | Known limitations |
 |---|---|---|---|---|---|---|
-| Energy infrastructure attacks | CFR Nigeria Security Tracker | — | — | To verify | 2011–2023 | Candidate energy/O&G subset; not yet processed |
-| ACLED conflict events | ACLED | https://acleddata.com | | CC-BY | 1997–present | |
+| Organized-violence exposure | UCDP Georeferenced Event Dataset 26.1 | https://ucdp.uu.se/downloads/ | 2026-07-25 | CC BY 4.0; cite UCDP GED 26.1 and its listed publications | 8,259 Nigeria events, 1989–2025; public map uses 227 half-degree cells for 5,565 events in 2016–2025 | UCDP records lethal organized violence under its definitions, not all crime or insecurity. Fatalities are uncertain low/best/high estimates. The atlas does not republish exact event coordinates, actor names, narratives, headlines, or source articles. Annual release only; no live Candidate Events feed. |
+
+Reproduce the layer with
+`scripts/06_security/01_download_ucdp_ged.py` and
+`scripts/06_security/02_process_ucdp_ged.py`. The raw global archive is
+gitignored. Published files are the half-degree map grid and state/year
+aggregate under `data/processed/06_security/`.
 
 ## Layer 7 — Distributed Energy
 | Dataset | Source | URL | Date accessed | License | Coverage | Known limitations |

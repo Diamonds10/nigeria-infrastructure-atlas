@@ -28,9 +28,9 @@ DEFAULT_API_DIR = ROOT / "docs" / "api" / "v1"
 PUBLIC_SIMPLIFY_TOLERANCE = 0.005
 PUBLIC_COORDINATE_PRECISION = 5
 PUBLIC_PROPERTY_PRECISION = 6
-ATLAS_RELEASE_VERSION = "0.9.0"
+ATLAS_RELEASE_VERSION = "0.10.0"
 ATLAS_RELEASE_DATE = "2026-07-25"
-ATLAS_RELEASE_TITLE = "Distributed Energy Coverage Expansion"
+ATLAS_RELEASE_TITLE = "Licensed Historical Security Context"
 REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main"
 DISTRIBUTED_ENERGY_SUBLAYERS = {
     "community_minigrids",
@@ -180,6 +180,17 @@ CATALOGUE = {
         "quality": "A",
         "quality_note": "Authoritative source geometry, simplified only for web display.",
         "path": "data/processed/03_environmental/wdpa_protected_areas_nigeria.csv",
+    },
+    "conflict_exposure": {
+        "description": "Half-degree historical exposure cells derived from UCDP organized-violence events; exact event locations, actors, narratives, and source text are not republished.",
+        "source": "UCDP Georeferenced Event Dataset (GED) version 26.1",
+        "source_date": "2026-03-30",
+        "source_checked": "2026-07-25",
+        "license": "CC BY 4.0",
+        "quality": "B",
+        "quality_note": "Aggregates 2016-2025 events into approximately 55 km cells. Fatalities are UCDP low/best/high estimates, not independently verified atlas findings. Annual release only; no candidate or live feed.",
+        "path": "data/processed/06_security/ucdp_organized_violence_grid_nigeria_2016_2025.csv",
+        "state_year_path": "data/processed/06_security/ucdp_organized_violence_state_year_nigeria_1989_2025.csv",
     },
     "demand_centers": {
         "description": "Cross-category industrial demand centres covering cement, steel, fertiliser, and refining.",
@@ -496,6 +507,7 @@ def empty_profile(name: str, sublayer_keys: list[str]) -> dict[str, Any]:
             "resource": 0,
             "infrastructure": 0,
             "environmental": 0,
+            "security": 0,
             "demand": 0,
             "connectivity": 0,
             "renewables": 0,
@@ -514,6 +526,17 @@ def empty_profile(name: str, sublayer_keys: list[str]) -> dict[str, Any]:
             "estimated_quantity_reported": 0.0,
             "report_status_counts": {},
             "cause_counts": {},
+            "yearly_counts": {},
+        },
+        "security_intelligence": {
+            "period": "2016-2025",
+            "event_count": 0,
+            "fatalities_best": 0,
+            "fatalities_low": 0,
+            "fatalities_high": 0,
+            "state_based_events": 0,
+            "non_state_events": 0,
+            "one_sided_events": 0,
             "yearly_counts": {},
         },
         "status": {
@@ -632,6 +655,10 @@ def add_catalogue_and_state_profiles(
             if metadata.get("programme_evidence_path"):
                 metadata["programme_evidence_url"] = (
                     f"{REPOSITORY_RAW}/{metadata['programme_evidence_path']}"
+                )
+            if metadata.get("state_year_path"):
+                metadata["state_year_url"] = (
+                    f"{REPOSITORY_RAW}/{metadata['state_year_path']}"
                 )
             definition["metadata"] = metadata
             # A sublayer with zero currently-mapped records still gets a full
@@ -837,6 +864,31 @@ def add_catalogue_and_state_profiles(
                 "reuse_note": national_context["reuse_note"],
             },
         )
+
+    security_state_year = pd.read_csv(
+        PROCESSED
+        / "06_security/ucdp_organized_violence_state_year_nigeria_1989_2025.csv"
+    )
+    for profile_name, profile in profiles.items():
+        rows = security_state_year[
+            security_state_year["state"].eq(profile_name)
+            & security_state_year["year"].between(2016, 2025)
+        ]
+        intelligence = profile["security_intelligence"]
+        for column in [
+            "event_count",
+            "fatalities_best",
+            "fatalities_low",
+            "fatalities_high",
+            "state_based_events",
+            "non_state_events",
+            "one_sided_events",
+        ]:
+            intelligence[column] = int(rows[column].sum())
+        intelligence["yearly_counts"] = {
+            str(int(row["year"])): int(row["event_count"])
+            for _, row in rows.sort_values("year").iterrows()
+        }
 
     oil_spill_features = bundle["layers"]["environmental"]["sublayers"][
         "oil_spills"
@@ -1216,6 +1268,29 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
         ["NAME", "DESIG_ENG", "IUCN_CAT", "GIS_AREA", "STATUS", "STATUS_YR", "GOV_TYPE"],
         "NAME",
     )
+    conflict_exposure = point_features(
+        PROCESSED
+        / "06_security/ucdp_organized_violence_grid_nigeria_2016_2025.csv",
+        "grid_lon",
+        "grid_lat",
+        [
+            "cell_id",
+            "period",
+            "event_count",
+            "fatalities_best",
+            "fatalities_low",
+            "fatalities_high",
+            "first_year",
+            "latest_year",
+            "state_based_events",
+            "non_state_events",
+            "one_sided_events",
+            "source_states",
+            "best_source_precision",
+            "least_source_precision",
+        ],
+        "cell_id",
+    )
     demand_centers = point_features(
         PROCESSED / "04_demand/demand_centers_nigeria.csv",
         "lon", "lat",
@@ -1357,6 +1432,16 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
                     "oil_spills": sublayer("Oil Spill Incidents (NOSDRA)", "point", oil_spills),
                     "protected_areas": sublayer(
                         "Protected Areas (WDPA)", "polygon", protected_areas
+                    )
+                },
+            },
+            "security": {
+                "label": "Security Context",
+                "sublayers": {
+                    "conflict_exposure": sublayer(
+                        "Historical Organized-Violence Exposure (UCDP, 2016–2025)",
+                        "point",
+                        conflict_exposure,
                     )
                 },
             },

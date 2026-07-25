@@ -17,6 +17,7 @@
     --cat-resource: #9A640E;
     --cat-infrastructure: #007C90;
     --cat-environmental: #24763F;
+    --cat-security: #8A2E3B;
     --cat-demand: #AD3F76;
     --cat-connectivity: #35548F;
     --cat-renewables: #545B00;
@@ -35,6 +36,7 @@
     --layer-gas-infrastructure: #2A9D8F;
     --layer-oil-spills: #BB3E03;
     --layer-protected-areas: #40916C;
+    --layer-conflict-exposure: #A61B29;
     --layer-demand-centers: #C9184A;
     --layer-roads: #6C757D;
     --layer-railways: #5A189A;
@@ -78,6 +80,7 @@
       --cat-resource: #D8952F;
       --cat-infrastructure: #38B4C4;
       --cat-environmental: #57B36F;
+      --cat-security: #EE7184;
       --cat-demand: #D97BA9;
       --cat-connectivity: #7C9BD9;
       --cat-renewables: #84862D;
@@ -95,6 +98,7 @@
       --layer-gas-infrastructure: #52B788;
       --layer-oil-spills: #FF8552;
       --layer-protected-areas: #74C69D;
+      --layer-conflict-exposure: #FF667A;
       --layer-demand-centers: #FF7096;
       --layer-roads: #ADB5BD;
       --layer-railways: #B197FC;
@@ -135,6 +139,7 @@
     --cat-resource: #D8952F;
     --cat-infrastructure: #38B4C4;
     --cat-environmental: #57B36F;
+    --cat-security: #EE7184;
     --cat-demand: #D97BA9;
     --cat-connectivity: #7C9BD9;
     --cat-renewables: #84862D;
@@ -151,6 +156,7 @@
     --layer-gas-infrastructure: #52B788;
     --layer-oil-spills: #FF8552;
     --layer-protected-areas: #74C69D;
+    --layer-conflict-exposure: #FF667A;
     --layer-demand-centers: #FF7096;
     --layer-roads: #ADB5BD;
     --layer-railways: #B197FC;
@@ -178,7 +184,7 @@
     --line: #C7CBC0; --text-primary: #14201C; --text-secondary: #4B564E; --text-muted: #6B746A;
     --surface: #F6F7F2; --surface-raised: #FFFFFF;
     --accent: #B3690E; --accent-ink: #FFFFFF;
-    --cat-resource: #9A640E; --cat-infrastructure: #007C90; --cat-environmental: #24763F;
+    --cat-resource: #9A640E; --cat-infrastructure: #007C90; --cat-environmental: #24763F; --cat-security: #8A2E3B;
     --cat-demand: #AD3F76; --cat-connectivity: #35548F; --cat-renewables: #545B00; --cat-context: #6B4C9A;
     --status-good: #0ca30c; --status-warning: #b8790a; --status-serious: #c1592f; --status-critical: #b23131;
     --shadow-1: 0 1px 2px rgba(15, 29, 26, 0.08), 0 2px 8px rgba(15, 29, 26, 0.06);

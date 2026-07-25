@@ -7,7 +7,7 @@ If you use this repository in research, teaching, or public-facing work, the rec
 Suggested format:
 
 Nigeria Infrastructure Atlas contributors. 2026. *Nigeria Infrastructure
-Atlas*, version 0.9.0. GitHub. Accessed YYYY-MM-DD.
+Atlas*, version 0.10.0. GitHub. Accessed YYYY-MM-DD.
 
 The repository also includes machine-readable citation metadata in
 `CITATION.cff`.
@@ -28,6 +28,10 @@ screening signal, not a measured household electricity-access rate.
 When reusing NOSDRA data, describe records and causes as reported, preserve
 report status and the source disclaimer, and do not imply independent findings
 of liability or volume.
+
+When reusing Security Context, cite UCDP GED version 26.1 and the publications
+listed by UCDP. Describe the atlas layer as a 2016–2025 half-degree historical
+aggregation, not a live security feed or a complete record of violence.
 
 The root CC0 dedication applies only where the repository contributors hold the
 necessary rights. It does not relicense third-party source data. Review

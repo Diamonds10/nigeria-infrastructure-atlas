@@ -1,5 +1,21 @@
 # Release notes
 
+## v0.10.0 — Licensed Historical Security Context
+
+Released: 25 July 2026
+
+- added Security Context as the atlas's eighth analytical section
+- used UCDP GED 26.1, whose publisher explicitly licenses reuse and
+  redistribution under CC BY 4.0
+- published 227 half-degree exposure cells summarizing 5,565 Nigeria
+  organized-violence events during 2016–2025
+- added state/year analytical summaries and low/best/high UCDP fatality
+  estimates to profiles, charts, reports, catalogue, and API
+- excluded exact event coordinates, actor names, narratives, headlines, and
+  source articles from processed public outputs
+- selected the annual 1989–2025 release and excluded UCDP's near-real-time
+  Candidate Events feed so the layer cannot be mistaken for live intelligence
+
 ## v0.9.0 — Distributed Energy Coverage Expansion
 
 Released: 25 July 2026

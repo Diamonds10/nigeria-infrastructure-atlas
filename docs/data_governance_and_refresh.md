@@ -13,8 +13,9 @@ source-specific reuse conditions.
   reports.
 - **Quarterly:** OpenStreetMap-derived connectivity and the distributed-energy
   public-source registry.
-- **Annual or source release:** trackers, protected areas, population/access
-  products, and slower-changing reference layers.
+- **Annual or source release:** UCDP historical security context, trackers,
+  protected areas, population/access products, and slower-changing reference
+  layers.
 
 The machine-readable schedule is published at
 `/api/v1/freshness.json`. A due date is a maintainer review target, not a claim
@@ -41,6 +42,12 @@ NOSDRA records are described as reported incidents. Report status is preserved,
 including invalid and inconclusive records. Implausible dates remain visible in
 the processed source table for auditability but are excluded from analytical
 timelines. State analytics use only records with valid publishable coordinates.
+
+UCDP records are historical organized-violence observations under UCDP's
+definitions, not a general crime or live threat feed. The public map aggregates
+the latest annual release to half-degree cells and excludes exact event
+coordinates, actor names, narratives, headlines, and source articles. State
+analytics retain UCDP's low, best, and high fatality estimates.
 
 ## Contributions
 

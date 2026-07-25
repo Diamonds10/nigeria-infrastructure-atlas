@@ -43,12 +43,13 @@
     resource: { colorVar: "--cat-resource" },
     infrastructure: { colorVar: "--cat-infrastructure" },
     environmental: { colorVar: "--cat-environmental" },
+    security: { colorVar: "--cat-security" },
     demand: { colorVar: "--cat-demand" },
     connectivity: { colorVar: "--cat-connectivity" },
     renewables: { colorVar: "--cat-renewables" },
     context: { colorVar: "--cat-context" }
   };
-  var CAT_ORDER = ["resource", "infrastructure", "environmental", "demand", "connectivity", "renewables", "context"];
+  var CAT_ORDER = ["resource", "infrastructure", "environmental", "security", "demand", "connectivity", "renewables", "context"];
 
   // Every public sublayer has an explicit visual identity. Colour identifies
   // the asset class, shape identifies point types, and size/weight establishes
@@ -66,6 +67,7 @@
     gas_infrastructure:  { colorVar: "--layer-gas-infrastructure", shape: "diamond", size: 14 },
     oil_spills:          { colorVar: "--layer-oil-spills", shape: "droplet", size: 12 },
     protected_areas:     { colorVar: "--layer-protected-areas", shape: "square", size: 10, weight: 1.1, fillOpacity: 0.15 },
+    conflict_exposure:   { colorVar: "--layer-conflict-exposure", shape: "circle", size: 14 },
     demand_centers:      { colorVar: "--layer-demand-centers", shape: "target", size: 16 },
     roads:               { colorVar: "--layer-roads", shape: "circle", size: 9, weight: 2.4 },
     railways:            { colorVar: "--layer-railways", shape: "circle", size: 9, weight: 2.2, dash: "2,6" },
@@ -100,6 +102,7 @@
     gas_infrastructure: true,
     oil_spills: false,
     protected_areas: false,
+    conflict_exposure: false,
     demand_centers: true,
     roads: false,
     railways: false,
@@ -253,6 +256,12 @@
     coordinate_source: "Coordinate source", source_name: "Evidence source",
     source_date_accessed: "Source checked", evidence_level: "Evidence level",
     record_origin: "Registry origin",
+    cell_id: "Aggregate cell", period: "Period", event_count: "Organized-violence events",
+    fatalities_best: "Fatalities (best estimate)", fatalities_low: "Fatalities (low estimate)",
+    fatalities_high: "Fatalities (high estimate)", first_year: "First year",
+    latest_year: "Latest year", state_based_events: "State-based events",
+    non_state_events: "Non-state events", one_sided_events: "One-sided events",
+    source_states: "Source-assigned states",
     population_estimate: "Modelled population", settlement_count: "Settlement clusters",
     population_with_nightlight_signal: "Population with night-light signal",
     population_without_nightlight_signal: "Population without night-light signal",
@@ -425,15 +434,19 @@
     if (geomType === "point") {
       layer = L.geoJSON(sub.data, {
         pointToLayer: function (feature, latlng) {
-          if (subKey === "population_access") {
-            var population = Number(feature.properties.population_estimate || 0);
-            var radius = Math.max(3, Math.min(12, 2 + Math.log10(Math.max(population, 1))));
+          if (subKey === "population_access" || subKey === "conflict_exposure") {
+            var magnitude = subKey === "population_access"
+              ? Number(feature.properties.population_estimate || 0)
+              : Number(feature.properties.event_count || 0);
+            var radius = subKey === "population_access"
+              ? Math.max(3, Math.min(12, 2 + Math.log10(Math.max(magnitude, 1))))
+              : Math.max(4, Math.min(14, 3 + 2.4 * Math.log10(Math.max(magnitude, 1))));
             var contextMarker = L.circleMarker(latlng, {
               radius: radius,
               color: color,
-              weight: 0.8,
+              weight: subKey === "conflict_exposure" ? 1.2 : 0.8,
               fillColor: color,
-              fillOpacity: 0.48
+              fillOpacity: subKey === "conflict_exposure" ? 0.62 : 0.48
             });
             contextMarker._ngraContextGrid = true;
             return contextMarker;
@@ -448,7 +461,7 @@
         onEachFeature: function (feature, lyr) {
           lyr.bindPopup(popupHtml(sub.label, style.colorVar, feature.properties), { maxWidth: 300 });
           var lbl = titleOf(feature.properties);
-          if (lbl && subKey !== "population_access") {
+          if (lbl && subKey !== "population_access" && subKey !== "conflict_exposure") {
             allFeaturesIndex.push({ label: lbl, subKey: subKey, catKey: catKey, subLabel: sub.label, layer: lyr, feature: feature });
           }
         }
@@ -577,10 +590,11 @@
   // ---------------- Panel UI ----------------
   var CAVEAT_BY_SUB = {
     fields_oil: "33 points that GOGET classifies oil-only. The source fuel label is not an authoritative reservoir classification; known gas-producing sites such as Soku, Bonny, and Gbaran are labelled oil.",
-    fields_gas: "147 non-overlapping points that GOGET classifies gas-only or oil-and-gas. This is a much better gas-producing footprint than the former two-record gas-only display, but the source still mislabels some known gas sites as oil."
+    fields_gas: "147 non-overlapping points that GOGET classifies gas-only or oil-and-gas. This is a much better gas-producing footprint than the former two-record gas-only display, but the source still mislabels some known gas sites as oil.",
+    conflict_exposure: "Historical UCDP organized-violence events aggregated to half-degree cells for 2016–2025. This is not a live threat feed. Exact event points, actor names, narratives, and source text are not republished."
   };
   var listEl = document.getElementById("category-list");
-  var CAT_LABELS = { resource: "Resource", infrastructure: "Infrastructure", environmental: "Environmental", demand: "Demand", connectivity: "Connectivity", renewables: "Distributed Energy", context: "People & Access" };
+  var CAT_LABELS = { resource: "Resource", infrastructure: "Infrastructure", environmental: "Environmental", security: "Security Context", demand: "Demand", connectivity: "Connectivity", renewables: "Distributed Energy", context: "People & Access" };
 
   CAT_ORDER.forEach(function (catKey) {
     var cat = ATLAS.layers[catKey];
@@ -716,6 +730,7 @@
     var peopleAccess = profile.people_access || {};
     var minigridCoverage = profile.minigrid_coverage || {};
     var standaloneProgramme = profile.standalone_solar_programme || {};
+    var securityIntelligence = profile.security_intelligence || {};
     var spillIntelligence = profile.oil_spill_intelligence || {};
     var distributedMix = {
       "Community mini-grid": counts.community_minigrids,
@@ -747,12 +762,15 @@
         profileMetric(spillIntelligence.mapped_reports, "Mapped NOSDRA reports") +
         profileMetric(spillIntelligence.confirmed_reports, "Confirmed NOSDRA reports") +
         profileMetric(spillIntelligence.sabotage_attributed_reports, "Sabotage-attributed reports") +
+        profileMetric(securityIntelligence.event_count, "UCDP events (2016–2025)") +
+        profileMetric(securityIntelligence.fatalities_best, "UCDP fatalities, best estimate") +
       '</div>' +
       '<div class="profile-charts">' +
         profileChart("Distributed-energy mix", distributedMix, 4) +
         profileChart("Reported oil-spill causes", spillIntelligence.cause_counts, 6) +
         profileChart("Oil-spill report status", spillIntelligence.report_status_counts, 4) +
         profileTimelineChart("Mapped oil-spill reports by recent incident year", spillIntelligence.yearly_counts, 10) +
+        profileTimelineChart("UCDP organized-violence events by year", securityIntelligence.yearly_counts, 10) +
       '</div>' +
       (capacityBits.length ? '<div class="capacity-strip">' + capacityBits.join(" · ") + '</div>' : "") +
       (standaloneProgramme.coverage_note
@@ -776,7 +794,7 @@
             : '') +
           '</div>'
         : '') +
-      '<p class="profile-note">NOSDRA figures count mapped reported incidents, not independently verified spill events; invalid reports remain available through the report-status filter. Population totals are WorldPop 2025 estimates. Settlement and night-light measures come from the World Bank DRE Atlas; night-light is a screening signal, not a measured household electricity-access rate. Lines and protected areas are counted where display geometry intersects the state.</p>';
+      '<p class="profile-note">UCDP figures describe historical organized violence and use uncertain low/best/high fatality estimates; the map shows 2016–2025 half-degree aggregates, not live or village-level events. NOSDRA figures count mapped reported incidents, not independently verified spill events. Population totals are WorldPop 2025 estimates. Night-light is a screening signal, not a measured household electricity-access rate.</p>';
     updateDownloadLabel();
   }
 
@@ -881,6 +899,7 @@
     var profile = ATLAS.state_profiles[profileName];
     var spill = profile.oil_spill_intelligence || {};
     var standalone = profile.standalone_solar_programme || {};
+    var security = profile.security_intelligence || {};
     var report = '<!doctype html><html lang="en"><meta charset="utf-8"><title>' +
       escapeHtml(profileName) + ' — Nigeria Infrastructure Atlas report</title><style>' +
       'body{font:14px/1.5 system-ui;margin:40px auto;max-width:900px;color:#17231f}h1,h2{font-family:Georgia,serif}' +
@@ -907,7 +926,17 @@
         "People reached (national aggregate only)": standalone.people_reached,
         "Evidence date": standalone.as_of_date
       }) + '</table><p>' + escapeHtml(standalone.coverage_note || "") +
-      '</p><h2>NOSDRA reported incidents</h2><table>' +
+      '</p><h2>Historical organized-violence context (UCDP, 2016–2025)</h2><table>' +
+      reportRows({
+        "Events": security.event_count,
+        "Fatalities (best estimate)": security.fatalities_best,
+        "Fatalities (low estimate)": security.fatalities_low,
+        "Fatalities (high estimate)": security.fatalities_high,
+        "State-based events": security.state_based_events,
+        "Non-state events": security.non_state_events,
+        "One-sided events": security.one_sided_events
+      }) + '</table><p>Annual, historical UCDP GED 26.1 data licensed CC BY 4.0. The atlas map aggregates source events into half-degree cells and does not republish exact event locations, actor names, narratives, or source text. This is not a live threat feed.</p>' +
+      '<h2>NOSDRA reported incidents</h2><table>' +
       reportRows({
         "Mapped reports": spill.mapped_reports,
         "Confirmed reports": spill.confirmed_reports,

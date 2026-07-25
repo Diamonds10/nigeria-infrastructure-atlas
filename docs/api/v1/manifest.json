@@ -1,9 +1,9 @@
 {
   "api_version": "v1",
   "atlas_release": {
-    "version": "0.9.0",
+    "version": "0.10.0",
     "date": "2026-07-25",
-    "title": "Distributed Energy Coverage Expansion"
+    "title": "Licensed Historical Security Context"
   },
   "base_url": "https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/",
   "formats": [
@@ -108,6 +108,13 @@
       "category": "environmental",
       "record_count": 1005,
       "endpoint": "layers/protected_areas.geojson"
+    },
+    {
+      "key": "conflict_exposure",
+      "label": "Historical Organized-Violence Exposure (UCDP, 2016–2025)",
+      "category": "security",
+      "record_count": 227,
+      "endpoint": "layers/conflict_exposure.geojson"
     },
     {
       "key": "demand_centers",

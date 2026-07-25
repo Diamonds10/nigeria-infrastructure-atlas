@@ -4,12 +4,14 @@ The atlas is built as a reproducible geospatial evidence pipeline that converts 
 
 ## Core design
 
-The `v0.9` public atlas is organized around seven implemented analytical layers:
+The `v0.10` public atlas is organized around eight implemented analytical layers:
 
 - Resource: reserves, production, discoveries, and field-level site information.
 - Infrastructure: pipelines, LNG terminals, refineries, and power assets.
 - Environmental: flaring, protected-area context, and NOSDRA reported
   oil-spill incidents.
+- Security Context: historical UCDP organized-violence exposure aggregated to
+  half-degree cells, with state/year analytical summaries.
 - Demand: industrial and demand-center locations relevant to gas consumption.
 - Connectivity: roads, rail, ports, and grid infrastructure.
 - Distributed Energy: community mini-grids, captive/institutional off-grid
@@ -17,10 +19,23 @@ The `v0.9` public atlas is organized around seven implemented analytical layers:
 - People & Access: population, settlement, night-light, and grid-distance
   screening context.
 
-Security is a planned layer. Candidate sources are documented, but no
-security dataset is currently processed, validated, or published in the map.
-
 Each layer is stored and documented separately so users can combine them for different analytical questions.
+
+## Security-context method
+
+The security workflow uses UCDP GED 26.1, licensed CC BY 4.0 and covering
+1989–2025. The raw global archive remains outside version control. Processing
+selects Nigeria records, assigns events to ADM1 boundaries, and publishes two
+derived products:
+
+- 227 half-degree cells aggregating 2016–2025 event and fatality estimates for
+  the public map
+- state/year summaries retaining the 1989–2025 analytical time series
+
+The public outputs omit exact event coordinates, actors, narratives, headlines,
+and source articles. Fatalities remain UCDP low, best, and high estimates.
+The annual release was selected deliberately; the near-real-time Candidate
+Events feed is not used.
 
 ## Processing logic
 

@@ -1,14 +1,14 @@
 {
   "atlas_release": {
-    "version": "0.9.0",
+    "version": "0.10.0",
     "date": "2026-07-25",
-    "title": "Distributed Energy Coverage Expansion"
+    "title": "Licensed Historical Security Context"
   },
   "method": "Public-map records whose display geometry intersects each ADM1 boundary.",
   "profiles": {
     "Nigeria": {
       "name": "Nigeria",
-      "mapped_records": 28864,
+      "mapped_records": 29091,
       "counts": {
         "fields_oil": 33,
         "fields_gas": 147,
@@ -22,6 +22,7 @@
         "gas_infrastructure": 98,
         "oil_spills": 16326,
         "protected_areas": 1005,
+        "conflict_exposure": 227,
         "demand_centers": 28,
         "roads": 5124,
         "railways": 1381,
@@ -40,6 +41,7 @@
         "resource": 304,
         "infrastructure": 358,
         "environmental": 17331,
+        "security": 227,
         "demand": 28,
         "connectivity": 7992,
         "renewables": 93,
@@ -97,13 +99,35 @@
           "2026": 158
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 5565,
+        "fatalities_best": 34105,
+        "fatalities_low": 29993,
+        "fatalities_high": 43873,
+        "state_based_events": 2847,
+        "non_state_events": 1853,
+        "one_sided_events": 865,
+        "yearly_counts": {
+          "2016": 436,
+          "2017": 509,
+          "2018": 536,
+          "2019": 537,
+          "2020": 643,
+          "2021": 532,
+          "2022": 485,
+          "2023": 652,
+          "2024": 502,
+          "2025": 733
+        }
+      },
       "status": {
         "operating": 401,
         "development": 47,
         "proposed": 120,
         "inactive": 43,
         "other": 17342,
-        "unknown": 10911
+        "unknown": 11138
       },
       "people_access": {
         "worldpop_population_2025": 237527782.002,
@@ -145,7 +169,7 @@
     },
     "Cross River": {
       "name": "Cross River",
-      "mapped_records": 289,
+      "mapped_records": 294,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -159,6 +183,7 @@
         "gas_infrastructure": 1,
         "oil_spills": 3,
         "protected_areas": 22,
+        "conflict_exposure": 5,
         "demand_centers": 1,
         "roads": 153,
         "railways": 0,
@@ -177,6 +202,7 @@
         "resource": 0,
         "infrastructure": 17,
         "environmental": 25,
+        "security": 5,
         "demand": 1,
         "connectivity": 176,
         "renewables": 2,
@@ -206,13 +232,31 @@
           "2025": 1
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 13,
+        "fatalities_best": 204,
+        "fatalities_low": 204,
+        "fatalities_high": 216,
+        "state_based_events": 4,
+        "non_state_events": 4,
+        "one_sided_events": 5,
+        "yearly_counts": {
+          "2017": 3,
+          "2018": 2,
+          "2019": 3,
+          "2022": 2,
+          "2023": 2,
+          "2024": 1
+        }
+      },
       "status": {
         "operating": 9,
         "development": 0,
         "proposed": 6,
         "inactive": 4,
         "other": 25,
-        "unknown": 245
+        "unknown": 250
       },
       "people_access": {
         "worldpop_population_2025": 2566393.397,
@@ -253,7 +297,7 @@
     },
     "Abuja Federal Capital Territory": {
       "name": "Abuja Federal Capital Territory",
-      "mapped_records": 739,
+      "mapped_records": 740,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -267,6 +311,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 89,
         "protected_areas": 21,
+        "conflict_exposure": 1,
         "demand_centers": 0,
         "roads": 468,
         "railways": 26,
@@ -285,6 +330,7 @@
         "resource": 0,
         "infrastructure": 6,
         "environmental": 110,
+        "security": 1,
         "demand": 0,
         "connectivity": 569,
         "renewables": 4,
@@ -322,13 +368,29 @@
           "2018": 1
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 13,
+        "fatalities_best": 53,
+        "fatalities_low": 51,
+        "fatalities_high": 54,
+        "state_based_events": 2,
+        "non_state_events": 4,
+        "one_sided_events": 7,
+        "yearly_counts": {
+          "2018": 2,
+          "2022": 2,
+          "2023": 6,
+          "2025": 3
+        }
+      },
       "status": {
         "operating": 4,
         "development": 4,
         "proposed": 1,
         "inactive": 0,
         "other": 111,
-        "unknown": 619
+        "unknown": 620
       },
       "people_access": {
         "worldpop_population_2025": 3735905.649,
@@ -369,7 +431,7 @@
     },
     "Ogun": {
       "name": "Ogun",
-      "mapped_records": 587,
+      "mapped_records": 593,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -383,6 +445,7 @@
         "gas_infrastructure": 1,
         "oil_spills": 18,
         "protected_areas": 21,
+        "conflict_exposure": 6,
         "demand_centers": 6,
         "roads": 266,
         "railways": 112,
@@ -401,6 +464,7 @@
         "resource": 0,
         "infrastructure": 9,
         "environmental": 39,
+        "security": 6,
         "demand": 6,
         "connectivity": 467,
         "renewables": 4,
@@ -439,13 +503,35 @@
           "2023": 2
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 68,
+        "fatalities_best": 159,
+        "fatalities_low": 147,
+        "fatalities_high": 181,
+        "state_based_events": 0,
+        "non_state_events": 65,
+        "one_sided_events": 3,
+        "yearly_counts": {
+          "2016": 6,
+          "2017": 3,
+          "2018": 2,
+          "2019": 11,
+          "2020": 1,
+          "2021": 6,
+          "2022": 9,
+          "2023": 12,
+          "2024": 10,
+          "2025": 8
+        }
+      },
       "status": {
         "operating": 13,
         "development": 2,
         "proposed": 1,
         "inactive": 2,
         "other": 40,
-        "unknown": 529
+        "unknown": 535
       },
       "people_access": {
         "worldpop_population_2025": 12934343.05,
@@ -486,7 +572,7 @@
     },
     "Oyo": {
       "name": "Oyo",
-      "mapped_records": 543,
+      "mapped_records": 549,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 1,
@@ -500,6 +586,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 26,
+        "conflict_exposure": 6,
         "demand_centers": 0,
         "roads": 336,
         "railways": 68,
@@ -518,6 +605,7 @@
         "resource": 1,
         "infrastructure": 2,
         "environmental": 26,
+        "security": 6,
         "demand": 0,
         "connectivity": 436,
         "renewables": 4,
@@ -538,13 +626,35 @@
         "cause_counts": {},
         "yearly_counts": {}
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 39,
+        "fatalities_best": 71,
+        "fatalities_low": 64,
+        "fatalities_high": 149,
+        "state_based_events": 0,
+        "non_state_events": 32,
+        "one_sided_events": 7,
+        "yearly_counts": {
+          "2016": 1,
+          "2017": 1,
+          "2018": 3,
+          "2019": 4,
+          "2020": 8,
+          "2021": 9,
+          "2022": 2,
+          "2023": 3,
+          "2024": 3,
+          "2025": 5
+        }
+      },
       "status": {
         "operating": 2,
         "development": 4,
         "proposed": 2,
         "inactive": 0,
         "other": 25,
-        "unknown": 510
+        "unknown": 516
       },
       "people_access": {
         "worldpop_population_2025": 8988216.774,
@@ -585,7 +695,7 @@
     },
     "Sokoto": {
       "name": "Sokoto",
-      "mapped_records": 282,
+      "mapped_records": 287,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -599,6 +709,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 36,
+        "conflict_exposure": 5,
         "demand_centers": 1,
         "roads": 107,
         "railways": 0,
@@ -617,6 +728,7 @@
         "resource": 0,
         "infrastructure": 0,
         "environmental": 36,
+        "security": 5,
         "demand": 1,
         "connectivity": 158,
         "renewables": 4,
@@ -637,13 +749,31 @@
         "cause_counts": {},
         "yearly_counts": {}
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 35,
+        "fatalities_best": 277,
+        "fatalities_low": 212,
+        "fatalities_high": 366,
+        "state_based_events": 7,
+        "non_state_events": 3,
+        "one_sided_events": 25,
+        "yearly_counts": {
+          "2018": 1,
+          "2019": 1,
+          "2021": 6,
+          "2023": 1,
+          "2024": 1,
+          "2025": 25
+        }
+      },
       "status": {
         "operating": 5,
         "development": 0,
         "proposed": 0,
         "inactive": 0,
         "other": 36,
-        "unknown": 241
+        "unknown": 246
       },
       "people_access": {
         "worldpop_population_2025": 4373777.932,
@@ -684,7 +814,7 @@
     },
     "Zamfara": {
       "name": "Zamfara",
-      "mapped_records": 293,
+      "mapped_records": 300,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -698,6 +828,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 15,
         "protected_areas": 23,
+        "conflict_exposure": 7,
         "demand_centers": 0,
         "roads": 139,
         "railways": 21,
@@ -716,6 +847,7 @@
         "resource": 0,
         "infrastructure": 1,
         "environmental": 38,
+        "security": 7,
         "demand": 0,
         "connectivity": 171,
         "renewables": 0,
@@ -751,13 +883,32 @@
           "2024": 3
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 24,
+        "fatalities_best": 253,
+        "fatalities_low": 246,
+        "fatalities_high": 277,
+        "state_based_events": 0,
+        "non_state_events": 5,
+        "one_sided_events": 19,
+        "yearly_counts": {
+          "2018": 3,
+          "2019": 1,
+          "2020": 1,
+          "2021": 3,
+          "2022": 3,
+          "2024": 3,
+          "2025": 10
+        }
+      },
       "status": {
         "operating": 0,
         "development": 0,
         "proposed": 1,
         "inactive": 0,
         "other": 38,
-        "unknown": 254
+        "unknown": 261
       },
       "people_access": {
         "worldpop_population_2025": 3564209.261,
@@ -812,6 +963,7 @@
         "gas_infrastructure": 2,
         "oil_spills": 47,
         "protected_areas": 2,
+        "conflict_exposure": 0,
         "demand_centers": 2,
         "roads": 478,
         "railways": 111,
@@ -830,6 +982,7 @@
         "resource": 0,
         "infrastructure": 36,
         "environmental": 49,
+        "security": 0,
         "demand": 2,
         "connectivity": 753,
         "renewables": 1,
@@ -872,6 +1025,28 @@
           "2023": 5,
           "2024": 3,
           "2026": 1
+        }
+      },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 121,
+        "fatalities_best": 237,
+        "fatalities_low": 231,
+        "fatalities_high": 269,
+        "state_based_events": 0,
+        "non_state_events": 99,
+        "one_sided_events": 22,
+        "yearly_counts": {
+          "2016": 10,
+          "2017": 3,
+          "2018": 5,
+          "2019": 32,
+          "2020": 8,
+          "2021": 9,
+          "2022": 12,
+          "2023": 10,
+          "2024": 5,
+          "2025": 27
         }
       },
       "status": {
@@ -921,7 +1096,7 @@
     },
     "Akwa Ibom": {
       "name": "Akwa Ibom",
-      "mapped_records": 317,
+      "mapped_records": 320,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -935,6 +1110,7 @@
         "gas_infrastructure": 2,
         "oil_spills": 55,
         "protected_areas": 5,
+        "conflict_exposure": 3,
         "demand_centers": 0,
         "roads": 146,
         "railways": 0,
@@ -953,6 +1129,7 @@
         "resource": 0,
         "infrastructure": 25,
         "environmental": 60,
+        "security": 3,
         "demand": 0,
         "connectivity": 182,
         "renewables": 1,
@@ -1001,13 +1178,34 @@
           "2026": 2
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 26,
+        "fatalities_best": 86,
+        "fatalities_low": 58,
+        "fatalities_high": 182,
+        "state_based_events": 6,
+        "non_state_events": 19,
+        "one_sided_events": 1,
+        "yearly_counts": {
+          "2016": 2,
+          "2017": 6,
+          "2019": 2,
+          "2020": 5,
+          "2021": 7,
+          "2022": 1,
+          "2023": 1,
+          "2024": 1,
+          "2025": 1
+        }
+      },
       "status": {
         "operating": 11,
         "development": 0,
         "proposed": 10,
         "inactive": 5,
         "other": 59,
-        "unknown": 232
+        "unknown": 235
       },
       "people_access": {
         "worldpop_population_2025": 4281013.948,
@@ -1048,7 +1246,7 @@
     },
     "Bayelsa": {
       "name": "Bayelsa",
-      "mapped_records": 4869,
+      "mapped_records": 4870,
       "counts": {
         "fields_oil": 1,
         "fields_gas": 14,
@@ -1062,6 +1260,7 @@
         "gas_infrastructure": 10,
         "oil_spills": 4734,
         "protected_areas": 14,
+        "conflict_exposure": 1,
         "demand_centers": 0,
         "roads": 0,
         "railways": 0,
@@ -1080,6 +1279,7 @@
         "resource": 35,
         "infrastructure": 24,
         "environmental": 4748,
+        "security": 1,
         "demand": 0,
         "connectivity": 7,
         "renewables": 6,
@@ -1134,13 +1334,32 @@
           "2026": 36
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 21,
+        "fatalities_best": 35,
+        "fatalities_low": 32,
+        "fatalities_high": 43,
+        "state_based_events": 0,
+        "non_state_events": 18,
+        "one_sided_events": 3,
+        "yearly_counts": {
+          "2016": 2,
+          "2019": 4,
+          "2020": 3,
+          "2022": 6,
+          "2023": 1,
+          "2024": 2,
+          "2025": 3
+        }
+      },
       "status": {
         "operating": 27,
         "development": 0,
         "proposed": 7,
         "inactive": 0,
         "other": 4757,
-        "unknown": 78
+        "unknown": 79
       },
       "people_access": {
         "worldpop_population_2025": 2523453.676,
@@ -1181,7 +1400,7 @@
     },
     "Ondo": {
       "name": "Ondo",
-      "mapped_records": 216,
+      "mapped_records": 221,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 2,
@@ -1195,6 +1414,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 16,
         "protected_areas": 27,
+        "conflict_exposure": 5,
         "demand_centers": 0,
         "roads": 57,
         "railways": 0,
@@ -1213,6 +1433,7 @@
         "resource": 2,
         "infrastructure": 11,
         "environmental": 43,
+        "security": 5,
         "demand": 0,
         "connectivity": 95,
         "renewables": 9,
@@ -1251,13 +1472,34 @@
           "2025": 2
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 30,
+        "fatalities_best": 136,
+        "fatalities_low": 79,
+        "fatalities_high": 149,
+        "state_based_events": 0,
+        "non_state_events": 25,
+        "one_sided_events": 5,
+        "yearly_counts": {
+          "2017": 3,
+          "2018": 2,
+          "2019": 5,
+          "2020": 2,
+          "2021": 3,
+          "2022": 5,
+          "2023": 4,
+          "2024": 1,
+          "2025": 5
+        }
+      },
       "status": {
         "operating": 11,
         "development": 6,
         "proposed": 5,
         "inactive": 2,
         "other": 41,
-        "unknown": 151
+        "unknown": 156
       },
       "people_access": {
         "worldpop_population_2025": 5658396.028,
@@ -1298,7 +1540,7 @@
     },
     "Delta": {
       "name": "Delta",
-      "mapped_records": 2837,
+      "mapped_records": 2841,
       "counts": {
         "fields_oil": 11,
         "fields_gas": 23,
@@ -1312,6 +1554,7 @@
         "gas_infrastructure": 27,
         "oil_spills": 2397,
         "protected_areas": 21,
+        "conflict_exposure": 4,
         "demand_centers": 2,
         "roads": 68,
         "railways": 88,
@@ -1330,6 +1573,7 @@
         "resource": 58,
         "infrastructure": 86,
         "environmental": 2418,
+        "security": 4,
         "demand": 2,
         "connectivity": 209,
         "renewables": 1,
@@ -1384,13 +1628,34 @@
           "2026": 45
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 53,
+        "fatalities_best": 118,
+        "fatalities_low": 105,
+        "fatalities_high": 133,
+        "state_based_events": 7,
+        "non_state_events": 33,
+        "one_sided_events": 13,
+        "yearly_counts": {
+          "2016": 5,
+          "2017": 1,
+          "2019": 5,
+          "2020": 12,
+          "2021": 1,
+          "2022": 8,
+          "2023": 8,
+          "2024": 8,
+          "2025": 5
+        }
+      },
       "status": {
         "operating": 67,
         "development": 3,
         "proposed": 20,
         "inactive": 24,
         "other": 2421,
-        "unknown": 302
+        "unknown": 306
       },
       "people_access": {
         "worldpop_population_2025": 7712872.39,
@@ -1431,7 +1696,7 @@
     },
     "Rivers": {
       "name": "Rivers",
-      "mapped_records": 7146,
+      "mapped_records": 7149,
       "counts": {
         "fields_oil": 3,
         "fields_gas": 17,
@@ -1445,6 +1710,7 @@
         "gas_infrastructure": 18,
         "oil_spills": 6796,
         "protected_areas": 11,
+        "conflict_exposure": 3,
         "demand_centers": 4,
         "roads": 80,
         "railways": 39,
@@ -1463,6 +1729,7 @@
         "resource": 42,
         "infrastructure": 61,
         "environmental": 6807,
+        "security": 3,
         "demand": 4,
         "connectivity": 173,
         "renewables": 5,
@@ -1518,13 +1785,35 @@
           "2026": 49
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 66,
+        "fatalities_best": 233,
+        "fatalities_low": 199,
+        "fatalities_high": 360,
+        "state_based_events": 3,
+        "non_state_events": 50,
+        "one_sided_events": 13,
+        "yearly_counts": {
+          "2016": 16,
+          "2017": 8,
+          "2018": 2,
+          "2019": 14,
+          "2020": 7,
+          "2021": 4,
+          "2022": 3,
+          "2023": 6,
+          "2024": 1,
+          "2025": 5
+        }
+      },
       "status": {
         "operating": 67,
         "development": 3,
         "proposed": 9,
         "inactive": 2,
         "other": 6811,
-        "unknown": 254
+        "unknown": 257
       },
       "people_access": {
         "worldpop_population_2025": 6863907.13,
@@ -1565,7 +1854,7 @@
     },
     "Kwara": {
       "name": "Kwara",
-      "mapped_records": 391,
+      "mapped_records": 393,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1579,6 +1868,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 2,
         "protected_areas": 33,
+        "conflict_exposure": 2,
         "demand_centers": 0,
         "roads": 237,
         "railways": 20,
@@ -1597,6 +1887,7 @@
         "resource": 0,
         "infrastructure": 1,
         "environmental": 35,
+        "security": 2,
         "demand": 0,
         "connectivity": 273,
         "renewables": 1,
@@ -1624,13 +1915,33 @@
           "2014": 1
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 23,
+        "fatalities_best": 44,
+        "fatalities_low": 38,
+        "fatalities_high": 49,
+        "state_based_events": 0,
+        "non_state_events": 22,
+        "one_sided_events": 1,
+        "yearly_counts": {
+          "2017": 2,
+          "2018": 2,
+          "2020": 1,
+          "2021": 3,
+          "2022": 7,
+          "2023": 4,
+          "2024": 3,
+          "2025": 1
+        }
+      },
       "status": {
         "operating": 1,
         "development": 0,
         "proposed": 2,
         "inactive": 0,
         "other": 34,
-        "unknown": 354
+        "unknown": 356
       },
       "people_access": {
         "worldpop_population_2025": 4687187.345,
@@ -1671,7 +1982,7 @@
     },
     "Kogi": {
       "name": "Kogi",
-      "mapped_records": 581,
+      "mapped_records": 590,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1685,6 +1996,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 83,
         "protected_areas": 37,
+        "conflict_exposure": 9,
         "demand_centers": 4,
         "roads": 160,
         "railways": 140,
@@ -1703,6 +2015,7 @@
         "resource": 0,
         "infrastructure": 29,
         "environmental": 120,
+        "security": 9,
         "demand": 4,
         "connectivity": 347,
         "renewables": 2,
@@ -1738,13 +2051,33 @@
           "2016": 1
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 48,
+        "fatalities_best": 185,
+        "fatalities_low": 140,
+        "fatalities_high": 239,
+        "state_based_events": 1,
+        "non_state_events": 43,
+        "one_sided_events": 4,
+        "yearly_counts": {
+          "2016": 2,
+          "2018": 5,
+          "2019": 15,
+          "2020": 7,
+          "2022": 9,
+          "2023": 6,
+          "2024": 3,
+          "2025": 1
+        }
+      },
       "status": {
         "operating": 16,
         "development": 1,
         "proposed": 19,
         "inactive": 0,
         "other": 119,
-        "unknown": 426
+        "unknown": 435
       },
       "people_access": {
         "worldpop_population_2025": 4479439.153,
@@ -1785,7 +2118,7 @@
     },
     "Benue": {
       "name": "Benue",
-      "mapped_records": 307,
+      "mapped_records": 316,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1799,6 +2132,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 1,
         "protected_areas": 35,
+        "conflict_exposure": 9,
         "demand_centers": 1,
         "roads": 137,
         "railways": 28,
@@ -1817,6 +2151,7 @@
         "resource": 0,
         "infrastructure": 1,
         "environmental": 36,
+        "security": 9,
         "demand": 1,
         "connectivity": 191,
         "renewables": 2,
@@ -1843,13 +2178,35 @@
           "2024": 1
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 355,
+        "fatalities_best": 2354,
+        "fatalities_low": 2057,
+        "fatalities_high": 2929,
+        "state_based_events": 0,
+        "non_state_events": 345,
+        "one_sided_events": 10,
+        "yearly_counts": {
+          "2016": 28,
+          "2017": 18,
+          "2018": 60,
+          "2019": 21,
+          "2020": 15,
+          "2021": 25,
+          "2022": 29,
+          "2023": 45,
+          "2024": 37,
+          "2025": 77
+        }
+      },
       "status": {
         "operating": 4,
         "development": 0,
         "proposed": 0,
         "inactive": 0,
         "other": 36,
-        "unknown": 267
+        "unknown": 276
       },
       "people_access": {
         "worldpop_population_2025": 9067209.083,
@@ -1890,7 +2247,7 @@
     },
     "Borno": {
       "name": "Borno",
-      "mapped_records": 382,
+      "mapped_records": 405,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1904,6 +2261,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 78,
+        "conflict_exposure": 23,
         "demand_centers": 0,
         "roads": 113,
         "railways": 28,
@@ -1922,6 +2280,7 @@
         "resource": 0,
         "infrastructure": 1,
         "environmental": 78,
+        "security": 23,
         "demand": 0,
         "connectivity": 168,
         "renewables": 0,
@@ -1942,13 +2301,35 @@
         "cause_counts": {},
         "yearly_counts": {}
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 3026,
+        "fatalities_best": 21023,
+        "fatalities_low": 18754,
+        "fatalities_high": 26990,
+        "state_based_events": 2359,
+        "non_state_events": 175,
+        "one_sided_events": 492,
+        "yearly_counts": {
+          "2016": 285,
+          "2017": 378,
+          "2018": 244,
+          "2019": 289,
+          "2020": 426,
+          "2021": 263,
+          "2022": 229,
+          "2023": 360,
+          "2024": 229,
+          "2025": 323
+        }
+      },
       "status": {
         "operating": 0,
         "development": 1,
         "proposed": 1,
         "inactive": 0,
         "other": 77,
-        "unknown": 303
+        "unknown": 326
       },
       "people_access": {
         "worldpop_population_2025": 6269578.236,
@@ -1989,7 +2370,7 @@
     },
     "Katsina": {
       "name": "Katsina",
-      "mapped_records": 318,
+      "mapped_records": 321,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2003,6 +2384,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 2,
         "protected_areas": 71,
+        "conflict_exposure": 3,
         "demand_centers": 0,
         "roads": 137,
         "railways": 7,
@@ -2021,6 +2403,7 @@
         "resource": 0,
         "infrastructure": 0,
         "environmental": 73,
+        "security": 3,
         "demand": 0,
         "connectivity": 172,
         "renewables": 2,
@@ -2047,13 +2430,28 @@
           "2013": 2
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 8,
+        "fatalities_best": 80,
+        "fatalities_low": 80,
+        "fatalities_high": 86,
+        "state_based_events": 1,
+        "non_state_events": 1,
+        "one_sided_events": 6,
+        "yearly_counts": {
+          "2020": 3,
+          "2024": 1,
+          "2025": 4
+        }
+      },
       "status": {
         "operating": 1,
         "development": 1,
         "proposed": 0,
         "inactive": 0,
         "other": 73,
-        "unknown": 243
+        "unknown": 246
       },
       "people_access": {
         "worldpop_population_2025": 10522942.91,
@@ -2094,7 +2492,7 @@
     },
     "Plateau": {
       "name": "Plateau",
-      "mapped_records": 313,
+      "mapped_records": 318,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2108,6 +2506,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 2,
         "protected_areas": 37,
+        "conflict_exposure": 5,
         "demand_centers": 0,
         "roads": 130,
         "railways": 25,
@@ -2126,6 +2525,7 @@
         "resource": 0,
         "infrastructure": 0,
         "environmental": 39,
+        "security": 5,
         "demand": 0,
         "connectivity": 198,
         "renewables": 5,
@@ -2152,13 +2552,35 @@
           "2012": 2
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 287,
+        "fatalities_best": 1775,
+        "fatalities_low": 1703,
+        "fatalities_high": 2097,
+        "state_based_events": 0,
+        "non_state_events": 280,
+        "one_sided_events": 7,
+        "yearly_counts": {
+          "2016": 1,
+          "2017": 17,
+          "2018": 65,
+          "2019": 16,
+          "2020": 15,
+          "2021": 25,
+          "2022": 16,
+          "2023": 44,
+          "2024": 25,
+          "2025": 63
+        }
+      },
       "status": {
         "operating": 3,
         "development": 2,
         "proposed": 0,
         "inactive": 0,
         "other": 39,
-        "unknown": 269
+        "unknown": 274
       },
       "people_access": {
         "worldpop_population_2025": 5771080.854,
@@ -2199,7 +2621,7 @@
     },
     "Edo": {
       "name": "Edo",
-      "mapped_records": 728,
+      "mapped_records": 732,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 5,
@@ -2213,6 +2635,7 @@
         "gas_infrastructure": 4,
         "oil_spills": 295,
         "protected_areas": 48,
+        "conflict_exposure": 4,
         "demand_centers": 2,
         "roads": 152,
         "railways": 55,
@@ -2231,6 +2654,7 @@
         "resource": 9,
         "infrastructure": 22,
         "environmental": 343,
+        "security": 4,
         "demand": 2,
         "connectivity": 280,
         "renewables": 4,
@@ -2282,13 +2706,33 @@
           "2026": 4
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 65,
+        "fatalities_best": 180,
+        "fatalities_low": 178,
+        "fatalities_high": 193,
+        "state_based_events": 3,
+        "non_state_events": 59,
+        "one_sided_events": 3,
+        "yearly_counts": {
+          "2016": 6,
+          "2019": 11,
+          "2020": 15,
+          "2021": 2,
+          "2022": 5,
+          "2023": 14,
+          "2024": 6,
+          "2025": 6
+        }
+      },
       "status": {
         "operating": 23,
         "development": 3,
         "proposed": 8,
         "inactive": 0,
         "other": 341,
-        "unknown": 353
+        "unknown": 357
       },
       "people_access": {
         "worldpop_population_2025": 6633884.179,
@@ -2329,7 +2773,7 @@
     },
     "Jigawa": {
       "name": "Jigawa",
-      "mapped_records": 185,
+      "mapped_records": 191,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2343,6 +2787,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 71,
+        "conflict_exposure": 6,
         "demand_centers": 0,
         "roads": 18,
         "railways": 9,
@@ -2361,6 +2806,7 @@
         "resource": 0,
         "infrastructure": 0,
         "environmental": 71,
+        "security": 6,
         "demand": 0,
         "connectivity": 44,
         "renewables": 1,
@@ -2381,13 +2827,31 @@
         "cause_counts": {},
         "yearly_counts": {}
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 16,
+        "fatalities_best": 52,
+        "fatalities_low": 39,
+        "fatalities_high": 62,
+        "state_based_events": 0,
+        "non_state_events": 15,
+        "one_sided_events": 1,
+        "yearly_counts": {
+          "2019": 2,
+          "2021": 2,
+          "2022": 3,
+          "2023": 2,
+          "2024": 2,
+          "2025": 5
+        }
+      },
       "status": {
         "operating": 1,
         "development": 0,
         "proposed": 1,
         "inactive": 0,
         "other": 70,
-        "unknown": 113
+        "unknown": 119
       },
       "people_access": {
         "worldpop_population_2025": 7645450.17,
@@ -2428,7 +2892,7 @@
     },
     "Anambra": {
       "name": "Anambra",
-      "mapped_records": 198,
+      "mapped_records": 200,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2442,6 +2906,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 10,
         "protected_areas": 12,
+        "conflict_exposure": 2,
         "demand_centers": 0,
         "roads": 92,
         "railways": 0,
@@ -2460,6 +2925,7 @@
         "resource": 0,
         "infrastructure": 4,
         "environmental": 22,
+        "security": 2,
         "demand": 0,
         "connectivity": 120,
         "renewables": 4,
@@ -2494,13 +2960,35 @@
           "2026": 1
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 103,
+        "fatalities_best": 293,
+        "fatalities_low": 241,
+        "fatalities_high": 397,
+        "state_based_events": 60,
+        "non_state_events": 20,
+        "one_sided_events": 23,
+        "yearly_counts": {
+          "2016": 3,
+          "2017": 2,
+          "2018": 4,
+          "2019": 4,
+          "2020": 1,
+          "2021": 15,
+          "2022": 17,
+          "2023": 17,
+          "2024": 30,
+          "2025": 10
+        }
+      },
       "status": {
         "operating": 4,
         "development": 0,
         "proposed": 2,
         "inactive": 3,
         "other": 21,
-        "unknown": 168
+        "unknown": 170
       },
       "people_access": {
         "worldpop_population_2025": 5788664.686,
@@ -2541,7 +3029,7 @@
     },
     "Kano": {
       "name": "Kano",
-      "mapped_records": 383,
+      "mapped_records": 386,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2555,6 +3043,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 5,
         "protected_areas": 16,
+        "conflict_exposure": 3,
         "demand_centers": 0,
         "roads": 133,
         "railways": 65,
@@ -2573,6 +3062,7 @@
         "resource": 0,
         "infrastructure": 5,
         "environmental": 21,
+        "security": 3,
         "demand": 0,
         "connectivity": 287,
         "renewables": 2,
@@ -2604,13 +3094,31 @@
           "2024": 1
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 8,
+        "fatalities_best": 9,
+        "fatalities_low": 8,
+        "fatalities_high": 13,
+        "state_based_events": 0,
+        "non_state_events": 3,
+        "one_sided_events": 5,
+        "yearly_counts": {
+          "2016": 1,
+          "2017": 1,
+          "2019": 1,
+          "2020": 1,
+          "2022": 3,
+          "2025": 1
+        }
+      },
       "status": {
         "operating": 1,
         "development": 2,
         "proposed": 4,
         "inactive": 0,
         "other": 21,
-        "unknown": 355
+        "unknown": 358
       },
       "people_access": {
         "worldpop_population_2025": 18771133.63,
@@ -2651,7 +3159,7 @@
     },
     "Nasarawa": {
       "name": "Nasarawa",
-      "mapped_records": 282,
+      "mapped_records": 290,
       "counts": {
         "fields_oil": 4,
         "fields_gas": 31,
@@ -2665,6 +3173,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 34,
+        "conflict_exposure": 8,
         "demand_centers": 0,
         "roads": 107,
         "railways": 13,
@@ -2683,6 +3192,7 @@
         "resource": 35,
         "infrastructure": 2,
         "environmental": 34,
+        "security": 8,
         "demand": 0,
         "connectivity": 132,
         "renewables": 1,
@@ -2703,13 +3213,34 @@
         "cause_counts": {},
         "yearly_counts": {}
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 90,
+        "fatalities_best": 577,
+        "fatalities_low": 453,
+        "fatalities_high": 737,
+        "state_based_events": 0,
+        "non_state_events": 89,
+        "one_sided_events": 1,
+        "yearly_counts": {
+          "2016": 6,
+          "2018": 34,
+          "2019": 2,
+          "2020": 6,
+          "2021": 12,
+          "2022": 7,
+          "2023": 6,
+          "2024": 4,
+          "2025": 13
+        }
+      },
       "status": {
         "operating": 36,
         "development": 1,
         "proposed": 1,
         "inactive": 0,
         "other": 34,
-        "unknown": 210
+        "unknown": 218
       },
       "people_access": {
         "worldpop_population_2025": 3598556.717,
@@ -2750,7 +3281,7 @@
     },
     "Kebbi": {
       "name": "Kebbi",
-      "mapped_records": 312,
+      "mapped_records": 321,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2764,6 +3295,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 17,
+        "conflict_exposure": 9,
         "demand_centers": 0,
         "roads": 67,
         "railways": 0,
@@ -2782,6 +3314,7 @@
         "resource": 0,
         "infrastructure": 0,
         "environmental": 17,
+        "security": 9,
         "demand": 0,
         "connectivity": 207,
         "renewables": 1,
@@ -2802,13 +3335,28 @@
         "cause_counts": {},
         "yearly_counts": {}
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 12,
+        "fatalities_best": 57,
+        "fatalities_low": 45,
+        "fatalities_high": 60,
+        "state_based_events": 4,
+        "non_state_events": 3,
+        "one_sided_events": 5,
+        "yearly_counts": {
+          "2023": 3,
+          "2024": 1,
+          "2025": 8
+        }
+      },
       "status": {
         "operating": 1,
         "development": 0,
         "proposed": 0,
         "inactive": 0,
         "other": 17,
-        "unknown": 294
+        "unknown": 303
       },
       "people_access": {
         "worldpop_population_2025": 4015574.776,
@@ -2849,7 +3397,7 @@
     },
     "Imo": {
       "name": "Imo",
-      "mapped_records": 592,
+      "mapped_records": 595,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 3,
@@ -2863,6 +3411,7 @@
         "gas_infrastructure": 2,
         "oil_spills": 460,
         "protected_areas": 5,
+        "conflict_exposure": 3,
         "demand_centers": 0,
         "roads": 55,
         "railways": 0,
@@ -2881,6 +3430,7 @@
         "resource": 3,
         "infrastructure": 7,
         "environmental": 465,
+        "security": 3,
         "demand": 0,
         "connectivity": 71,
         "renewables": 1,
@@ -2932,13 +3482,33 @@
           "2026": 9
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 144,
+        "fatalities_best": 360,
+        "fatalities_low": 210,
+        "fatalities_high": 490,
+        "state_based_events": 99,
+        "non_state_events": 8,
+        "one_sided_events": 37,
+        "yearly_counts": {
+          "2016": 3,
+          "2019": 2,
+          "2020": 1,
+          "2021": 32,
+          "2022": 29,
+          "2023": 26,
+          "2024": 30,
+          "2025": 21
+        }
+      },
       "status": {
         "operating": 6,
         "development": 3,
         "proposed": 1,
         "inactive": 1,
         "other": 465,
-        "unknown": 116
+        "unknown": 119
       },
       "people_access": {
         "worldpop_population_2025": 6592131.419,
@@ -2979,7 +3549,7 @@
     },
     "Gombe": {
       "name": "Gombe",
-      "mapped_records": 251,
+      "mapped_records": 255,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2993,6 +3563,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 8,
         "protected_areas": 34,
+        "conflict_exposure": 4,
         "demand_centers": 1,
         "roads": 67,
         "railways": 55,
@@ -3011,6 +3582,7 @@
         "resource": 0,
         "infrastructure": 0,
         "environmental": 42,
+        "security": 4,
         "demand": 1,
         "connectivity": 147,
         "renewables": 3,
@@ -3038,13 +3610,32 @@
           "2013": 8
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 24,
+        "fatalities_best": 194,
+        "fatalities_low": 153,
+        "fatalities_high": 267,
+        "state_based_events": 11,
+        "non_state_events": 10,
+        "one_sided_events": 3,
+        "yearly_counts": {
+          "2016": 1,
+          "2018": 1,
+          "2020": 5,
+          "2021": 7,
+          "2022": 5,
+          "2024": 3,
+          "2025": 2
+        }
+      },
       "status": {
         "operating": 4,
         "development": 0,
         "proposed": 0,
         "inactive": 0,
         "other": 42,
-        "unknown": 205
+        "unknown": 209
       },
       "people_access": {
         "worldpop_population_2025": 4477433.215,
@@ -3085,7 +3676,7 @@
     },
     "Adamawa": {
       "name": "Adamawa",
-      "mapped_records": 296,
+      "mapped_records": 306,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -3099,6 +3690,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 21,
+        "conflict_exposure": 10,
         "demand_centers": 0,
         "roads": 163,
         "railways": 0,
@@ -3117,6 +3709,7 @@
         "resource": 0,
         "infrastructure": 0,
         "environmental": 21,
+        "security": 10,
         "demand": 0,
         "connectivity": 179,
         "renewables": 1,
@@ -3137,13 +3730,35 @@
         "cause_counts": {},
         "yearly_counts": {}
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 148,
+        "fatalities_best": 1167,
+        "fatalities_low": 1000,
+        "fatalities_high": 1437,
+        "state_based_events": 41,
+        "non_state_events": 60,
+        "one_sided_events": 47,
+        "yearly_counts": {
+          "2016": 12,
+          "2017": 34,
+          "2018": 34,
+          "2019": 13,
+          "2020": 12,
+          "2021": 6,
+          "2022": 7,
+          "2023": 5,
+          "2024": 5,
+          "2025": 20
+        }
+      },
       "status": {
         "operating": 0,
         "development": 1,
         "proposed": 0,
         "inactive": 0,
         "other": 21,
-        "unknown": 274
+        "unknown": 284
       },
       "people_access": {
         "worldpop_population_2025": 6006481.456,
@@ -3184,7 +3799,7 @@
     },
     "Yobe": {
       "name": "Yobe",
-      "mapped_records": 240,
+      "mapped_records": 253,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -3198,6 +3813,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 40,
+        "conflict_exposure": 13,
         "demand_centers": 0,
         "roads": 68,
         "railways": 19,
@@ -3216,6 +3832,7 @@
         "resource": 0,
         "infrastructure": 0,
         "environmental": 40,
+        "security": 13,
         "demand": 0,
         "connectivity": 96,
         "renewables": 2,
@@ -3236,13 +3853,35 @@
         "cause_counts": {},
         "yearly_counts": {}
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 185,
+        "fatalities_best": 1170,
+        "fatalities_low": 895,
+        "fatalities_high": 1487,
+        "state_based_events": 144,
+        "non_state_events": 9,
+        "one_sided_events": 32,
+        "yearly_counts": {
+          "2016": 10,
+          "2017": 9,
+          "2018": 7,
+          "2019": 15,
+          "2020": 17,
+          "2021": 29,
+          "2022": 11,
+          "2023": 19,
+          "2024": 32,
+          "2025": 36
+        }
+      },
       "status": {
         "operating": 2,
         "development": 0,
         "proposed": 1,
         "inactive": 0,
         "other": 39,
-        "unknown": 198
+        "unknown": 211
       },
       "people_access": {
         "worldpop_population_2025": 5370897.311,
@@ -3283,7 +3922,7 @@
     },
     "Abia": {
       "name": "Abia",
-      "mapped_records": 314,
+      "mapped_records": 315,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 1,
@@ -3297,6 +3936,7 @@
         "gas_infrastructure": 3,
         "oil_spills": 137,
         "protected_areas": 7,
+        "conflict_exposure": 1,
         "demand_centers": 1,
         "roads": 65,
         "railways": 6,
@@ -3315,6 +3955,7 @@
         "resource": 3,
         "infrastructure": 11,
         "environmental": 144,
+        "security": 1,
         "demand": 1,
         "connectivity": 110,
         "renewables": 0,
@@ -3360,13 +4001,34 @@
           "2024": 1
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 38,
+        "fatalities_best": 89,
+        "fatalities_low": 83,
+        "fatalities_high": 123,
+        "state_based_events": 23,
+        "non_state_events": 4,
+        "one_sided_events": 11,
+        "yearly_counts": {
+          "2016": 3,
+          "2017": 1,
+          "2019": 2,
+          "2020": 3,
+          "2021": 4,
+          "2022": 4,
+          "2023": 4,
+          "2024": 14,
+          "2025": 3
+        }
+      },
       "status": {
         "operating": 8,
         "development": 2,
         "proposed": 1,
         "inactive": 1,
         "other": 144,
-        "unknown": 158
+        "unknown": 159
       },
       "people_access": {
         "worldpop_population_2025": 3924169.25,
@@ -3407,7 +4069,7 @@
     },
     "Ekiti": {
       "name": "Ekiti",
-      "mapped_records": 68,
+      "mapped_records": 70,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -3421,6 +4083,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 1,
         "protected_areas": 14,
+        "conflict_exposure": 2,
         "demand_centers": 0,
         "roads": 0,
         "railways": 0,
@@ -3439,6 +4102,7 @@
         "resource": 0,
         "infrastructure": 0,
         "environmental": 15,
+        "security": 2,
         "demand": 0,
         "connectivity": 6,
         "renewables": 0,
@@ -3465,13 +4129,28 @@
           "2024": 1
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 5,
+        "fatalities_best": 11,
+        "fatalities_low": 11,
+        "fatalities_high": 11,
+        "state_based_events": 0,
+        "non_state_events": 5,
+        "one_sided_events": 0,
+        "yearly_counts": {
+          "2018": 2,
+          "2019": 1,
+          "2021": 2
+        }
+      },
       "status": {
         "operating": 0,
         "development": 0,
         "proposed": 0,
         "inactive": 0,
         "other": 15,
-        "unknown": 53
+        "unknown": 55
       },
       "people_access": {
         "worldpop_population_2025": 3060453.429,
@@ -3512,7 +4191,7 @@
     },
     "Osun": {
       "name": "Osun",
-      "mapped_records": 180,
+      "mapped_records": 183,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 1,
@@ -3526,6 +4205,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 1,
         "protected_areas": 11,
+        "conflict_exposure": 3,
         "demand_centers": 0,
         "roads": 59,
         "railways": 14,
@@ -3544,6 +4224,7 @@
         "resource": 1,
         "infrastructure": 2,
         "environmental": 12,
+        "security": 3,
         "demand": 0,
         "connectivity": 114,
         "renewables": 1,
@@ -3570,13 +4251,34 @@
           "2022": 1
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 33,
+        "fatalities_best": 99,
+        "fatalities_low": 89,
+        "fatalities_high": 110,
+        "state_based_events": 0,
+        "non_state_events": 25,
+        "one_sided_events": 8,
+        "yearly_counts": {
+          "2017": 1,
+          "2018": 1,
+          "2019": 2,
+          "2020": 2,
+          "2021": 7,
+          "2022": 5,
+          "2023": 5,
+          "2024": 2,
+          "2025": 8
+        }
+      },
       "status": {
         "operating": 3,
         "development": 0,
         "proposed": 1,
         "inactive": 0,
         "other": 12,
-        "unknown": 164
+        "unknown": 167
       },
       "people_access": {
         "worldpop_population_2025": 5595659.114,
@@ -3617,7 +4319,7 @@
     },
     "Bauchi": {
       "name": "Bauchi",
-      "mapped_records": 368,
+      "mapped_records": 376,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -3631,6 +4333,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 4,
         "protected_areas": 71,
+        "conflict_exposure": 8,
         "demand_centers": 0,
         "roads": 105,
         "railways": 62,
@@ -3649,6 +4352,7 @@
         "resource": 0,
         "infrastructure": 0,
         "environmental": 75,
+        "security": 8,
         "demand": 0,
         "connectivity": 180,
         "renewables": 5,
@@ -3676,13 +4380,30 @@
           "2013": 3
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 9,
+        "fatalities_best": 20,
+        "fatalities_low": 18,
+        "fatalities_high": 21,
+        "state_based_events": 0,
+        "non_state_events": 6,
+        "one_sided_events": 3,
+        "yearly_counts": {
+          "2019": 1,
+          "2020": 2,
+          "2023": 1,
+          "2024": 2,
+          "2025": 3
+        }
+      },
       "status": {
         "operating": 5,
         "development": 0,
         "proposed": 0,
         "inactive": 0,
         "other": 75,
-        "unknown": 288
+        "unknown": 296
       },
       "people_access": {
         "worldpop_population_2025": 8781376.998,
@@ -3723,7 +4444,7 @@
     },
     "Niger": {
       "name": "Niger",
-      "mapped_records": 660,
+      "mapped_records": 671,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -3737,6 +4458,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 64,
         "protected_areas": 88,
+        "conflict_exposure": 11,
         "demand_centers": 1,
         "roads": 175,
         "railways": 91,
@@ -3755,6 +4477,7 @@
         "resource": 0,
         "infrastructure": 3,
         "environmental": 152,
+        "security": 11,
         "demand": 1,
         "connectivity": 366,
         "renewables": 5,
@@ -3790,13 +4513,33 @@
           "2018": 1
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 22,
+        "fatalities_best": 129,
+        "fatalities_low": 104,
+        "fatalities_high": 164,
+        "state_based_events": 11,
+        "non_state_events": 4,
+        "one_sided_events": 7,
+        "yearly_counts": {
+          "2016": 2,
+          "2017": 1,
+          "2019": 1,
+          "2021": 1,
+          "2022": 4,
+          "2023": 2,
+          "2024": 8,
+          "2025": 3
+        }
+      },
       "status": {
         "operating": 6,
         "development": 0,
         "proposed": 4,
         "inactive": 0,
         "other": 151,
-        "unknown": 499
+        "unknown": 510
       },
       "people_access": {
         "worldpop_population_2025": 7303220.252,
@@ -3837,7 +4580,7 @@
     },
     "Kaduna": {
       "name": "Kaduna",
-      "mapped_records": 1026,
+      "mapped_records": 1037,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -3851,6 +4594,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 145,
         "protected_areas": 85,
+        "conflict_exposure": 11,
         "demand_centers": 1,
         "roads": 313,
         "railways": 292,
@@ -3869,6 +4613,7 @@
         "resource": 0,
         "infrastructure": 5,
         "environmental": 230,
+        "security": 11,
         "demand": 1,
         "connectivity": 688,
         "renewables": 4,
@@ -3911,13 +4656,35 @@
           "2025": 1
         }
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 109,
+        "fatalities_best": 902,
+        "fatalities_low": 805,
+        "fatalities_high": 1165,
+        "state_based_events": 2,
+        "non_state_events": 97,
+        "one_sided_events": 10,
+        "yearly_counts": {
+          "2016": 10,
+          "2017": 10,
+          "2018": 7,
+          "2019": 12,
+          "2020": 41,
+          "2021": 9,
+          "2022": 9,
+          "2023": 5,
+          "2024": 1,
+          "2025": 5
+        }
+      },
       "status": {
         "operating": 6,
         "development": 2,
         "proposed": 2,
         "inactive": 0,
         "other": 230,
-        "unknown": 786
+        "unknown": 797
       },
       "people_access": {
         "worldpop_population_2025": 11233188.31,
@@ -3958,7 +4725,7 @@
     },
     "Enugu": {
       "name": "Enugu",
-      "mapped_records": 232,
+      "mapped_records": 235,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -3972,6 +4739,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 14,
+        "conflict_exposure": 3,
         "demand_centers": 0,
         "roads": 112,
         "railways": 21,
@@ -3990,6 +4758,7 @@
         "resource": 0,
         "infrastructure": 1,
         "environmental": 14,
+        "security": 3,
         "demand": 0,
         "connectivity": 167,
         "renewables": 0,
@@ -4010,13 +4779,32 @@
         "cause_counts": {},
         "yearly_counts": {}
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 75,
+        "fatalities_best": 154,
+        "fatalities_low": 122,
+        "fatalities_high": 284,
+        "state_based_events": 29,
+        "non_state_events": 30,
+        "one_sided_events": 16,
+        "yearly_counts": {
+          "2016": 7,
+          "2019": 3,
+          "2021": 11,
+          "2022": 17,
+          "2023": 10,
+          "2024": 16,
+          "2025": 11
+        }
+      },
       "status": {
         "operating": 0,
         "development": 0,
         "proposed": 2,
         "inactive": 0,
         "other": 13,
-        "unknown": 217
+        "unknown": 220
       },
       "people_access": {
         "worldpop_population_2025": 5104971.815,
@@ -4057,7 +4845,7 @@
     },
     "Taraba": {
       "name": "Taraba",
-      "mapped_records": 380,
+      "mapped_records": 392,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -4071,6 +4859,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 42,
+        "conflict_exposure": 12,
         "demand_centers": 0,
         "roads": 202,
         "railways": 0,
@@ -4089,6 +4878,7 @@
         "resource": 0,
         "infrastructure": 0,
         "environmental": 42,
+        "security": 12,
         "demand": 0,
         "connectivity": 216,
         "renewables": 1,
@@ -4109,13 +4899,35 @@
         "cause_counts": {},
         "yearly_counts": {}
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 163,
+        "fatalities_best": 1062,
+        "fatalities_low": 947,
+        "fatalities_high": 1520,
+        "state_based_events": 0,
+        "non_state_events": 159,
+        "one_sided_events": 4,
+        "yearly_counts": {
+          "2016": 9,
+          "2017": 7,
+          "2018": 40,
+          "2019": 38,
+          "2020": 19,
+          "2021": 15,
+          "2022": 6,
+          "2023": 15,
+          "2024": 6,
+          "2025": 8
+        }
+      },
       "status": {
         "operating": 0,
         "development": 1,
         "proposed": 0,
         "inactive": 0,
         "other": 42,
-        "unknown": 337
+        "unknown": 349
       },
       "people_access": {
         "worldpop_population_2025": 4473844.385,
@@ -4156,7 +4968,7 @@
     },
     "Ebonyi": {
       "name": "Ebonyi",
-      "mapped_records": 134,
+      "mapped_records": 137,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -4170,6 +4982,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 10,
+        "conflict_exposure": 3,
         "demand_centers": 0,
         "roads": 57,
         "railways": 2,
@@ -4188,6 +5001,7 @@
         "resource": 0,
         "infrastructure": 1,
         "environmental": 10,
+        "security": 3,
         "demand": 0,
         "connectivity": 71,
         "renewables": 4,
@@ -4208,13 +5022,33 @@
         "cause_counts": {},
         "yearly_counts": {}
       },
+      "security_intelligence": {
+        "period": "2016-2025",
+        "event_count": 41,
+        "fatalities_best": 170,
+        "fatalities_low": 109,
+        "fatalities_high": 221,
+        "state_based_events": 16,
+        "non_state_events": 21,
+        "one_sided_events": 4,
+        "yearly_counts": {
+          "2018": 2,
+          "2019": 2,
+          "2020": 3,
+          "2021": 13,
+          "2022": 9,
+          "2023": 4,
+          "2024": 5,
+          "2025": 3
+        }
+      },
       "status": {
         "operating": 2,
         "development": 2,
         "proposed": 1,
         "inactive": 0,
         "other": 10,
-        "unknown": 119
+        "unknown": 122
       },
       "people_access": {
         "worldpop_population_2025": 2567908.144,

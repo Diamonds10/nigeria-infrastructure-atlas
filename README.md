@@ -26,29 +26,31 @@ It is designed to support:
 
 ## What the atlas contains
 
-The current public atlas is organized into seven published analytical layers:
+The current public atlas is organized into eight published analytical layers:
 
 1. Resource
 2. Infrastructure
 3. Environmental
-4. Demand
-5. Connectivity
-6. Distributed Energy
-7. People & Access
+4. Security Context
+5. Demand
+6. Connectivity
+7. Distributed Energy
+8. People & Access
 
-A standalone security layer is planned, but it is not part of the `v0.9` processed
-dataset or public map. This boundary is intentional: the source register records
-candidate security sources without presenting them as implemented evidence.
+Security Context uses the annual UCDP GED 26.1 release under CC BY 4.0. The map
+publishes 2016–2025 half-degree exposure cells rather than village-level event
+points and excludes actor names, narratives, and source text. It is historical
+screening evidence, not a live threat feed.
 
 The public value of the atlas is not any single output file. It is the combination of transparent provenance, reproducible workflows, and a structured way to compare upstream resources with downstream infrastructure and demand.
 
 ## Current public-facing value
 
-A live `v0.9` state-intelligence experience is available at
+A live `v0.10` state-intelligence experience is available at
 [diamonds10.github.io/nigeria-infrastructure-atlas](https://diamonds10.github.io/nigeria-infrastructure-atlas/).
 It provides profiles for all 36 states and the FCT, state-specific shareable
-links and GeoJSON downloads, and a searchable catalogue covering the 24
-content-bearing map datasets. The API preserves 25 stable layer endpoints,
+links and GeoJSON downloads, and a searchable catalogue covering the 25
+content-bearing map datasets. The API preserves 26 stable layer endpoints,
 including the currently empty standalone-systems evidence gap. Normalized
 status and evidence-year filters apply
 consistently to the map, search results, visible counts, shared URLs, and
@@ -150,7 +152,9 @@ The repository already contains a meaningful evidence base for screening and res
 - gas and oil infrastructure records
 - power-producing plant and substation context
 - demand-centre reference points
-- environmental overlays, with security documented as a planned future layer
+- environmental overlays and licensed, aggregated historical security context
+- licensed historical security context: 227 half-degree UCDP exposure cells
+  representing 5,565 organized-violence events from 2016–2025
 - a public-source off-grid inventory covering 93 named records across 31 states
   and the FCT, with source-specific status, capacity, coordinate precision, and
   operator context
@@ -230,8 +234,9 @@ Important caveats include:
 
 The next work is continued evidence expansion rather than basic platform
 construction: deeper state-specific standalone-solar aggregates when official
-reporting supports them, carefully licensed conflict and security context, and formal
-preservation releases after third-party redistribution conditions are cleared.
+reporting supports them, periodic updates to the licensed historical security
+context, and formal preservation releases after third-party redistribution
+conditions are cleared.
 The repository now publishes refresh targets and accepts evidence submissions
 for every atlas section; see `docs/data_governance_and_refresh.md`.
 

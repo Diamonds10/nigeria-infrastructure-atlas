@@ -62,6 +62,7 @@ class PublicAtlasTests(unittest.TestCase):
                 "gas_infrastructure": 98,
                 "oil_spills": 16326,
                 "protected_areas": 1005,
+                "conflict_exposure": 227,
                 "demand_centers": 28,
                 "roads": 5124,
                 "railways": 1381,
@@ -115,6 +116,14 @@ class PublicAtlasTests(unittest.TestCase):
             "data/processed/07_renewables/standalone_solar_programme_evidence.csv": {
                 "scope", "evidence_status", "systems_reported",
                 "people_reached", "source_url", "reuse_note",
+            },
+            "data/processed/06_security/ucdp_organized_violence_grid_nigeria_2016_2025.csv": {
+                "cell_id", "period", "grid_lat", "grid_lon", "event_count",
+                "fatalities_best", "fatalities_low", "fatalities_high",
+            },
+            "data/processed/06_security/ucdp_organized_violence_state_year_nigeria_1989_2025.csv": {
+                "state", "year", "event_count", "fatalities_best",
+                "state_based_events", "non_state_events", "one_sided_events",
             },
             "data/processed/08_context/population_access_grid_nigeria.csv": {
                 "cell_id", "grid_lat", "grid_lon", "population_estimate",
@@ -227,6 +236,24 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertFalse(context["settlement_count"].isna().any())
         self.assertTrue(context["nightlight_population_share_pct"].between(0, 100).all())
 
+        conflict_grid = pd.read_csv(
+            ROOT / "data/processed/06_security/ucdp_organized_violence_grid_nigeria_2016_2025.csv"
+        )
+        self.assertEqual(len(conflict_grid), 227)
+        self.assertTrue(conflict_grid["period"].eq("2016-2025").all())
+        self.assertTrue(
+            ((conflict_grid["grid_lat"] * 2) % 1).eq(0.5).all()
+        )
+        self.assertTrue(
+            ((conflict_grid["grid_lon"] * 2) % 1).eq(0.5).all()
+        )
+        self.assertTrue(
+            {
+                "side_a", "side_b", "source_article", "where_coordinates",
+                "where_description",
+            }.isdisjoint(conflict_grid.columns)
+        )
+
     def test_field_taxonomy_is_non_overlapping_and_gas_inclusive(self):
         bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
         resource = bundle["layers"]["resource"]["sublayers"]
@@ -319,6 +346,8 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertIn('id="download-report"', html_source)
         self.assertIn("profileTimelineChart", app_source)
         self.assertIn("state-report-v", app_source)
+        self.assertIn("Historical organized-violence context", app_source)
+        self.assertIn("not a live threat feed", app_source)
 
     def test_benchmark_matches_processed_assets(self):
         benchmark = json.loads(
@@ -363,7 +392,7 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertEqual(len(profiles), 38)
 
         national = profiles["Nigeria"]
-        self.assertEqual(national["mapped_records"], 28864)
+        self.assertEqual(national["mapped_records"], 29091)
         self.assertEqual(national["counts"]["oil_spills"], 16326)
         spill = national["oil_spill_intelligence"]
         self.assertEqual(spill["mapped_reports"], 16326)
@@ -398,6 +427,14 @@ class PublicAtlasTests(unittest.TestCase):
             national["standalone_solar_programme"]["people_reached"],
             3900000.0,
         )
+        self.assertEqual(
+            national["security_intelligence"]["event_count"],
+            5565,
+        )
+        self.assertEqual(
+            national["security_intelligence"]["fatalities_best"],
+            34105,
+        )
         self.assertEqual(national["people_access"]["settlement_count"], 154319)
         self.assertAlmostEqual(
             national["people_access"]["worldpop_population_2025"],
@@ -407,6 +444,7 @@ class PublicAtlasTests(unittest.TestCase):
             self.assertIn("people_access", profile)
             self.assertIn("minigrid_coverage", profile)
             self.assertIn("standalone_solar_programme", profile)
+            self.assertIn("security_intelligence", profile)
 
         for layer in bundle["layers"].values():
             for definition in layer["sublayers"].values():
@@ -450,11 +488,11 @@ class PublicAtlasTests(unittest.TestCase):
     def test_status_and_temporal_filter_metadata(self):
         bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
         filters = bundle["filters"]
-        self.assertEqual(sum(filters["status_groups"].values()), 28864)
+        self.assertEqual(sum(filters["status_groups"].values()), 29091)
         self.assertEqual(
             filters["temporal"]["dated_records"]
             + filters["temporal"]["undated_records"],
-            28864,
+            29091,
         )
         self.assertEqual(filters["temporal"]["minimum_year"], 1912)
         self.assertEqual(filters["temporal"]["maximum_year"], 2026)
@@ -502,14 +540,14 @@ class PublicAtlasTests(unittest.TestCase):
 
         manifest = json.loads((API_DIR / "manifest.json").read_text())
         self.assertEqual(manifest["api_version"], "v1")
-        self.assertEqual(manifest["atlas_release"]["version"], "0.9.0")
-        self.assertEqual(len(manifest["layers"]), 25)
+        self.assertEqual(manifest["atlas_release"]["version"], "0.10.0")
+        self.assertEqual(len(manifest["layers"]), 26)
         self.assertEqual(manifest["endpoints"]["freshness"], "freshness.json")
         freshness = json.loads((API_DIR / "freshness.json").read_text())
-        self.assertEqual(freshness["summary"]["dataset_count"], 25)
+        self.assertEqual(freshness["summary"]["dataset_count"], 26)
         self.assertEqual(
             freshness["summary"]["current"] + freshness["summary"]["due"],
-            25,
+            26,
         )
         oil_refresh = next(
             item for item in freshness["datasets"] if item["key"] == "oil_spills"

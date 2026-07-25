@@ -11,6 +11,11 @@ Anyone redistributing or commercially using those materials must review
 
 Important examples include:
 
+- Uppsala Conflict Data Program Georeferenced Event Dataset (UCDP GED) 26.1:
+  Creative Commons Attribution 4.0 (CC BY 4.0). The public atlas republishes
+  only derived half-degree exposure cells and state/year summaries, with UCDP
+  attribution and the release's required dataset and codebook citations. It
+  omits exact event coordinates, actor names, narratives, and source text.
 - OpenStreetMap-derived connectivity data: Open Database License (ODbL).
 - WDPA / Protected Planet data: source-specific terms, including restrictions
   described by UNEP-WCMC; do not assume CC0 or unrestricted commercial reuse.
@@ -26,3 +31,7 @@ Important examples include:
 
 The public atlas is a derived screening product. Source attribution remains
 required even when a derived file is stored in this repository.
+
+The security layer is historical analytical context, not a live incident,
+threat, travel-safety, or operational-security feed. Users should consult
+current authoritative advice for time-sensitive decisions.

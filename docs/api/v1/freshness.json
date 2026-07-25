@@ -1,13 +1,13 @@
 {
   "atlas_release": {
-    "version": "0.9.0",
+    "version": "0.10.0",
     "date": "2026-07-25",
-    "title": "Distributed Energy Coverage Expansion"
+    "title": "Licensed Historical Security Context"
   },
   "interpretation": "Review dates are maintenance targets, not guarantees that an upstream publisher has issued new data.",
   "summary": {
-    "dataset_count": 25,
-    "current": 25,
+    "dataset_count": 26,
+    "current": 26,
     "due": 0
   },
   "datasets": [
@@ -117,6 +117,15 @@
       "cadence": "annual_or_source_release",
       "last_checked": "2026-07-22",
       "next_review_due": "2027-07-23",
+      "review_status": "current"
+    },
+    {
+      "key": "conflict_exposure",
+      "label": "Historical Organized-Violence Exposure (UCDP, 2016–2025)",
+      "source": "UCDP Georeferenced Event Dataset (GED) version 26.1",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-25",
+      "next_review_due": "2027-07-26",
       "review_status": "current"
     },
     {

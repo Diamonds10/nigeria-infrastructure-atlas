@@ -10,20 +10,21 @@ This repository is designed to help four audiences use the same evidence base in
 
 ## What the atlas contains
 
-The `v0.9` public atlas organizes Nigeria's infrastructure system into seven
+The `v0.10` public atlas organizes Nigeria's infrastructure system into eight
 implemented layers:
 
 1. Resource
 2. Infrastructure
 3. Environmental
-4. Demand
-5. Connectivity
-6. Distributed Energy
-7. People & Access
+4. Security Context
+5. Demand
+6. Connectivity
+7. Distributed Energy
+8. People & Access
 
 Those layers can be used separately or combined into a national systems view.
-Security is a planned extension and is not yet represented by a processed
-dataset or public-map layer.
+Security Context is a licensed, historical UCDP aggregation and must not be
+interpreted as a live operational threat feed.
 
 ## How to navigate the repository
 
@@ -81,9 +82,9 @@ power, refinery, and mini-grid capacities, plus WorldPop 2025 population and
 World Bank settlement/night-light context. Clicking a state creates a shareable
 URL, zooms to its boundary, and enables a state-specific GeoJSON download.
 
-The website's data catalogue documents all 24 content-bearing public sublayers
+The website's data catalogue documents all 25 content-bearing public sublayers
 with their sources, access dates, reuse terms, quality grades, limitations,
-record counts, and direct processed-CSV links. The API retains 25 stable layer
+record counts, and direct processed-CSV links. The API retains 26 stable layer
 endpoints, including the empty standalone-systems endpoint.
 
 Normalized status filters and an opt-in evidence-year cutoff apply to map

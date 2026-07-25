@@ -1,8 +1,8 @@
 {
   "atlas_release": {
-    "version": "0.9.0",
+    "version": "0.10.0",
     "date": "2026-07-25",
-    "title": "Distributed Energy Coverage Expansion"
+    "title": "Licensed Historical Security Context"
   },
   "datasets": [
     {
@@ -256,6 +256,30 @@
         "next_review_due": "2027-07-23",
         "review_status": "current"
       }
+    },
+    {
+      "description": "Half-degree historical exposure cells derived from UCDP organized-violence events; exact event locations, actors, narratives, and source text are not republished.",
+      "source": "UCDP Georeferenced Event Dataset (GED) version 26.1",
+      "source_date": "2026-03-30",
+      "source_checked": "2026-07-25",
+      "license": "CC BY 4.0",
+      "quality": "B",
+      "quality_note": "Aggregates 2016-2025 events into approximately 55 km cells. Fatalities are UCDP low/best/high estimates, not independently verified atlas findings. Annual release only; no candidate or live feed.",
+      "path": "data/processed/06_security/ucdp_organized_violence_grid_nigeria_2016_2025.csv",
+      "state_year_path": "data/processed/06_security/ucdp_organized_violence_state_year_nigeria_1989_2025.csv",
+      "key": "conflict_exposure",
+      "label": "Historical Organized-Violence Exposure (UCDP, 2016–2025)",
+      "category": "security",
+      "category_label": "Security Context",
+      "record_count": 227,
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/06_security/ucdp_organized_violence_grid_nigeria_2016_2025.csv",
+      "refresh": {
+        "cadence": "annual_or_source_release",
+        "last_checked": "2026-07-25",
+        "next_review_due": "2027-07-26",
+        "review_status": "current"
+      },
+      "state_year_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/06_security/ucdp_organized_violence_state_year_nigeria_1989_2025.csv"
     },
     {
       "description": "Cross-category industrial demand centres covering cement, steel, fertiliser, and refining.",
