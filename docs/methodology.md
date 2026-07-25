@@ -4,7 +4,7 @@ The atlas is built as a reproducible geospatial evidence pipeline that converts 
 
 ## Core design
 
-The `v0.7` public atlas is organized around seven implemented analytical layers:
+The `v0.8` public atlas is organized around seven implemented analytical layers:
 
 - Resource: reserves, production, discoveries, and field-level site information.
 - Infrastructure: pipelines, LNG terminals, refineries, and power assets.

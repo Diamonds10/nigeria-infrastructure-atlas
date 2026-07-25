@@ -36,7 +36,7 @@ The current public atlas is organized into seven published analytical layers:
 6. Distributed Energy
 7. People & Access
 
-A standalone security layer is planned, but it is not part of the `v0.7` processed
+A standalone security layer is planned, but it is not part of the `v0.8` processed
 dataset or public map. This boundary is intentional: the source register records
 candidate security sources without presenting them as implemented evidence.
 
@@ -44,7 +44,7 @@ The public value of the atlas is not any single output file. It is the combinati
 
 ## Current public-facing value
 
-A live `v0.7` state-intelligence experience is available at
+A live `v0.8` state-intelligence experience is available at
 [diamonds10.github.io/nigeria-infrastructure-atlas](https://diamonds10.github.io/nigeria-infrastructure-atlas/).
 It provides profiles for all 36 states and the FCT, state-specific shareable
 links and GeoJSON downloads, and a searchable catalogue covering the 24
@@ -52,7 +52,9 @@ content-bearing map datasets. The API preserves 25 stable layer endpoints,
 including the currently empty standalone-systems evidence gap. Normalized
 status and evidence-year filters apply
 consistently to the map, search results, visible counts, shared URLs, and
-downloads.
+downloads. State profiles add compact distributed-energy and NOSDRA charts,
+and can be downloaded as self-contained HTML evidence reports for offline use
+or printing.
 
 State profiles now include WorldPop 2025 population estimates and World Bank
 DRE Atlas settlement-cluster, night-light, and grid-distance indicators.

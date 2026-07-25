@@ -1,5 +1,18 @@
 # Release notes
 
+## v0.8.0 — State Analytics and Downloadable Reports
+
+Released: 25 July 2026
+
+- added compact state-profile charts for distributed-energy composition,
+  reported oil-spill causes, NOSDRA report status, and recent incident years
+- added self-contained HTML state reports for offline review and printing
+- included state-level NOSDRA cause, report-status, and yearly distributions in
+  the versioned public bundle and static API
+- retained the existing state GeoJSON download as a separate,
+  filter-responsive data export
+- preserved screening caveats in both the interactive profiles and reports
+
 ## v0.7.0 — Oil Spill Intelligence and Open Atlas Contributions
 
 Released: 25 July 2026

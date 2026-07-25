@@ -293,6 +293,9 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertIn('id="spill-company-filter"', html_source)
         self.assertIn("leaflet.markercluster@1.5.3", html_source)
         self.assertIn("issues/new/choose", html_source)
+        self.assertIn('id="download-report"', html_source)
+        self.assertIn("profileTimelineChart", app_source)
+        self.assertIn("state-report-v", app_source)
 
     def test_benchmark_matches_processed_assets(self):
         benchmark = json.loads(
@@ -339,16 +342,15 @@ class PublicAtlasTests(unittest.TestCase):
         national = profiles["Nigeria"]
         self.assertEqual(national["mapped_records"], 28851)
         self.assertEqual(national["counts"]["oil_spills"], 16326)
-        self.assertEqual(
-            national["oil_spill_intelligence"],
-            {
-                "mapped_reports": 16326,
-                "confirmed_reports": 14382,
-                "invalid_reports": 551,
-                "sabotage_attributed_reports": 12718,
-                "estimated_quantity_reported": 733861.56,
-            },
-        )
+        spill = national["oil_spill_intelligence"]
+        self.assertEqual(spill["mapped_reports"], 16326)
+        self.assertEqual(spill["confirmed_reports"], 14382)
+        self.assertEqual(spill["invalid_reports"], 551)
+        self.assertEqual(spill["sabotage_attributed_reports"], 12718)
+        self.assertEqual(spill["estimated_quantity_reported"], 733861.56)
+        self.assertEqual(sum(spill["report_status_counts"].values()), 16326)
+        self.assertEqual(sum(spill["cause_counts"].values()), 15903)
+        self.assertGreater(sum(spill["yearly_counts"].values()), 0)
         self.assertEqual(national["counts"]["power_plants"], 193)
         self.assertEqual(national["counts"]["substations"], 390)
         self.assertEqual(national["counts"]["community_minigrids"], 68)
@@ -462,7 +464,7 @@ class PublicAtlasTests(unittest.TestCase):
 
         manifest = json.loads((API_DIR / "manifest.json").read_text())
         self.assertEqual(manifest["api_version"], "v1")
-        self.assertEqual(manifest["atlas_release"]["version"], "0.7.0")
+        self.assertEqual(manifest["atlas_release"]["version"], "0.8.0")
         self.assertEqual(len(manifest["layers"]), 25)
         self.assertEqual(manifest["endpoints"]["freshness"], "freshness.json")
         freshness = json.loads((API_DIR / "freshness.json").read_text())

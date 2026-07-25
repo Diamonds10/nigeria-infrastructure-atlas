@@ -28,9 +28,9 @@ DEFAULT_API_DIR = ROOT / "docs" / "api" / "v1"
 PUBLIC_SIMPLIFY_TOLERANCE = 0.005
 PUBLIC_COORDINATE_PRECISION = 5
 PUBLIC_PROPERTY_PRECISION = 6
-ATLAS_RELEASE_VERSION = "0.7.0"
+ATLAS_RELEASE_VERSION = "0.8.0"
 ATLAS_RELEASE_DATE = "2026-07-25"
-ATLAS_RELEASE_TITLE = "Oil Spill Intelligence and Open Atlas Contributions"
+ATLAS_RELEASE_TITLE = "State Analytics and Downloadable Reports"
 REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main"
 DISTRIBUTED_ENERGY_SUBLAYERS = {
     "community_minigrids",
@@ -511,6 +511,9 @@ def empty_profile(name: str, sublayer_keys: list[str]) -> dict[str, Any]:
             "invalid_reports": 0,
             "sabotage_attributed_reports": 0,
             "estimated_quantity_reported": 0.0,
+            "report_status_counts": {},
+            "cause_counts": {},
+            "yearly_counts": {},
         },
         "status": {
             "operating": 0,
@@ -547,6 +550,21 @@ def update_profile(
         spill["estimated_quantity_reported"] += float(
             props.get("estimatedquantity") or 0
         )
+        for output_key, property_key in [
+            ("report_status_counts", "status_label"),
+            ("cause_counts", "cause_label"),
+        ]:
+            value = props.get(property_key)
+            if value:
+                spill[output_key][str(value)] = (
+                    spill[output_key].get(str(value), 0) + 1
+                )
+        incident_year = props.get("incident_year")
+        if incident_year:
+            year = str(int(incident_year))
+            spill["yearly_counts"][year] = (
+                spill["yearly_counts"].get(year, 0) + 1
+            )
 
     if sublayer_key == "power_plants":
         profile["capacity"]["power_mw"] += float(props.get("capacity") or 0)
@@ -662,6 +680,10 @@ def add_catalogue_and_state_profiles(
         profile["oil_spill_intelligence"]["estimated_quantity_reported"] = round(
             profile["oil_spill_intelligence"]["estimated_quantity_reported"], 2
         )
+        for key in ["report_status_counts", "cause_counts", "yearly_counts"]:
+            profile["oil_spill_intelligence"][key] = dict(
+                sorted(profile["oil_spill_intelligence"][key].items())
+            )
 
     context_summary = pd.read_csv(
         PROCESSED / "08_context/state_population_access_summary_nigeria.csv"

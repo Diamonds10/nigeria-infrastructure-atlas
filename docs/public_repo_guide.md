@@ -10,7 +10,7 @@ This repository is designed to help four audiences use the same evidence base in
 
 ## What the atlas contains
 
-The `v0.7` public atlas organizes Nigeria's infrastructure system into seven
+The `v0.8` public atlas organizes Nigeria's infrastructure system into seven
 implemented layers:
 
 1. Resource

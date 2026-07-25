@@ -4,7 +4,7 @@ Nigeria Infrastructure Atlas is a multi-layer geospatial repository that brings
 together public evidence on Nigeria's resource base, supporting infrastructure,
 environmental footprint, industrial demand centers, connectivity, and
 renewables, with population, settlement, and electricity-access screening
-context. Security is documented as a planned layer, not a standalone `v0.7`
+context. Security is documented as a planned layer, not a standalone `v0.8`
 dataset.
 
 ## What the project shows
@@ -23,6 +23,10 @@ year, company, and reported cause are filterable, and state profiles distinguish
 confirmed and sabotage-attributed reports. These records are regulatory
 screening evidence, not independent verification of company liability or spill
 volume.
+
+Every state profile now includes compact analytical charts for distributed
+energy and NOSDRA report patterns. A self-contained HTML state report can be
+downloaded for offline review, printing, and reproducible briefing.
 
 The atlas also integrates 2025 state population estimates and 154,319 World
 Bank DRE Atlas settlement clusters. A compact grid and major-settlement subset

@@ -1,8 +1,8 @@
 {
   "atlas_release": {
-    "version": "0.7.0",
+    "version": "0.8.0",
     "date": "2026-07-25",
-    "title": "Oil Spill Intelligence and Open Atlas Contributions"
+    "title": "State Analytics and Downloadable Reports"
   },
   "method": "Public-map records whose display geometry intersects each ADM1 boundary.",
   "profiles": {
@@ -55,7 +55,47 @@
         "confirmed_reports": 14382,
         "invalid_reports": 551,
         "sabotage_attributed_reports": 12718,
-        "estimated_quantity_reported": 733861.56
+        "estimated_quantity_reported": 733861.56,
+        "report_status_counts": {
+          "Confirmed": 14382,
+          "Inconclusive": 25,
+          "Invalid (mistakenly reported)": 551,
+          "Reviewed (awaiting confirmation)": 1368
+        },
+        "cause_counts": {
+          "Corrosion": 906,
+          "Equipment failure": 1373,
+          "Operational/maintenance error": 294,
+          "Other": 357,
+          "Sabotage/theft": 12718,
+          "Yet to be determined": 255
+        },
+        "yearly_counts": {
+          "1994": 1,
+          "2001": 1,
+          "2005": 3,
+          "2006": 31,
+          "2007": 116,
+          "2008": 191,
+          "2009": 330,
+          "2010": 611,
+          "2011": 842,
+          "2012": 988,
+          "2013": 1569,
+          "2014": 1621,
+          "2015": 1012,
+          "2016": 727,
+          "2017": 660,
+          "2018": 796,
+          "2019": 905,
+          "2020": 597,
+          "2021": 683,
+          "2022": 1124,
+          "2023": 1482,
+          "2024": 1222,
+          "2025": 505,
+          "2026": 158
+        }
       },
       "status": {
         "operating": 399,
@@ -139,7 +179,19 @@
         "confirmed_reports": 3,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.03
+        "estimated_quantity_reported": 0.03,
+        "report_status_counts": {
+          "Confirmed": 3
+        },
+        "cause_counts": {
+          "Corrosion": 1,
+          "Equipment failure": 1
+        },
+        "yearly_counts": {
+          "2019": 1,
+          "2023": 1,
+          "2025": 1
+        }
       },
       "status": {
         "operating": 9,
@@ -221,7 +273,27 @@
         "confirmed_reports": 89,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 78,
-        "estimated_quantity_reported": 4300.11
+        "estimated_quantity_reported": 4300.11,
+        "report_status_counts": {
+          "Confirmed": 89
+        },
+        "cause_counts": {
+          "Corrosion": 5,
+          "Equipment failure": 4,
+          "Sabotage/theft": 78,
+          "Yet to be determined": 1
+        },
+        "yearly_counts": {
+          "2010": 5,
+          "2011": 21,
+          "2012": 19,
+          "2013": 29,
+          "2014": 4,
+          "2015": 1,
+          "2016": 4,
+          "2017": 1,
+          "2018": 1
+        }
       },
       "status": {
         "operating": 4,
@@ -303,7 +375,28 @@
         "confirmed_reports": 15,
         "invalid_reports": 3,
         "sabotage_attributed_reports": 7,
-        "estimated_quantity_reported": 86.5
+        "estimated_quantity_reported": 86.5,
+        "report_status_counts": {
+          "Confirmed": 15,
+          "Invalid (mistakenly reported)": 3
+        },
+        "cause_counts": {
+          "Corrosion": 3,
+          "Equipment failure": 3,
+          "Sabotage/theft": 7,
+          "Yet to be determined": 3
+        },
+        "yearly_counts": {
+          "2011": 1,
+          "2012": 1,
+          "2013": 2,
+          "2014": 3,
+          "2016": 2,
+          "2018": 1,
+          "2019": 1,
+          "2022": 1,
+          "2023": 2
+        }
       },
       "status": {
         "operating": 13,
@@ -385,7 +478,10 @@
         "confirmed_reports": 0,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {},
+        "cause_counts": {},
+        "yearly_counts": {}
       },
       "status": {
         "operating": 2,
@@ -467,7 +563,10 @@
         "confirmed_reports": 0,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {},
+        "cause_counts": {},
+        "yearly_counts": {}
       },
       "status": {
         "operating": 5,
@@ -549,7 +648,25 @@
         "confirmed_reports": 15,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 5,
-        "estimated_quantity_reported": 522.08
+        "estimated_quantity_reported": 522.08,
+        "report_status_counts": {
+          "Confirmed": 15
+        },
+        "cause_counts": {
+          "Corrosion": 6,
+          "Equipment failure": 1,
+          "Operational/maintenance error": 1,
+          "Other": 1,
+          "Sabotage/theft": 5
+        },
+        "yearly_counts": {
+          "2011": 2,
+          "2012": 2,
+          "2013": 3,
+          "2018": 3,
+          "2023": 1,
+          "2024": 3
+        }
       },
       "status": {
         "operating": 0,
@@ -631,7 +748,34 @@
         "confirmed_reports": 42,
         "invalid_reports": 5,
         "sabotage_attributed_reports": 15,
-        "estimated_quantity_reported": 2884.82
+        "estimated_quantity_reported": 2884.82,
+        "report_status_counts": {
+          "Confirmed": 42,
+          "Invalid (mistakenly reported)": 5
+        },
+        "cause_counts": {
+          "Corrosion": 7,
+          "Equipment failure": 6,
+          "Operational/maintenance error": 8,
+          "Other": 5,
+          "Sabotage/theft": 15,
+          "Yet to be determined": 5
+        },
+        "yearly_counts": {
+          "2010": 1,
+          "2013": 5,
+          "2014": 11,
+          "2015": 4,
+          "2016": 2,
+          "2017": 1,
+          "2018": 1,
+          "2019": 4,
+          "2020": 5,
+          "2022": 1,
+          "2023": 5,
+          "2024": 3,
+          "2026": 1
+        }
       },
       "status": {
         "operating": 14,
@@ -713,7 +857,38 @@
         "confirmed_reports": 53,
         "invalid_reports": 1,
         "sabotage_attributed_reports": 11,
-        "estimated_quantity_reported": 34081.1
+        "estimated_quantity_reported": 34081.1,
+        "report_status_counts": {
+          "Confirmed": 53,
+          "Inconclusive": 1,
+          "Invalid (mistakenly reported)": 1
+        },
+        "cause_counts": {
+          "Corrosion": 4,
+          "Equipment failure": 23,
+          "Operational/maintenance error": 7,
+          "Other": 3,
+          "Sabotage/theft": 11,
+          "Yet to be determined": 5
+        },
+        "yearly_counts": {
+          "2009": 1,
+          "2010": 2,
+          "2012": 2,
+          "2013": 3,
+          "2014": 2,
+          "2015": 2,
+          "2016": 1,
+          "2018": 1,
+          "2019": 2,
+          "2020": 2,
+          "2021": 1,
+          "2022": 2,
+          "2023": 10,
+          "2024": 13,
+          "2025": 8,
+          "2026": 2
+        }
       },
       "status": {
         "operating": 11,
@@ -795,7 +970,44 @@
         "confirmed_reports": 4034,
         "invalid_reports": 215,
         "sabotage_attributed_reports": 4056,
-        "estimated_quantity_reported": 126272.98
+        "estimated_quantity_reported": 126272.98,
+        "report_status_counts": {
+          "Confirmed": 4034,
+          "Inconclusive": 1,
+          "Invalid (mistakenly reported)": 215,
+          "Reviewed (awaiting confirmation)": 484
+        },
+        "cause_counts": {
+          "Corrosion": 108,
+          "Equipment failure": 254,
+          "Operational/maintenance error": 42,
+          "Other": 17,
+          "Sabotage/theft": 4056,
+          "Yet to be determined": 112
+        },
+        "yearly_counts": {
+          "2005": 1,
+          "2006": 1,
+          "2008": 11,
+          "2009": 109,
+          "2010": 178,
+          "2011": 289,
+          "2012": 286,
+          "2013": 633,
+          "2014": 803,
+          "2015": 467,
+          "2016": 286,
+          "2017": 137,
+          "2018": 139,
+          "2019": 199,
+          "2020": 100,
+          "2021": 122,
+          "2022": 199,
+          "2023": 128,
+          "2024": 440,
+          "2025": 149,
+          "2026": 36
+        }
       },
       "status": {
         "operating": 27,
@@ -877,7 +1089,28 @@
         "confirmed_reports": 13,
         "invalid_reports": 3,
         "sabotage_attributed_reports": 8,
-        "estimated_quantity_reported": 224.58
+        "estimated_quantity_reported": 224.58,
+        "report_status_counts": {
+          "Confirmed": 13,
+          "Invalid (mistakenly reported)": 3
+        },
+        "cause_counts": {
+          "Equipment failure": 1,
+          "Operational/maintenance error": 1,
+          "Other": 2,
+          "Sabotage/theft": 8,
+          "Yet to be determined": 1
+        },
+        "yearly_counts": {
+          "2012": 1,
+          "2013": 1,
+          "2014": 1,
+          "2017": 1,
+          "2018": 1,
+          "2019": 5,
+          "2024": 3,
+          "2025": 2
+        }
       },
       "status": {
         "operating": 10,
@@ -959,7 +1192,44 @@
         "confirmed_reports": 2362,
         "invalid_reports": 8,
         "sabotage_attributed_reports": 1587,
-        "estimated_quantity_reported": 159062.95
+        "estimated_quantity_reported": 159062.95,
+        "report_status_counts": {
+          "Confirmed": 2362,
+          "Inconclusive": 19,
+          "Invalid (mistakenly reported)": 8,
+          "Reviewed (awaiting confirmation)": 8
+        },
+        "cause_counts": {
+          "Corrosion": 298,
+          "Equipment failure": 306,
+          "Operational/maintenance error": 89,
+          "Other": 54,
+          "Sabotage/theft": 1587,
+          "Yet to be determined": 26
+        },
+        "yearly_counts": {
+          "2006": 29,
+          "2007": 90,
+          "2008": 84,
+          "2009": 49,
+          "2010": 48,
+          "2011": 87,
+          "2012": 99,
+          "2013": 138,
+          "2014": 136,
+          "2015": 115,
+          "2016": 123,
+          "2017": 90,
+          "2018": 124,
+          "2019": 144,
+          "2020": 108,
+          "2021": 123,
+          "2022": 214,
+          "2023": 232,
+          "2024": 182,
+          "2025": 92,
+          "2026": 45
+        }
       },
       "status": {
         "operating": 67,
@@ -1041,7 +1311,45 @@
         "confirmed_reports": 5718,
         "invalid_reports": 278,
         "sabotage_attributed_reports": 5874,
-        "estimated_quantity_reported": 312787.28
+        "estimated_quantity_reported": 312787.28,
+        "report_status_counts": {
+          "Confirmed": 5718,
+          "Invalid (mistakenly reported)": 278,
+          "Reviewed (awaiting confirmation)": 800
+        },
+        "cause_counts": {
+          "Corrosion": 283,
+          "Equipment failure": 338,
+          "Operational/maintenance error": 66,
+          "Other": 65,
+          "Sabotage/theft": 5874,
+          "Yet to be determined": 58
+        },
+        "yearly_counts": {
+          "1994": 1,
+          "2001": 1,
+          "2005": 2,
+          "2007": 20,
+          "2008": 39,
+          "2009": 110,
+          "2010": 250,
+          "2011": 311,
+          "2012": 385,
+          "2013": 507,
+          "2014": 469,
+          "2015": 330,
+          "2016": 226,
+          "2017": 342,
+          "2018": 411,
+          "2019": 432,
+          "2020": 278,
+          "2021": 327,
+          "2022": 590,
+          "2023": 989,
+          "2024": 481,
+          "2025": 196,
+          "2026": 49
+        }
       },
       "status": {
         "operating": 67,
@@ -1123,7 +1431,17 @@
         "confirmed_reports": 2,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 1,
-        "estimated_quantity_reported": 76.09
+        "estimated_quantity_reported": 76.09,
+        "report_status_counts": {
+          "Confirmed": 2
+        },
+        "cause_counts": {
+          "Equipment failure": 1,
+          "Sabotage/theft": 1
+        },
+        "yearly_counts": {
+          "2014": 1
+        }
       },
       "status": {
         "operating": 1,
@@ -1205,7 +1523,25 @@
         "confirmed_reports": 83,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 74,
-        "estimated_quantity_reported": 2776.92
+        "estimated_quantity_reported": 2776.92,
+        "report_status_counts": {
+          "Confirmed": 83
+        },
+        "cause_counts": {
+          "Corrosion": 7,
+          "Equipment failure": 2,
+          "Sabotage/theft": 74
+        },
+        "yearly_counts": {
+          "2009": 1,
+          "2010": 6,
+          "2011": 26,
+          "2012": 38,
+          "2013": 7,
+          "2014": 3,
+          "2015": 1,
+          "2016": 1
+        }
       },
       "status": {
         "operating": 16,
@@ -1287,7 +1623,16 @@
         "confirmed_reports": 1,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 1,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {
+          "Confirmed": 1
+        },
+        "cause_counts": {
+          "Sabotage/theft": 1
+        },
+        "yearly_counts": {
+          "2024": 1
+        }
       },
       "status": {
         "operating": 4,
@@ -1369,7 +1714,10 @@
         "confirmed_reports": 0,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {},
+        "cause_counts": {},
+        "yearly_counts": {}
       },
       "status": {
         "operating": 0,
@@ -1451,7 +1799,16 @@
         "confirmed_reports": 2,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 2,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {
+          "Confirmed": 2
+        },
+        "cause_counts": {
+          "Sabotage/theft": 2
+        },
+        "yearly_counts": {
+          "2013": 2
+        }
       },
       "status": {
         "operating": 1,
@@ -1533,7 +1890,16 @@
         "confirmed_reports": 2,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 2,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {
+          "Confirmed": 2
+        },
+        "cause_counts": {
+          "Sabotage/theft": 2
+        },
+        "yearly_counts": {
+          "2012": 2
+        }
       },
       "status": {
         "operating": 3,
@@ -1615,7 +1981,41 @@
         "confirmed_reports": 292,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 220,
-        "estimated_quantity_reported": 5189.53
+        "estimated_quantity_reported": 5189.53,
+        "report_status_counts": {
+          "Confirmed": 292,
+          "Inconclusive": 2,
+          "Reviewed (awaiting confirmation)": 1
+        },
+        "cause_counts": {
+          "Corrosion": 14,
+          "Equipment failure": 42,
+          "Operational/maintenance error": 8,
+          "Other": 7,
+          "Sabotage/theft": 220,
+          "Yet to be determined": 2
+        },
+        "yearly_counts": {
+          "2006": 1,
+          "2007": 2,
+          "2008": 2,
+          "2011": 12,
+          "2012": 38,
+          "2013": 24,
+          "2014": 43,
+          "2015": 9,
+          "2016": 7,
+          "2017": 20,
+          "2018": 10,
+          "2019": 15,
+          "2020": 13,
+          "2021": 12,
+          "2022": 28,
+          "2023": 20,
+          "2024": 23,
+          "2025": 10,
+          "2026": 4
+        }
       },
       "status": {
         "operating": 23,
@@ -1697,7 +2097,10 @@
         "confirmed_reports": 0,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {},
+        "cause_counts": {},
+        "yearly_counts": {}
       },
       "status": {
         "operating": 1,
@@ -1779,7 +2182,24 @@
         "confirmed_reports": 10,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 8,
-        "estimated_quantity_reported": 34.0
+        "estimated_quantity_reported": 34.0,
+        "report_status_counts": {
+          "Confirmed": 10
+        },
+        "cause_counts": {
+          "Corrosion": 1,
+          "Equipment failure": 1,
+          "Sabotage/theft": 8
+        },
+        "yearly_counts": {
+          "2013": 1,
+          "2017": 1,
+          "2021": 1,
+          "2022": 1,
+          "2023": 3,
+          "2025": 2,
+          "2026": 1
+        }
       },
       "status": {
         "operating": 4,
@@ -1861,7 +2281,21 @@
         "confirmed_reports": 5,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 1,
-        "estimated_quantity_reported": 11.92
+        "estimated_quantity_reported": 11.92,
+        "report_status_counts": {
+          "Confirmed": 5
+        },
+        "cause_counts": {
+          "Corrosion": 3,
+          "Operational/maintenance error": 1,
+          "Sabotage/theft": 1
+        },
+        "yearly_counts": {
+          "2012": 2,
+          "2013": 1,
+          "2018": 1,
+          "2024": 1
+        }
       },
       "status": {
         "operating": 1,
@@ -1943,7 +2377,10 @@
         "confirmed_reports": 0,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {},
+        "cause_counts": {},
+        "yearly_counts": {}
       },
       "status": {
         "operating": 36,
@@ -2025,7 +2462,10 @@
         "confirmed_reports": 0,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {},
+        "cause_counts": {},
+        "yearly_counts": {}
       },
       "status": {
         "operating": 1,
@@ -2107,7 +2547,41 @@
         "confirmed_reports": 404,
         "invalid_reports": 18,
         "sabotage_attributed_reports": 370,
-        "estimated_quantity_reported": 14815.71
+        "estimated_quantity_reported": 14815.71,
+        "report_status_counts": {
+          "Confirmed": 404,
+          "Invalid (mistakenly reported)": 18,
+          "Reviewed (awaiting confirmation)": 38
+        },
+        "cause_counts": {
+          "Corrosion": 23,
+          "Equipment failure": 48,
+          "Operational/maintenance error": 7,
+          "Other": 5,
+          "Sabotage/theft": 370,
+          "Yet to be determined": 2
+        },
+        "yearly_counts": {
+          "2008": 2,
+          "2009": 8,
+          "2010": 27,
+          "2011": 17,
+          "2012": 31,
+          "2013": 26,
+          "2014": 16,
+          "2015": 9,
+          "2016": 13,
+          "2017": 13,
+          "2018": 31,
+          "2019": 34,
+          "2020": 33,
+          "2021": 51,
+          "2022": 32,
+          "2023": 52,
+          "2024": 31,
+          "2025": 23,
+          "2026": 9
+        }
       },
       "status": {
         "operating": 5,
@@ -2189,7 +2663,17 @@
         "confirmed_reports": 7,
         "invalid_reports": 1,
         "sabotage_attributed_reports": 8,
-        "estimated_quantity_reported": 241.09
+        "estimated_quantity_reported": 241.09,
+        "report_status_counts": {
+          "Confirmed": 7,
+          "Invalid (mistakenly reported)": 1
+        },
+        "cause_counts": {
+          "Sabotage/theft": 8
+        },
+        "yearly_counts": {
+          "2013": 8
+        }
       },
       "status": {
         "operating": 4,
@@ -2271,7 +2755,10 @@
         "confirmed_reports": 0,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {},
+        "cause_counts": {},
+        "yearly_counts": {}
       },
       "status": {
         "operating": 0,
@@ -2353,7 +2840,10 @@
         "confirmed_reports": 0,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {},
+        "cause_counts": {},
+        "yearly_counts": {}
       },
       "status": {
         "operating": 2,
@@ -2435,7 +2925,35 @@
         "confirmed_reports": 111,
         "invalid_reports": 4,
         "sabotage_attributed_reports": 129,
-        "estimated_quantity_reported": 9684.04
+        "estimated_quantity_reported": 9684.04,
+        "report_status_counts": {
+          "Confirmed": 111,
+          "Invalid (mistakenly reported)": 4,
+          "Reviewed (awaiting confirmation)": 22
+        },
+        "cause_counts": {
+          "Equipment failure": 1,
+          "Other": 2,
+          "Sabotage/theft": 129
+        },
+        "yearly_counts": {
+          "2009": 3,
+          "2010": 4,
+          "2011": 14,
+          "2012": 11,
+          "2013": 6,
+          "2014": 6,
+          "2015": 4,
+          "2016": 4,
+          "2017": 17,
+          "2018": 11,
+          "2019": 14,
+          "2020": 17,
+          "2021": 12,
+          "2022": 9,
+          "2023": 2,
+          "2024": 1
+        }
       },
       "status": {
         "operating": 8,
@@ -2517,7 +3035,16 @@
         "confirmed_reports": 1,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 2.9
+        "estimated_quantity_reported": 2.9,
+        "report_status_counts": {
+          "Confirmed": 1
+        },
+        "cause_counts": {
+          "Operational/maintenance error": 1
+        },
+        "yearly_counts": {
+          "2024": 1
+        }
       },
       "status": {
         "operating": 0,
@@ -2599,7 +3126,16 @@
         "confirmed_reports": 1,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {
+          "Confirmed": 1
+        },
+        "cause_counts": {
+          "Operational/maintenance error": 1
+        },
+        "yearly_counts": {
+          "2022": 1
+        }
       },
       "status": {
         "operating": 3,
@@ -2681,7 +3217,17 @@
         "confirmed_reports": 4,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 4,
-        "estimated_quantity_reported": 830.19
+        "estimated_quantity_reported": 830.19,
+        "report_status_counts": {
+          "Confirmed": 4
+        },
+        "cause_counts": {
+          "Sabotage/theft": 4
+        },
+        "yearly_counts": {
+          "2010": 1,
+          "2013": 3
+        }
       },
       "status": {
         "operating": 5,
@@ -2763,7 +3309,25 @@
         "confirmed_reports": 64,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 42,
-        "estimated_quantity_reported": 2337.75
+        "estimated_quantity_reported": 2337.75,
+        "report_status_counts": {
+          "Confirmed": 64
+        },
+        "cause_counts": {
+          "Corrosion": 11,
+          "Equipment failure": 8,
+          "Sabotage/theft": 42
+        },
+        "yearly_counts": {
+          "2010": 4,
+          "2011": 15,
+          "2012": 5,
+          "2013": 25,
+          "2014": 5,
+          "2016": 1,
+          "2017": 2,
+          "2018": 1
+        }
       },
       "status": {
         "operating": 6,
@@ -2845,7 +3409,32 @@
         "confirmed_reports": 143,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 120,
-        "estimated_quantity_reported": 810.8
+        "estimated_quantity_reported": 810.8,
+        "report_status_counts": {
+          "Confirmed": 143,
+          "Reviewed (awaiting confirmation)": 2
+        },
+        "cause_counts": {
+          "Corrosion": 3,
+          "Equipment failure": 3,
+          "Operational/maintenance error": 2,
+          "Other": 8,
+          "Sabotage/theft": 120,
+          "Yet to be determined": 1
+        },
+        "yearly_counts": {
+          "2010": 3,
+          "2011": 5,
+          "2012": 14,
+          "2013": 73,
+          "2014": 33,
+          "2015": 7,
+          "2016": 1,
+          "2017": 1,
+          "2020": 2,
+          "2022": 2,
+          "2025": 1
+        }
       },
       "status": {
         "operating": 6,
@@ -2927,7 +3516,10 @@
         "confirmed_reports": 0,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {},
+        "cause_counts": {},
+        "yearly_counts": {}
       },
       "status": {
         "operating": 0,
@@ -3009,7 +3601,10 @@
         "confirmed_reports": 0,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {},
+        "cause_counts": {},
+        "yearly_counts": {}
       },
       "status": {
         "operating": 0,
@@ -3091,7 +3686,10 @@
         "confirmed_reports": 0,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.0
+        "estimated_quantity_reported": 0.0,
+        "report_status_counts": {},
+        "cause_counts": {},
+        "yearly_counts": {}
       },
       "status": {
         "operating": 2,

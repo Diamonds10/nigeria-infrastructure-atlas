@@ -652,6 +652,7 @@
   var stateSelect = document.getElementById("state-select");
   var stateProfileEl = document.getElementById("state-profile");
   var downloadStateButton = document.getElementById("download-state");
+  var downloadReportButton = document.getElementById("download-report");
   var copyStateLinkButton = document.getElementById("copy-state-link");
   var stateNames = Object.keys(ATLAS.state_profiles || {}).filter(function (name) { return name !== "Nigeria"; }).sort();
 
@@ -672,6 +673,40 @@
     return '<div class="profile-metric"><strong>' + formatNumber(value) + '</strong><span>' + escapeHtml(label) + '</span></div>';
   }
 
+  function profileChart(title, values, limit) {
+    var rows = Object.keys(values || {}).map(function (label) {
+      return { label: label, value: Number(values[label] || 0) };
+    }).filter(function (item) { return item.value > 0; })
+      .sort(function (a, b) { return b.value - a.value || a.label.localeCompare(b.label); })
+      .slice(0, limit || 6);
+    if (!rows.length) return "";
+    var maximum = rows[0].value;
+    return '<div class="profile-chart"><h4>' + escapeHtml(title) + '</h4>' +
+      rows.map(function (item) {
+        return '<div class="chart-row"><span class="chart-label" title="' + escapeAttr(item.label) + '">' +
+          escapeHtml(item.label) + '</span><span class="chart-track"><span class="chart-fill" style="width:' +
+          Math.max(2, 100 * item.value / maximum).toFixed(1) + '%"></span></span><span class="chart-value">' +
+          formatNumber(item.value) + '</span></div>';
+      }).join("") + '</div>';
+  }
+
+  function profileTimelineChart(title, values, limit) {
+    var rows = Object.keys(values || {}).map(function (label) {
+      return { label: label, value: Number(values[label] || 0) };
+    }).filter(function (item) { return item.value > 0; })
+      .sort(function (a, b) { return Number(a.label) - Number(b.label); });
+    rows = rows.slice(-1 * (limit || 10));
+    if (!rows.length) return "";
+    var maximum = Math.max.apply(null, rows.map(function (item) { return item.value; }));
+    return '<div class="profile-chart"><h4>' + escapeHtml(title) + '</h4>' +
+      rows.map(function (item) {
+        return '<div class="chart-row"><span class="chart-label">' +
+          escapeHtml(item.label) + '</span><span class="chart-track"><span class="chart-fill" style="width:' +
+          Math.max(2, 100 * item.value / maximum).toFixed(1) + '%"></span></span><span class="chart-value">' +
+          formatNumber(item.value) + '</span></div>';
+      }).join("") + '</div>';
+  }
+
   function renderStateProfile() {
     var profileName = selectedState || "Nigeria";
     var profile = ATLAS.state_profiles[profileName];
@@ -681,6 +716,12 @@
     var peopleAccess = profile.people_access || {};
     var minigridCoverage = profile.minigrid_coverage || {};
     var spillIntelligence = profile.oil_spill_intelligence || {};
+    var distributedMix = {
+      "Community mini-grid": counts.community_minigrids,
+      "Captive / institutional": counts.captive_offgrid_systems,
+      "Standalone": counts.standalone_systems,
+      "Interconnected": counts.interconnected_minigrids
+    };
     var scopeLabel = selectedState ? "records intersecting state" : "national public-map records";
     var capacityBits = [];
     if (capacity.power_mw) capacityBits.push("<strong>" + formatNumber(capacity.power_mw, 1) + " MW</strong> reported power");
@@ -705,6 +746,12 @@
         profileMetric(spillIntelligence.mapped_reports, "Mapped NOSDRA reports") +
         profileMetric(spillIntelligence.confirmed_reports, "Confirmed NOSDRA reports") +
         profileMetric(spillIntelligence.sabotage_attributed_reports, "Sabotage-attributed reports") +
+      '</div>' +
+      '<div class="profile-charts">' +
+        profileChart("Distributed-energy mix", distributedMix, 4) +
+        profileChart("Reported oil-spill causes", spillIntelligence.cause_counts, 6) +
+        profileChart("Oil-spill report status", spillIntelligence.report_status_counts, 4) +
+        profileTimelineChart("Mapped oil-spill reports by recent incident year", spillIntelligence.yearly_counts, 10) +
       '</div>' +
       (capacityBits.length ? '<div class="capacity-strip">' + capacityBits.join(" · ") + '</div>' : "") +
       (minigridCoverage.coverage_interpretation
@@ -797,6 +844,61 @@
     var slug = (selectedState || "nigeria").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
     anchor.href = href;
     anchor.download = "nigeria-infrastructure-atlas-" + slug + "-v" + ATLAS.release.version + ".geojson";
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(href);
+  });
+
+  function reportRows(values) {
+    return Object.keys(values || {}).map(function (key) {
+      return '<tr><th>' + escapeHtml(key) + '</th><td>' + formatNumber(values[key], 2) + '</td></tr>';
+    }).join("");
+  }
+
+  downloadReportButton.addEventListener("click", function () {
+    var profileName = selectedState || "Nigeria";
+    var profile = ATLAS.state_profiles[profileName];
+    var spill = profile.oil_spill_intelligence || {};
+    var report = '<!doctype html><html lang="en"><meta charset="utf-8"><title>' +
+      escapeHtml(profileName) + ' — Nigeria Infrastructure Atlas report</title><style>' +
+      'body{font:14px/1.5 system-ui;margin:40px auto;max-width:900px;color:#17231f}h1,h2{font-family:Georgia,serif}' +
+      'table{border-collapse:collapse;width:100%;margin:12px 0 28px}th,td{border-bottom:1px solid #ccd2cc;padding:7px;text-align:left}' +
+      'th{width:65%}.note{background:#f2f4ef;padding:12px;border-left:4px solid #a86612}small{color:#59645d}' +
+      '@media print{body{margin:18mm}.no-print{display:none}}</style><body>' +
+      '<h1>' + escapeHtml(profileName) + '</h1><p>Nigeria Infrastructure Atlas state evidence report · v' +
+      escapeHtml(ATLAS.release.version) + ' · ' + escapeHtml(ATLAS.release.date) + '</p>' +
+      '<p class="note">Public screening evidence, not an official operating registry or substitute for field verification.</p>' +
+      '<h2>State overview</h2><table>' +
+      reportRows({
+        "Mapped public records": profile.mapped_records,
+        "WorldPop population estimate (2025)": (profile.people_access || {}).worldpop_population_2025,
+        "Settlement clusters": (profile.people_access || {}).settlement_count,
+        "Power-plant units": profile.counts.power_plants,
+        "Substations": profile.counts.substations,
+        "Community mini-grids": profile.counts.community_minigrids,
+        "Captive / institutional off-grid": profile.counts.captive_offgrid_systems,
+        "Standalone systems": profile.counts.standalone_systems,
+        "Interconnected mini-grids": profile.counts.interconnected_minigrids
+      }) + '</table><h2>NOSDRA reported incidents</h2><table>' +
+      reportRows({
+        "Mapped reports": spill.mapped_reports,
+        "Confirmed reports": spill.confirmed_reports,
+        "Invalid reports": spill.invalid_reports,
+        "Sabotage-attributed reports": spill.sabotage_attributed_reports
+      }) + '</table><h2>Reported causes</h2><table>' + reportRows(spill.cause_counts) +
+      '</table><h2>Reports by incident year</h2><table>' + reportRows(spill.yearly_counts) +
+      '</table><h2>Reported capacities</h2><table>' + reportRows({
+        "Power (MW)": profile.capacity.power_mw,
+        "Distributed energy (kW)": profile.capacity.minigrid_kw,
+        "Refinery (bpd)": profile.capacity.refinery_bpd
+      }) + '</table><small>Generated from the versioned public state profile. Review source-specific limitations and reuse terms in the atlas data catalogue.</small></body></html>';
+    var blob = new Blob([report], { type: "text/html;charset=utf-8" });
+    var href = URL.createObjectURL(blob);
+    var anchor = document.createElement("a");
+    var slug = profileName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    anchor.href = href;
+    anchor.download = "nigeria-infrastructure-atlas-" + slug + "-state-report-v" + ATLAS.release.version + ".html";
     document.body.appendChild(anchor);
     anchor.click();
     anchor.remove();
