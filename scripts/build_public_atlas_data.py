@@ -28,9 +28,9 @@ DEFAULT_API_DIR = ROOT / "docs" / "api" / "v1"
 PUBLIC_SIMPLIFY_TOLERANCE = 0.005
 PUBLIC_COORDINATE_PRECISION = 5
 PUBLIC_PROPERTY_PRECISION = 6
-ATLAS_RELEASE_VERSION = "0.8.0"
+ATLAS_RELEASE_VERSION = "0.9.0"
 ATLAS_RELEASE_DATE = "2026-07-25"
-ATLAS_RELEASE_TITLE = "State Analytics and Downloadable Reports"
+ATLAS_RELEASE_TITLE = "Distributed Energy Coverage Expansion"
 REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main"
 DISTRIBUTED_ENERGY_SUBLAYERS = {
     "community_minigrids",
@@ -247,10 +247,10 @@ CATALOGUE = {
     "community_minigrids": {
         "description": "Community-serving mini-grids with a local generation system and distribution network.",
         "source": "Nigeria SE4ALL Open Data Portal; REA/NEP/DARES; ECREEE; NEMSA; institutional sources",
-        "source_date": "2026-07-24",
+        "source_date": "2026-07-25",
         "license": "Mixed public-source terms; review each record and source",
         "quality": "B",
-        "quality_note": "68 records classified from explicit mini_grid asset types. This is a public-source screening inventory, not a complete national registry.",
+        "quality_note": "81 records from the SE4ALL asset inventory, official supplements, and the SE4ALL community survey. Survey points represent community evidence, not verified plant footprints.",
         "path": "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
         "coverage_audit_path": "data/processed/07_renewables/minigrid_state_coverage_audit.csv",
         "supplement_path": "data/curated/07_renewables/verified_public_offgrid_supplement.csv",
@@ -258,7 +258,7 @@ CATALOGUE = {
     "captive_offgrid_systems": {
         "description": "Captive and institutional off-grid systems serving a defined campus, hospital, department, or facility.",
         "source": "REA/NEP/DARES; ECREEE; institutional sources",
-        "source_date": "2026-07-24",
+        "source_date": "2026-07-25",
         "license": "Mixed public-source terms; review each record and source",
         "quality": "B",
         "quality_note": "10 records classified from captive_off_grid, public_institution_off_grid, and facility-specific off_grid_solar asset types. These are not community mini-grids.",
@@ -269,18 +269,19 @@ CATALOGUE = {
     "standalone_systems": {
         "description": "Standalone household, shop, facility, or solar-home systems without a local distribution network.",
         "source": "Public-source distributed-energy evidence",
-        "source_date": "2026-07-24",
+        "source_date": "2026-07-25",
         "license": "Mixed public-source terms; review each record and source",
         "quality": "C",
-        "quality_note": "No named, geocoded standalone-system record currently meets the publication threshold. The zero is an evidence gap, not evidence that Nigeria has no standalone systems.",
+        "quality_note": "No household-level point is published. State profiles instead carry official programme aggregates and named strong-coverage evidence without exposing beneficiary locations or inventing point precision.",
         "path": "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
         "coverage_audit_path": "data/processed/07_renewables/minigrid_state_coverage_audit.csv",
         "supplement_path": "data/curated/07_renewables/verified_public_offgrid_supplement.csv",
+        "programme_evidence_path": "data/processed/07_renewables/standalone_solar_programme_evidence.csv",
     },
     "interconnected_minigrids": {
         "description": "Mini-grids designed to operate with, or interconnect to, an existing distribution network.",
         "source": "REA/NEP; NEMSA; official programme sources",
-        "source_date": "2026-07-24",
+        "source_date": "2026-07-25",
         "license": "Mixed public-source terms; review each record and source",
         "quality": "B",
         "quality_note": "2 official-source interconnected mini-grid records. This is a conservative named-site inventory, not a complete national registry.",
@@ -628,6 +629,10 @@ def add_catalogue_and_state_profiles(
                 metadata["supplement_url"] = (
                     f"{REPOSITORY_RAW}/{metadata['supplement_path']}"
                 )
+            if metadata.get("programme_evidence_path"):
+                metadata["programme_evidence_url"] = (
+                    f"{REPOSITORY_RAW}/{metadata['programme_evidence_path']}"
+                )
             definition["metadata"] = metadata
             # A sublayer with zero currently-mapped records still gets a full
             # static API endpoint (empty FeatureCollection) for consistency,
@@ -782,8 +787,56 @@ def add_catalogue_and_state_profiles(
             "Named public records from implemented sources; not a complete "
             "national operating registry."
         ),
-        "audit_date": "2026-07-24",
+        "audit_date": "2026-07-25",
     }
+
+    standalone_evidence = pd.read_csv(
+        PROCESSED / "07_renewables/standalone_solar_programme_evidence.csv"
+    )
+    national_standalone = standalone_evidence[
+        standalone_evidence["scope"].eq("Nigeria")
+    ].iloc[0]
+    national_context = {
+        column: clean_value(national_standalone.get(column))
+        for column in standalone_evidence.columns
+        if column != "scope"
+    }
+    profiles["Nigeria"]["standalone_solar_programme"] = national_context
+    state_specific = {
+        str(row["scope"]): {
+            column: clean_value(row.get(column))
+            for column in standalone_evidence.columns
+            if column != "scope"
+        }
+        for _, row in standalone_evidence.iterrows()
+        if row["scope"] != "Nigeria"
+    }
+    for state_name, profile in profiles.items():
+        if state_name == "Nigeria":
+            continue
+        profile["standalone_solar_programme"] = state_specific.get(
+            state_name,
+            {
+                "evidence_status": "national_programme_only",
+                "systems_reported": None,
+                "people_reached": None,
+                "as_of_date": national_context["as_of_date"],
+                "programme": national_context["programme"],
+                "coverage_note": (
+                    "Official reporting confirms nationwide historical NEP "
+                    "coverage and current DARES deployment across all six "
+                    "geopolitical zones, but no state-specific unit total was "
+                    "published for this state."
+                ),
+                "source_name": national_context["source_name"],
+                "source_url": national_context["source_url"],
+                "historical_context": national_context["historical_context"],
+                "historical_source_url": national_context[
+                    "historical_source_url"
+                ],
+                "reuse_note": national_context["reuse_note"],
+            },
+        )
 
     oil_spill_features = bundle["layers"]["environmental"]["sublayers"][
         "oil_spills"

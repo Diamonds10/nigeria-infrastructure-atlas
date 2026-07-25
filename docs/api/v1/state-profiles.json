@@ -1,14 +1,14 @@
 {
   "atlas_release": {
-    "version": "0.8.0",
+    "version": "0.9.0",
     "date": "2026-07-25",
-    "title": "State Analytics and Downloadable Reports"
+    "title": "Distributed Energy Coverage Expansion"
   },
   "method": "Public-map records whose display geometry intersects each ADM1 boundary.",
   "profiles": {
     "Nigeria": {
       "name": "Nigeria",
-      "mapped_records": 28851,
+      "mapped_records": 28864,
       "counts": {
         "fields_oil": 33,
         "fields_gas": 147,
@@ -29,7 +29,7 @@
         "power_grid": 931,
         "substations": 390,
         "ports": 25,
-        "community_minigrids": 68,
+        "community_minigrids": 81,
         "captive_offgrid_systems": 10,
         "standalone_systems": 0,
         "interconnected_minigrids": 2,
@@ -42,7 +42,7 @@
         "environmental": 17331,
         "demand": 28,
         "connectivity": 7992,
-        "renewables": 80,
+        "renewables": 93,
         "context": 2758
       },
       "capacity": {
@@ -98,11 +98,11 @@
         }
       },
       "status": {
-        "operating": 399,
-        "development": 41,
+        "operating": 401,
+        "development": 47,
         "proposed": 120,
         "inactive": 43,
-        "other": 17337,
+        "other": 17342,
         "unknown": 10911
       },
       "people_access": {
@@ -116,18 +116,31 @@
         "population_weighted_distance_gridlight_km": 2.676216
       },
       "minigrid_coverage": {
-        "catalogued_record_count": 80,
+        "catalogued_record_count": 93,
         "distributed_energy_class_counts": {
-          "community_mini_grid": 68,
+          "community_mini_grid": 81,
           "captive_institutional_off_grid": 10,
           "standalone_system": 0,
           "interconnected_mini_grid": 2
         },
-        "states_or_territories_with_records": 31,
+        "states_or_territories_with_records": 32,
         "states_or_territories_audited": 37,
         "coverage_status": "national_public_source_screening_inventory",
         "coverage_interpretation": "Named public records from implemented sources; not a complete national operating registry.",
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_aggregate",
+        "systems_reported": 830000.0,
+        "people_reached": 3900000.0,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting states that deployments span all six geopolitical zones. These are programme totals, not geocoded household records, and must not be added to the earlier NEP total.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Cross River": {
@@ -214,6 +227,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 2,
         "se4all_record_count": 2,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 2,
         "operational_or_commissioned_count": 2,
@@ -221,7 +235,20 @@
         "coverage_interpretation": "2 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Abuja Federal Capital Territory": {
@@ -316,6 +343,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 4,
         "se4all_record_count": 4,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 4,
         "operational_or_commissioned_count": 3,
@@ -323,7 +351,20 @@
         "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Ogun": {
@@ -419,6 +460,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 4,
         "se4all_record_count": 3,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 1,
         "exact_site_record_count": 4,
         "operational_or_commissioned_count": 3,
@@ -426,12 +468,25 @@
         "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Oyo": {
       "name": "Oyo",
-      "mapped_records": 540,
+      "mapped_records": 543,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 1,
@@ -452,7 +507,7 @@
         "power_grid": 12,
         "substations": 16,
         "ports": 0,
-        "community_minigrids": 1,
+        "community_minigrids": 4,
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
@@ -465,7 +520,7 @@
         "environmental": 26,
         "demand": 0,
         "connectivity": 436,
-        "renewables": 1,
+        "renewables": 4,
         "context": 74
       },
       "capacity": {
@@ -485,7 +540,7 @@
       },
       "status": {
         "operating": 2,
-        "development": 1,
+        "development": 4,
         "proposed": 2,
         "inactive": 0,
         "other": 25,
@@ -502,16 +557,30 @@
         "population_weighted_distance_gridlight_km": 0.806111
       },
       "minigrid_coverage": {
-        "catalogued_record_count": 1,
+        "catalogued_record_count": 4,
         "se4all_record_count": 1,
+        "se4all_survey_record_count": 3,
         "official_supplement_count": 0,
         "exact_site_record_count": 1,
         "operational_or_commissioned_count": 0,
         "coverage_status": "catalogued_public_records",
-        "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Sokoto": {
@@ -589,6 +658,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 4,
         "se4all_record_count": 3,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 1,
         "exact_site_record_count": 3,
         "operational_or_commissioned_count": 4,
@@ -596,7 +666,20 @@
         "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Zamfara": {
@@ -689,6 +772,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 0,
         "se4all_record_count": 0,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 0,
         "operational_or_commissioned_count": 0,
@@ -696,7 +780,20 @@
         "coverage_interpretation": "No named, geocoded commissioned record was verified in this audit; official programme or procurement evidence exists. This must not be interpreted as zero assets.",
         "programme_evidence": "REA procurement records include proposed solar mini-grid work in Zamfara; a named commissioned record was not verified.",
         "programme_source_url": "https://rea.gov.ng/wp-content/uploads/2021/07/Y2021-Capital-Project-Advert-v11.pdf",
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Lagos": {
@@ -798,6 +895,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 1,
         "se4all_record_count": 0,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 1,
         "exact_site_record_count": 0,
         "operational_or_commissioned_count": 1,
@@ -805,7 +903,20 @@
         "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Akwa Ibom": {
@@ -911,6 +1022,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 1,
         "se4all_record_count": 1,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 1,
         "operational_or_commissioned_count": 1,
@@ -918,12 +1030,25 @@
         "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "strong_coverage_named",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Named by REA among states with strong DARES solar-home-system coverage; no state-specific unit total was disclosed.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": null,
+        "historical_source_url": null,
+        "reuse_note": "Derived factual summary; no beneficiary or household-level data are reproduced."
       }
     },
     "Bayelsa": {
       "name": "Bayelsa",
-      "mapped_records": 4865,
+      "mapped_records": 4869,
       "counts": {
         "fields_oil": 1,
         "fields_gas": 14,
@@ -944,7 +1069,7 @@
         "power_grid": 5,
         "substations": 2,
         "ports": 0,
-        "community_minigrids": 2,
+        "community_minigrids": 6,
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
@@ -957,7 +1082,7 @@
         "environmental": 4748,
         "demand": 0,
         "connectivity": 7,
-        "renewables": 2,
+        "renewables": 6,
         "context": 49
       },
       "capacity": {
@@ -1014,7 +1139,7 @@
         "development": 0,
         "proposed": 7,
         "inactive": 0,
-        "other": 4753,
+        "other": 4757,
         "unknown": 78
       },
       "people_access": {
@@ -1028,21 +1153,35 @@
         "population_weighted_distance_gridlight_km": 1.582872
       },
       "minigrid_coverage": {
-        "catalogued_record_count": 2,
+        "catalogued_record_count": 6,
         "se4all_record_count": 2,
+        "se4all_survey_record_count": 4,
         "official_supplement_count": 0,
         "exact_site_record_count": 2,
         "operational_or_commissioned_count": 2,
         "coverage_status": "catalogued_public_records",
-        "coverage_interpretation": "2 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "coverage_interpretation": "6 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Ondo": {
       "name": "Ondo",
-      "mapped_records": 212,
+      "mapped_records": 216,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 2,
@@ -1063,7 +1202,7 @@
         "power_grid": 31,
         "substations": 7,
         "ports": 0,
-        "community_minigrids": 5,
+        "community_minigrids": 9,
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
@@ -1076,7 +1215,7 @@
         "environmental": 43,
         "demand": 0,
         "connectivity": 95,
-        "renewables": 5,
+        "renewables": 9,
         "context": 56
       },
       "capacity": {
@@ -1113,8 +1252,8 @@
         }
       },
       "status": {
-        "operating": 10,
-        "development": 3,
+        "operating": 11,
+        "development": 6,
         "proposed": 5,
         "inactive": 2,
         "other": 41,
@@ -1131,16 +1270,30 @@
         "population_weighted_distance_gridlight_km": 1.697583
       },
       "minigrid_coverage": {
-        "catalogued_record_count": 5,
+        "catalogued_record_count": 9,
         "se4all_record_count": 5,
+        "se4all_survey_record_count": 4,
         "official_supplement_count": 0,
         "exact_site_record_count": 5,
-        "operational_or_commissioned_count": 3,
+        "operational_or_commissioned_count": 4,
         "coverage_status": "catalogued_public_records",
-        "coverage_interpretation": "5 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "coverage_interpretation": "9 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Delta": {
@@ -1252,6 +1405,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 1,
         "se4all_record_count": 0,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 1,
         "exact_site_record_count": 0,
         "operational_or_commissioned_count": 1,
@@ -1259,12 +1413,25 @@
         "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Rivers": {
       "name": "Rivers",
-      "mapped_records": 7145,
+      "mapped_records": 7146,
       "counts": {
         "fields_oil": 3,
         "fields_gas": 17,
@@ -1285,7 +1452,7 @@
         "power_grid": 31,
         "substations": 18,
         "ports": 4,
-        "community_minigrids": 4,
+        "community_minigrids": 5,
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
@@ -1298,7 +1465,7 @@
         "environmental": 6807,
         "demand": 4,
         "connectivity": 173,
-        "renewables": 4,
+        "renewables": 5,
         "context": 54
       },
       "capacity": {
@@ -1356,7 +1523,7 @@
         "development": 3,
         "proposed": 9,
         "inactive": 2,
-        "other": 6810,
+        "other": 6811,
         "unknown": 254
       },
       "people_access": {
@@ -1370,16 +1537,30 @@
         "population_weighted_distance_gridlight_km": 0.992265
       },
       "minigrid_coverage": {
-        "catalogued_record_count": 4,
+        "catalogued_record_count": 5,
         "se4all_record_count": 4,
+        "se4all_survey_record_count": 1,
         "official_supplement_count": 0,
         "exact_site_record_count": 4,
         "operational_or_commissioned_count": 4,
         "coverage_status": "catalogued_public_records",
-        "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "coverage_interpretation": "5 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Kwara": {
@@ -1464,6 +1645,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 1,
         "se4all_record_count": 0,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 1,
         "exact_site_record_count": 0,
         "operational_or_commissioned_count": 1,
@@ -1471,7 +1653,20 @@
         "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Kogi": {
@@ -1564,6 +1759,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 2,
         "se4all_record_count": 2,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 2,
         "operational_or_commissioned_count": 2,
@@ -1571,7 +1767,20 @@
         "coverage_interpretation": "2 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Benue": {
@@ -1655,6 +1864,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 2,
         "se4all_record_count": 1,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 1,
         "exact_site_record_count": 1,
         "operational_or_commissioned_count": 2,
@@ -1662,7 +1872,20 @@
         "coverage_interpretation": "2 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Borno": {
@@ -1740,6 +1963,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 0,
         "se4all_record_count": 0,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 0,
         "operational_or_commissioned_count": 0,
@@ -1747,7 +1971,20 @@
         "coverage_interpretation": "No named, geocoded commissioned record was verified in this audit; official programme or procurement evidence exists. This must not be interpreted as zero assets.",
         "programme_evidence": "EEP Phase II includes a 12 MW solar-hybrid project for the University of Maiduguri and Teaching Hospital; commissioning was not confirmed by the audited source.",
         "programme_source_url": "https://www.dares.rea.gov.ng/energizing-education-rea-secures-universitys-commitment-to-eep-sustainability.html",
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Katsina": {
@@ -1831,6 +2068,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 2,
         "se4all_record_count": 2,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 2,
         "operational_or_commissioned_count": 1,
@@ -1838,7 +2076,20 @@
         "coverage_interpretation": "2 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Plateau": {
@@ -1922,6 +2173,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 5,
         "se4all_record_count": 5,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 5,
         "operational_or_commissioned_count": 3,
@@ -1929,7 +2181,20 @@
         "coverage_interpretation": "5 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Edo": {
@@ -2038,6 +2303,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 4,
         "se4all_record_count": 4,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 4,
         "operational_or_commissioned_count": 3,
@@ -2045,7 +2311,20 @@
         "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Jigawa": {
@@ -2123,6 +2402,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 1,
         "se4all_record_count": 1,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 1,
         "operational_or_commissioned_count": 1,
@@ -2130,7 +2410,20 @@
         "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Anambra": {
@@ -2222,6 +2515,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 4,
         "se4all_record_count": 3,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 1,
         "exact_site_record_count": 3,
         "operational_or_commissioned_count": 4,
@@ -2229,7 +2523,20 @@
         "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Kano": {
@@ -2318,6 +2625,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 2,
         "se4all_record_count": 0,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 2,
         "exact_site_record_count": 0,
         "operational_or_commissioned_count": 1,
@@ -2325,7 +2633,20 @@
         "coverage_interpretation": "2 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Nasarawa": {
@@ -2403,6 +2724,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 1,
         "se4all_record_count": 1,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 1,
         "operational_or_commissioned_count": 1,
@@ -2410,7 +2732,20 @@
         "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Kebbi": {
@@ -2488,6 +2823,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 1,
         "se4all_record_count": 1,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 1,
         "operational_or_commissioned_count": 1,
@@ -2495,12 +2831,25 @@
         "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Imo": {
       "name": "Imo",
-      "mapped_records": 591,
+      "mapped_records": 592,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 3,
@@ -2521,7 +2870,7 @@
         "power_grid": 10,
         "substations": 6,
         "ports": 0,
-        "community_minigrids": 0,
+        "community_minigrids": 1,
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
@@ -2534,7 +2883,7 @@
         "environmental": 465,
         "demand": 0,
         "connectivity": 71,
-        "renewables": 0,
+        "renewables": 1,
         "context": 45
       },
       "capacity": {
@@ -2584,7 +2933,7 @@
         }
       },
       "status": {
-        "operating": 5,
+        "operating": 6,
         "development": 3,
         "proposed": 1,
         "inactive": 1,
@@ -2602,16 +2951,30 @@
         "population_weighted_distance_gridlight_km": 0.473711
       },
       "minigrid_coverage": {
-        "catalogued_record_count": 0,
+        "catalogued_record_count": 1,
         "se4all_record_count": 0,
+        "se4all_survey_record_count": 1,
         "official_supplement_count": 0,
         "exact_site_record_count": 0,
-        "operational_or_commissioned_count": 0,
-        "coverage_status": "official_pipeline_only",
-        "coverage_interpretation": "No named, geocoded commissioned record was verified in this audit; official programme or procurement evidence exists. This must not be interpreted as zero assets.",
+        "operational_or_commissioned_count": 1,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": "EEP Phase III includes an 8.2 MW solar-hybrid project for FUTO and DARES agreements include future Imo deployments; commissioning was not confirmed.",
         "programme_source_url": "https://www.dares.rea.gov.ng/energizing-education-rea-secures-universitys-commitment-to-eep-sustainability.html",
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Gombe": {
@@ -2696,6 +3059,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 3,
         "se4all_record_count": 3,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 3,
         "operational_or_commissioned_count": 3,
@@ -2703,7 +3067,20 @@
         "coverage_interpretation": "3 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Adamawa": {
@@ -2781,6 +3158,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 1,
         "se4all_record_count": 1,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 1,
         "operational_or_commissioned_count": 0,
@@ -2788,7 +3166,20 @@
         "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "strong_coverage_named",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Named by REA among states with strong DARES solar-home-system coverage; no state-specific unit total was disclosed.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": null,
+        "historical_source_url": null,
+        "reuse_note": "Derived factual summary; no beneficiary or household-level data are reproduced."
       }
     },
     "Yobe": {
@@ -2866,6 +3257,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 2,
         "se4all_record_count": 0,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 2,
         "exact_site_record_count": 0,
         "operational_or_commissioned_count": 2,
@@ -2873,7 +3265,20 @@
         "coverage_interpretation": "2 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Abia": {
@@ -2976,6 +3381,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 0,
         "se4all_record_count": 0,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 0,
         "operational_or_commissioned_count": 0,
@@ -2983,7 +3389,20 @@
         "coverage_interpretation": "No named, geocoded commissioned record was verified in this audit; official programme or procurement evidence exists. This must not be interpreted as zero assets.",
         "programme_evidence": "DARES grant agreement includes future Darway Coast mini-grids across Abia and five other states; named commissioned Abia sites were not published.",
         "programme_source_url": "https://nep.rea.gov.ng/posts/news_2ND_PBG_GRANT_SIGNING_FOR_NIGERIA_DARES.html",
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "strong_coverage_named",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Named by REA among states with strong DARES solar-home-system coverage; no state-specific unit total was disclosed.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": null,
+        "historical_source_url": null,
+        "reuse_note": "Derived factual summary; no beneficiary or household-level data are reproduced."
       }
     },
     "Ekiti": {
@@ -3067,6 +3486,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 0,
         "se4all_record_count": 0,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 0,
         "operational_or_commissioned_count": 0,
@@ -3074,7 +3494,20 @@
         "coverage_interpretation": "No named, geocoded commissioned record was verified in this audit; official programme or procurement evidence exists. This must not be interpreted as zero assets.",
         "programme_evidence": "REA/NEP lists Ekiti in a later AfDB mini-grid tender and Federal University Oye-Ekiti in the public-institution pipeline; no named commissioned record was verified.",
         "programme_source_url": "https://nep.rea.gov.ng/solar-hybrid-mini-grid-for-economic-development-afdb.html",
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Osun": {
@@ -3158,6 +3591,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 1,
         "se4all_record_count": 1,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 1,
         "operational_or_commissioned_count": 1,
@@ -3165,7 +3599,20 @@
         "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Bauchi": {
@@ -3250,6 +3697,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 5,
         "se4all_record_count": 4,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 1,
         "exact_site_record_count": 4,
         "operational_or_commissioned_count": 5,
@@ -3257,7 +3705,20 @@
         "coverage_interpretation": "5 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "strong_coverage_named",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Named by REA among states with strong DARES solar-home-system coverage; no state-specific unit total was disclosed.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": null,
+        "historical_source_url": null,
+        "reuse_note": "Derived factual summary; no beneficiary or household-level data are reproduced."
       }
     },
     "Niger": {
@@ -3350,6 +3811,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 5,
         "se4all_record_count": 5,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 5,
         "operational_or_commissioned_count": 5,
@@ -3357,7 +3819,20 @@
         "coverage_interpretation": "5 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Kaduna": {
@@ -3457,6 +3932,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 4,
         "se4all_record_count": 3,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 1,
         "exact_site_record_count": 3,
         "operational_or_commissioned_count": 3,
@@ -3464,7 +3940,20 @@
         "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "strong_coverage_named",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Named by REA among states with strong DARES solar-home-system coverage; no state-specific unit total was disclosed.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": null,
+        "historical_source_url": null,
+        "reuse_note": "Derived factual summary; no beneficiary or household-level data are reproduced."
       }
     },
     "Enugu": {
@@ -3542,6 +4031,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 0,
         "se4all_record_count": 0,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 0,
         "operational_or_commissioned_count": 0,
@@ -3549,7 +4039,20 @@
         "coverage_interpretation": "No named, geocoded commissioned record was verified in this audit; official programme or procurement evidence exists. This must not be interpreted as zero assets.",
         "programme_evidence": "REA/NEP lists Enugu in a later AfDB mini-grid tender; no named commissioned record was verified.",
         "programme_source_url": "https://nep.rea.gov.ng/solar-hybrid-mini-grid-for-economic-development-afdb.html",
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "strong_coverage_named",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Named by REA among states with strong DARES solar-home-system coverage; no state-specific unit total was disclosed.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": null,
+        "historical_source_url": null,
+        "reuse_note": "Derived factual summary; no beneficiary or household-level data are reproduced."
       }
     },
     "Taraba": {
@@ -3627,6 +4130,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 1,
         "se4all_record_count": 1,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 0,
         "exact_site_record_count": 1,
         "operational_or_commissioned_count": 0,
@@ -3634,7 +4138,20 @@
         "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     },
     "Ebonyi": {
@@ -3712,6 +4229,7 @@
       "minigrid_coverage": {
         "catalogued_record_count": 4,
         "se4all_record_count": 3,
+        "se4all_survey_record_count": 0,
         "official_supplement_count": 1,
         "exact_site_record_count": 3,
         "operational_or_commissioned_count": 2,
@@ -3719,7 +4237,20 @@
         "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
         "programme_evidence": null,
         "programme_source_url": null,
-        "audit_date": "2026-07-24"
+        "audit_date": "2026-07-25"
+      },
+      "standalone_solar_programme": {
+        "evidence_status": "national_programme_only",
+        "systems_reported": null,
+        "people_reached": null,
+        "as_of_date": "2026-04-30",
+        "programme": "DARES Stand-Alone Solar",
+        "coverage_note": "Official reporting confirms nationwide historical NEP coverage and current DARES deployment across all six geopolitical zones, but no state-specific unit total was published for this state.",
+        "source_name": "Nigeria Electrification Programme / Rural Electrification Agency",
+        "source_url": "https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html",
+        "historical_context": "The preceding Nigeria Electrification Project reported almost 1.1 million systems distributed across all 36 states.",
+        "historical_source_url": "https://nep.rea.gov.ng/assets/documents/resource-hub/DARES_PIM_Final.pdf",
+        "reuse_note": "Derived factual summary; source pages do not state explicit redistribution terms. No beneficiary or household-level data are reproduced."
       }
     }
   }

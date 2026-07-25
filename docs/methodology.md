@@ -4,7 +4,7 @@ The atlas is built as a reproducible geospatial evidence pipeline that converts 
 
 ## Core design
 
-The `v0.8` public atlas is organized around seven implemented analytical layers:
+The `v0.9` public atlas is organized around seven implemented analytical layers:
 
 - Resource: reserves, production, discoveries, and field-level site information.
 - Infrastructure: pipelines, LNG terminals, refineries, and power assets.
@@ -63,12 +63,12 @@ operational or investment use.
 
 ## Off-grid registry and state coverage audit
 
-The renewable layer merges 66 structured Nigeria SE4ALL records with a
+The renewable layer merges 66 structured Nigeria SE4ALL asset records, 13
+non-duplicate community-survey records that report mini-grid presence, and a
 conservative 14-record supplement drawn from named official REA/NEP/DARES,
 ECREEE, NEMSA, and institutional evidence. Stable asset IDs prevent duplicate
-append operations. Each supplementary record preserves evidence level,
-coordinate source, and whether its point is exact-site, facility, campus, or
-community precision.
+append operations. Survey coordinates are explicitly community evidence, not
+verified plant footprints.
 
 The accompanying audit covers all 36 states and the FCT. It distinguishes:
 
@@ -79,8 +79,13 @@ The accompanying audit covers all 36 states and the FCT. It distinguishes:
 
 Every record retains its source `asset_type` and receives one canonical
 `distributed_energy_class` through a tested deterministic mapping. The current
-80 records resolve to 68 community mini-grids, 10 captive/institutional
+93 records resolve to 81 community mini-grids, 10 captive/institutional
 off-grid systems, 2 interconnected mini-grids, and 0 standalone systems.
+
+Standalone solar-home-system coverage is published as programme context rather
+than household points. The national profile records official DARES aggregates,
+and state profiles distinguish named strong coverage from national-programme-only
+evidence. These aggregates are not added to the mapped-asset count.
 
 Counts are therefore labelled **catalogued distributed-energy sites**. Zero means the
 implemented sources did not yield a verified map record; it never establishes

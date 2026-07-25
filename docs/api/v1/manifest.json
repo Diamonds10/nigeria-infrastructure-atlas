@@ -1,9 +1,9 @@
 {
   "api_version": "v1",
   "atlas_release": {
-    "version": "0.8.0",
+    "version": "0.9.0",
     "date": "2026-07-25",
-    "title": "State Analytics and Downloadable Reports"
+    "title": "Distributed Energy Coverage Expansion"
   },
   "base_url": "https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/",
   "formats": [
@@ -162,7 +162,7 @@
       "key": "community_minigrids",
       "label": "Community Mini-grids",
       "category": "renewables",
-      "record_count": 68,
+      "record_count": 81,
       "endpoint": "layers/community_minigrids.geojson"
     },
     {
@@ -204,7 +204,7 @@
   "compatibility_endpoints": {
     "minigrids": {
       "endpoint": "layers/minigrids.geojson",
-      "record_count": 80,
+      "record_count": 93,
       "status": "backward_compatible_aggregate",
       "replacement_layers": [
         "community_minigrids",

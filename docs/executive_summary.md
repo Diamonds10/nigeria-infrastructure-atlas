@@ -4,18 +4,22 @@ Nigeria Infrastructure Atlas is a multi-layer geospatial repository that brings
 together public evidence on Nigeria's resource base, supporting infrastructure,
 environmental footprint, industrial demand centers, connectivity, and
 renewables, with population, settlement, and electricity-access screening
-context. Security is documented as a planned layer, not a standalone `v0.8`
+context. Security is documented as a planned layer, not a standalone `v0.9`
 dataset.
 
 ## What the project shows
 
 The atlas is designed to answer a practical question: where do Nigeria's gas assets, industrial demand centers, logistics routes, and risk factors sit relative to one another?
 
-A concrete recent addition is a public-source off-grid inventory with 80 named
-records across 30 states and the FCT. It combines 66 Nigeria SE4ALL records with
-14 official-source additions, including Bayero University Kano, and retains
-coordinate precision and evidence level. It remains a public screening layer,
-not a complete operating registry.
+A concrete recent addition is a public-source off-grid inventory with 93 named
+records across 31 states and the FCT. It combines 66 Nigeria SE4ALL asset
+records, 13 non-duplicate SE4ALL surveyed communities, and 14 official-source
+additions, including Bayero University Kano. It retains coordinate precision
+and evidence level and remains a screening layer, not a complete registry.
+
+Standalone solar is represented differently: official DARES programme totals
+and named strong-coverage states are included in state profiles, but household
+coordinates and unsupported state totals are not published.
 
 The Environmental section now includes 21,124 NOSDRA reported oil-spill
 records, of which 16,326 have valid map coordinates. Report status, incident

@@ -715,6 +715,7 @@
     var capacity = profile.capacity;
     var peopleAccess = profile.people_access || {};
     var minigridCoverage = profile.minigrid_coverage || {};
+    var standaloneProgramme = profile.standalone_solar_programme || {};
     var spillIntelligence = profile.oil_spill_intelligence || {};
     var distributedMix = {
       "Community mini-grid": counts.community_minigrids,
@@ -739,7 +740,7 @@
         profileMetric(counts.demand_centers, "Demand centres") +
         profileMetric(counts.community_minigrids, "Community mini-grids") +
         profileMetric(counts.captive_offgrid_systems, "Captive/institutional off-grid") +
-        profileMetric(counts.standalone_systems, "Standalone systems") +
+        profileMetric(counts.standalone_systems, "Mapped standalone sites") +
         profileMetric(counts.interconnected_minigrids, "Interconnected mini-grids") +
         profileMetric(counts.fields_oil + counts.fields_gas, "Source-classified field points") +
         profileMetric(counts.ports, "Ports & terminals") +
@@ -754,6 +755,19 @@
         profileTimelineChart("Mapped oil-spill reports by recent incident year", spillIntelligence.yearly_counts, 10) +
       '</div>' +
       (capacityBits.length ? '<div class="capacity-strip">' + capacityBits.join(" · ") + '</div>' : "") +
+      (standaloneProgramme.coverage_note
+        ? '<div class="coverage-strip"><strong>Standalone solar programme evidence:</strong> ' +
+          (standaloneProgramme.systems_reported
+            ? '<strong>' + formatNumber(standaloneProgramme.systems_reported) +
+              ' systems</strong> and <strong>' +
+              formatNumber(standaloneProgramme.people_reached) +
+              ' people reached</strong> reported nationally as of ' +
+              escapeHtml(standaloneProgramme.as_of_date) + '. '
+            : '') +
+          escapeHtml(standaloneProgramme.coverage_note) +
+          ' <a href="' + escapeAttr(standaloneProgramme.source_url) +
+          '" target="_blank" rel="noopener">Official source</a>.</div>'
+        : '') +
       (minigridCoverage.coverage_interpretation
         ? '<div class="coverage-strip"><strong>Distributed-energy coverage note:</strong> ' +
           escapeHtml(minigridCoverage.coverage_interpretation) +
@@ -852,7 +866,13 @@
 
   function reportRows(values) {
     return Object.keys(values || {}).map(function (key) {
-      return '<tr><th>' + escapeHtml(key) + '</th><td>' + formatNumber(values[key], 2) + '</td></tr>';
+      var value = values[key];
+      var display = value === null || value === undefined || value === ""
+        ? "Not disclosed"
+        : typeof value === "number"
+          ? formatNumber(value, 2)
+          : escapeHtml(value);
+      return '<tr><th>' + escapeHtml(key) + '</th><td>' + display + '</td></tr>';
     }).join("");
   }
 
@@ -860,6 +880,7 @@
     var profileName = selectedState || "Nigeria";
     var profile = ATLAS.state_profiles[profileName];
     var spill = profile.oil_spill_intelligence || {};
+    var standalone = profile.standalone_solar_programme || {};
     var report = '<!doctype html><html lang="en"><meta charset="utf-8"><title>' +
       escapeHtml(profileName) + ' — Nigeria Infrastructure Atlas report</title><style>' +
       'body{font:14px/1.5 system-ui;margin:40px auto;max-width:900px;color:#17231f}h1,h2{font-family:Georgia,serif}' +
@@ -880,7 +901,13 @@
         "Captive / institutional off-grid": profile.counts.captive_offgrid_systems,
         "Standalone systems": profile.counts.standalone_systems,
         "Interconnected mini-grids": profile.counts.interconnected_minigrids
-      }) + '</table><h2>NOSDRA reported incidents</h2><table>' +
+      }) + '</table><h2>Standalone solar programme evidence</h2><table>' +
+      reportRows({
+        "Systems reported (national aggregate only)": standalone.systems_reported,
+        "People reached (national aggregate only)": standalone.people_reached,
+        "Evidence date": standalone.as_of_date
+      }) + '</table><p>' + escapeHtml(standalone.coverage_note || "") +
+      '</p><h2>NOSDRA reported incidents</h2><table>' +
       reportRows({
         "Mapped reports": spill.mapped_reports,
         "Confirmed reports": spill.confirmed_reports,

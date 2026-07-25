@@ -1,8 +1,8 @@
 {
   "atlas_release": {
-    "version": "0.8.0",
+    "version": "0.9.0",
     "date": "2026-07-25",
-    "title": "State Analytics and Downloadable Reports"
+    "title": "Distributed Energy Coverage Expansion"
   },
   "interpretation": "Review dates are maintenance targets, not guarantees that an upstream publisher has issued new data.",
   "summary": {
@@ -187,8 +187,8 @@
       "label": "Community Mini-grids",
       "source": "Nigeria SE4ALL Open Data Portal; REA/NEP/DARES; ECREEE; NEMSA; institutional sources",
       "cadence": "quarterly",
-      "last_checked": "2026-07-24",
-      "next_review_due": "2026-10-24",
+      "last_checked": "2026-07-25",
+      "next_review_due": "2026-10-25",
       "review_status": "current"
     },
     {
@@ -196,8 +196,8 @@
       "label": "Captive & Institutional Off-grid",
       "source": "REA/NEP/DARES; ECREEE; institutional sources",
       "cadence": "quarterly",
-      "last_checked": "2026-07-24",
-      "next_review_due": "2026-10-24",
+      "last_checked": "2026-07-25",
+      "next_review_due": "2026-10-25",
       "review_status": "current"
     },
     {
@@ -205,8 +205,8 @@
       "label": "Standalone Systems",
       "source": "Public-source distributed-energy evidence",
       "cadence": "quarterly",
-      "last_checked": "2026-07-24",
-      "next_review_due": "2026-10-24",
+      "last_checked": "2026-07-25",
+      "next_review_due": "2026-10-25",
       "review_status": "current"
     },
     {
@@ -214,8 +214,8 @@
       "label": "Interconnected Mini-grids",
       "source": "REA/NEP; NEMSA; official programme sources",
       "cadence": "quarterly",
-      "last_checked": "2026-07-24",
-      "next_review_due": "2026-10-24",
+      "last_checked": "2026-07-25",
+      "next_review_due": "2026-10-25",
       "review_status": "current"
     },
     {

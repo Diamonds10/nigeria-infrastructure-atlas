@@ -10,7 +10,7 @@ This repository is designed to help four audiences use the same evidence base in
 
 ## What the atlas contains
 
-The `v0.8` public atlas organizes Nigeria's infrastructure system into seven
+The `v0.9` public atlas organizes Nigeria's infrastructure system into seven
 implemented layers:
 
 1. Resource
@@ -111,8 +111,8 @@ The current processed data already contains a meaningful asset base for power-sy
 - substations
 - demand centres
 
-The repo also includes a renewable distributed-access layer with 80 named
-public records across 30 states and the FCT. A separate 37-state/FCT audit
+The repo also includes a renewable distributed-access layer with 93 named
+public records across 31 states and the FCT. A separate 37-state/FCT audit
 records remaining source gaps and official programme-only evidence. Counts are
 explicitly labelled “catalogued” because no implemented public source is a
 complete national operating registry.

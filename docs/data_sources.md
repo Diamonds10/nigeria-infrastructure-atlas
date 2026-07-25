@@ -47,7 +47,7 @@
 Overpass queries were run against Nigeria's OSM boundary (relation 192787 / area 3600192787) rather than a bounding box, to avoid picking up slivers of neighboring countries. Public Overpass instances are shared, rate-limited infrastructure — the download script retries across three mirrors (overpass-api.de, overpass.kumi.systems, overpass.openstreetmap.fr) with backoff, since single-mirror 406/429/504 errors were common during collection.
 
 ## Layer 6 — Security
-**Implementation status: planned, not published as a standalone layer in `v0.8`.** The entries below
+**Implementation status: planned, not published as a standalone layer in `v0.9`.** The entries below
 are candidate sources only. No tracked download/processing script, processed
 dataset, or public-map security layer currently exists.
 
@@ -60,7 +60,9 @@ dataset, or public-map security layer currently exists.
 | Dataset | Source | URL | Date accessed | License | Coverage | Known limitations |
 |---|---|---|---|---|---|---|
 | Mini-grid source inventory | Nigeria SE4ALL Open Data Portal (GeoNode/GeoServer instance) | https://data.nigeriase4all.gov.ng/catalogue/#/dataset/1 | 2026-07-23 | Not explicitly stated on the dataset page — public government/SE4ALL open data portal; confirm terms before redistributing | 66 mini-grid records across 26 states and the FCT | Genuine site-level records found through the portal's WFS backend, but materially incomplete: it omitted Kano and other documented installations. `state` is derived by point-in-polygon join. The source does not include standalone solar-home systems. |
+| Off-grid community survey | Nigeria SE4ALL Open Data Portal (`cluster_offgrid_survey` WFS) | https://data.nigeriase4all.gov.ng/geoserver/ows?service=WFS&version=1.0.0&request=GetFeature&typename=se4allWS:cluster_offgrid_survey | 2026-07-25 | Not explicitly stated; confirm before downstream redistribution | 709 surveyed communities; 14 report mini-grid presence, yielding 13 non-duplicate additions after comparison with the asset inventory | Survey points represent communities, not verified generating-plant footprints. Status is retained where reported; missing status remains unknown. |
 | Verified public off-grid supplement | REA/NEP/DARES, ECREEE, NEMSA, and beneficiary institutions | Per-record URLs in `data/curated/07_renewables/verified_public_offgrid_supplement.csv` | 2026-07-24 | Mixed public-source terms; review each record | 14 named commissioned, operational, deployed, or currently rehabilitated records | Adds the seven commissioned renewable EEP Phase I university sites, a separate ECREEE Bayero University installation, and recent named REA facilities. Coordinates are explicitly graded as exact site, facility, campus, or community. Capacity is not assumed to be currently available where rehabilitation or sustainability concerns are reported. |
+| Standalone-solar programme evidence | Nigeria Electrification Programme / REA DARES | https://nep.rea.gov.ng/posts/news-Solar-Home-Systems-Reach-Nearly-3.9-Million-Nigerians.html | 2026-05-19 | Source page has no explicit redistribution statement; atlas publishes only a derived factual summary | 830,000 systems and nearly 3.9 million people reached nationally as of April 2026; six states named as strong coverage | Programme-level evidence only. No household coordinates or unsupported state totals are published, and DARES totals are not added to earlier NEP deployment totals. |
 | State coverage audit | Derived from the combined registry and official programme review | `data/processed/07_renewables/minigrid_state_coverage_audit.csv` | 2026-07-24 | Derived metadata | All 36 states and the FCT | Six states have official programme/procurement evidence but no named, geocoded commissioned record verified in this audit. A zero catalogued count must not be interpreted as zero assets. |
 
 The canonical output now merges the original structured SE4ALL inventory with
@@ -69,7 +71,7 @@ a conservative official-source supplement. The merge is reproducible through
 append operations.
 
 The public layer uses the canonical `distributed_energy_class` field to expose
-68 community mini-grids, 10 captive/institutional off-grid systems, 0 verified
+81 community mini-grids, 10 captive/institutional off-grid systems, 0 verified
 standalone systems, and 2 interconnected mini-grids. The original
 source-specific `asset_type` remains available for provenance.
 

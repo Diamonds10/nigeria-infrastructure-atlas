@@ -3,36 +3,37 @@
     "power_plants": 193,
     "substations": 390,
     "demand_centres": 28,
-    "mini_grids": 80
+    "mini_grids": 93
   },
   "mini_grid_benchmark": {
-    "states_covered": 31,
+    "states_covered": 32,
     "capacity_coverage": 79,
     "customers_coverage": 38,
-    "technology_coverage": 80,
+    "technology_coverage": 87,
     "developer_coverage": 63,
     "status_distribution": {
-      "operational": 52,
-      "under_construction": 13,
-      "commissioned": 13,
-      "unknown": 1,
+      "operational": 53,
+      "under_construction": 19,
+      "commissioned": 14,
+      "unknown": 6,
       "under_rehabilitation": 1
     },
     "technology_distribution": {
-      "solar": 44,
+      "solar": 51,
       "hybrid_mini_grid": 22,
       "solar_hybrid": 10,
+      "not_reported": 6,
       "solar_battery": 3,
       "other": 1
     },
     "geocode_precision_distribution": {
       "exact_site": 67,
+      "community": 16,
       "campus": 8,
-      "community": 3,
       "facility": 2
     },
     "distributed_energy_class_distribution": {
-      "community_mini_grid": 68,
+      "community_mini_grid": 81,
       "captive_institutional_off_grid": 10,
       "standalone_system": 0,
       "interconnected_mini_grid": 2

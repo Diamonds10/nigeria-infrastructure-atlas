@@ -3,7 +3,8 @@ Downloads Nigeria's mini-grid asset inventory from the Nigeria SE4ALL (Sustainab
 Energy for All) open data portal, a GeoNode/GeoServer instance operated as part of
 the national electrification-planning platform.
 
-Source: https://data.nigeriase4all.gov.ng (dataset "se4allWS:minigrids")
+Sources: https://data.nigeriase4all.gov.ng (datasets "se4allWS:minigrids" and
+"se4allWS:cluster_offgrid_survey")
 Catalogue page: https://data.nigeriase4all.gov.ng/catalogue/#/dataset/1
 License: Not explicitly stated on the dataset page -- open data portal, government
 of Nigeria / SE4ALL initiative; confirm terms before redistributing downstream.
@@ -26,6 +27,12 @@ WFS_URL = (
     "https://data.nigeriase4all.gov.ng/geoserver/ows"
     "?service=WFS&version=1.0.0&request=GetFeature"
     "&typename=se4allWS:minigrids&outputFormat=json&srsName=EPSG:4326"
+)
+SURVEY_WFS_URL = (
+    "https://data.nigeriase4all.gov.ng/geoserver/ows"
+    "?service=WFS&version=1.0.0&request=GetFeature"
+    "&typename=se4allWS:cluster_offgrid_survey"
+    "&outputFormat=json&srsName=EPSG:4326"
 )
 
 
@@ -58,10 +65,17 @@ def main() -> int:
     args = parse_args()
     output_dir = args.output_dir.expanduser().resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
-    dest_path = output_dir / "se4all_minigrids_nigeria.json"
-
     try:
-        download_file(WFS_URL, dest_path, force=args.force)
+        download_file(
+            WFS_URL,
+            output_dir / "se4all_minigrids_nigeria.json",
+            force=args.force,
+        )
+        download_file(
+            SURVEY_WFS_URL,
+            output_dir / "se4all_offgrid_community_survey_nigeria.json",
+            force=args.force,
+        )
     except (requests.RequestException, RuntimeError) as exc:
         print(f"Error: {exc}", file=sys.stderr)
         return 1

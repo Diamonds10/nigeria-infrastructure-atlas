@@ -69,7 +69,7 @@ class PublicAtlasTests(unittest.TestCase):
                 "power_grid": 931,
                 "substations": 390,
                 "ports": 25,
-                "community_minigrids": 68,
+                "community_minigrids": 81,
                 "captive_offgrid_systems": 10,
                 "standalone_systems": 0,
                 "interconnected_minigrids": 2,
@@ -92,8 +92,8 @@ class PublicAtlasTests(unittest.TestCase):
         asset_ids = [
             feature["properties"]["asset_id"] for feature in distributed_energy
         ]
-        self.assertEqual(len(asset_ids), 80)
-        self.assertEqual(len(set(asset_ids)), 80)
+        self.assertEqual(len(asset_ids), 93)
+        self.assertEqual(len(set(asset_ids)), 93)
 
     def test_coordinates_and_required_processed_columns(self):
         checks = {
@@ -111,6 +111,10 @@ class PublicAtlasTests(unittest.TestCase):
                 "asset_name", "latitude", "longitude", "status",
                 "distributed_energy_class", "classification_basis",
                 "classification_confidence",
+            },
+            "data/processed/07_renewables/standalone_solar_programme_evidence.csv": {
+                "scope", "evidence_status", "systems_reported",
+                "people_reached", "source_url", "reuse_note",
             },
             "data/processed/08_context/population_access_grid_nigeria.csv": {
                 "cell_id", "grid_lat", "grid_lon", "population_estimate",
@@ -130,15 +134,19 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertTrue(minigrids["longitude"].between(2.5, 14.8).all())
         self.assertTrue(minigrids["latitude"].between(3.9, 14.0).all())
         self.assertTrue(minigrids["asset_id"].is_unique)
-        self.assertEqual(len(minigrids), 80)
+        self.assertEqual(len(minigrids), 93)
         self.assertEqual(
             minigrids["record_origin"].value_counts().to_dict(),
-            {"nigeria_se4all": 66, "official_supplement": 14},
+            {
+                "nigeria_se4all": 66,
+                "official_supplement": 14,
+                "nigeria_se4all_survey": 13,
+            },
         )
         self.assertEqual(
             minigrids["distributed_energy_class"].value_counts().to_dict(),
             {
-                "community_mini_grid": 68,
+                "community_mini_grid": 81,
                 "captive_institutional_off_grid": 10,
                 "interconnected_mini_grid": 2,
             },
@@ -147,6 +155,14 @@ class PublicAtlasTests(unittest.TestCase):
             minigrids["classification_basis"]
             .eq("deterministic_asset_type_mapping")
             .all()
+        )
+        survey_records = minigrids[
+            minigrids["record_origin"].eq("nigeria_se4all_survey")
+        ]
+        self.assertEqual(len(survey_records), 13)
+        self.assertTrue(survey_records["geocode_precision"].eq("community").all())
+        self.assertTrue(
+            survey_records["classification_confidence"].eq("medium").all()
         )
         kano = minigrids[minigrids["state"] == "Kano"]
         self.assertEqual(len(kano), 2)
@@ -159,9 +175,16 @@ class PublicAtlasTests(unittest.TestCase):
         )
         self.assertEqual(len(audit), 37)
         self.assertTrue(audit["state"].is_unique)
+        self.assertTrue(
+            audit["catalogued_record_count"].eq(
+                audit["se4all_record_count"]
+                + audit["se4all_survey_record_count"]
+                + audit["official_supplement_count"]
+            ).all()
+        )
         self.assertEqual(
             set(audit.loc[audit["catalogued_record_count"].eq(0), "state"]),
-            {"Abia", "Borno", "Ekiti", "Enugu", "Imo", "Zamfara"},
+            {"Abia", "Borno", "Ekiti", "Enugu", "Zamfara"},
         )
         self.assertTrue(
             audit.loc[
@@ -305,13 +328,13 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertEqual(counts["power_plants"], 193)
         self.assertEqual(counts["substations"], 390)
         self.assertEqual(counts["demand_centres"], 28)
-        self.assertEqual(counts["mini_grids"], 80)
+        self.assertEqual(counts["mini_grids"], 93)
         self.assertEqual(
             benchmark["mini_grid_benchmark"][
                 "distributed_energy_class_distribution"
             ],
             {
-                "community_mini_grid": 68,
+                "community_mini_grid": 81,
                 "captive_institutional_off_grid": 10,
                 "standalone_system": 0,
                 "interconnected_mini_grid": 2,
@@ -340,7 +363,7 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertEqual(len(profiles), 38)
 
         national = profiles["Nigeria"]
-        self.assertEqual(national["mapped_records"], 28851)
+        self.assertEqual(national["mapped_records"], 28864)
         self.assertEqual(national["counts"]["oil_spills"], 16326)
         spill = national["oil_spill_intelligence"]
         self.assertEqual(spill["mapped_reports"], 16326)
@@ -353,20 +376,28 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertGreater(sum(spill["yearly_counts"].values()), 0)
         self.assertEqual(national["counts"]["power_plants"], 193)
         self.assertEqual(national["counts"]["substations"], 390)
-        self.assertEqual(national["counts"]["community_minigrids"], 68)
+        self.assertEqual(national["counts"]["community_minigrids"], 81)
         self.assertEqual(national["counts"]["captive_offgrid_systems"], 10)
         self.assertEqual(national["counts"]["standalone_systems"], 0)
         self.assertEqual(national["counts"]["interconnected_minigrids"], 2)
         self.assertEqual(
             national["minigrid_coverage"]["distributed_energy_class_counts"],
             {
-                "community_mini_grid": 68,
+                "community_mini_grid": 81,
                 "captive_institutional_off_grid": 10,
                 "standalone_system": 0,
                 "interconnected_mini_grid": 2,
             },
         )
         self.assertAlmostEqual(national["capacity"]["minigrid_kw"], 33680.4)
+        self.assertEqual(
+            national["standalone_solar_programme"]["systems_reported"],
+            830000.0,
+        )
+        self.assertEqual(
+            national["standalone_solar_programme"]["people_reached"],
+            3900000.0,
+        )
         self.assertEqual(national["people_access"]["settlement_count"], 154319)
         self.assertAlmostEqual(
             national["people_access"]["worldpop_population_2025"],
@@ -375,6 +406,7 @@ class PublicAtlasTests(unittest.TestCase):
         for profile in profiles.values():
             self.assertIn("people_access", profile)
             self.assertIn("minigrid_coverage", profile)
+            self.assertIn("standalone_solar_programme", profile)
 
         for layer in bundle["layers"].values():
             for definition in layer["sublayers"].values():
@@ -397,6 +429,12 @@ class PublicAtlasTests(unittest.TestCase):
         }
         self.assertEqual(set(catalogue), content_bearing)
         self.assertNotIn("standalone_systems", catalogue)
+        standalone_metadata = sublayers["standalone_systems"]["metadata"]
+        self.assertTrue(
+            standalone_metadata["programme_evidence_url"].endswith(
+                "standalone_solar_programme_evidence.csv"
+            )
+        )
         for key in content_bearing:
             definition = sublayers[key]
             metadata = catalogue[key]
@@ -412,11 +450,11 @@ class PublicAtlasTests(unittest.TestCase):
     def test_status_and_temporal_filter_metadata(self):
         bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
         filters = bundle["filters"]
-        self.assertEqual(sum(filters["status_groups"].values()), 28851)
+        self.assertEqual(sum(filters["status_groups"].values()), 28864)
         self.assertEqual(
             filters["temporal"]["dated_records"]
             + filters["temporal"]["undated_records"],
-            28851,
+            28864,
         )
         self.assertEqual(filters["temporal"]["minimum_year"], 1912)
         self.assertEqual(filters["temporal"]["maximum_year"], 2026)
@@ -464,7 +502,7 @@ class PublicAtlasTests(unittest.TestCase):
 
         manifest = json.loads((API_DIR / "manifest.json").read_text())
         self.assertEqual(manifest["api_version"], "v1")
-        self.assertEqual(manifest["atlas_release"]["version"], "0.8.0")
+        self.assertEqual(manifest["atlas_release"]["version"], "0.9.0")
         self.assertEqual(len(manifest["layers"]), 25)
         self.assertEqual(manifest["endpoints"]["freshness"], "freshness.json")
         freshness = json.loads((API_DIR / "freshness.json").read_text())
@@ -478,7 +516,7 @@ class PublicAtlasTests(unittest.TestCase):
         )
         self.assertEqual(oil_refresh["cadence"], "monthly")
         compatibility = manifest["compatibility_endpoints"]["minigrids"]
-        self.assertEqual(compatibility["record_count"], 80)
+        self.assertEqual(compatibility["record_count"], 93)
         self.assertEqual(
             set(compatibility["replacement_layers"]),
             {

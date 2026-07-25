@@ -36,7 +36,7 @@ The current public atlas is organized into seven published analytical layers:
 6. Distributed Energy
 7. People & Access
 
-A standalone security layer is planned, but it is not part of the `v0.8` processed
+A standalone security layer is planned, but it is not part of the `v0.9` processed
 dataset or public map. This boundary is intentional: the source register records
 candidate security sources without presenting them as implemented evidence.
 
@@ -44,7 +44,7 @@ The public value of the atlas is not any single output file. It is the combinati
 
 ## Current public-facing value
 
-A live `v0.8` state-intelligence experience is available at
+A live `v0.9` state-intelligence experience is available at
 [diamonds10.github.io/nigeria-infrastructure-atlas](https://diamonds10.github.io/nigeria-infrastructure-atlas/).
 It provides profiles for all 36 states and the FCT, state-specific shareable
 links and GeoJSON downloads, and a searchable catalogue covering the 24
@@ -74,16 +74,20 @@ Public evidence-quality signal from the current benchmark:
 
 - 147 source-classified gas-producing field points and 33 source-classified
   oil-only field points, with independent gas and mixed-field boundary layers
-- 80 catalogued distributed-energy sites across 30 states and the FCT:
-  68 community mini-grids, 10 captive/institutional off-grid systems,
+- 93 catalogued distributed-energy sites across 31 states and the FCT:
+  81 community mini-grids, 10 captive/institutional off-grid systems,
   2 interconnected mini-grids, and no standalone record yet meeting the
   publication threshold
-- 52 operational, 13 under construction, 13 commissioned, 1 under
-  rehabilitation, and 1 unknown
-- 66 Nigeria SE4ALL records plus 14 named official-source additions
-- 67 exact-site coordinates; 13 campus, community, or facility-level coordinates
+- 53 operational, 19 under construction, 14 commissioned, 1 under
+  rehabilitation, and 6 unknown
+- 66 Nigeria SE4ALL asset records, 13 additional non-duplicate SE4ALL surveyed
+  communities, and 14 named official-source additions
+- 67 exact-site coordinates; 26 campus, community, or facility-level coordinates
 - a 37-state/FCT coverage audit that distinguishes catalogued records from
   official programme-only evidence
+- privacy-preserving standalone-solar programme evidence: 830,000 DARES
+  systems and 3.9 million people reached nationally as of April 2026, with six
+  strong-coverage states named but no household coordinates or invented state totals
 - 21,124 NOSDRA reported incidents, including 16,326 mapped reports with
   status, cause, company, timeline, state-summary, and API support
 
@@ -147,7 +151,7 @@ The repository already contains a meaningful evidence base for screening and res
 - power-producing plant and substation context
 - demand-centre reference points
 - environmental overlays, with security documented as a planned future layer
-- a public-source off-grid inventory covering 80 named records across 30 states
+- a public-source off-grid inventory covering 93 named records across 31 states
   and the FCT, with source-specific status, capacity, coordinate precision, and
   operator context
 - a structured distributed-energy taxonomy and an open, verification-gated
@@ -160,7 +164,7 @@ Current verified public-facing asset snapshot:
 - 193 oil/gas power-producing plant records
 - 390 substation records
 - 28 demand-centre records
-- 80 catalogued distributed-energy records across four explicit classes
+- 93 catalogued distributed-energy records across four explicit classes
 
 The interactive map now surfaces state-level screening summaries, direct
 processed-data downloads, quality grades, source dates, licensing caveats, and
@@ -225,8 +229,8 @@ Important caveats include:
 ## Current improvement frontier
 
 The next work is continued evidence expansion rather than basic platform
-construction: verified standalone/solar-home-system coverage, carefully
-licensed conflict and security context, deeper analytical charts, and formal
+construction: deeper state-specific standalone-solar aggregates when official
+reporting supports them, carefully licensed conflict and security context, and formal
 preservation releases after third-party redistribution conditions are cleared.
 The repository now publishes refresh targets and accepts evidence submissions
 for every atlas section; see `docs/data_governance_and_refresh.md`.

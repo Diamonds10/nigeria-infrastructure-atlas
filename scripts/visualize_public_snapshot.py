@@ -86,9 +86,13 @@ def build_benchmark_summary(
     mini_grids: pd.DataFrame,
     oil_spills: pd.DataFrame,
 ) -> dict:
-    mini_status = mini_grids["status"].value_counts(dropna=False).to_dict()
-    mini_technology = mini_grids["technology"].value_counts(dropna=False).to_dict()
-    mini_precision = mini_grids["geocode_precision"].value_counts(dropna=False).to_dict()
+    def distribution(column: str) -> dict[str, int]:
+        counts = mini_grids[column].fillna("not_reported").value_counts()
+        return {str(key): int(value) for key, value in counts.items()}
+
+    mini_status = distribution("status")
+    mini_technology = distribution("technology")
+    mini_precision = distribution("geocode_precision")
     class_counts = mini_grids["distributed_energy_class"].value_counts()
     distributed_energy_classes = {
         class_name: int(class_counts.get(class_name, 0))

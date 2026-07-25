@@ -6,17 +6,20 @@ The Distributed Energy section in this repository is now strong enough to suppor
 
 ### Current evidence quality
 
-- 68 community mini-grids
+- 81 community mini-grids
 - 10 captive or institutional off-grid systems
 - 2 interconnected mini-grids
 - 0 verified standalone-system records in the implemented sources
-- 30 states and the FCT covered
-- 52 operational sites
-- 13 under construction
-- 13 commissioned, 1 under rehabilitation, and 1 unknown
-- 66 Nigeria SE4ALL records plus 14 official-source additions
-- 67 exact-site coordinates and 13 campus/community/facility coordinates
+- 31 states and the FCT covered
+- 53 operational sites
+- 19 under construction
+- 14 commissioned, 1 under rehabilitation, and 6 unknown
+- 66 Nigeria SE4ALL asset records, 13 SE4ALL survey additions, and 14
+  official-source additions
+- 67 exact-site coordinates and 26 campus/community/facility coordinates
 - a state-by-state audit for all 36 states and the FCT
+- official standalone-solar programme aggregates and named strong-coverage
+  states, published without household coordinates
 
 ## What this means in practice
 

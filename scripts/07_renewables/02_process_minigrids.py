@@ -23,6 +23,7 @@ RAW_DATA_DIR = Path(__file__).resolve().parents[2] / "data" / "raw" / "07_renewa
 PROCESSED_DIR = Path(__file__).resolve().parents[2] / "data" / "processed" / "07_renewables"
 CURATED_DIR = Path(__file__).resolve().parents[2] / "data" / "curated" / "07_renewables"
 RAW_FILENAME = "se4all_minigrids_nigeria.json"
+SURVEY_RAW_FILENAME = "se4all_offgrid_community_survey_nigeria.json"
 OUTPUT_FILENAME = "renewable_offgrid_minigrid_nigeria.csv"
 SUPPLEMENT_FILENAME = "verified_public_offgrid_supplement.csv"
 AUDIT_FILENAME = "minigrid_state_coverage_audit.csv"
@@ -34,6 +35,11 @@ STATES_BOUNDARY_URL = (
 
 SOURCE_NAME = "Nigeria SE4ALL Open Data Portal"
 SOURCE_URL = "https://data.nigeriase4all.gov.ng/catalogue/#/dataset/1"
+SURVEY_SOURCE_URL = (
+    "https://data.nigeriase4all.gov.ng/geoserver/ows?"
+    "service=WFS&version=1.0.0&request=GetFeature&"
+    "typename=se4allWS:cluster_offgrid_survey"
+)
 
 TECH_MAP = {
     "solar": "solar",
@@ -89,6 +95,16 @@ def get_input_path(input_dir: Path) -> Path:
     return path
 
 
+def get_survey_input_path(input_dir: Path) -> Path:
+    path = input_dir / SURVEY_RAW_FILENAME
+    if not path.exists():
+        raise FileNotFoundError(
+            f"Required raw file not found: {path}\n"
+            "Run scripts/07_renewables/01_download_minigrids.py first."
+        )
+    return path
+
+
 def fetch_states_boundary() -> gpd.GeoDataFrame:
     response = requests.get(STATES_BOUNDARY_URL, timeout=60)
     response.raise_for_status()
@@ -107,10 +123,82 @@ def normalize_status(row) -> str:
     return "unknown"
 
 
+def normalize_survey_status(value) -> str:
+    status = str(value or "").strip().lower()
+    if status == "functional":
+        return "operational"
+    if status == "commissioned":
+        return "commissioned"
+    if status == "in_commissioning":
+        return "under_construction"
+    return "unknown"
+
+
+def normalized_name(value) -> str:
+    return "".join(character for character in str(value or "").lower() if character.isalnum())
+
+
+def survey_rows(input_path: Path, existing_names: set[str], accessed: str) -> list[dict]:
+    raw = json.loads(input_path.read_text())
+    rows = []
+    for feature in raw["features"]:
+        properties = feature.get("properties") or {}
+        if properties.get("mini_grid_presence") is not True:
+            continue
+        name = properties.get("community_name") or "Unnamed surveyed community"
+        if normalized_name(name) in existing_names:
+            continue
+        geometry = feature.get("geometry") or {}
+        coordinates = geometry.get("coordinates") or []
+        if geometry.get("type") != "Point" or len(coordinates) < 2:
+            continue
+        survey_date = str(properties.get("survey_date") or "").removesuffix("Z")
+        rows.append(
+            {
+                "asset_id": f"se4all-survey-{properties.get('cluster_offgrid_id')}",
+                "asset_name": f"{name} mini-grid",
+                "asset_type": "mini_grid",
+                "program_name": "Nigeria SE4ALL community energy survey",
+                "state": properties.get("state_name"),
+                "lga": properties.get("lga_name"),
+                "community": name,
+                "developer": None,
+                "owner_operator": None,
+                "technology": str(
+                    properties.get("mini_grid_primary_generation_type") or ""
+                ).strip().lower() or None,
+                "status": normalize_survey_status(
+                    properties.get("mini_grid_status")
+                ),
+                "capacity_kw": None,
+                "customers_served": None,
+                "financing_source": None,
+                "latitude": coordinates[1],
+                "longitude": coordinates[0],
+                "geocode_precision": "community",
+                "coordinate_source": (
+                    "Nigeria SE4ALL survey point; not a verified plant footprint"
+                ),
+                "source_name": "Nigeria SE4ALL off-grid community survey",
+                "source_url": SURVEY_SOURCE_URL,
+                "source_date_accessed": accessed,
+                "evidence_level": "official_community_survey",
+                "record_origin": "nigeria_se4all_survey",
+                "notes": (
+                    f"Surveyed {survey_date or 'date not stated'}; source records "
+                    f"mini_grid_presence=true and status="
+                    f"'{properties.get('mini_grid_status')}'."
+                ),
+            }
+        )
+    return rows
+
+
 def build_state_audit(
     frame: pd.DataFrame,
     states: gpd.GeoDataFrame,
     output_path: Path,
+    audit_date: str,
 ) -> None:
     rows = []
     for state_name in sorted(states["shapeName"].dropna().unique()):
@@ -142,6 +230,9 @@ def build_state_audit(
                 "state": state_name,
                 "catalogued_record_count": mapped_count,
                 "se4all_record_count": int(origins.get("nigeria_se4all", 0)),
+                "se4all_survey_record_count": int(
+                    origins.get("nigeria_se4all_survey", 0)
+                ),
                 "official_supplement_count": int(
                     origins.get("official_supplement", 0)
                 ),
@@ -157,14 +248,14 @@ def build_state_audit(
                 "coverage_interpretation": interpretation,
                 "programme_evidence": programme.get("evidence"),
                 "programme_source_url": programme.get("source_url"),
-                "audit_date": "2026-07-24",
+                "audit_date": audit_date,
             }
         )
     pd.DataFrame(rows).to_csv(output_path, index=False)
     print(f"Saved state coverage audit: {output_path} ({len(rows)} rows)")
 
 
-def process(input_path: Path, output_path: Path) -> None:
+def process(input_path: Path, survey_input_path: Path, output_path: Path) -> None:
     raw = json.loads(input_path.read_text())
     sites = gpd.GeoDataFrame.from_features(raw["features"], crs="EPSG:4326")
 
@@ -215,6 +306,13 @@ def process(input_path: Path, output_path: Path) -> None:
         )
     supplement = supplement[df.columns]
     df = pd.concat([df, supplement], ignore_index=True)
+    existing_names = {normalized_name(value) for value in df["asset_name"]}
+    existing_names.update(normalized_name(value) for value in df["community"])
+    survey = pd.DataFrame(
+        survey_rows(survey_input_path, existing_names, today),
+        columns=df.columns,
+    ).dropna(axis=1, how="all")
+    df = pd.concat([df, survey], ignore_index=True)
     df["distributed_energy_class"] = df["asset_type"].map(
         DISTRIBUTED_ENERGY_CLASS_BY_ASSET_TYPE
     )
@@ -230,6 +328,10 @@ def process(input_path: Path, output_path: Path) -> None:
         )
     df["classification_basis"] = "deterministic_asset_type_mapping"
     df["classification_confidence"] = "high"
+    df.loc[
+        df["record_origin"].eq("nigeria_se4all_survey"),
+        "classification_confidence",
+    ] = "medium"
     if not df["asset_id"].is_unique:
         duplicates = df.loc[df["asset_id"].duplicated(), "asset_id"].tolist()
         raise ValueError(f"Duplicate asset_id values after merge: {duplicates}")
@@ -237,7 +339,12 @@ def process(input_path: Path, output_path: Path) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(output_path, index=False)
     print(f"Saved processed CSV: {output_path} ({len(df)} rows)")
-    build_state_audit(df, states, output_path.parent / AUDIT_FILENAME)
+    build_state_audit(
+        df,
+        states,
+        output_path.parent / AUDIT_FILENAME,
+        today,
+    )
     missing_state = df["state"].isna().sum()
     if missing_state:
         print(f"Note: {missing_state} site(s) did not resolve to a state via spatial join (check coordinates)")
@@ -259,7 +366,8 @@ def main() -> int:
 
     try:
         input_path = get_input_path(raw_dir)
-        process(input_path, processed_dir / OUTPUT_FILENAME)
+        survey_input_path = get_survey_input_path(raw_dir)
+        process(input_path, survey_input_path, processed_dir / OUTPUT_FILENAME)
     except (FileNotFoundError, ValueError, requests.RequestException, OSError) as exc:
         print(f"Error: {exc}", file=sys.stderr)
         return 1

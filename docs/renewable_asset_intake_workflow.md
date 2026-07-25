@@ -1,11 +1,12 @@
 # Renewable asset intake workflow
 
 **Status: implemented as a hybrid intake (updated 2026-07-24).** The Nigeria
-SE4ALL WFS supplies 66 structured source records. A state-by-state audit showed
+SE4ALL WFS supplies 66 structured asset records and 13 additional non-duplicate
+community-survey records reporting mini-grid presence. A state-by-state audit showed
 that this omits documented assets, including Bayero University Kano. The current
 processor therefore merges that source with
 `data/curated/07_renewables/verified_public_offgrid_supplement.csv` and writes
-both the 80-record canonical registry and a 37-state/FCT coverage audit. The
+both the 93-record canonical registry and a 37-state/FCT coverage audit. The
 processor also assigns every record to one of four non-overlapping
 distributed-energy classes.
 
@@ -41,6 +42,7 @@ This workflow provides a first practical intake path for adding renewable off-gr
 
 - `data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv`
 - `data/processed/07_renewables/minigrid_state_coverage_audit.csv`
+- `data/processed/07_renewables/standalone_solar_programme_evidence.csv`
 
 The canonical `distributed_energy_class` values are:
 

@@ -1,5 +1,21 @@
 # Release notes
 
+## v0.9.0 — Distributed Energy Coverage Expansion
+
+Released: 25 July 2026
+
+- expanded the canonical distributed-energy registry from 80 to 93 records
+- added 13 non-duplicate mini-grid communities from the official Nigeria
+  SE4ALL community survey, with community-level precision clearly disclosed
+- increased mapped community mini-grids from 68 to 81 and geographic coverage
+  from 30 states plus the FCT to 31 states plus the FCT
+- added privacy-preserving standalone-solar programme evidence to all state
+  profiles and downloadable reports
+- recorded the official April 2026 DARES aggregate of 830,000 systems and
+  nearly 3.9 million people reached without publishing household locations
+- distinguished six named strong-coverage states from states supported only by
+  national programme evidence; no unsupported state unit totals were inferred
+
 ## v0.8.0 — State Analytics and Downloadable Reports
 
 Released: 25 July 2026
