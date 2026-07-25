@@ -7,7 +7,7 @@ If you use this repository in research, teaching, or public-facing work, the rec
 Suggested format:
 
 Nigeria Infrastructure Atlas contributors. 2026. *Nigeria Infrastructure
-Atlas*, version 0.6.0. GitHub. Accessed YYYY-MM-DD.
+Atlas*, version 0.7.0. GitHub. Accessed YYYY-MM-DD.
 
 The repository also includes machine-readable citation metadata in
 `CITATION.cff`.
@@ -24,6 +24,10 @@ This repository is a derived public-data product. Reuse should follow three prin
 
 When reusing the People & Access context, describe night-light detection as a
 screening signal, not a measured household electricity-access rate.
+
+When reusing NOSDRA data, describe records and causes as reported, preserve
+report status and the source disclaimer, and do not imply independent findings
+of liability or volume.
 
 The root CC0 dedication applies only where the repository contributors hold the
 necessary rights. It does not relicense third-party source data. Review

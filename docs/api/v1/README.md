@@ -11,6 +11,7 @@ API key and supports normal HTTP caching. Start with `manifest.json`.
 
 - `manifest.json` — API contract, release information, filter fields, and layer endpoints
 - `catalogue.json` — provenance, quality, licensing, and download metadata
+- `freshness.json` — machine-readable source-review cadence and due dates
 - `schema.json` — JSON Schema for normalized public feature fields
 - `state-profiles.json` — Nigeria and ADM1 screening summaries
 - `states.geojson` — simplified Nigeria ADM1 boundaries
@@ -33,12 +34,16 @@ Layer features include:
 
 - `_states`: state boundaries intersected by the public display geometry
 - `_status_group`: `operating`, `development`, `proposed`, `inactive`, `other`, or `unknown`
-- `_year`: relevant discovery, start, commissioning, designation, or source
+- `_year`: relevant discovery, start, commissioning, incident, designation, or source
   release year when supported
 - `_year_label`: the meaning of `_year` for that record
 
 When applying a year cutoff, exclude records without `_year`. Do not assume an
 undated record existed before the selected year.
+
+The `oil_spills` endpoint additionally exposes NOSDRA report status, reported
+cause, company, incident year, and incident-date quality. These are reported
+incidents rather than independently verified spill findings.
 
 ## Stability
 

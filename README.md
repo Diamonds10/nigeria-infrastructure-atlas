@@ -36,7 +36,7 @@ The current public atlas is organized into seven published analytical layers:
 6. Distributed Energy
 7. People & Access
 
-A security layer is planned, but it is not part of the `v0.6` processed
+A standalone security layer is planned, but it is not part of the `v0.7` processed
 dataset or public map. This boundary is intentional: the source register records
 candidate security sources without presenting them as implemented evidence.
 
@@ -44,10 +44,10 @@ The public value of the atlas is not any single output file. It is the combinati
 
 ## Current public-facing value
 
-A live `v0.6` state-intelligence experience is available at
+A live `v0.7` state-intelligence experience is available at
 [diamonds10.github.io/nigeria-infrastructure-atlas](https://diamonds10.github.io/nigeria-infrastructure-atlas/).
 It provides profiles for all 36 states and the FCT, state-specific shareable
-links and GeoJSON downloads, and a searchable catalogue covering all 24
+links and GeoJSON downloads, and a searchable catalogue covering all 25
 published map datasets. Normalized status and evidence-year filters apply
 consistently to the map, search results, visible counts, shared URLs, and
 downloads.
@@ -80,6 +80,8 @@ Public evidence-quality signal from the current benchmark:
 - 67 exact-site coordinates; 13 campus, community, or facility-level coordinates
 - a 37-state/FCT coverage audit that distinguishes catalogued records from
   official programme-only evidence
+- 21,124 NOSDRA reported incidents, including 16,326 mapped reports with
+  status, cause, company, timeline, state-summary, and API support
 
 For a concise repo-level interpretation of that benchmark, see [docs/public_evidence_quality.md](docs/public_evidence_quality.md).
 
@@ -216,14 +218,13 @@ Important caveats include:
 - some layers are more complete and current than others
 - dataset coverage and licensing terms should be reviewed before broad reuse
 
-## Best next public-facing upgrades
+## Current improvement frontier
 
-To strengthen the repo for investors, academics, students, and practitioners, the most valuable next additions are:
-
-- clearer state labels and state-boundary context on the main map
-- visible counts for power-producing plants and substations in the map legend or caption
-- continued verified expansion of the audited public-source off-grid registry
-- a consistent gallery of output maps and thumbnails for public browsing
-- a concise release note describing what is verified versus provisional
+The next work is continued evidence expansion rather than basic platform
+construction: verified standalone/solar-home-system coverage, carefully
+licensed conflict and security context, deeper analytical charts, and formal
+preservation releases after third-party redistribution conditions are cleared.
+The repository now publishes refresh targets and accepts evidence submissions
+for every atlas section; see `docs/data_governance_and_refresh.md`.
 
 For the detailed dataset inventory and limitations, see `docs/data_sources.md`.

@@ -18,6 +18,11 @@ Important examples include:
   downloads have license uncertainty documented in the source register.
 - Nigeria SE4ALL mini-grid data: publicly accessible, but the dataset page did
   not state explicit redistribution terms at the recorded access date.
+- NOSDRA Oil Spill Monitor records: the publisher provides complete CSV/JSON
+  downloads and encourages public use, but no formal open-data licence was
+  stated at the recorded access date. Preserve attribution, the source
+  disclaimer, report-status fields, and the distinction between reported and
+  independently verified incidents.
 
 The public atlas is a derived screening product. Source attribution remains
 required even when a derived file is stored in this repository.

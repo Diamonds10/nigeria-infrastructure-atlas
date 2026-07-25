@@ -1,0 +1,94 @@
+name: Atlas data submission or correction
+description: Propose evidence for any public atlas layer
+title: "[Data]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for infrastructure, resource, environmental, demand,
+        connectivity, or population/access evidence. Distributed-energy records
+        may use the dedicated form, which captures that taxonomy in more detail.
+        Submissions are reviewed before publication; do not include private
+        personal data or restricted operational information.
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Request type
+      options:
+        - New public record
+        - Correction to an existing record
+        - Source or licensing update
+        - Data-quality concern
+    validations:
+      required: true
+  - type: dropdown
+    id: atlas_section
+    attributes:
+      label: Atlas section
+      options:
+        - Resource
+        - Infrastructure
+        - Environmental
+        - Demand
+        - Connectivity
+        - Distributed Energy
+        - People & Access
+        - Unsure — maintainer review needed
+    validations:
+      required: true
+  - type: input
+    id: record_name
+    attributes:
+      label: Record or dataset name
+      description: Include the existing atlas/API identifier when correcting a record.
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: State, LGA and location
+    validations:
+      required: true
+  - type: input
+    id: coordinates
+    attributes:
+      label: Coordinates or geometry source
+      description: Give latitude/longitude and precision, or link to the authoritative geometry.
+  - type: textarea
+    id: proposed_data
+    attributes:
+      label: Proposed data or correction
+      description: State exactly what should be added or changed, including status and date where relevant.
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: Public evidence URL
+    validations:
+      required: true
+  - type: textarea
+    id: evidence_scope
+    attributes:
+      label: What does the evidence verify?
+      description: Separate confirmed facts from interpretation or uncertainty.
+    validations:
+      required: true
+  - type: input
+    id: reuse_terms
+    attributes:
+      label: Source licence or reuse terms
+      description: Link to the stated licence/terms, or write "not stated".
+    validations:
+      required: true
+  - type: checkboxes
+    id: attestation
+    attributes:
+      label: Contributor attestation
+      options:
+        - label: I have the right to submit this contribution and have preserved the source attribution and limitations.
+          required: true
+        - label: I have not included private personal data or sensitive non-public infrastructure information.
+          required: true
+        - label: I understand that submission does not guarantee publication.
+          required: true

@@ -33,6 +33,7 @@ POWER_PLANTS_PATH = ROOT / "data/processed/02_infrastructure/gogpt_oil_gas_plant
 SUBSTATIONS_PATH = ROOT / "data/processed/05_connectivity/osm_power_grid_nigeria.csv"
 DEMAND_CENTERS_PATH = ROOT / "data/processed/04_demand/demand_centers_nigeria.csv"
 MINI_GRIDS_PATH = ROOT / "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv"
+OIL_SPILLS_PATH = ROOT / "data/processed/03_environmental/nosdra_oil_spills_nigeria.csv"
 
 
 def fetch_states() -> gpd.GeoDataFrame:
@@ -83,6 +84,7 @@ def build_benchmark_summary(
     substations: pd.DataFrame,
     demand: pd.DataFrame,
     mini_grids: pd.DataFrame,
+    oil_spills: pd.DataFrame,
 ) -> dict:
     mini_status = mini_grids["status"].value_counts(dropna=False).to_dict()
     mini_technology = mini_grids["technology"].value_counts(dropna=False).to_dict()
@@ -97,6 +99,7 @@ def build_benchmark_summary(
             "interconnected_mini_grid",
         ]
     }
+    mapped_spills = oil_spills.dropna(subset=["latitude", "longitude"])
 
     benchmark = {
         "asset_counts": {
@@ -115,6 +118,22 @@ def build_benchmark_summary(
             "technology_distribution": mini_technology,
             "geocode_precision_distribution": mini_precision,
             "distributed_energy_class_distribution": distributed_energy_classes,
+        },
+        "oil_spill_benchmark": {
+            "source_report_count": int(len(oil_spills)),
+            "mapped_report_count": int(len(mapped_spills)),
+            "confirmed_mapped_report_count": int(
+                mapped_spills["status_label"].eq("Confirmed").sum()
+            ),
+            "sabotage_attributed_mapped_report_count": int(
+                mapped_spills["is_sabotage_attributed"].sum()
+            ),
+            "plausible_incident_year_count": int(
+                oil_spills["incident_year"].notna().sum()
+            ),
+            "implausible_incident_date_count": int(
+                oil_spills["incident_date_quality"].eq("implausible").sum()
+            ),
         },
         "public_dashboard_signal": {
             "best_for": [
@@ -148,12 +167,14 @@ def main() -> int:
     substations_df = substations_df[substations_df["power"] == "substation"].copy()
     demand_df = pd.read_csv(DEMAND_CENTERS_PATH)
     mini_grids_df = pd.read_csv(MINI_GRIDS_PATH)
+    oil_spills_df = pd.read_csv(OIL_SPILLS_PATH, low_memory=False)
 
     benchmark = build_benchmark_summary(
         power_plants=power_plants_df,
         substations=substations_df,
         demand=demand_df,
         mini_grids=mini_grids_df,
+        oil_spills=oil_spills_df,
     )
     BENCHMARK_FILE.write_text(json.dumps(benchmark, indent=2), encoding="utf-8")
 

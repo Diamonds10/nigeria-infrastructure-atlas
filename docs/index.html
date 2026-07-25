@@ -7,6 +7,7 @@
 <meta name="description" content="Interactive map of Nigeria's infrastructure, population, settlements, and electricity-access context." />
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@72,600&display=swap" rel="stylesheet">
@@ -24,7 +25,7 @@
     <div class="stat"><span class="n" id="stat-visible">—</span><span class="l">records shown</span></div>
     <div class="stat"><span class="n" id="stat-total">—</span><span class="l">map records</span></div>
     <button class="top-action" id="catalogue-button" type="button">Data catalogue</button>
-    <a class="top-action" href="https://github.com/Diamonds10/nigeria-infrastructure-atlas/issues/new?template=distributed-energy-submission.yml" target="_blank" rel="noopener">Contribute data</a>
+    <a class="top-action" href="https://github.com/Diamonds10/nigeria-infrastructure-atlas/issues/new/choose" target="_blank" rel="noopener">Contribute data</a>
     <button class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle light/dark theme">◐</button>
   </header>
   <div class="layout">
@@ -79,6 +80,16 @@
         </div>
         <p id="filter-summary" class="filter-summary"></p>
         <p class="filter-note">A year cutoff shows only dated records at or before that year. Undated records are excluded while it is active.</p>
+        <div class="spill-filter-group">
+          <span class="eyebrow">NOSDRA oil-spill reports</span>
+          <label class="select-label" for="spill-status-filter">Report status</label>
+          <select id="spill-status-filter"></select>
+          <label class="select-label" for="spill-cause-filter">Reported cause</label>
+          <select id="spill-cause-filter"></select>
+          <label class="select-label" for="spill-company-filter">Company</label>
+          <select id="spill-company-filter"></select>
+          <p id="spill-filter-summary" class="filter-note"></p>
+        </div>
       </section>
       <div class="layers-heading">
         <span class="eyebrow">Map layers</span>
@@ -86,7 +97,7 @@
       </div>
       <div id="category-list"></div>
       <div class="panel-footer">
-        v0.6.0 · Distributed-energy records are separated into community, captive/institutional, standalone, and interconnected classes. Counts are public evidence, not exhaustive state totals. See <a href="https://github.com/Diamonds10/nigeria-infrastructure-atlas/blob/main/docs/data_sources.md" target="_blank" rel="noopener">sources and limitations</a> and <a href="https://github.com/Diamonds10/nigeria-infrastructure-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">contribution guidance</a>.
+        v0.7.0 · NOSDRA reports are status-aware, timeline-ready, clustered for performance, and presented as reported incidents rather than independently verified spills. Counts are public evidence, not exhaustive state totals. See <a href="https://github.com/Diamonds10/nigeria-infrastructure-atlas/blob/main/docs/data_sources.md" target="_blank" rel="noopener">sources and limitations</a> and <a href="https://github.com/Diamonds10/nigeria-infrastructure-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">contribution guidance</a>.
       </div>
     </aside>
     <main class="mapwrap">
@@ -121,6 +132,7 @@
 </dialog>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script src="./assets/app.js"></script>
 </body>
 </html>

@@ -9,6 +9,7 @@ retains all four processed major-road classes.
 from __future__ import annotations
 
 import argparse
+from datetime import date, timedelta
 import json
 import math
 from pathlib import Path
@@ -26,6 +27,9 @@ DEFAULT_OUTPUT = ROOT / "docs" / "assets" / "atlas_data.json"
 DEFAULT_API_DIR = ROOT / "docs" / "api" / "v1"
 PUBLIC_SIMPLIFY_TOLERANCE = 0.005
 PUBLIC_COORDINATE_PRECISION = 5
+ATLAS_RELEASE_VERSION = "0.7.0"
+ATLAS_RELEASE_DATE = "2026-07-25"
+ATLAS_RELEASE_TITLE = "Oil Spill Intelligence and Open Atlas Contributions"
 REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main"
 DISTRIBUTED_ENERGY_SUBLAYERS = {
     "community_minigrids",
@@ -33,6 +37,39 @@ DISTRIBUTED_ENERGY_SUBLAYERS = {
     "standalone_systems",
     "interconnected_minigrids",
 }
+MONTHLY_REFRESH_LAYERS = {"oil_spills"}
+QUARTERLY_REFRESH_LAYERS = {
+    "roads",
+    "railways",
+    "rail_stations",
+    "power_grid",
+    "substations",
+    "community_minigrids",
+    "captive_offgrid_systems",
+    "standalone_systems",
+    "interconnected_minigrids",
+}
+
+
+def refresh_policy(sublayer_key: str, source_date: str) -> dict[str, Any]:
+    """Return deterministic, machine-readable review expectations."""
+    checked = date.fromisoformat(source_date)
+    if sublayer_key in MONTHLY_REFRESH_LAYERS:
+        cadence = "monthly"
+        next_review = checked + timedelta(days=31)
+    elif sublayer_key in QUARTERLY_REFRESH_LAYERS:
+        cadence = "quarterly"
+        next_review = checked + timedelta(days=92)
+    else:
+        cadence = "annual_or_source_release"
+        next_review = checked + timedelta(days=366)
+    release_day = date.fromisoformat(ATLAS_RELEASE_DATE)
+    return {
+        "cadence": cadence,
+        "last_checked": source_date,
+        "next_review_due": next_review.isoformat(),
+        "review_status": "due" if next_review <= release_day else "current",
+    }
 
 CATALOGUE = {
     "fields_oil": {
@@ -131,7 +168,7 @@ CATALOGUE = {
         "source_date": "2026-07-25",
         "license": "Not stated on the site; confirm terms before redistributing",
         "quality": "B",
-        "quality_note": "21,124 incident records, 2006-present, updated live (most recent incident 2026-07-16 at time of extraction) -- unlike most sources in this atlas, this is an actively maintained feed, not a static snapshot. 16,326 of 21,124 records (77.3%) have valid coordinates within Nigeria; the remainder have company/date/cause but no mappable location. 66.8% of records with a coded cause are attributed to sabotage/theft (pipeline vandalism or illegal bunkering), not equipment failure -- a genuine proxy indicator for security exposure, not just an environmental record. Code legends (status/cause/contaminant/facility/state) were read directly from the site's own filter-picker UI, not guessed.",
+        "quality_note": "21,124 reported incidents in the extracted feed; 16,326 (77.3%) have valid coordinates within Nigeria and are published on the map/API. Report status is preserved, including invalid and inconclusive records, and can be filtered explicitly. One implausible 1902 source date is retained for provenance but excluded from timelines. 66.8% of records with a coded cause are attributed to sabotage/theft. This is a reported-incident screening layer, not an independently verified spill registry. Explicit redistribution terms are not stated by the source.",
         "path": "data/processed/03_environmental/nosdra_oil_spills_nigeria.csv",
     },
     "protected_areas": {
@@ -254,6 +291,7 @@ CATALOGUE = {
         "description": "Quarter-degree settlement-population grid with night-light and grid-distance screening signals.",
         "source": "World Bank Nigeria Distributed Renewable Energy Atlas",
         "source_date": "2025-06-12",
+        "source_checked": "2026-07-24",
         "license": "CC BY 4.0",
         "quality": "B",
         "quality_note": "Aggregated from 154,319 settlement clusters. Night-light detection is a screening proxy, not a measured household electricity-access rate.",
@@ -263,6 +301,7 @@ CATALOGUE = {
         "description": "Major settlement clusters, retaining the 40 highest-population source records per state for a responsive web map.",
         "source": "World Bank Nigeria Distributed Renewable Energy Atlas",
         "source_date": "2025-06-12",
+        "source_checked": "2026-07-24",
         "license": "CC BY 4.0",
         "quality": "B",
         "quality_note": "Web subset of a 154,319-cluster processed inventory. Population and access fields are modelled screening estimates.",
@@ -427,6 +466,7 @@ def feature_year(sublayer_key: str, props: dict[str, Any]) -> tuple[int | None, 
         "lng_terminals": ("start_year", "Start year"),
         "power_plants": ("start_year", "Start year"),
         "refineries": ("commissioned_year", "Commissioned year"),
+        "oil_spills": ("incident_year", "Reported incident year"),
         "protected_areas": ("STATUS_YR", "Designation/status year"),
     }
     candidate = candidates.get(sublayer_key)
@@ -462,6 +502,13 @@ def empty_profile(name: str, sublayer_keys: list[str]) -> dict[str, Any]:
             "refinery_bpd": 0.0,
             "minigrid_kw": 0.0,
         },
+        "oil_spill_intelligence": {
+            "mapped_reports": 0,
+            "confirmed_reports": 0,
+            "invalid_reports": 0,
+            "sabotage_attributed_reports": 0,
+            "estimated_quantity_reported": 0.0,
+        },
         "status": {
             "operating": 0,
             "development": 0,
@@ -483,6 +530,20 @@ def update_profile(
     profile["counts"][sublayer_key] += 1
     profile["category_counts"][category_key] += 1
     profile["status"][status_bucket(props)] += 1
+
+    if sublayer_key == "oil_spills":
+        spill = profile["oil_spill_intelligence"]
+        spill["mapped_reports"] += 1
+        report_status = str(props.get("status_label") or "").lower()
+        if report_status == "confirmed":
+            spill["confirmed_reports"] += 1
+        if report_status.startswith("invalid"):
+            spill["invalid_reports"] += 1
+        if props.get("is_sabotage_attributed") in {True, "Yes"}:
+            spill["sabotage_attributed_reports"] += 1
+        spill["estimated_quantity_reported"] += float(
+            props.get("estimatedquantity") or 0
+        )
 
     if sublayer_key == "power_plants":
         profile["capacity"]["power_mw"] += float(props.get("capacity") or 0)
@@ -532,6 +593,10 @@ def add_catalogue_and_state_profiles(
                     "category_label": layer["label"],
                     "record_count": len(definition["data"]["features"]),
                     "download_url": f"{REPOSITORY_RAW}/{metadata['path']}",
+                    "refresh": refresh_policy(
+                        sublayer_key,
+                        str(metadata.get("source_checked", metadata["source_date"])),
+                    ),
                 }
             )
             if metadata.get("coverage_audit_path"):
@@ -584,6 +649,9 @@ def add_catalogue_and_state_profiles(
     for profile in profiles.values():
         for capacity_key, value in profile["capacity"].items():
             profile["capacity"][capacity_key] = round(value, 2)
+        profile["oil_spill_intelligence"]["estimated_quantity_reported"] = round(
+            profile["oil_spill_intelligence"]["estimated_quantity_reported"], 2
+        )
 
     context_summary = pd.read_csv(
         PROCESSED / "08_context/state_population_access_summary_nigeria.csv"
@@ -685,10 +753,37 @@ def add_catalogue_and_state_profiles(
         "audit_date": "2026-07-24",
     }
 
+    oil_spill_features = bundle["layers"]["environmental"]["sublayers"][
+        "oil_spills"
+    ]["data"]["features"]
+    spill_filter_fields = {
+        "report_statuses": "status_label",
+        "causes": "cause_label",
+        "companies": "company",
+    }
+    spill_filters = {
+        "source_record_count": 21124,
+        "mapped_record_count": len(oil_spill_features),
+        "default_report_status": "Confirmed",
+        "fields": {},
+    }
+    for output_key, property_key in spill_filter_fields.items():
+        counts: dict[str, int] = {}
+        for item in oil_spill_features:
+            value = item["properties"].get(property_key)
+            if value:
+                counts[str(value)] = counts.get(str(value), 0) + 1
+        spill_filters["fields"][output_key] = [
+            {"value": value, "count": count}
+            for value, count in sorted(
+                counts.items(), key=lambda pair: (-pair[1], pair[0].lower())
+            )
+        ]
+
     bundle["release"] = {
-        "version": "0.6.0",
-        "date": "2026-07-24",
-        "title": "Structured Distributed Energy and Open Contributions",
+        "version": ATLAS_RELEASE_VERSION,
+        "date": ATLAS_RELEASE_DATE,
+        "title": ATLAS_RELEASE_TITLE,
     }
     bundle["catalogue"] = catalogue
     bundle["state_profiles"] = profiles
@@ -701,6 +796,7 @@ def add_catalogue_and_state_profiles(
             "maximum_year": max(temporal_years),
             "semantics": "When enabled, the cutoff includes only records with a known relevant year at or before the selected year.",
         },
+        "oil_spills": spill_filters,
     }
 
 
@@ -869,6 +965,37 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
         json.dumps(schema, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    freshness = {
+        "atlas_release": bundle["release"],
+        "interpretation": (
+            "Review dates are maintenance targets, not guarantees that an "
+            "upstream publisher has issued new data."
+        ),
+        "summary": {
+            "dataset_count": len(bundle["catalogue"]),
+            "current": sum(
+                item["refresh"]["review_status"] == "current"
+                for item in bundle["catalogue"]
+            ),
+            "due": sum(
+                item["refresh"]["review_status"] == "due"
+                for item in bundle["catalogue"]
+            ),
+        },
+        "datasets": [
+            {
+                "key": item["key"],
+                "label": item["label"],
+                "source": item["source"],
+                **item["refresh"],
+            }
+            for item in bundle["catalogue"]
+        ],
+    }
+    (api_dir / "freshness.json").write_text(
+        json.dumps(freshness, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
     manifest = {
         "api_version": "v1",
         "atlas_release": bundle["release"],
@@ -877,12 +1004,14 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
         "filter_fields": {
             "_states": "ADM1 names intersected by the public display geometry",
             "_status_group": "Normalized status group",
-            "_year": "Relevant discovery, start, commissioning, designation, or source release year",
+            "_year": "Relevant discovery, start, commissioning, incident, designation, or source release year",
             "_year_label": "Meaning of _year for the record",
+            "oil_spills": "Oil-spill records also expose report status, cause, company, incident year, and date-quality fields",
         },
         "endpoints": {
             "catalogue": "catalogue.json",
             "schema": "schema.json",
+            "freshness": "freshness.json",
             "state_profiles": "state-profiles.json",
             "states": "states.geojson",
         },
@@ -978,7 +1107,9 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
         PROCESSED / "03_environmental/nosdra_oil_spills_nigeria.csv",
         "longitude", "latitude",
         [
-            "company", "incidentdate", "status_label", "cause_label", "is_sabotage_attributed",
+            "id", "incidentnumber", "company", "incidentdate", "incident_year",
+            "incident_date_quality", "status", "status_label", "cause_label",
+            "is_sabotage_attributed",
             "contaminant_label", "facility_label", "habitat_label", "estimatedquantity",
             "state_label", "lga", "sitelocationname",
         ],

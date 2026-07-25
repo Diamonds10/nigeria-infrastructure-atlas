@@ -363,7 +363,7 @@
     margin-bottom: 5px;
     text-transform: uppercase;
   }
-  #state-select, #status-filter {
+  #state-select, #status-filter, #spill-status-filter, #spill-cause-filter, #spill-company-filter {
     width: 100%;
     padding: 8px 30px 8px 9px;
     border: 1px solid var(--line);
@@ -372,7 +372,7 @@
     color: var(--text-primary);
     font-size: 12.5px;
   }
-  #state-select:focus-visible, #status-filter:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  #state-select:focus-visible, #status-filter:focus-visible, #spill-status-filter:focus-visible, #spill-cause-filter:focus-visible, #spill-company-filter:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
   .state-profile { margin-top: 12px; }
   .profile-title-row {
     display: flex;
@@ -538,6 +538,36 @@
     font-size: 9.5px;
     line-height: 1.4;
   }
+  .spill-filter-group {
+    display: grid;
+    gap: 6px;
+    margin-top: 13px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+  .spill-filter-group .select-label { margin: 3px 0 -2px; }
+  .spill-filter-group select {
+    width: 100%;
+    padding: 7px 28px 7px 8px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--surface);
+    color: var(--text-primary);
+    font-size: 11px;
+  }
+
+  .spill-cluster {
+    display: grid;
+    place-items: center;
+    border: 2px solid color-mix(in srgb, var(--layer-oil-spills) 72%, white);
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--layer-oil-spills) 88%, transparent);
+    color: #fff;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.32);
+    font: 700 10px/1 ui-monospace, monospace;
+  }
+  .spill-cluster-medium { font-size: 11px; }
+  .spill-cluster-large { font-size: 12px; }
 
   .category-group {
     border: 1px solid var(--line);

@@ -4,11 +4,12 @@ The atlas is built as a reproducible geospatial evidence pipeline that converts 
 
 ## Core design
 
-The `v0.6` public atlas is organized around seven implemented analytical layers:
+The `v0.7` public atlas is organized around seven implemented analytical layers:
 
 - Resource: reserves, production, discoveries, and field-level site information.
 - Infrastructure: pipelines, LNG terminals, refineries, and power assets.
-- Environmental: flaring and protected-area context.
+- Environmental: flaring, protected-area context, and NOSDRA reported
+  oil-spill incidents.
 - Demand: industrial and demand-center locations relevant to gas consumption.
 - Connectivity: roads, rail, ports, and grid infrastructure.
 - Distributed Energy: community mini-grids, captive/institutional off-grid
@@ -38,6 +39,12 @@ build publishes motorway and trunk roads, simplifies display geometry to a
 screening-appropriate tolerance, and retains the full-resolution major-road
 table in `data/processed/`. Release checks in `tests/` verify the committed
 bundle, expected counts, key schemas, and coordinate bounds.
+
+NOSDRA points are clustered in the browser to keep the 16,326-feature incident
+layer usable at national scale. The processed table preserves every source
+record, including those without valid coordinates. Incident-year filtering uses
+a separate validated year field: the original date remains untouched, while
+missing and implausible dates are excluded from the timeline.
 
 ## State intelligence method
 

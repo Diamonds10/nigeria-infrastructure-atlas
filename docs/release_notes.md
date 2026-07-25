@@ -1,5 +1,26 @@
 # Release notes
 
+## v0.7.0 — Oil Spill Intelligence and Open Atlas Contributions
+
+Released: 25 July 2026
+
+- integrated 21,124 NOSDRA reported incidents, including 16,326 records with
+  publishable coordinates, as a documented processed dataset and API layer
+- added clustered spill rendering plus filters for report status, reported
+  cause, company, and incident year
+- defaulted spill analysis to confirmed reports while retaining reviewed,
+  invalid, and inconclusive source records for transparent inspection
+- excluded one implausible 1902 source date from timelines without deleting it
+  from the processed audit trail
+- added national and state mapped, confirmed, invalid, and
+  sabotage-attributed report summaries
+- added machine-readable dataset refresh schedules at
+  `/api/v1/freshness.json`
+- opened a repository-wide evidence submission route covering every atlas
+  section, alongside the structured distributed-energy workflow
+- restored the full release gate at 28,851 mapped records across 25 public
+  datasets
+
 ## v0.6.0 — Structured Distributed Energy and Open Contributions
 
 Released: 24 July 2026

@@ -60,6 +60,7 @@ class PublicAtlasTests(unittest.TestCase):
                 "power_plants": 193,
                 "refineries": 4,
                 "gas_infrastructure": 98,
+                "oil_spills": 16326,
                 "protected_areas": 1005,
                 "demand_centers": 28,
                 "roads": 5124,
@@ -101,6 +102,10 @@ class PublicAtlasTests(unittest.TestCase):
             },
             "data/processed/04_demand/demand_centers_nigeria.csv": {
                 "demand_center", "lat", "lon",
+            },
+            "data/processed/03_environmental/nosdra_oil_spills_nigeria.csv": {
+                "id", "status_label", "incidentdate", "incident_year",
+                "incident_date_quality", "cause_label", "latitude", "longitude",
             },
             "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv": {
                 "asset_name", "latitude", "longitude", "status",
@@ -162,6 +167,32 @@ class PublicAtlasTests(unittest.TestCase):
             audit.loc[
                 audit["catalogued_record_count"].eq(0), "coverage_interpretation"
             ].str.contains("must not be interpreted as zero assets").all()
+        )
+
+        spills = pd.read_csv(
+            ROOT / "data/processed/03_environmental/nosdra_oil_spills_nigeria.csv",
+            low_memory=False,
+        )
+        self.assertEqual(len(spills), 21124)
+        self.assertEqual(
+            spills[["latitude", "longitude"]].notna().all(axis=1).sum(),
+            16326,
+        )
+        self.assertEqual(
+            spills["incident_date_quality"].value_counts().to_dict(),
+            {
+                "source_reported": 20451,
+                "missing": 672,
+                "implausible": 1,
+            },
+        )
+        implausible = spills[spills["incident_date_quality"].eq("implausible")]
+        self.assertEqual(implausible["incidentdate"].tolist(), ["1902-02-08"])
+        self.assertTrue(implausible["incident_year"].isna().all())
+        self.assertTrue(
+            spills.loc[spills["incident_year"].notna(), "incident_year"]
+            .between(1950, 2026)
+            .all()
         )
 
         context = pd.read_csv(
@@ -252,6 +283,17 @@ class PublicAtlasTests(unittest.TestCase):
             all(contrast(color, "#16281F") >= 3 for color in dark_palette.values())
         )
 
+    def test_oil_spill_intelligence_controls_and_clustering_are_wired(self):
+        app_source = APP_PATH.read_text(encoding="utf-8")
+        html_source = (ROOT / "docs/index.html").read_text(encoding="utf-8")
+        self.assertIn("L.markerClusterGroup", app_source)
+        self.assertIn("chunkedLoading: true", app_source)
+        self.assertIn('id="spill-status-filter"', html_source)
+        self.assertIn('id="spill-cause-filter"', html_source)
+        self.assertIn('id="spill-company-filter"', html_source)
+        self.assertIn("leaflet.markercluster@1.5.3", html_source)
+        self.assertIn("issues/new/choose", html_source)
+
     def test_benchmark_matches_processed_assets(self):
         benchmark = json.loads(
             (ROOT / "outputs/maps/public_asset_benchmark_summary.json").read_text()
@@ -272,6 +314,17 @@ class PublicAtlasTests(unittest.TestCase):
                 "interconnected_mini_grid": 2,
             },
         )
+        self.assertEqual(
+            benchmark["oil_spill_benchmark"],
+            {
+                "source_report_count": 21124,
+                "mapped_report_count": 16326,
+                "confirmed_mapped_report_count": 14382,
+                "sabotage_attributed_mapped_report_count": 12718,
+                "plausible_incident_year_count": 20451,
+                "implausible_incident_date_count": 1,
+            },
+        )
 
     def test_state_profiles_are_complete_and_consistent(self):
         bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
@@ -284,7 +337,18 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertEqual(len(profiles), 38)
 
         national = profiles["Nigeria"]
-        self.assertEqual(national["mapped_records"], 12525)
+        self.assertEqual(national["mapped_records"], 28851)
+        self.assertEqual(national["counts"]["oil_spills"], 16326)
+        self.assertEqual(
+            national["oil_spill_intelligence"],
+            {
+                "mapped_reports": 16326,
+                "confirmed_reports": 14382,
+                "invalid_reports": 551,
+                "sabotage_attributed_reports": 12718,
+                "estimated_quantity_reported": 733861.56,
+            },
+        )
         self.assertEqual(national["counts"]["power_plants"], 193)
         self.assertEqual(national["counts"]["substations"], 390)
         self.assertEqual(national["counts"]["community_minigrids"], 68)
@@ -339,14 +403,20 @@ class PublicAtlasTests(unittest.TestCase):
     def test_status_and_temporal_filter_metadata(self):
         bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
         filters = bundle["filters"]
-        self.assertEqual(sum(filters["status_groups"].values()), 12525)
+        self.assertEqual(sum(filters["status_groups"].values()), 28851)
         self.assertEqual(
             filters["temporal"]["dated_records"]
             + filters["temporal"]["undated_records"],
-            12525,
+            28851,
         )
         self.assertEqual(filters["temporal"]["minimum_year"], 1912)
         self.assertEqual(filters["temporal"]["maximum_year"], 2026)
+        self.assertEqual(filters["temporal"]["dated_records"], 19199)
+        self.assertEqual(filters["oil_spills"]["source_record_count"], 21124)
+        self.assertEqual(filters["oil_spills"]["mapped_record_count"], 16326)
+        self.assertEqual(
+            filters["oil_spills"]["default_report_status"], "Confirmed"
+        )
 
         valid_statuses = set(filters["status_groups"])
         for layer in bundle["layers"].values():
@@ -385,8 +455,19 @@ class PublicAtlasTests(unittest.TestCase):
 
         manifest = json.loads((API_DIR / "manifest.json").read_text())
         self.assertEqual(manifest["api_version"], "v1")
-        self.assertEqual(manifest["atlas_release"]["version"], "0.6.0")
-        self.assertEqual(len(manifest["layers"]), 24)
+        self.assertEqual(manifest["atlas_release"]["version"], "0.7.0")
+        self.assertEqual(len(manifest["layers"]), 25)
+        self.assertEqual(manifest["endpoints"]["freshness"], "freshness.json")
+        freshness = json.loads((API_DIR / "freshness.json").read_text())
+        self.assertEqual(freshness["summary"]["dataset_count"], 25)
+        self.assertEqual(
+            freshness["summary"]["current"] + freshness["summary"]["due"],
+            25,
+        )
+        oil_refresh = next(
+            item for item in freshness["datasets"] if item["key"] == "oil_spills"
+        )
+        self.assertEqual(oil_refresh["cadence"], "monthly")
         compatibility = manifest["compatibility_endpoints"]["minigrids"]
         self.assertEqual(compatibility["record_count"], 80)
         self.assertEqual(

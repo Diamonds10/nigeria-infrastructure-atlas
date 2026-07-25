@@ -10,7 +10,7 @@ This repository is designed to help four audiences use the same evidence base in
 
 ## What the atlas contains
 
-The `v0.6` public atlas organizes Nigeria's infrastructure system into seven
+The `v0.7` public atlas organizes Nigeria's infrastructure system into seven
 implemented layers:
 
 1. Resource
@@ -81,17 +81,23 @@ power, refinery, and mini-grid capacities, plus WorldPop 2025 population and
 World Bank settlement/night-light context. Clicking a state creates a shareable
 URL, zooms to its boundary, and enables a state-specific GeoJSON download.
 
-The website's data catalogue documents all 24 public sublayers with their
+The website's data catalogue documents all 25 public sublayers with their
 sources, access dates, reuse terms, quality grades, limitations, record counts,
 and direct processed-CSV links.
 
 Normalized status filters and an opt-in evidence-year cutoff apply to map
 rendering, search, visible counts, shareable URLs, and generated GeoJSON. The
 year filter includes only records with a supported discovery, start,
-commissioning, or designation year; undated records are excluded.
+commissioning, incident, or designation year; undated records are excluded.
 
 The versioned static API under `docs/api/v1/` provides machine-readable access
 to the catalogue, profiles, state boundaries, and every public GeoJSON layer.
+It also publishes machine-readable review targets in `freshness.json`.
+
+The Environmental section includes 21,124 NOSDRA reported incidents, with
+16,326 valid mapped points. Dedicated filters cover report status, reported
+cause, company, and year; clustered rendering keeps the layer usable at
+national scale.
 
 A public snapshot figure is available at
 [outputs/maps/nigeria_public_asset_snapshot.png](../outputs/maps/nigeria_public_asset_snapshot.png).

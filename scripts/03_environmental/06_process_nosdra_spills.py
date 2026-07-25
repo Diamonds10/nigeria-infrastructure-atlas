@@ -15,6 +15,7 @@ API endpoint, only the picker UI.
 """
 
 import argparse
+from datetime import date
 from pathlib import Path
 import sys
 
@@ -72,13 +73,16 @@ STATE_FULLNAME_OVERRIDES = {v.upper(): v for v in STATE_LABELS.values()}
 STATE_FULLNAME_OVERRIDES["FCT"] = "Abuja Federal Capital Territory"
 
 KEEP_COLUMNS = [
-    "id", "status", "status_label", "company", "incidentnumber", "incidentdate", "reportdate",
+    "id", "status", "status_label", "company", "incidentnumber", "incidentdate",
+    "incident_year", "incident_date_quality", "reportdate",
     "cause", "cause_label", "is_sabotage_attributed", "contaminant", "contaminant_label",
     "estimatedquantity", "quantityrecovered", "typeoffacility", "facility_label",
     "spillareahabitat", "habitat_label", "sitelocationname", "lga", "statesaffected",
     "state_label", "zonaloffice", "zonaloffice_label", "latitude", "longitude",
     "descriptionofimpact", "spillstopdate", "jivdate", "certificatedate", "certificatenumber",
 ]
+
+MIN_PLAUSIBLE_INCIDENT_YEAR = 1950
 
 
 def get_input_path(input_dir: Path) -> Path:
@@ -122,6 +126,25 @@ def clean_quantity(value) -> float:
         return float("nan")
 
 
+def add_incident_date_quality(frame: pd.DataFrame) -> None:
+    """Expose a safe filter year without rewriting NOSDRA's source date.
+
+    The live feed currently contains one obvious 1902 outlier. Retaining the
+    original text preserves provenance, while a separate quality flag prevents
+    implausible dates from silently entering timelines and year filters.
+    """
+    parsed = pd.to_datetime(frame["incidentdate"], format="%Y-%m-%d", errors="coerce")
+    plausible = (
+        parsed.notna()
+        & parsed.dt.year.between(MIN_PLAUSIBLE_INCIDENT_YEAR, date.today().year)
+        & parsed.dt.date.le(date.today())
+    )
+    frame["incident_year"] = parsed.dt.year.where(plausible).astype("Int64")
+    frame["incident_date_quality"] = "missing"
+    frame.loc[parsed.notna() & ~plausible, "incident_date_quality"] = "implausible"
+    frame.loc[plausible, "incident_date_quality"] = "source_reported"
+
+
 def normalize_one_state(text: str) -> str | None:
     text = text.strip().upper()
     if text in STATE_LABELS:
@@ -161,6 +184,7 @@ def process(input_path: Path, output_path: Path) -> None:
     )
     df["zonaloffice_label"] = decode(df["zonaloffice"].fillna(""), ZONAL_OFFICE_LABELS)
     df["state_label"] = df["statesaffected"].apply(normalize_state)
+    add_incident_date_quality(df)
 
     df["latitude"] = df["latitude"].apply(parse_coordinate)
     df["longitude"] = df["longitude"].apply(parse_coordinate)
@@ -176,19 +200,30 @@ def process(input_path: Path, output_path: Path) -> None:
 
     available_columns = [col for col in KEEP_COLUMNS if col in df.columns]
     df = df[available_columns]
+    for column in df.select_dtypes(include=["object"]).columns:
+        df[column] = df[column].map(
+            lambda value: "\n".join(
+                line.rstrip() for line in value.splitlines()
+            )
+            if isinstance(value, str)
+            else value
+        )
     df = df.sort_values("incidentdate").reset_index(drop=True)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(output_path, index=False)
 
     n_sabotage = df["is_sabotage_attributed"].sum()
+    n_implausible_dates = df["incident_date_quality"].eq("implausible").sum()
     print(
         f"Saved processed CSV: {output_path} ({len(df):,} rows)\n"
         f"  Coordinates: {n_had_coords:,} records had a raw lat/lon; "
         f"{n_valid_coords:,} parsed as valid decimal coordinates within Nigeria's extent "
         f"({n_had_coords - n_valid_coords:,} dropped as unparseable or out-of-range)\n"
         f"  Cause = sabotage/theft: {n_sabotage:,} of {len(df):,} records "
-        f"({100 * n_sabotage / len(df):.1f}%)"
+        f"({100 * n_sabotage / len(df):.1f}%)\n"
+        f"  Incident dates: {df['incident_year'].notna().sum():,} plausible years; "
+        f"{n_implausible_dates:,} implausible source date(s) excluded from timelines"
     )
 
 

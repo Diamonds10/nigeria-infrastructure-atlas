@@ -1,8 +1,8 @@
 {
   "atlas_release": {
-    "version": "0.6.0",
-    "date": "2026-07-24",
-    "title": "Structured Distributed Energy and Open Contributions"
+    "version": "0.7.0",
+    "date": "2026-07-25",
+    "title": "Oil Spill Intelligence and Open Atlas Contributions"
   },
   "method": "Public-map records whose display geometry intersects each ADM1 boundary.",
   "profiles": {
@@ -50,13 +50,20 @@
         "refinery_bpd": 1095000.0,
         "minigrid_kw": 33680.4
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 16326,
+        "confirmed_reports": 14382,
+        "invalid_reports": 551,
+        "sabotage_attributed_reports": 12718,
+        "estimated_quantity_reported": 733861.56
+      },
       "status": {
         "operating": 399,
         "development": 41,
         "proposed": 120,
         "inactive": 43,
-        "other": 1011,
-        "unknown": 27237
+        "other": 17337,
+        "unknown": 10911
       },
       "people_access": {
         "worldpop_population_2025": 237527782.00200003,
@@ -127,13 +134,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 68.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 3,
+        "confirmed_reports": 3,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 0,
+        "estimated_quantity_reported": 0.03
+      },
       "status": {
         "operating": 9,
         "development": 0,
         "proposed": 6,
         "inactive": 4,
-        "other": 22,
-        "unknown": 248
+        "other": 25,
+        "unknown": 245
       },
       "people_access": {
         "worldpop_population_2025": 2566393.397,
@@ -202,13 +216,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 83.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 89,
+        "confirmed_reports": 89,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 78,
+        "estimated_quantity_reported": 4300.11
+      },
       "status": {
         "operating": 4,
         "development": 4,
         "proposed": 1,
         "inactive": 0,
-        "other": 22,
-        "unknown": 708
+        "other": 111,
+        "unknown": 619
       },
       "people_access": {
         "worldpop_population_2025": 3735905.649,
@@ -277,13 +298,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 1276.4
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 18,
+        "confirmed_reports": 15,
+        "invalid_reports": 3,
+        "sabotage_attributed_reports": 7,
+        "estimated_quantity_reported": 86.5
+      },
       "status": {
         "operating": 13,
         "development": 2,
         "proposed": 1,
         "inactive": 2,
-        "other": 22,
-        "unknown": 547
+        "other": 40,
+        "unknown": 529
       },
       "people_access": {
         "worldpop_population_2025": 12934343.05,
@@ -351,6 +379,13 @@
         "power_mw": 0.0,
         "refinery_bpd": 0.0,
         "minigrid_kw": 100.0
+      },
+      "oil_spill_intelligence": {
+        "mapped_reports": 0,
+        "confirmed_reports": 0,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 0,
+        "estimated_quantity_reported": 0.0
       },
       "status": {
         "operating": 2,
@@ -427,6 +462,13 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 4550.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 0,
+        "confirmed_reports": 0,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 0,
+        "estimated_quantity_reported": 0.0
+      },
       "status": {
         "operating": 5,
         "development": 0,
@@ -502,13 +544,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 0.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 15,
+        "confirmed_reports": 15,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 5,
+        "estimated_quantity_reported": 522.08
+      },
       "status": {
         "operating": 0,
         "development": 0,
         "proposed": 1,
         "inactive": 0,
-        "other": 23,
-        "unknown": 269
+        "other": 38,
+        "unknown": 254
       },
       "people_access": {
         "worldpop_population_2025": 3564209.261,
@@ -577,13 +626,20 @@
         "refinery_bpd": 650000.0,
         "minigrid_kw": 505.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 47,
+        "confirmed_reports": 42,
+        "invalid_reports": 5,
+        "sabotage_attributed_reports": 15,
+        "estimated_quantity_reported": 2884.82
+      },
       "status": {
         "operating": 14,
         "development": 1,
         "proposed": 21,
         "inactive": 2,
-        "other": 2,
-        "unknown": 844
+        "other": 49,
+        "unknown": 797
       },
       "people_access": {
         "worldpop_population_2025": 12582855.93,
@@ -652,13 +708,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 80.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 55,
+        "confirmed_reports": 53,
+        "invalid_reports": 1,
+        "sabotage_attributed_reports": 11,
+        "estimated_quantity_reported": 34081.1
+      },
       "status": {
         "operating": 11,
         "development": 0,
         "proposed": 10,
         "inactive": 5,
-        "other": 4,
-        "unknown": 287
+        "other": 59,
+        "unknown": 232
       },
       "people_access": {
         "worldpop_population_2025": 4281013.948,
@@ -727,13 +790,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 134.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 4734,
+        "confirmed_reports": 4034,
+        "invalid_reports": 215,
+        "sabotage_attributed_reports": 4056,
+        "estimated_quantity_reported": 126272.98
+      },
       "status": {
         "operating": 27,
         "development": 0,
         "proposed": 7,
         "inactive": 0,
-        "other": 19,
-        "unknown": 4812
+        "other": 4753,
+        "unknown": 78
       },
       "people_access": {
         "worldpop_population_2025": 2523453.676,
@@ -802,13 +872,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 85.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 16,
+        "confirmed_reports": 13,
+        "invalid_reports": 3,
+        "sabotage_attributed_reports": 8,
+        "estimated_quantity_reported": 224.58
+      },
       "status": {
         "operating": 10,
         "development": 3,
         "proposed": 5,
         "inactive": 2,
-        "other": 25,
-        "unknown": 167
+        "other": 41,
+        "unknown": 151
       },
       "people_access": {
         "worldpop_population_2025": 5658396.028,
@@ -877,13 +954,20 @@
         "refinery_bpd": 125000.0,
         "minigrid_kw": 1100.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 2397,
+        "confirmed_reports": 2362,
+        "invalid_reports": 8,
+        "sabotage_attributed_reports": 1587,
+        "estimated_quantity_reported": 159062.95
+      },
       "status": {
         "operating": 67,
         "development": 3,
         "proposed": 20,
         "inactive": 24,
-        "other": 24,
-        "unknown": 2699
+        "other": 2421,
+        "unknown": 302
       },
       "people_access": {
         "worldpop_population_2025": 7712872.39,
@@ -952,13 +1036,20 @@
         "refinery_bpd": 210000.0,
         "minigrid_kw": 81.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 6796,
+        "confirmed_reports": 5718,
+        "invalid_reports": 278,
+        "sabotage_attributed_reports": 5874,
+        "estimated_quantity_reported": 312787.28
+      },
       "status": {
         "operating": 67,
         "development": 3,
         "proposed": 9,
         "inactive": 2,
-        "other": 14,
-        "unknown": 7050
+        "other": 6810,
+        "unknown": 254
       },
       "people_access": {
         "worldpop_population_2025": 6863907.13,
@@ -1027,13 +1118,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 704.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 2,
+        "confirmed_reports": 2,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 1,
+        "estimated_quantity_reported": 76.09
+      },
       "status": {
         "operating": 1,
         "development": 0,
         "proposed": 2,
         "inactive": 0,
-        "other": 32,
-        "unknown": 356
+        "other": 34,
+        "unknown": 354
       },
       "people_access": {
         "worldpop_population_2025": 4687187.345,
@@ -1102,13 +1200,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 160.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 83,
+        "confirmed_reports": 83,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 74,
+        "estimated_quantity_reported": 2776.92
+      },
       "status": {
         "operating": 16,
         "development": 1,
         "proposed": 19,
         "inactive": 0,
-        "other": 36,
-        "unknown": 509
+        "other": 119,
+        "unknown": 426
       },
       "people_access": {
         "worldpop_population_2025": 4479439.153,
@@ -1177,13 +1282,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 8324.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 1,
+        "confirmed_reports": 1,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 1,
+        "estimated_quantity_reported": 0.0
+      },
       "status": {
         "operating": 4,
         "development": 0,
         "proposed": 0,
         "inactive": 0,
-        "other": 35,
-        "unknown": 268
+        "other": 36,
+        "unknown": 267
       },
       "people_access": {
         "worldpop_population_2025": 9067209.083,
@@ -1251,6 +1363,13 @@
         "power_mw": 50.0,
         "refinery_bpd": 0.0,
         "minigrid_kw": 0.0
+      },
+      "oil_spill_intelligence": {
+        "mapped_reports": 0,
+        "confirmed_reports": 0,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 0,
+        "estimated_quantity_reported": 0.0
       },
       "status": {
         "operating": 0,
@@ -1327,13 +1446,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 46.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 2,
+        "confirmed_reports": 2,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 2,
+        "estimated_quantity_reported": 0.0
+      },
       "status": {
         "operating": 1,
         "development": 1,
         "proposed": 0,
         "inactive": 0,
-        "other": 71,
-        "unknown": 245
+        "other": 73,
+        "unknown": 243
       },
       "people_access": {
         "worldpop_population_2025": 10522942.91,
@@ -1402,13 +1528,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 459.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 2,
+        "confirmed_reports": 2,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 2,
+        "estimated_quantity_reported": 0.0
+      },
       "status": {
         "operating": 3,
         "development": 2,
         "proposed": 0,
         "inactive": 0,
-        "other": 37,
-        "unknown": 271
+        "other": 39,
+        "unknown": 269
       },
       "people_access": {
         "worldpop_population_2025": 5771080.854,
@@ -1477,13 +1610,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 150.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 295,
+        "confirmed_reports": 292,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 220,
+        "estimated_quantity_reported": 5189.53
+      },
       "status": {
         "operating": 23,
         "development": 3,
         "proposed": 8,
         "inactive": 0,
-        "other": 46,
-        "unknown": 648
+        "other": 341,
+        "unknown": 353
       },
       "people_access": {
         "worldpop_population_2025": 6633884.179,
@@ -1551,6 +1691,13 @@
         "power_mw": 0.0,
         "refinery_bpd": 0.0,
         "minigrid_kw": 0.0
+      },
+      "oil_spill_intelligence": {
+        "mapped_reports": 0,
+        "confirmed_reports": 0,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 0,
+        "estimated_quantity_reported": 0.0
       },
       "status": {
         "operating": 1,
@@ -1627,13 +1774,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 4547.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 10,
+        "confirmed_reports": 10,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 8,
+        "estimated_quantity_reported": 34.0
+      },
       "status": {
         "operating": 4,
         "development": 0,
         "proposed": 2,
         "inactive": 3,
-        "other": 11,
-        "unknown": 178
+        "other": 21,
+        "unknown": 168
       },
       "people_access": {
         "worldpop_population_2025": 5788664.686,
@@ -1702,13 +1856,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 6079.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 5,
+        "confirmed_reports": 5,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 1,
+        "estimated_quantity_reported": 11.92
+      },
       "status": {
         "operating": 1,
         "development": 2,
         "proposed": 4,
         "inactive": 0,
-        "other": 16,
-        "unknown": 360
+        "other": 21,
+        "unknown": 355
       },
       "people_access": {
         "worldpop_population_2025": 18771133.63,
@@ -1776,6 +1937,13 @@
         "power_mw": 0.0,
         "refinery_bpd": 0.0,
         "minigrid_kw": 4.0
+      },
+      "oil_spill_intelligence": {
+        "mapped_reports": 0,
+        "confirmed_reports": 0,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 0,
+        "estimated_quantity_reported": 0.0
       },
       "status": {
         "operating": 36,
@@ -1852,6 +2020,13 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 100.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 0,
+        "confirmed_reports": 0,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 0,
+        "estimated_quantity_reported": 0.0
+      },
       "status": {
         "operating": 1,
         "development": 0,
@@ -1927,13 +2102,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 0.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 460,
+        "confirmed_reports": 404,
+        "invalid_reports": 18,
+        "sabotage_attributed_reports": 370,
+        "estimated_quantity_reported": 14815.71
+      },
       "status": {
         "operating": 5,
         "development": 3,
         "proposed": 1,
         "inactive": 1,
-        "other": 5,
-        "unknown": 576
+        "other": 465,
+        "unknown": 116
       },
       "people_access": {
         "worldpop_population_2025": 6592131.419,
@@ -2002,13 +2184,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 103.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 8,
+        "confirmed_reports": 7,
+        "invalid_reports": 1,
+        "sabotage_attributed_reports": 8,
+        "estimated_quantity_reported": 241.09
+      },
       "status": {
         "operating": 4,
         "development": 0,
         "proposed": 0,
         "inactive": 0,
-        "other": 34,
-        "unknown": 213
+        "other": 42,
+        "unknown": 205
       },
       "people_access": {
         "worldpop_population_2025": 4477433.215,
@@ -2076,6 +2265,13 @@
         "power_mw": 0.0,
         "refinery_bpd": 0.0,
         "minigrid_kw": 85.0
+      },
+      "oil_spill_intelligence": {
+        "mapped_reports": 0,
+        "confirmed_reports": 0,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 0,
+        "estimated_quantity_reported": 0.0
       },
       "status": {
         "operating": 0,
@@ -2152,6 +2348,13 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 100.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 0,
+        "confirmed_reports": 0,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 0,
+        "estimated_quantity_reported": 0.0
+      },
       "status": {
         "operating": 2,
         "development": 0,
@@ -2227,13 +2430,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 0.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 137,
+        "confirmed_reports": 111,
+        "invalid_reports": 4,
+        "sabotage_attributed_reports": 129,
+        "estimated_quantity_reported": 9684.04
+      },
       "status": {
         "operating": 8,
         "development": 2,
         "proposed": 1,
         "inactive": 1,
-        "other": 7,
-        "unknown": 295
+        "other": 144,
+        "unknown": 158
       },
       "people_access": {
         "worldpop_population_2025": 3924169.25,
@@ -2302,13 +2512,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 0.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 1,
+        "confirmed_reports": 1,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 0,
+        "estimated_quantity_reported": 2.9
+      },
       "status": {
         "operating": 0,
         "development": 0,
         "proposed": 0,
         "inactive": 0,
-        "other": 14,
-        "unknown": 54
+        "other": 15,
+        "unknown": 53
       },
       "people_access": {
         "worldpop_population_2025": 3060453.429,
@@ -2377,13 +2594,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 24.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 1,
+        "confirmed_reports": 1,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 0,
+        "estimated_quantity_reported": 0.0
+      },
       "status": {
         "operating": 3,
         "development": 0,
         "proposed": 1,
         "inactive": 0,
-        "other": 11,
-        "unknown": 165
+        "other": 12,
+        "unknown": 164
       },
       "people_access": {
         "worldpop_population_2025": 5595659.114,
@@ -2452,13 +2676,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 1146.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 4,
+        "confirmed_reports": 4,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 4,
+        "estimated_quantity_reported": 830.19
+      },
       "status": {
         "operating": 5,
         "development": 0,
         "proposed": 0,
         "inactive": 0,
-        "other": 71,
-        "unknown": 292
+        "other": 75,
+        "unknown": 288
       },
       "people_access": {
         "worldpop_population_2025": 8781376.998,
@@ -2527,13 +2758,20 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 283.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 64,
+        "confirmed_reports": 64,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 42,
+        "estimated_quantity_reported": 2337.75
+      },
       "status": {
         "operating": 6,
         "development": 0,
         "proposed": 4,
         "inactive": 0,
-        "other": 87,
-        "unknown": 563
+        "other": 151,
+        "unknown": 499
       },
       "people_access": {
         "worldpop_population_2025": 7303220.252,
@@ -2602,13 +2840,20 @@
         "refinery_bpd": 110000.0,
         "minigrid_kw": 214.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 145,
+        "confirmed_reports": 143,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 120,
+        "estimated_quantity_reported": 810.8
+      },
       "status": {
         "operating": 6,
         "development": 2,
         "proposed": 2,
         "inactive": 0,
-        "other": 85,
-        "unknown": 931
+        "other": 230,
+        "unknown": 786
       },
       "people_access": {
         "worldpop_population_2025": 11233188.31,
@@ -2676,6 +2921,13 @@
         "power_mw": 0.0,
         "refinery_bpd": 0.0,
         "minigrid_kw": 0.0
+      },
+      "oil_spill_intelligence": {
+        "mapped_reports": 0,
+        "confirmed_reports": 0,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 0,
+        "estimated_quantity_reported": 0.0
       },
       "status": {
         "operating": 0,
@@ -2752,6 +3004,13 @@
         "refinery_bpd": 0.0,
         "minigrid_kw": 91.0
       },
+      "oil_spill_intelligence": {
+        "mapped_reports": 0,
+        "confirmed_reports": 0,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 0,
+        "estimated_quantity_reported": 0.0
+      },
       "status": {
         "operating": 0,
         "development": 1,
@@ -2826,6 +3085,13 @@
         "power_mw": 0.0,
         "refinery_bpd": 0.0,
         "minigrid_kw": 2999.0
+      },
+      "oil_spill_intelligence": {
+        "mapped_reports": 0,
+        "confirmed_reports": 0,
+        "invalid_reports": 0,
+        "sabotage_attributed_reports": 0,
+        "estimated_quantity_reported": 0.0
       },
       "status": {
         "operating": 2,

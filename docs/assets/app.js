@@ -268,7 +268,9 @@
     distance_to_gridlight_targets: "Distance to grid-light target (km)",
     main_road_access: "Main-road access", dist_main_road_km: "Distance to main road (km)",
     has_education_facility: "Education facility signal", has_health_facility: "Health facility signal",
-    incidentdate: "Incident date", status_label: "Report status", cause_label: "Cause",
+    incidentnumber: "Incident number", incidentdate: "Incident date",
+    incident_year: "Incident year", incident_date_quality: "Date quality",
+    status_label: "Report status", cause_label: "Reported cause",
     is_sabotage_attributed: "Sabotage-attributed", contaminant_label: "Contaminant",
     facility_label: "Facility type", habitat_label: "Habitat", estimatedquantity: "Est. quantity (bbl)",
     state_label: "State", sitelocationname: "Location"
@@ -485,6 +487,31 @@
         }
       });
     }
+    if (subKey === "oil_spills" && typeof L.markerClusterGroup === "function") {
+      var spillMarkers = [];
+      layer.eachLayer(function (marker) { spillMarkers.push(marker); });
+      var clustered = L.markerClusterGroup({
+        chunkedLoading: true,
+        chunkInterval: 100,
+        chunkDelay: 30,
+        removeOutsideVisibleBounds: true,
+        showCoverageOnHover: false,
+        maxClusterRadius: 54,
+        iconCreateFunction: function (cluster) {
+          var count = cluster.getChildCount();
+          var size = count < 100 ? 34 : count < 1000 ? 40 : 46;
+          var scaleClass = count < 100 ? "" : count < 1000 ? " spill-cluster-medium" : " spill-cluster-large";
+          return L.divIcon({
+            html: '<div class="spill-cluster' + scaleClass + '" style="width:' + size + 'px;height:' + size + 'px">' +
+              count.toLocaleString() + '</div>',
+            className: "",
+            iconSize: [size, size]
+          });
+        }
+      });
+      clustered.addLayers(spillMarkers);
+      layer = clustered;
+    }
     var children = [];
     layer.eachLayer(function (child) { children.push(child); });
     return { layer: layer, children: children };
@@ -653,6 +680,7 @@
     var capacity = profile.capacity;
     var peopleAccess = profile.people_access || {};
     var minigridCoverage = profile.minigrid_coverage || {};
+    var spillIntelligence = profile.oil_spill_intelligence || {};
     var scopeLabel = selectedState ? "records intersecting state" : "national public-map records";
     var capacityBits = [];
     if (capacity.power_mw) capacityBits.push("<strong>" + formatNumber(capacity.power_mw, 1) + " MW</strong> reported power");
@@ -674,6 +702,9 @@
         profileMetric(counts.interconnected_minigrids, "Interconnected mini-grids") +
         profileMetric(counts.fields_oil + counts.fields_gas, "Source-classified field points") +
         profileMetric(counts.ports, "Ports & terminals") +
+        profileMetric(spillIntelligence.mapped_reports, "Mapped NOSDRA reports") +
+        profileMetric(spillIntelligence.confirmed_reports, "Confirmed NOSDRA reports") +
+        profileMetric(spillIntelligence.sabotage_attributed_reports, "Sabotage-attributed reports") +
       '</div>' +
       (capacityBits.length ? '<div class="capacity-strip">' + capacityBits.join(" · ") + '</div>' : "") +
       (minigridCoverage.coverage_interpretation
@@ -684,12 +715,19 @@
             : '') +
           '</div>'
         : '') +
-      '<p class="profile-note">Population totals are WorldPop 2025 estimates. Settlement and night-light measures come from the World Bank DRE Atlas; night-light is a screening signal, not a measured household electricity-access rate. Lines and protected areas are counted where display geometry intersects the state.</p>';
+      '<p class="profile-note">NOSDRA figures count mapped reported incidents, not independently verified spill events; invalid reports remain available through the report-status filter. Population totals are WorldPop 2025 estimates. Settlement and night-light measures come from the World Bank DRE Atlas; night-light is a screening signal, not a measured household electricity-access rate. Lines and protected areas are counted where display geometry intersects the state.</p>';
     updateDownloadLabel();
   }
 
   function updateDownloadLabel() {
-    var filtersActive = statusFilter && (statusFilter.value !== "all" || timeFilterEnabled.checked);
+    var spillFiltersActive = spillStatusFilter && (
+      spillStatusFilter.value !== spillFilters.default_report_status ||
+      spillCauseFilter.value !== "all" ||
+      spillCompanyFilter.value !== "all"
+    );
+    var filtersActive = statusFilter && (
+      statusFilter.value !== "all" || timeFilterEnabled.checked || spillFiltersActive
+    );
     var scope = selectedState ? "state" : "national";
     downloadStateButton.textContent = "Download " + (filtersActive ? "filtered " : "") + scope + " GeoJSON";
   }
@@ -725,6 +763,9 @@
         state: selectedState || null,
         status_group: statusFilter && statusFilter.value !== "all" ? statusFilter.value : null,
         year_cutoff: timeFilterEnabled && timeFilterEnabled.checked ? Number(yearCutoff.value) : null,
+        oil_spill_report_status: spillStatusFilter.value === "all" ? null : spillStatusFilter.value,
+        oil_spill_cause: spillCauseFilter.value === "all" ? null : spillCauseFilter.value,
+        oil_spill_company: spillCompanyFilter.value === "all" ? null : spillCompanyFilter.value,
         time_semantics: ATLAS.filters.temporal.semantics
       },
       features: []
@@ -735,7 +776,7 @@
         category.sublayers[subKey].data.features.forEach(function (sourceFeature) {
           var memberships = sourceFeature.properties._states || [];
           if (selectedState && memberships.indexOf(selectedState) === -1) return;
-          if (!featureMatches(sourceFeature)) return;
+          if (!featureMatches(sourceFeature, subKey)) return;
           var item = JSON.parse(JSON.stringify(sourceFeature));
           item.properties.atlas_category = category.label;
           item.properties.atlas_layer = category.sublayers[subKey].label;
@@ -791,9 +832,36 @@
   var yearCutoff = document.getElementById("year-cutoff");
   var yearCutoffOutput = document.getElementById("year-cutoff-output");
   var filterSummary = document.getElementById("filter-summary");
+  var spillFilterSummary = document.getElementById("spill-filter-summary");
   var resetFiltersButton = document.getElementById("reset-filters");
   var temporal = ATLAS.filters.temporal;
   var statusCounts = ATLAS.filters.status_groups;
+  var spillFilters = ATLAS.filters.oil_spills;
+  var spillStatusFilter = document.getElementById("spill-status-filter");
+  var spillCauseFilter = document.getElementById("spill-cause-filter");
+  var spillCompanyFilter = document.getElementById("spill-company-filter");
+
+  function populateSpillFilter(select, entries, allLabel) {
+    select.innerHTML = "";
+    var allOption = document.createElement("option");
+    allOption.value = "all";
+    allOption.textContent = allLabel;
+    select.appendChild(allOption);
+    entries.forEach(function (entry) {
+      var option = document.createElement("option");
+      option.value = entry.value;
+      option.textContent = entry.value + " (" + formatNumber(entry.count) + ")";
+      select.appendChild(option);
+    });
+  }
+  populateSpillFilter(
+    spillStatusFilter,
+    spillFilters.fields.report_statuses,
+    "All report statuses"
+  );
+  populateSpillFilter(spillCauseFilter, spillFilters.fields.causes, "All reported causes");
+  populateSpillFilter(spillCompanyFilter, spillFilters.fields.companies, "All companies");
+  spillStatusFilter.value = spillFilters.default_report_status;
 
   Array.prototype.forEach.call(statusFilter.options, function (option) {
     if (option.value !== "all") {
@@ -805,12 +873,17 @@
   yearCutoff.value = temporal.maximum_year;
   yearCutoffOutput.textContent = yearCutoff.value;
 
-  function featureMatches(feature) {
+  function featureMatches(feature, subKey) {
     feature = feature || {};
     var props = feature.properties || {};
     if (statusFilter.value !== "all" && props._status_group !== statusFilter.value) return false;
     if (timeFilterEnabled.checked) {
       if (!props._year || Number(props._year) > Number(yearCutoff.value)) return false;
+    }
+    if (subKey === "oil_spills") {
+      if (spillStatusFilter.value !== "all" && props.status_label !== spillStatusFilter.value) return false;
+      if (spillCauseFilter.value !== "all" && props.cause_label !== spillCauseFilter.value) return false;
+      if (spillCompanyFilter.value !== "all" && props.company !== spillCompanyFilter.value) return false;
     }
     return true;
   }
@@ -821,19 +894,30 @@
     else url.searchParams.delete("status");
     if (timeFilterEnabled.checked) url.searchParams.set("year", yearCutoff.value);
     else url.searchParams.delete("year");
+    if (spillStatusFilter.value !== spillFilters.default_report_status) {
+      url.searchParams.set("spill_status", spillStatusFilter.value);
+    } else {
+      url.searchParams.delete("spill_status");
+    }
+    if (spillCauseFilter.value !== "all") url.searchParams.set("spill_cause", spillCauseFilter.value);
+    else url.searchParams.delete("spill_cause");
+    if (spillCompanyFilter.value !== "all") url.searchParams.set("spill_company", spillCompanyFilter.value);
+    else url.searchParams.delete("spill_company");
     window.history.replaceState({}, "", url.pathname + url.search + url.hash);
   }
 
   function applyFilters(updateUrl) {
     var matchedRecords = 0;
+    var matchedSpillRecords = 0;
     Object.keys(registry).forEach(function (subKey) {
       var entry = registry[subKey];
       entry.children.forEach(function (child) {
-        var matches = featureMatches(child.feature);
+        var matches = featureMatches(child.feature, subKey);
         var included = entry.leafletLayer.hasLayer(child);
         if (matches && !included) entry.leafletLayer.addLayer(child);
         else if (!matches && included) entry.leafletLayer.removeLayer(child);
         if (matches) matchedRecords += 1;
+        if (matches && subKey === "oil_spills") matchedSpillRecords += 1;
       });
     });
     timeFilterControls.setAttribute("aria-disabled", timeFilterEnabled.checked ? "false" : "true");
@@ -842,12 +926,20 @@
     var summary = formatNumber(matchedRecords) + " records match";
     if (timeFilterEnabled.checked) summary += " · dated through " + yearCutoff.value;
     filterSummary.textContent = summary;
+    spillFilterSummary.textContent =
+      formatNumber(matchedSpillRecords) + " of " +
+      formatNumber(spillFilters.mapped_record_count) + " mapped reports match. " +
+      formatNumber(spillFilters.source_record_count - spillFilters.mapped_record_count) +
+      " source reports have no publishable map coordinate.";
     updateDownloadLabel();
     updateVisibleStat();
     if (updateUrl) syncFilterUrl();
   }
 
   statusFilter.addEventListener("change", function () { applyFilters(true); });
+  spillStatusFilter.addEventListener("change", function () { applyFilters(true); });
+  spillCauseFilter.addEventListener("change", function () { applyFilters(true); });
+  spillCompanyFilter.addEventListener("change", function () { applyFilters(true); });
   timeFilterEnabled.addEventListener("change", function () { applyFilters(true); });
   yearCutoff.addEventListener("input", function () {
     yearCutoffOutput.textContent = yearCutoff.value;
@@ -857,6 +949,9 @@
     statusFilter.value = "all";
     timeFilterEnabled.checked = false;
     yearCutoff.value = temporal.maximum_year;
+    spillStatusFilter.value = spillFilters.default_report_status;
+    spillCauseFilter.value = "all";
+    spillCompanyFilter.value = "all";
     applyFilters(true);
   });
 
@@ -868,6 +963,18 @@
     timeFilterEnabled.checked = true;
     yearCutoff.value = initialYear;
   }
+  var initialSpillStatus = initialParams.get("spill_status");
+  if (initialSpillStatus && Array.prototype.some.call(
+    spillStatusFilter.options, function (option) { return option.value === initialSpillStatus; }
+  )) spillStatusFilter.value = initialSpillStatus;
+  var initialSpillCause = initialParams.get("spill_cause");
+  if (initialSpillCause && Array.prototype.some.call(
+    spillCauseFilter.options, function (option) { return option.value === initialSpillCause; }
+  )) spillCauseFilter.value = initialSpillCause;
+  var initialSpillCompany = initialParams.get("spill_company");
+  if (initialSpillCompany && Array.prototype.some.call(
+    spillCompanyFilter.options, function (option) { return option.value === initialSpillCompany; }
+  )) spillCompanyFilter.value = initialSpillCompany;
   applyFilters(false);
 
   // ---------------- Data catalogue ----------------
@@ -886,7 +993,9 @@
         '<p class="catalogue-description">' + escapeHtml(item.description) + '</p>' +
         '<dl class="catalogue-facts">' +
           '<div><dt>Source</dt><dd>' + escapeHtml(item.source) + '</dd></div>' +
-          '<div><dt>Accessed</dt><dd>' + escapeHtml(item.source_date) + '</dd></div>' +
+          '<div><dt>Source date</dt><dd>' + escapeHtml(item.source_date) + '</dd></div>' +
+          '<div><dt>Last checked</dt><dd>' + escapeHtml(item.refresh.last_checked) + '</dd></div>' +
+          '<div><dt>Refresh</dt><dd>' + escapeHtml(item.refresh.cadence) + ' · next review ' + escapeHtml(item.refresh.next_review_due) + '</dd></div>' +
           '<div><dt>Reuse</dt><dd>' + escapeHtml(item.license) + '</dd></div>' +
         '</dl>' +
         '<p class="quality-note"><strong>Quality ' + escapeHtml(item.quality) + ':</strong> ' + escapeHtml(item.quality_note) + '</p>' +
@@ -929,7 +1038,7 @@
     var q = searchInput.value.trim().toLowerCase();
     if (q.length < 2) { searchResults.classList.remove("open"); searchResults.innerHTML = ""; return; }
     var matches = allFeaturesIndex.filter(function (item) {
-      return item.label.toLowerCase().indexOf(q) !== -1 && featureMatches(item.feature);
+      return item.label.toLowerCase().indexOf(q) !== -1 && featureMatches(item.feature, item.subKey);
     }).slice(0, 8);
     if (!matches.length) {
       searchResults.innerHTML = '<div class="result">No matches</div>';
@@ -946,6 +1055,14 @@
             var cb = document.querySelector('input[data-sub="' + m.subKey + '"]');
             if (cb) cb.checked = true;
             updateVisibleStat();
+          }
+          if (m.subKey === "oil_spills" && entry.leafletLayer.zoomToShowLayer) {
+            entry.leafletLayer.zoomToShowLayer(m.layer, function () {
+              m.layer.openPopup();
+            });
+            searchResults.classList.remove("open");
+            searchInput.value = m.label;
+            return;
           }
           var target = m.layer.getBounds ? m.layer.getBounds() : m.layer.getLatLng();
           if (target && target.isValid && target.isValid()) map.fitBounds(target.pad ? target.pad(2) : target, { maxZoom: 11 });

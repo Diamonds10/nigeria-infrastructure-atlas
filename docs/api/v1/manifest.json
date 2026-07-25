@@ -1,9 +1,9 @@
 {
   "api_version": "v1",
   "atlas_release": {
-    "version": "0.6.0",
-    "date": "2026-07-24",
-    "title": "Structured Distributed Energy and Open Contributions"
+    "version": "0.7.0",
+    "date": "2026-07-25",
+    "title": "Oil Spill Intelligence and Open Atlas Contributions"
   },
   "base_url": "https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/",
   "formats": [
@@ -13,12 +13,14 @@
   "filter_fields": {
     "_states": "ADM1 names intersected by the public display geometry",
     "_status_group": "Normalized status group",
-    "_year": "Relevant discovery, start, commissioning, designation, or source release year",
-    "_year_label": "Meaning of _year for the record"
+    "_year": "Relevant discovery, start, commissioning, incident, designation, or source release year",
+    "_year_label": "Meaning of _year for the record",
+    "oil_spills": "Oil-spill records also expose report status, cause, company, incident year, and date-quality fields"
   },
   "endpoints": {
     "catalogue": "catalogue.json",
     "schema": "schema.json",
+    "freshness": "freshness.json",
     "state_profiles": "state-profiles.json",
     "states": "states.geojson"
   },

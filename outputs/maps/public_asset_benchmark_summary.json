@@ -38,6 +38,14 @@
       "interconnected_mini_grid": 2
     }
   },
+  "oil_spill_benchmark": {
+    "source_report_count": 21124,
+    "mapped_report_count": 16326,
+    "confirmed_mapped_report_count": 14382,
+    "sabotage_attributed_mapped_report_count": 12718,
+    "plausible_incident_year_count": 20451,
+    "implausible_incident_date_count": 1
+  },
   "public_dashboard_signal": {
     "best_for": [
       "site-level distributed-energy screening",

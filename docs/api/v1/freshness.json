@@ -1,0 +1,240 @@
+{
+  "atlas_release": {
+    "version": "0.7.0",
+    "date": "2026-07-25",
+    "title": "Oil Spill Intelligence and Open Atlas Contributions"
+  },
+  "interpretation": "Review dates are maintenance targets, not guarantees that an upstream publisher has issued new data.",
+  "summary": {
+    "dataset_count": 25,
+    "current": 25,
+    "due": 0
+  },
+  "datasets": [
+    {
+      "key": "fields_oil",
+      "label": "Oil-only Fields · Source Classified",
+      "source": "Global Energy Monitor / GreenInfo Network GOGET mirror",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-21",
+      "next_review_due": "2027-07-22",
+      "review_status": "current"
+    },
+    {
+      "key": "fields_gas",
+      "label": "Gas-producing Fields · Source Classified",
+      "source": "Global Energy Monitor / GreenInfo Network GOGET mirror",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-21",
+      "next_review_due": "2027-07-22",
+      "review_status": "current"
+    },
+    {
+      "key": "field_polygons_gas",
+      "label": "Gas Field Boundaries",
+      "source": "Nigeria SE4ALL Open Data Portal",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-24",
+      "next_review_due": "2027-07-25",
+      "review_status": "current"
+    },
+    {
+      "key": "field_polygons_mixed",
+      "label": "Oil & Gas Field Boundaries (mixed)",
+      "source": "Nigeria SE4ALL Open Data Portal",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-24",
+      "next_review_due": "2027-07-25",
+      "review_status": "current"
+    },
+    {
+      "key": "gas_pipelines",
+      "label": "Gas Pipelines",
+      "source": "Global Energy Monitor / GreenInfo Network GGIT mirror",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-21",
+      "next_review_due": "2027-07-22",
+      "review_status": "current"
+    },
+    {
+      "key": "oil_pipelines",
+      "label": "Oil & NGL Pipelines",
+      "source": "Global Energy Monitor / GreenInfo Network GOIT mirror",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-21",
+      "next_review_due": "2027-07-22",
+      "review_status": "current"
+    },
+    {
+      "key": "lng_terminals",
+      "label": "LNG Terminals",
+      "source": "Global Energy Monitor / GreenInfo Network GGIT mirror",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-21",
+      "next_review_due": "2027-07-22",
+      "review_status": "current"
+    },
+    {
+      "key": "power_plants",
+      "label": "Gas & Oil Power Plants",
+      "source": "Global Energy Monitor / GreenInfo Network GOGPT mirror",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-21",
+      "next_review_due": "2027-07-22",
+      "review_status": "current"
+    },
+    {
+      "key": "refineries",
+      "label": "Refineries",
+      "source": "Atlas compilation from public reporting",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-21",
+      "next_review_due": "2027-07-22",
+      "review_status": "current"
+    },
+    {
+      "key": "gas_infrastructure",
+      "label": "Gas & Oil Point Infrastructure",
+      "source": "Nigeria SE4ALL Open Data Portal",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-24",
+      "next_review_due": "2027-07-25",
+      "review_status": "current"
+    },
+    {
+      "key": "oil_spills",
+      "label": "Oil Spill Incidents (NOSDRA)",
+      "source": "NOSDRA, via the Nigerian Oil Spill Monitor public API",
+      "cadence": "monthly",
+      "last_checked": "2026-07-25",
+      "next_review_due": "2026-08-25",
+      "review_status": "current"
+    },
+    {
+      "key": "protected_areas",
+      "label": "Protected Areas (WDPA)",
+      "source": "UNEP-WCMC / IUCN Protected Planet",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-22",
+      "next_review_due": "2027-07-23",
+      "review_status": "current"
+    },
+    {
+      "key": "demand_centers",
+      "label": "Demand Centers",
+      "source": "Atlas compilation reconciled against GEM and OpenStreetMap",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-21",
+      "next_review_due": "2027-07-22",
+      "review_status": "current"
+    },
+    {
+      "key": "roads",
+      "label": "Major Roads",
+      "source": "OpenStreetMap via Overpass API",
+      "cadence": "quarterly",
+      "last_checked": "2026-07-23",
+      "next_review_due": "2026-10-23",
+      "review_status": "current"
+    },
+    {
+      "key": "railways",
+      "label": "Railways",
+      "source": "OpenStreetMap via Overpass API",
+      "cadence": "quarterly",
+      "last_checked": "2026-07-23",
+      "next_review_due": "2026-10-23",
+      "review_status": "current"
+    },
+    {
+      "key": "rail_stations",
+      "label": "Railway Stations",
+      "source": "OpenStreetMap via Overpass API",
+      "cadence": "quarterly",
+      "last_checked": "2026-07-23",
+      "next_review_due": "2026-10-23",
+      "review_status": "current"
+    },
+    {
+      "key": "power_grid",
+      "label": "Power Grid Lines",
+      "source": "OpenStreetMap via Overpass API",
+      "cadence": "quarterly",
+      "last_checked": "2026-07-23",
+      "next_review_due": "2026-10-23",
+      "review_status": "current"
+    },
+    {
+      "key": "substations",
+      "label": "Substations",
+      "source": "OpenStreetMap via Overpass API",
+      "cadence": "quarterly",
+      "last_checked": "2026-07-23",
+      "next_review_due": "2026-10-23",
+      "review_status": "current"
+    },
+    {
+      "key": "ports",
+      "label": "Ports & Terminals",
+      "source": "NGA World Port Index via HDX",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-23",
+      "next_review_due": "2027-07-24",
+      "review_status": "current"
+    },
+    {
+      "key": "community_minigrids",
+      "label": "Community Mini-grids",
+      "source": "Nigeria SE4ALL Open Data Portal; REA/NEP/DARES; ECREEE; NEMSA; institutional sources",
+      "cadence": "quarterly",
+      "last_checked": "2026-07-24",
+      "next_review_due": "2026-10-24",
+      "review_status": "current"
+    },
+    {
+      "key": "captive_offgrid_systems",
+      "label": "Captive & Institutional Off-grid",
+      "source": "REA/NEP/DARES; ECREEE; institutional sources",
+      "cadence": "quarterly",
+      "last_checked": "2026-07-24",
+      "next_review_due": "2026-10-24",
+      "review_status": "current"
+    },
+    {
+      "key": "standalone_systems",
+      "label": "Standalone Systems",
+      "source": "Public-source distributed-energy evidence",
+      "cadence": "quarterly",
+      "last_checked": "2026-07-24",
+      "next_review_due": "2026-10-24",
+      "review_status": "current"
+    },
+    {
+      "key": "interconnected_minigrids",
+      "label": "Interconnected Mini-grids",
+      "source": "REA/NEP; NEMSA; official programme sources",
+      "cadence": "quarterly",
+      "last_checked": "2026-07-24",
+      "next_review_due": "2026-10-24",
+      "review_status": "current"
+    },
+    {
+      "key": "population_access",
+      "label": "Population & Access Grid",
+      "source": "World Bank Nigeria Distributed Renewable Energy Atlas",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-24",
+      "next_review_due": "2027-07-25",
+      "review_status": "current"
+    },
+    {
+      "key": "settlements",
+      "label": "Major Settlements",
+      "source": "World Bank Nigeria Distributed Renewable Energy Atlas",
+      "cadence": "annual_or_source_release",
+      "last_checked": "2026-07-24",
+      "next_review_due": "2027-07-25",
+      "review_status": "current"
+    }
+  ]
+}

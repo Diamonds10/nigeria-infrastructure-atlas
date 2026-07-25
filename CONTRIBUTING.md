@@ -31,6 +31,11 @@ conditions. See `docs/distributed_energy_contribution_guide.md`.
 
 ## General pull requests
 
+For a single record, correction, source/licensing update, or data-quality
+concern in any atlas section, use the **Atlas data submission or correction**
+GitHub issue form. It captures evidence scope, location, geometry precision,
+and source reuse terms before maintainer review.
+
 - Keep raw, processed, and generated data responsibilities separate.
 - Preserve source URLs, access dates, and source-specific caveats.
 - Do not overwrite unrelated work.
@@ -39,3 +44,6 @@ conditions. See `docs/distributed_energy_contribution_guide.md`.
 
 By contributing, you confirm that you have the right to submit your own work
 and that any referenced third-party data remains subject to its original terms.
+
+See `docs/data_governance_and_refresh.md` for the repository-wide promotion
+gate and maintenance cadence.
