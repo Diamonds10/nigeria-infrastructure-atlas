@@ -47,8 +47,10 @@ The public value of the atlas is not any single output file. It is the combinati
 A live `v0.7` state-intelligence experience is available at
 [diamonds10.github.io/nigeria-infrastructure-atlas](https://diamonds10.github.io/nigeria-infrastructure-atlas/).
 It provides profiles for all 36 states and the FCT, state-specific shareable
-links and GeoJSON downloads, and a searchable catalogue covering all 25
-published map datasets. Normalized status and evidence-year filters apply
+links and GeoJSON downloads, and a searchable catalogue covering the 24
+content-bearing map datasets. The API preserves 25 stable layer endpoints,
+including the currently empty standalone-systems evidence gap. Normalized
+status and evidence-year filters apply
 consistently to the map, search results, visible counts, shared URLs, and
 downloads.
 

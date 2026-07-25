@@ -388,8 +388,15 @@ class PublicAtlasTests(unittest.TestCase):
             for layer in bundle["layers"].values()
             for key, definition in layer["sublayers"].items()
         }
-        self.assertEqual(set(catalogue), set(sublayers))
-        for key, definition in sublayers.items():
+        content_bearing = {
+            key
+            for key, definition in sublayers.items()
+            if definition["data"]["features"]
+        }
+        self.assertEqual(set(catalogue), content_bearing)
+        self.assertNotIn("standalone_systems", catalogue)
+        for key in content_bearing:
+            definition = sublayers[key]
             metadata = catalogue[key]
             self.assertEqual(metadata, definition["metadata"])
             self.assertEqual(

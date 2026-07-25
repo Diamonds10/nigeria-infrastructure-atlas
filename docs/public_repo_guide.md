@@ -81,9 +81,10 @@ power, refinery, and mini-grid capacities, plus WorldPop 2025 population and
 World Bank settlement/night-light context. Clicking a state creates a shareable
 URL, zooms to its boundary, and enables a state-specific GeoJSON download.
 
-The website's data catalogue documents all 25 public sublayers with their
-sources, access dates, reuse terms, quality grades, limitations, record counts,
-and direct processed-CSV links.
+The website's data catalogue documents all 24 content-bearing public sublayers
+with their sources, access dates, reuse terms, quality grades, limitations,
+record counts, and direct processed-CSV links. The API retains 25 stable layer
+endpoints, including the empty standalone-systems endpoint.
 
 Normalized status filters and an opt-in evidence-year cutoff apply to map
 rendering, search, visible counts, shareable URLs, and generated GeoJSON. The

@@ -27,6 +27,7 @@ DEFAULT_OUTPUT = ROOT / "docs" / "assets" / "atlas_data.json"
 DEFAULT_API_DIR = ROOT / "docs" / "api" / "v1"
 PUBLIC_SIMPLIFY_TOLERANCE = 0.005
 PUBLIC_COORDINATE_PRECISION = 5
+PUBLIC_PROPERTY_PRECISION = 6
 ATLAS_RELEASE_VERSION = "0.7.0"
 ATLAS_RELEASE_DATE = "2026-07-25"
 ATLAS_RELEASE_TITLE = "Oil Spill Intelligence and Open Atlas Contributions"
@@ -323,6 +324,8 @@ def clean_value(value: Any) -> Any:
         value = value.item()
     if isinstance(value, float) and not math.isfinite(value):
         return None
+    if isinstance(value, float):
+        return round(value, PUBLIC_PROPERTY_PRECISION)
     return value
 
 
@@ -608,7 +611,14 @@ def add_catalogue_and_state_profiles(
                     f"{REPOSITORY_RAW}/{metadata['supplement_path']}"
                 )
             definition["metadata"] = metadata
-            catalogue.append(metadata)
+            # A sublayer with zero currently-mapped records still gets a full
+            # static API endpoint (empty FeatureCollection) for consistency,
+            # but is excluded from the public catalogue -- a card with a
+            # description, quality grade, and download link implies real
+            # content, and showing "0 records" there reads as broken rather
+            # than as an honest gap.
+            if metadata["record_count"] > 0:
+                catalogue.append(metadata)
 
             for item in definition["data"]["features"]:
                 item["properties"]["_status_group"] = status_bucket(item["properties"])
@@ -965,6 +975,11 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
         json.dumps(schema, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    freshness_inventory = [
+        definition["metadata"]
+        for category in bundle["layers"].values()
+        for definition in category["sublayers"].values()
+    ]
     freshness = {
         "atlas_release": bundle["release"],
         "interpretation": (
@@ -972,14 +987,14 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
             "upstream publisher has issued new data."
         ),
         "summary": {
-            "dataset_count": len(bundle["catalogue"]),
+            "dataset_count": len(freshness_inventory),
             "current": sum(
                 item["refresh"]["review_status"] == "current"
-                for item in bundle["catalogue"]
+                for item in freshness_inventory
             ),
             "due": sum(
                 item["refresh"]["review_status"] == "due"
-                for item in bundle["catalogue"]
+                for item in freshness_inventory
             ),
         },
         "datasets": [
@@ -989,7 +1004,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
                 "source": item["source"],
                 **item["refresh"],
             }
-            for item in bundle["catalogue"]
+            for item in freshness_inventory
         ],
     }
     (api_dir / "freshness.json").write_text(

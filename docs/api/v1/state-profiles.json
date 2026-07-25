@@ -66,14 +66,14 @@
         "unknown": 10911
       },
       "people_access": {
-        "worldpop_population_2025": 237527782.00200003,
+        "worldpop_population_2025": 237527782.002,
         "dre_cluster_population": 227884267.0,
         "settlement_count": 154319.0,
         "population_with_nightlight_signal": 150225011.0,
         "population_without_nightlight_signal": 77659256.0,
-        "nightlight_population_share_pct": 65.92162459376803,
-        "population_weighted_distance_transmission_km": 2.132134247688104,
-        "population_weighted_distance_gridlight_km": 2.6762157846070176
+        "nightlight_population_share_pct": 65.921625,
+        "population_weighted_distance_transmission_km": 2.132134,
+        "population_weighted_distance_gridlight_km": 2.676216
       },
       "minigrid_coverage": {
         "catalogued_record_count": 80,
@@ -155,9 +155,9 @@
         "settlement_count": 1629.0,
         "population_with_nightlight_signal": 1349873.0,
         "population_without_nightlight_signal": 1125144.0,
-        "nightlight_population_share_pct": 54.53994861449437,
-        "population_weighted_distance_transmission_km": 0.7479232506281775,
-        "population_weighted_distance_gridlight_km": 3.1349610144091944
+        "nightlight_population_share_pct": 54.539949,
+        "population_weighted_distance_transmission_km": 0.747923,
+        "population_weighted_distance_gridlight_km": 3.134961
       },
       "minigrid_coverage": {
         "catalogued_record_count": 2,
@@ -237,9 +237,9 @@
         "settlement_count": 1294.0,
         "population_with_nightlight_signal": 5567402.0,
         "population_without_nightlight_signal": 551886.0,
-        "nightlight_population_share_pct": 90.9812056566058,
-        "population_weighted_distance_transmission_km": 0.4175101564103536,
-        "population_weighted_distance_gridlight_km": 0.4391098843525586
+        "nightlight_population_share_pct": 90.981206,
+        "population_weighted_distance_transmission_km": 0.41751,
+        "population_weighted_distance_gridlight_km": 0.43911
       },
       "minigrid_coverage": {
         "catalogued_record_count": 4,
@@ -319,9 +319,9 @@
         "settlement_count": 2684.0,
         "population_with_nightlight_signal": 4757304.0,
         "population_without_nightlight_signal": 893677.0,
-        "nightlight_population_share_pct": 84.18545381766458,
-        "population_weighted_distance_transmission_km": 0.7999215976836588,
-        "population_weighted_distance_gridlight_km": 0.8470012461553136
+        "nightlight_population_share_pct": 84.185454,
+        "population_weighted_distance_transmission_km": 0.799922,
+        "population_weighted_distance_gridlight_km": 0.847001
       },
       "minigrid_coverage": {
         "catalogued_record_count": 4,
@@ -401,9 +401,9 @@
         "settlement_count": 3331.0,
         "population_with_nightlight_signal": 7804270.0,
         "population_without_nightlight_signal": 902779.0,
-        "nightlight_population_share_pct": 89.63163064776596,
-        "population_weighted_distance_transmission_km": 0.5266648390286996,
-        "population_weighted_distance_gridlight_km": 0.8061105131026597
+        "nightlight_population_share_pct": 89.631631,
+        "population_weighted_distance_transmission_km": 0.526665,
+        "population_weighted_distance_gridlight_km": 0.806111
       },
       "minigrid_coverage": {
         "catalogued_record_count": 1,
@@ -483,9 +483,9 @@
         "settlement_count": 4660.0,
         "population_with_nightlight_signal": 2049936.0,
         "population_without_nightlight_signal": 4836540.0,
-        "nightlight_population_share_pct": 29.76756181245676,
-        "population_weighted_distance_transmission_km": 1.8426029946230849,
-        "population_weighted_distance_gridlight_km": 9.21403231420541
+        "nightlight_population_share_pct": 29.767562,
+        "population_weighted_distance_transmission_km": 1.842603,
+        "population_weighted_distance_gridlight_km": 9.214032
       },
       "minigrid_coverage": {
         "catalogued_record_count": 4,
@@ -565,9 +565,9 @@
         "settlement_count": 4779.0,
         "population_with_nightlight_signal": 1844838.0,
         "population_without_nightlight_signal": 3476893.0,
-        "nightlight_population_share_pct": 34.66612649154946,
-        "population_weighted_distance_transmission_km": 4.437714418485263,
-        "population_weighted_distance_gridlight_km": 9.45553527301549
+        "nightlight_population_share_pct": 34.666126,
+        "population_weighted_distance_transmission_km": 4.437714,
+        "population_weighted_distance_gridlight_km": 9.455535
       },
       "minigrid_coverage": {
         "catalogued_record_count": 0,
@@ -647,9 +647,9 @@
         "settlement_count": 413.0,
         "population_with_nightlight_signal": 17523383.0,
         "population_without_nightlight_signal": 141382.0,
-        "nightlight_population_share_pct": 99.1996383761686,
-        "population_weighted_distance_transmission_km": 0.0285784622665515,
-        "population_weighted_distance_gridlight_km": 0.0139327371748223
+        "nightlight_population_share_pct": 99.199638,
+        "population_weighted_distance_transmission_km": 0.028578,
+        "population_weighted_distance_gridlight_km": 0.013933
       },
       "minigrid_coverage": {
         "catalogued_record_count": 1,
@@ -729,9 +729,9 @@
         "settlement_count": 1926.0,
         "population_with_nightlight_signal": 2368544.0,
         "population_without_nightlight_signal": 1649785.0,
-        "nightlight_population_share_pct": 58.94350611908582,
-        "population_weighted_distance_transmission_km": 0.8995542550149578,
-        "population_weighted_distance_gridlight_km": 1.8933145802645823
+        "nightlight_population_share_pct": 58.943506,
+        "population_weighted_distance_transmission_km": 0.899554,
+        "population_weighted_distance_gridlight_km": 1.893315
       },
       "minigrid_coverage": {
         "catalogued_record_count": 1,
@@ -811,9 +811,9 @@
         "settlement_count": 550.0,
         "population_with_nightlight_signal": 805614.0,
         "population_without_nightlight_signal": 318559.0,
-        "nightlight_population_share_pct": 71.66281346376402,
-        "population_weighted_distance_transmission_km": 6.025413970981335,
-        "population_weighted_distance_gridlight_km": 1.5828719316332984
+        "nightlight_population_share_pct": 71.662813,
+        "population_weighted_distance_transmission_km": 6.025414,
+        "population_weighted_distance_gridlight_km": 1.582872
       },
       "minigrid_coverage": {
         "catalogued_record_count": 2,
@@ -893,9 +893,9 @@
         "settlement_count": 2077.0,
         "population_with_nightlight_signal": 3438052.0,
         "population_without_nightlight_signal": 1018620.0,
-        "nightlight_population_share_pct": 77.14393161533988,
-        "population_weighted_distance_transmission_km": 1.0886079433263205,
-        "population_weighted_distance_gridlight_km": 1.6975832513588611
+        "nightlight_population_share_pct": 77.143932,
+        "population_weighted_distance_transmission_km": 1.088608,
+        "population_weighted_distance_gridlight_km": 1.697583
       },
       "minigrid_coverage": {
         "catalogued_record_count": 5,
@@ -975,9 +975,9 @@
         "settlement_count": 1453.0,
         "population_with_nightlight_signal": 4266189.0,
         "population_without_nightlight_signal": 1106191.0,
-        "nightlight_population_share_pct": 79.40966573473953,
-        "population_weighted_distance_transmission_km": 0.6887058212561286,
-        "population_weighted_distance_gridlight_km": 0.9427257606498424
+        "nightlight_population_share_pct": 79.409666,
+        "population_weighted_distance_transmission_km": 0.688706,
+        "population_weighted_distance_gridlight_km": 0.942726
       },
       "minigrid_coverage": {
         "catalogued_record_count": 1,
@@ -1057,9 +1057,9 @@
         "settlement_count": 1051.0,
         "population_with_nightlight_signal": 4297784.0,
         "population_without_nightlight_signal": 1243549.0,
-        "nightlight_population_share_pct": 77.55866684063203,
-        "population_weighted_distance_transmission_km": 0.565668217376577,
-        "population_weighted_distance_gridlight_km": 0.9922652390679284
+        "nightlight_population_share_pct": 77.558667,
+        "population_weighted_distance_transmission_km": 0.565668,
+        "population_weighted_distance_gridlight_km": 0.992265
       },
       "minigrid_coverage": {
         "catalogued_record_count": 4,
@@ -1139,9 +1139,9 @@
         "settlement_count": 3372.0,
         "population_with_nightlight_signal": 3038458.0,
         "population_without_nightlight_signal": 1093333.0,
-        "nightlight_population_share_pct": 73.53852118851123,
-        "population_weighted_distance_transmission_km": 2.6748925078737043,
-        "population_weighted_distance_gridlight_km": 2.4429096021555785
+        "nightlight_population_share_pct": 73.538521,
+        "population_weighted_distance_transmission_km": 2.674893,
+        "population_weighted_distance_gridlight_km": 2.44291
       },
       "minigrid_coverage": {
         "catalogued_record_count": 1,
@@ -1221,9 +1221,9 @@
         "settlement_count": 2977.0,
         "population_with_nightlight_signal": 2577329.0,
         "population_without_nightlight_signal": 1696982.0,
-        "nightlight_population_share_pct": 60.298115883472214,
-        "population_weighted_distance_transmission_km": 1.787603737772006,
-        "population_weighted_distance_gridlight_km": 2.50341566020816
+        "nightlight_population_share_pct": 60.298116,
+        "population_weighted_distance_transmission_km": 1.787604,
+        "population_weighted_distance_gridlight_km": 2.503416
       },
       "minigrid_coverage": {
         "catalogued_record_count": 2,
@@ -1303,9 +1303,9 @@
         "settlement_count": 15165.0,
         "population_with_nightlight_signal": 4109202.0,
         "population_without_nightlight_signal": 5232537.0,
-        "nightlight_population_share_pct": 43.987548785081664,
-        "population_weighted_distance_transmission_km": 2.27837895171338,
-        "population_weighted_distance_gridlight_km": 3.7651969926584337
+        "nightlight_population_share_pct": 43.987549,
+        "population_weighted_distance_transmission_km": 2.278379,
+        "population_weighted_distance_gridlight_km": 3.765197
       },
       "minigrid_coverage": {
         "catalogued_record_count": 2,
@@ -1385,9 +1385,9 @@
         "settlement_count": 4746.0,
         "population_with_nightlight_signal": 4407089.0,
         "population_without_nightlight_signal": 1930436.0,
-        "nightlight_population_share_pct": 69.5395915597966,
-        "population_weighted_distance_transmission_km": 9.104419501303742,
-        "population_weighted_distance_gridlight_km": 3.9515943724087874
+        "nightlight_population_share_pct": 69.539592,
+        "population_weighted_distance_transmission_km": 9.10442,
+        "population_weighted_distance_gridlight_km": 3.951594
       },
       "minigrid_coverage": {
         "catalogued_record_count": 0,
@@ -1467,9 +1467,9 @@
         "settlement_count": 9668.0,
         "population_with_nightlight_signal": 4883777.0,
         "population_without_nightlight_signal": 4883230.0,
-        "nightlight_population_share_pct": 50.00280024371847,
-        "population_weighted_distance_transmission_km": 1.7085539019271718,
-        "population_weighted_distance_gridlight_km": 2.3443056501341712
+        "nightlight_population_share_pct": 50.0028,
+        "population_weighted_distance_transmission_km": 1.708554,
+        "population_weighted_distance_gridlight_km": 2.344306
       },
       "minigrid_coverage": {
         "catalogued_record_count": 2,
@@ -1549,9 +1549,9 @@
         "settlement_count": 5626.0,
         "population_with_nightlight_signal": 2983136.0,
         "population_without_nightlight_signal": 2514359.0,
-        "nightlight_population_share_pct": 54.26355094456657,
-        "population_weighted_distance_transmission_km": 1.759322958911286,
-        "population_weighted_distance_gridlight_km": 4.2330127001479765
+        "nightlight_population_share_pct": 54.263551,
+        "population_weighted_distance_transmission_km": 1.759323,
+        "population_weighted_distance_gridlight_km": 4.233013
       },
       "minigrid_coverage": {
         "catalogued_record_count": 5,
@@ -1631,9 +1631,9 @@
         "settlement_count": 1541.0,
         "population_with_nightlight_signal": 4658344.0,
         "population_without_nightlight_signal": 822186.0,
-        "nightlight_population_share_pct": 84.99805675728442,
-        "population_weighted_distance_transmission_km": 0.3659465471405138,
-        "population_weighted_distance_gridlight_km": 0.7046511899396591
+        "nightlight_population_share_pct": 84.998057,
+        "population_weighted_distance_transmission_km": 0.365947,
+        "population_weighted_distance_gridlight_km": 0.704651
       },
       "minigrid_coverage": {
         "catalogued_record_count": 4,
@@ -1713,9 +1713,9 @@
         "settlement_count": 5557.0,
         "population_with_nightlight_signal": 2292243.0,
         "population_without_nightlight_signal": 3361387.0,
-        "nightlight_population_share_pct": 40.54462354275041,
-        "population_weighted_distance_transmission_km": 1.496860631134333,
-        "population_weighted_distance_gridlight_km": 3.546981822121363
+        "nightlight_population_share_pct": 40.544624,
+        "population_weighted_distance_transmission_km": 1.496861,
+        "population_weighted_distance_gridlight_km": 3.546982
       },
       "minigrid_coverage": {
         "catalogued_record_count": 1,
@@ -1795,9 +1795,9 @@
         "settlement_count": 433.0,
         "population_with_nightlight_signal": 5162514.0,
         "population_without_nightlight_signal": 331292.0,
-        "nightlight_population_share_pct": 93.969717896846,
-        "population_weighted_distance_transmission_km": 0.0135963610655345,
-        "population_weighted_distance_gridlight_km": 0.1365600507189369
+        "nightlight_population_share_pct": 93.969718,
+        "population_weighted_distance_transmission_km": 0.013596,
+        "population_weighted_distance_gridlight_km": 0.13656
       },
       "minigrid_coverage": {
         "catalogued_record_count": 4,
@@ -1877,9 +1877,9 @@
         "settlement_count": 11612.0,
         "population_with_nightlight_signal": 11005557.0,
         "population_without_nightlight_signal": 6148341.0,
-        "nightlight_population_share_pct": 64.15776169358125,
-        "population_weighted_distance_transmission_km": 0.8520082986385951,
-        "population_weighted_distance_gridlight_km": 1.160617633146705
+        "nightlight_population_share_pct": 64.157762,
+        "population_weighted_distance_transmission_km": 0.852008,
+        "population_weighted_distance_gridlight_km": 1.160618
       },
       "minigrid_coverage": {
         "catalogued_record_count": 2,
@@ -1959,9 +1959,9 @@
         "settlement_count": 3791.0,
         "population_with_nightlight_signal": 2182506.0,
         "population_without_nightlight_signal": 1675758.0,
-        "nightlight_population_share_pct": 56.567046733971544,
-        "population_weighted_distance_transmission_km": 3.4450614395489785,
-        "population_weighted_distance_gridlight_km": 3.0203921457940672
+        "nightlight_population_share_pct": 56.567047,
+        "population_weighted_distance_transmission_km": 3.445061,
+        "population_weighted_distance_gridlight_km": 3.020392
       },
       "minigrid_coverage": {
         "catalogued_record_count": 1,
@@ -2041,9 +2041,9 @@
         "settlement_count": 5362.0,
         "population_with_nightlight_signal": 2475825.0,
         "population_without_nightlight_signal": 3575591.0,
-        "nightlight_population_share_pct": 40.91315156650939,
-        "population_weighted_distance_transmission_km": 2.055783588502261,
-        "population_weighted_distance_gridlight_km": 5.442908546859115
+        "nightlight_population_share_pct": 40.913152,
+        "population_weighted_distance_transmission_km": 2.055784,
+        "population_weighted_distance_gridlight_km": 5.442909
       },
       "minigrid_coverage": {
         "catalogued_record_count": 1,
@@ -2123,9 +2123,9 @@
         "settlement_count": 950.0,
         "population_with_nightlight_signal": 5297497.0,
         "population_without_nightlight_signal": 1047774.0,
-        "nightlight_population_share_pct": 83.48732465484926,
-        "population_weighted_distance_transmission_km": 0.286511963003629,
-        "population_weighted_distance_gridlight_km": 0.4737108197585257
+        "nightlight_population_share_pct": 83.487325,
+        "population_weighted_distance_transmission_km": 0.286512,
+        "population_weighted_distance_gridlight_km": 0.473711
       },
       "minigrid_coverage": {
         "catalogued_record_count": 0,
@@ -2205,9 +2205,9 @@
         "settlement_count": 3732.0,
         "population_with_nightlight_signal": 2334800.0,
         "population_without_nightlight_signal": 1962750.0,
-        "nightlight_population_share_pct": 54.32862910262824,
-        "population_weighted_distance_transmission_km": 2.4513107561284917,
-        "population_weighted_distance_gridlight_km": 3.282878877499971
+        "nightlight_population_share_pct": 54.328629,
+        "population_weighted_distance_transmission_km": 2.451311,
+        "population_weighted_distance_gridlight_km": 3.282879
       },
       "minigrid_coverage": {
         "catalogued_record_count": 3,
@@ -2287,9 +2287,9 @@
         "settlement_count": 5919.0,
         "population_with_nightlight_signal": 3379212.0,
         "population_without_nightlight_signal": 2859924.0,
-        "nightlight_population_share_pct": 54.16153775138096,
-        "population_weighted_distance_transmission_km": 6.268381617262391,
-        "population_weighted_distance_gridlight_km": 4.172991890704097
+        "nightlight_population_share_pct": 54.161538,
+        "population_weighted_distance_transmission_km": 6.268382,
+        "population_weighted_distance_gridlight_km": 4.172992
       },
       "minigrid_coverage": {
         "catalogued_record_count": 1,
@@ -2369,9 +2369,9 @@
         "settlement_count": 3963.0,
         "population_with_nightlight_signal": 2278174.0,
         "population_without_nightlight_signal": 1615170.0,
-        "nightlight_population_share_pct": 58.51458283675935,
-        "population_weighted_distance_transmission_km": 7.433372630314711,
-        "population_weighted_distance_gridlight_km": 4.748041402968759
+        "nightlight_population_share_pct": 58.514583,
+        "population_weighted_distance_transmission_km": 7.433373,
+        "population_weighted_distance_gridlight_km": 4.748041
       },
       "minigrid_coverage": {
         "catalogued_record_count": 2,
@@ -2451,9 +2451,9 @@
         "settlement_count": 926.0,
         "population_with_nightlight_signal": 2962858.0,
         "population_without_nightlight_signal": 859620.0,
-        "nightlight_population_share_pct": 77.51144676306835,
-        "population_weighted_distance_transmission_km": 0.2847519043929095,
-        "population_weighted_distance_gridlight_km": 0.4930716713085072
+        "nightlight_population_share_pct": 77.511447,
+        "population_weighted_distance_transmission_km": 0.284752,
+        "population_weighted_distance_gridlight_km": 0.493072
       },
       "minigrid_coverage": {
         "catalogued_record_count": 0,
@@ -2533,9 +2533,9 @@
         "settlement_count": 542.0,
         "population_with_nightlight_signal": 1895778.0,
         "population_without_nightlight_signal": 234768.0,
-        "nightlight_population_share_pct": 88.9808527954806,
-        "population_weighted_distance_transmission_km": 0.080923453424615,
-        "population_weighted_distance_gridlight_km": 0.4317416934438402
+        "nightlight_population_share_pct": 88.980853,
+        "population_weighted_distance_transmission_km": 0.080923,
+        "population_weighted_distance_gridlight_km": 0.431742
       },
       "minigrid_coverage": {
         "catalogued_record_count": 0,
@@ -2615,9 +2615,9 @@
         "settlement_count": 1538.0,
         "population_with_nightlight_signal": 4404024.0,
         "population_without_nightlight_signal": 451693.0,
-        "nightlight_population_share_pct": 90.69770746524148,
-        "population_weighted_distance_transmission_km": 0.1182126326554863,
-        "population_weighted_distance_gridlight_km": 0.4976624121628175
+        "nightlight_population_share_pct": 90.697707,
+        "population_weighted_distance_transmission_km": 0.118213,
+        "population_weighted_distance_gridlight_km": 0.497662
       },
       "minigrid_coverage": {
         "catalogued_record_count": 1,
@@ -2697,9 +2697,9 @@
         "settlement_count": 9797.0,
         "population_with_nightlight_signal": 3336947.0,
         "population_without_nightlight_signal": 3967412.0,
-        "nightlight_population_share_pct": 45.68432356624312,
-        "population_weighted_distance_transmission_km": 3.0803471529808433,
-        "population_weighted_distance_gridlight_km": 4.322429364575317
+        "nightlight_population_share_pct": 45.684324,
+        "population_weighted_distance_transmission_km": 3.080347,
+        "population_weighted_distance_gridlight_km": 4.322429
       },
       "minigrid_coverage": {
         "catalogued_record_count": 5,
@@ -2779,9 +2779,9 @@
         "settlement_count": 10477.0,
         "population_with_nightlight_signal": 5230475.0,
         "population_without_nightlight_signal": 4167172.0,
-        "nightlight_population_share_pct": 55.65728314757939,
-        "population_weighted_distance_transmission_km": 2.832011372634022,
-        "population_weighted_distance_gridlight_km": 4.263901866073497
+        "nightlight_population_share_pct": 55.657283,
+        "population_weighted_distance_transmission_km": 2.832011,
+        "population_weighted_distance_gridlight_km": 4.263902
       },
       "minigrid_coverage": {
         "catalogued_record_count": 5,
@@ -2861,9 +2861,9 @@
         "settlement_count": 9984.0,
         "population_with_nightlight_signal": 6465399.0,
         "population_without_nightlight_signal": 4780030.0,
-        "nightlight_population_share_pct": 57.493573611109014,
-        "population_weighted_distance_transmission_km": 1.409347916384515,
-        "population_weighted_distance_gridlight_km": 3.126959533246797
+        "nightlight_population_share_pct": 57.493574,
+        "population_weighted_distance_transmission_km": 1.409348,
+        "population_weighted_distance_gridlight_km": 3.12696
       },
       "minigrid_coverage": {
         "catalogued_record_count": 4,
@@ -2943,9 +2943,9 @@
         "settlement_count": 1674.0,
         "population_with_nightlight_signal": 3916480.0,
         "population_without_nightlight_signal": 1135213.0,
-        "nightlight_population_share_pct": 77.52806831293984,
-        "population_weighted_distance_transmission_km": 0.1256928617792094,
-        "population_weighted_distance_gridlight_km": 0.5876055785654433
+        "nightlight_population_share_pct": 77.528068,
+        "population_weighted_distance_transmission_km": 0.125693,
+        "population_weighted_distance_gridlight_km": 0.587606
       },
       "minigrid_coverage": {
         "catalogued_record_count": 0,
@@ -3025,9 +3025,9 @@
         "settlement_count": 5880.0,
         "population_with_nightlight_signal": 1864092.0,
         "population_without_nightlight_signal": 2889292.0,
-        "nightlight_population_share_pct": 39.2161037273656,
-        "population_weighted_distance_transmission_km": 18.90772613363448,
-        "population_weighted_distance_gridlight_km": 9.964992621887902
+        "nightlight_population_share_pct": 39.216104,
+        "population_weighted_distance_transmission_km": 18.907726,
+        "population_weighted_distance_gridlight_km": 9.964993
       },
       "minigrid_coverage": {
         "catalogued_record_count": 1,
@@ -3107,9 +3107,9 @@
         "settlement_count": 3240.0,
         "population_with_nightlight_signal": 1010106.0,
         "population_without_nightlight_signal": 1158001.0,
-        "nightlight_population_share_pct": 46.58930578610742,
-        "population_weighted_distance_transmission_km": 0.390140145297257,
-        "population_weighted_distance_gridlight_km": 2.646549487640601
+        "nightlight_population_share_pct": 46.589306,
+        "population_weighted_distance_transmission_km": 0.39014,
+        "population_weighted_distance_gridlight_km": 2.646549
       },
       "minigrid_coverage": {
         "catalogued_record_count": 4,
