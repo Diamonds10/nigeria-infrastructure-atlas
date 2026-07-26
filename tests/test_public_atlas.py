@@ -58,6 +58,7 @@ class PublicAtlasTests(unittest.TestCase):
                 "oil_pipelines": 15,
                 "lng_terminals": 24,
                 "power_plants": 193,
+                "hydro_plants": 7,
                 "refineries": 4,
                 "gas_infrastructure": 98,
                 "oil_spills": 16326,
@@ -392,7 +393,7 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertEqual(len(profiles), 38)
 
         national = profiles["Nigeria"]
-        self.assertEqual(national["mapped_records"], 29091)
+        self.assertEqual(national["mapped_records"], 29098)
         self.assertEqual(national["counts"]["oil_spills"], 16326)
         spill = national["oil_spill_intelligence"]
         self.assertEqual(spill["mapped_reports"], 16326)
@@ -488,15 +489,15 @@ class PublicAtlasTests(unittest.TestCase):
     def test_status_and_temporal_filter_metadata(self):
         bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
         filters = bundle["filters"]
-        self.assertEqual(sum(filters["status_groups"].values()), 29091)
+        self.assertEqual(sum(filters["status_groups"].values()), 29098)
         self.assertEqual(
             filters["temporal"]["dated_records"]
             + filters["temporal"]["undated_records"],
-            29091,
+            29098,
         )
         self.assertEqual(filters["temporal"]["minimum_year"], 1912)
         self.assertEqual(filters["temporal"]["maximum_year"], 2026)
-        self.assertEqual(filters["temporal"]["dated_records"], 19199)
+        self.assertEqual(filters["temporal"]["dated_records"], 19203)
         self.assertEqual(filters["oil_spills"]["source_record_count"], 21124)
         self.assertEqual(filters["oil_spills"]["mapped_record_count"], 16326)
         self.assertEqual(
@@ -541,13 +542,13 @@ class PublicAtlasTests(unittest.TestCase):
         manifest = json.loads((API_DIR / "manifest.json").read_text())
         self.assertEqual(manifest["api_version"], "v1")
         self.assertEqual(manifest["atlas_release"]["version"], "0.10.0")
-        self.assertEqual(len(manifest["layers"]), 26)
+        self.assertEqual(len(manifest["layers"]), 27)
         self.assertEqual(manifest["endpoints"]["freshness"], "freshness.json")
         freshness = json.loads((API_DIR / "freshness.json").read_text())
-        self.assertEqual(freshness["summary"]["dataset_count"], 26)
+        self.assertEqual(freshness["summary"]["dataset_count"], 27)
         self.assertEqual(
             freshness["summary"]["current"] + freshness["summary"]["due"],
-            26,
+            27,
         )
         oil_refresh = next(
             item for item in freshness["datasets"] if item["key"] == "oil_spills"

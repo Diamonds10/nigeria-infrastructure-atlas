@@ -31,6 +31,21 @@ Important examples include:
   stated at the recorded access date. Preserve attribution, the source
   disclaimer, report-status fields, and the distinction between reported and
   independently verified incidents.
+- Refinery and demand-centre compilations (`refineries_nigeria.csv`,
+  `demand_centers_nigeria.csv`): original atlas research synthesized from
+  multiple independent public sources (NNPC/BPE disclosures, company sites,
+  Global Energy Observatory, news coverage, and OSM Nominatim used to verify
+  or correct individual coordinates), not copied wholesale from any single
+  third-party database. Facts such as a plant's location, capacity, or
+  commissioning year are not themselves copyrightable; only a database's
+  particular selection or arrangement can be, and no single such database was
+  reproduced here. This compilation is therefore treated as an original work
+  under the repository's CC0-1.0 dedication (`redistribution_rights_register.csv`,
+  `atlas_compilations` row) rather than as third-party material requiring
+  external clearance. Where `docs/data_sources.md`'s `coordinate_source` column
+  cites OpenStreetMap directly for a given row, that specific coordinate
+  remains subject to OSM's ODbL attribution and share-alike terms regardless
+  of this compilation's own status.
 
 The public atlas is a derived screening product. Source attribution remains
 required even when a derived file is stored in this repository.
