@@ -24,7 +24,7 @@ The Distributed Energy section exposes:
 - `layers/standalone_systems.geojson`
 - `layers/interconnected_minigrids.geojson`
 
-`layers/minigrids.geojson` remains a backward-compatible 80-record aggregate.
+`layers/minigrids.geojson` remains a backward-compatible 93-record aggregate.
 New integrations should use the four structured endpoints. The manifest lists
 this under `compatibility_endpoints`.
 

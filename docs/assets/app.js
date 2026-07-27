@@ -114,7 +114,8 @@
     ports: true,
     community_minigrids: true,
     captive_offgrid_systems: true,
-    standalone_systems: true,
+    // Empty by design (programme aggregates live in state profiles only).
+    standalone_systems: false,
     interconnected_minigrids: true,
     population_access: false,
     settlements: false
@@ -829,6 +830,11 @@
     if (selectedState) url.searchParams.set("state", selectedState);
     else url.searchParams.delete("state");
     window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+
+    // Filter markers to the selected state once status/time controls exist.
+    // The initial URL restore runs before those controls are wired; the later
+    // applyFilters(false) call picks up selectedState then.
+    if (statusFilter) applyFilters(false);
   }
 
   stateSelect.addEventListener("change", function () {
@@ -1036,6 +1042,10 @@
   function featureMatches(feature, subKey) {
     feature = feature || {};
     var props = feature.properties || {};
+    if (selectedState) {
+      var memberships = props._states || [];
+      if (memberships.indexOf(selectedState) === -1) return false;
+    }
     if (statusFilter.value !== "all" && props._status_group !== statusFilter.value) return false;
     if (timeFilterEnabled.checked) {
       if (!props._year || Number(props._year) > Number(yearCutoff.value)) return false;
@@ -1084,6 +1094,7 @@
     yearCutoff.disabled = !timeFilterEnabled.checked;
     yearCutoffOutput.textContent = yearCutoff.value;
     var summary = formatNumber(matchedRecords) + " records match";
+    if (selectedState) summary += " · " + selectedState;
     if (timeFilterEnabled.checked) summary += " · dated through " + yearCutoff.value;
     filterSummary.textContent = summary;
     spillFilterSummary.textContent =

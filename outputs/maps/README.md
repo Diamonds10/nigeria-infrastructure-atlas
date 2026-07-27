@@ -31,7 +31,7 @@ python scripts/build_output_gallery.py
 | Environmental | [gallery/environmental.png](gallery/environmental.png) | 1,005 |
 | Demand | [gallery/demand.png](gallery/demand.png) | 28 |
 | Connectivity | [gallery/connectivity.png](gallery/connectivity.png) | 7,992 |
-| Distributed Energy | [gallery/renewables.png](gallery/renewables.png) | 80 |
+| Distributed Energy | [gallery/renewables.png](gallery/renewables.png) | 93 |
 | People & Access | [gallery/context.png](gallery/context.png) | 2,758 |
 
 ![Resource layer thumbnail](gallery/resource.png)
@@ -59,7 +59,7 @@ The snapshot is best understood as a public screening view rather than a complet
 - 193 power-producing plant records are shown
 - 390 substation records are shown
 - 28 demand-centre records are shown
-- 80 catalogued distributed-energy records are shown across four explicit classes
+- 93 catalogued distributed-energy records are shown across four explicit classes
 
 The Distributed Energy section provides separate community mini-grid,
 captive/institutional off-grid, standalone-system, and interconnected-mini-grid
@@ -69,11 +69,13 @@ views with evidence on status and technology mix.
 
 The companion benchmark file shows that the current mini-grid evidence is materially stronger than a generic programme page:
 
-- 80 records across 30 states and the FCT
-- 52 operational, 13 under construction, 13 commissioned, 1 under
-  rehabilitation, and 1 unknown
-- 66 Nigeria SE4ALL records plus 14 official-source additions
-- 67 exact-site coordinates and 13 campus/community/facility coordinates
+- 93 records across 31 states and the FCT
+- 53 operational, 19 under construction, 14 commissioned, 1 under
+  rehabilitation, and 6 unknown
+- 66 Nigeria SE4ALL records, 13 additional non-duplicate SE4ALL surveyed
+  communities, and 14 named official-source additions
+- 67 exact-site coordinates and 26 campus, community, or facility-level
+  coordinates
 
 This means the public layer is strongest for:
 
