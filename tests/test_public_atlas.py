@@ -541,7 +541,12 @@ class PublicAtlasTests(unittest.TestCase):
 
         manifest = json.loads((API_DIR / "manifest.json").read_text())
         self.assertEqual(manifest["api_version"], "v1")
-        self.assertEqual(manifest["atlas_release"]["version"], "0.10.0")
+        self.assertEqual(manifest["atlas_release"]["version"], "0.11.0")
+        self.assertEqual(manifest["atlas_release"]["date"], "2026-07-28")
+        self.assertEqual(
+            manifest["atlas_release"]["title"],
+            "Hydroelectric Coverage and State-scoped Filtering",
+        )
         self.assertEqual(len(manifest["layers"]), 27)
         self.assertEqual(manifest["endpoints"]["freshness"], "freshness.json")
         freshness = json.loads((API_DIR / "freshness.json").read_text())

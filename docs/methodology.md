@@ -4,10 +4,11 @@ The atlas is built as a reproducible geospatial evidence pipeline that converts 
 
 ## Core design
 
-The `v0.10` public atlas is organized around eight implemented analytical layers:
+The `v0.11` public atlas is organized around eight implemented analytical layers:
 
 - Resource: reserves, production, discoveries, and field-level site information.
-- Infrastructure: pipelines, LNG terminals, refineries, and power assets.
+- Infrastructure: pipelines, LNG terminals, refineries, oil/gas power assets,
+  and hydroelectric power plants.
 - Environmental: flaring, protected-area context, and NOSDRA reported
   oil-spill incidents.
 - Security Context: historical UCDP organized-violence exposure aggregated to

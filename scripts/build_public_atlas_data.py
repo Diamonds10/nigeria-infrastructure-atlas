@@ -28,9 +28,9 @@ DEFAULT_API_DIR = ROOT / "docs" / "api" / "v1"
 PUBLIC_SIMPLIFY_TOLERANCE = 0.005
 PUBLIC_COORDINATE_PRECISION = 5
 PUBLIC_PROPERTY_PRECISION = 6
-ATLAS_RELEASE_VERSION = "0.10.0"
-ATLAS_RELEASE_DATE = "2026-07-25"
-ATLAS_RELEASE_TITLE = "Licensed Historical Security Context"
+ATLAS_RELEASE_VERSION = "0.11.0"
+ATLAS_RELEASE_DATE = "2026-07-28"
+ATLAS_RELEASE_TITLE = "Hydroelectric Coverage and State-scoped Filtering"
 REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main"
 DISTRIBUTED_ENERGY_SUBLAYERS = {
     "community_minigrids",

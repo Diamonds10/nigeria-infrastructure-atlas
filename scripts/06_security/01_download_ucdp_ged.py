@@ -26,7 +26,7 @@ def download(output_path: Path, force: bool = False) -> None:
         SOURCE_URL,
         timeout=180,
         stream=True,
-        headers={"User-Agent": "Nigeria-Infrastructure-Atlas/0.10"},
+        headers={"User-Agent": "Nigeria-Infrastructure-Atlas/0.11"},
     ) as response:
         response.raise_for_status()
         with output_path.open("wb") as destination:

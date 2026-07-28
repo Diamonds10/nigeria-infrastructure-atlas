@@ -1,5 +1,20 @@
 # Release notes
 
+## v0.11.0 — Hydroelectric Coverage and State-scoped Filtering
+
+Released: 28 July 2026
+
+- added seven Nigerian hydroelectric plants as a dedicated infrastructure
+  sublayer, including operating, pre-construction, and shelved projects
+- corrected the Hudson power-station coordinate to an explicitly documented
+  LGA-level Lagos location after identifying a source-coordinate mismatch
+- increased the public contract to 29,098 mapped records, 26 content-bearing
+  catalogue entries, and 27 stable layer endpoints
+- made state selection scope visible map records and all active status, time,
+  and NOSDRA filter results to the selected state
+- aligned release metadata, citation guidance, documentation, tests, catalogue,
+  public bundle, and static API with the expanded infrastructure contract
+
 ## v0.10.0 — Licensed Historical Security Context
 
 Released: 25 July 2026

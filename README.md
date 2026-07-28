@@ -46,11 +46,11 @@ The public value of the atlas is not any single output file. It is the combinati
 
 ## Current public-facing value
 
-A live `v0.10` state-intelligence experience is available at
+A live `v0.11` state-intelligence experience is available at
 [diamonds10.github.io/nigeria-infrastructure-atlas](https://diamonds10.github.io/nigeria-infrastructure-atlas/).
 It provides profiles for all 36 states and the FCT, state-specific shareable
-links and GeoJSON downloads, and a searchable catalogue covering the 25
-content-bearing map datasets. The API preserves 26 stable layer endpoints,
+links and GeoJSON downloads, and a searchable catalogue covering the 26
+content-bearing map datasets. The API preserves 27 stable layer endpoints,
 including the currently empty standalone-systems evidence gap. Normalized
 status and evidence-year filters apply
 consistently to the map, search results, visible counts, shared URLs, and
@@ -166,6 +166,7 @@ The repository already contains a meaningful evidence base for screening and res
 Current verified public-facing asset snapshot:
 
 - 193 oil/gas power-producing plant records
+- 7 hydroelectric power-plant records
 - 390 substation records
 - 28 demand-centre records
 - 93 catalogued distributed-energy records across four explicit classes

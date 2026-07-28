@@ -10,6 +10,10 @@ electricity-access screening context.
 
 The atlas is designed to answer a practical question: where do Nigeria's gas assets, industrial demand centers, logistics routes, and risk factors sit relative to one another?
 
+Infrastructure coverage now includes seven hydroelectric plants alongside the
+oil- and gas-fired generation fleet. State selection also scopes the visible
+map and active filters, making state profiles and mapped evidence consistent.
+
 A concrete recent addition is a public-source off-grid inventory with 93 named
 records across 31 states and the FCT. It combines 66 Nigeria SE4ALL asset
 records, 13 non-duplicate SE4ALL surveyed communities, and 14 official-source
