@@ -326,6 +326,11 @@
   }
   function escapeHtml(s) { return String(s).replace(/[&<>"']/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]; }); }
   function escapeAttr(s) { return escapeHtml(s); }
+  function filenameFromUrl(url) {
+    var clean = String(url).split(/[?#]/)[0];
+    var parts = clean.split("/");
+    return parts[parts.length - 1] || "download.csv";
+  }
 
   // ---------------- Map init ----------------
   var map = L.map("map", { zoomControl: false, minZoom: 5, maxZoom: 16, attributionControl: false });
@@ -335,9 +340,13 @@
   var NIGERIA_BOUNDS = [[3.9, 2.5], [14.0, 14.8]];
   map.fitBounds(NIGERIA_BOUNDS);
 
+  // "_nolabels" variants -- the app draws its own permanent state-name
+  // tooltips below, so the basemap's own place-name labels would otherwise
+  // double up with ours (e.g. "Kaduna" rendered twice, at slightly different
+  // positions/styles).
   var TILE_URLS = {
-    light: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-    dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+    light: "https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png",
+    dark: "https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
   };
   var tileLayer = L.tileLayer(TILE_URLS[currentTheme() === "dark" ? "dark" : "light"], {
     maxZoom: 20,
@@ -353,7 +362,11 @@
       color: selected ? cssVar("--accent") : cssVar("--line"),
       weight: selected ? 2.8 : 1.4,
       fillColor: selected ? cssVar("--accent") : cssVar("--paper-100"),
-      fillOpacity: selected ? 0.22 : 0.35
+      // A heavy fill on every unselected state (i.e. the whole country, by
+      // default) read as a grey "shadow" cast over the whole map -- this is
+      // now just enough to give the boundary a filled look, with the
+      // selected state's highlight staying prominent for contrast.
+      fillOpacity: selected ? 0.22 : 0.06
     };
   }
 
@@ -1170,9 +1183,9 @@
           '<div><dt>Reuse</dt><dd>' + escapeHtml(item.license) + '</dd></div>' +
         '</dl>' +
         '<p class="quality-note"><strong>Quality ' + escapeHtml(item.quality) + ':</strong> ' + escapeHtml(item.quality_note) + '</p>' +
-        '<a class="download-link" href="' + escapeAttr(item.download_url) + '" target="_blank" rel="noopener">Download processed CSV ↗</a>' +
-        (item.coverage_audit_url ? '<a class="download-link" href="' + escapeAttr(item.coverage_audit_url) + '" target="_blank" rel="noopener">Download state coverage audit ↗</a>' : '') +
-        (item.supplement_url ? '<a class="download-link" href="' + escapeAttr(item.supplement_url) + '" target="_blank" rel="noopener">Download verified supplement ↗</a>' : '') +
+        '<a class="download-link" href="' + escapeAttr(item.download_url) + '" data-remote-download="' + escapeAttr(filenameFromUrl(item.download_url)) + '">Download processed CSV ↓</a>' +
+        (item.coverage_audit_url ? '<a class="download-link" href="' + escapeAttr(item.coverage_audit_url) + '" data-remote-download="' + escapeAttr(filenameFromUrl(item.coverage_audit_url)) + '">Download state coverage audit ↓</a>' : '') +
+        (item.supplement_url ? '<a class="download-link" href="' + escapeAttr(item.supplement_url) + '" data-remote-download="' + escapeAttr(filenameFromUrl(item.supplement_url)) + '">Download verified supplement ↓</a>' : '') +
       '</article>'
     );
   }
@@ -1188,6 +1201,40 @@
     var records = items.reduce(function (sum, item) { return sum + item.record_count; }, 0);
     catalogueSummary.textContent = items.length + " datasets · " + formatNumber(records) + " map records";
   }
+
+  // Cross-origin links (these point at raw.githubusercontent.com) silently
+  // ignore the `download` attribute in Chrome/Firefox and just navigate the
+  // tab to the raw file instead of saving it -- fetch the bytes ourselves
+  // and trigger the save from a same-origin blob: URL, matching how the
+  // state/national GeoJSON export buttons already work below.
+  catalogueGrid.addEventListener("click", function (event) {
+    var link = event.target.closest && event.target.closest("[data-remote-download]");
+    if (!link) return;
+    event.preventDefault();
+    var filename = link.getAttribute("data-remote-download");
+    var originalText = link.textContent;
+    link.textContent = "Downloading…";
+    fetch(link.href)
+      .then(function (response) {
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        return response.blob();
+      })
+      .then(function (blob) {
+        var href = URL.createObjectURL(blob);
+        var anchor = document.createElement("a");
+        anchor.href = href;
+        anchor.download = filename;
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        URL.revokeObjectURL(href);
+        link.textContent = originalText;
+      })
+      .catch(function () {
+        link.textContent = originalText;
+        window.open(link.href, "_blank", "noopener");
+      });
+  });
 
   catalogueButton.addEventListener("click", function () {
     renderCatalogue(catalogueSearch.value);
