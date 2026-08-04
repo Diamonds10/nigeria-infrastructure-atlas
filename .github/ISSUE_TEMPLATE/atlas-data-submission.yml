@@ -32,6 +32,7 @@ body:
         - Demand
         - Connectivity
         - Distributed Energy
+        - Security Context
         - People & Access
         - Unsure — maintainer review needed
     validations:

@@ -3,7 +3,7 @@
 
   var loadingEl = document.getElementById("loading");
 
-  fetch("./assets/atlas_data.json")
+  fetch("./assets/atlas_data.json?v=0.11.1")
     .then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();

@@ -17,6 +17,10 @@ BUILDER_PATH = ROOT / "scripts" / "build_public_atlas_data.py"
 API_DIR = ROOT / "docs" / "api" / "v1"
 APP_PATH = ROOT / "docs" / "assets" / "app.js"
 CSS_PATH = ROOT / "docs" / "assets" / "app.css"
+INDEX_PATH = ROOT / "docs" / "index.html"
+ATLAS_ISSUE_TEMPLATE_PATH = (
+    ROOT / ".github" / "ISSUE_TEMPLATE" / "atlas-data-submission.yml"
+)
 
 
 def load_builder():
@@ -350,6 +354,30 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertIn("Historical organized-violence context", app_source)
         self.assertIn("not a live threat feed", app_source)
 
+    def test_public_frontend_hardening_contract(self):
+        app_source = APP_PATH.read_text(encoding="utf-8")
+        html_source = INDEX_PATH.read_text(encoding="utf-8")
+        issue_template = ATLAS_ISSUE_TEMPLATE_PATH.read_text(encoding="utf-8")
+
+        self.assertIn("light_nolabels", app_source)
+        self.assertIn("dark_nolabels", app_source)
+        self.assertNotIn("light_all/{z}", app_source)
+        self.assertNotIn("dark_all/{z}", app_source)
+        self.assertIn("fillOpacity: selected ? 0.22 : 0.06", app_source)
+
+        self.assertIn("data-remote-download", app_source)
+        self.assertIn("fetch(link.href)", app_source)
+        self.assertIn("anchor.download = filename", app_source)
+        self.assertNotIn(
+            'target="_blank" rel="noopener">Download processed CSV',
+            app_source,
+        )
+
+        self.assertIn("./assets/app.css?v=0.11.1", html_source)
+        self.assertIn("./assets/app.js?v=0.11.1", html_source)
+        self.assertIn("./assets/atlas_data.json?v=0.11.1", app_source)
+        self.assertIn("        - Security Context", issue_template)
+
     def test_benchmark_matches_processed_assets(self):
         benchmark = json.loads(
             (ROOT / "outputs/maps/public_asset_benchmark_summary.json").read_text()
@@ -541,11 +569,11 @@ class PublicAtlasTests(unittest.TestCase):
 
         manifest = json.loads((API_DIR / "manifest.json").read_text())
         self.assertEqual(manifest["api_version"], "v1")
-        self.assertEqual(manifest["atlas_release"]["version"], "0.11.0")
-        self.assertEqual(manifest["atlas_release"]["date"], "2026-07-28")
+        self.assertEqual(manifest["atlas_release"]["version"], "0.11.1")
+        self.assertEqual(manifest["atlas_release"]["date"], "2026-07-30")
         self.assertEqual(
             manifest["atlas_release"]["title"],
-            "Hydroelectric Coverage and State-scoped Filtering",
+            "Interface and Release Hardening",
         )
         self.assertEqual(len(manifest["layers"]), 27)
         self.assertEqual(manifest["endpoints"]["freshness"], "freshness.json")

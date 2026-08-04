@@ -1,8 +1,8 @@
 {
   "atlas_release": {
-    "version": "0.11.0",
-    "date": "2026-07-28",
-    "title": "Hydroelectric Coverage and State-scoped Filtering"
+    "version": "0.11.1",
+    "date": "2026-07-30",
+    "title": "Interface and Release Hardening"
   },
   "method": "Public-map records whose display geometry intersects each ADM1 boundary.",
   "profiles": {

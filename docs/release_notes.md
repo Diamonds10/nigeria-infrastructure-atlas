@@ -1,5 +1,23 @@
 # Release notes
 
+## v0.11.1 — Interface and Release Hardening
+
+Released: 30 July 2026
+
+- removed duplicate geographic labels by using CARTO's no-label basemap tiles
+  while retaining the atlas's single permanent state/FCT label layer
+- reduced the unselected-state overlay opacity so boundaries remain legible
+  without washing out the basemap
+- changed cross-origin catalogue CSV links to browser downloads backed by
+  same-origin blob URLs instead of opening raw files in another tab
+- added release-version cache keys to the stylesheet, application script, and
+  public atlas bundle so browsers request the deployed patch assets
+- added permanent regression checks for label tiles, state-overlay opacity,
+  direct downloads, cache keys, and the Security Context contribution route
+- added Security Context to the general atlas data-submission issue form
+- retained the v0.11 data contract of 29,098 mapped records, 26
+  content-bearing catalogue datasets, and 27 stable layer endpoints
+
 ## v0.11.0 — Hydroelectric Coverage and State-scoped Filtering
 
 Released: 28 July 2026
