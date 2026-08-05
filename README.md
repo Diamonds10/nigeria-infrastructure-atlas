@@ -1,18 +1,21 @@
 # Infraxis Atlas — Nigeria
 
-**Mapping infrastructure. Measuring disruption.**
+**Open atlas · public datasource**  
+*Mapping infrastructure. Measuring disruption.*
 
-Infraxis Atlas — Nigeria is the first country edition of Infraxis Atlas, a
-uniform pan-African infrastructure mapping platform. Formerly published as
-Nigeria Infrastructure Atlas, this open edition covers Nigeria's energy,
+This repository is the **open atlas** for Nigeria: a public-source geospatial
+datasource, screening map, catalogue, and static API covering energy,
 transport, demand centres, connectivity, distributed energy, population,
 settlements, electricity-access context, environmental exposure, and
 historical security context.
 
-The open atlas, catalogue, public API, and reproducible processing workflows
-live in this repository. Proprietary Infraxis models—including *What Might We
-Lose?* and *What Did We Actually Lose?*—are separate premium analytical
-products and are not included in, or licensed by, this repository.
+**Infraxis** is the separate **premium layer**—proprietary disruption and loss
+models, client analytics, and advisory products that may build on this open
+evidence base. Those premium products are not included in, or licensed by,
+this repository.
+
+Formerly published as Nigeria Infrastructure Atlas. Country-edition naming and
+the open-versus-premium boundary are defined in `docs/product_identity.md`.
 
 ## Quick start
 
@@ -25,10 +28,11 @@ products and are not included in, or licensed by, this repository.
 
 ## Why this repository exists
 
-Infraxis Atlas — Nigeria is a public-interest, reproducible repository for
+This open atlas is a public-interest, reproducible datasource for
 understanding how Nigeria's energy, transport, and infrastructure system is
-organized across multiple spatial layers. Its country-edition structure is
-designed to support consistent future expansion across Africa.
+organized across multiple spatial layers. It is designed so the same open
+country-edition pattern can expand across Africa, while premium Infraxis
+products remain a separate commercial layer.
 
 It is designed to support:
 
@@ -60,7 +64,7 @@ The public value of the atlas is not any single output file. It is the combinati
 ## Current public-facing value
 
 A live `v0.12` state-intelligence experience is available at
-[diamonds10.github.io/nigeria-infrastructure-atlas](https://diamonds10.github.io/nigeria-infrastructure-atlas/).
+[diamonds10.github.io/infraxis-atlas-nigeria](https://diamonds10.github.io/infraxis-atlas-nigeria/).
 It provides profiles for all 36 states and the FCT, state-specific shareable
 links and GeoJSON downloads, and a searchable catalogue covering the 26
 content-bearing map datasets. The API preserves 27 stable layer endpoints,
@@ -77,7 +81,7 @@ Night-light detection is published only as an electricity-access screening
 signal, not as a measured household electrification rate.
 
 Developers can use the versioned, read-only static API at
-[diamonds10.github.io/nigeria-infrastructure-atlas/api/](https://diamonds10.github.io/nigeria-infrastructure-atlas/api/).
+[diamonds10.github.io/infraxis-atlas-nigeria/api/](https://diamonds10.github.io/infraxis-atlas-nigeria/api/).
 API v1 publishes a manifest, catalogue, state profiles, ADM1 boundaries, and
 one GeoJSON endpoint per public map layer without requiring an API key.
 
@@ -260,8 +264,15 @@ For the detailed dataset inventory and limitations, see `docs/data_sources.md`.
 
 ## Brand and product architecture
 
-**Infraxis Atlas** is the continental master brand; **Infraxis Atlas —
-Nigeria** is its first country edition. Future editions should retain the same
+| Layer | Brand | Role |
+|---|---|---|
+| Open atlas | Infraxis Atlas — Nigeria | Public datasource, map, catalogue, API |
+| Premium | Infraxis | Proprietary analytics and loss products |
+
+**Infraxis Atlas** is the open-atlas brand family; **Infraxis Atlas — Nigeria**
+is its first country edition. **Infraxis** is the premium product family that
+may sit on top of the open atlas. Future open editions should retain the same
 taxonomy, API principles, evidence controls, and country naming pattern.
-See `docs/product_identity.md` for the naming, transition, licensing, and
-open-versus-premium boundary.
+
+See `docs/product_identity.md` for naming, transition, licensing, and the
+machine-readable `product.role` / `product.relationship` contract.

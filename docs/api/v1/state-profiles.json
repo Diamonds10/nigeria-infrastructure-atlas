@@ -2,9 +2,12 @@
   "product": {
     "name": "Infraxis Atlas — Nigeria",
     "master_brand": "Infraxis Atlas",
+    "premium_brand": "Infraxis",
     "country": "Nigeria",
     "former_name": "Nigeria Infrastructure Atlas",
-    "tagline": "Mapping infrastructure. Measuring disruption."
+    "tagline": "Mapping infrastructure. Measuring disruption.",
+    "role": "open_datasource",
+    "relationship": "This open atlas is the public datasource and screening layer; Infraxis is the separate premium analytical layer built on top of it."
   },
   "atlas_release": {
     "version": "0.12.0",

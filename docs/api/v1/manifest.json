@@ -2,9 +2,12 @@
   "product": {
     "name": "Infraxis Atlas — Nigeria",
     "master_brand": "Infraxis Atlas",
+    "premium_brand": "Infraxis",
     "country": "Nigeria",
     "former_name": "Nigeria Infrastructure Atlas",
-    "tagline": "Mapping infrastructure. Measuring disruption."
+    "tagline": "Mapping infrastructure. Measuring disruption.",
+    "role": "open_datasource",
+    "relationship": "This open atlas is the public datasource and screening layer; Infraxis is the separate premium analytical layer built on top of it."
   },
   "api_version": "v1",
   "atlas_release": {
@@ -12,7 +15,7 @@
     "date": "2026-08-05",
     "title": "Infraxis Atlas Rebrand and Pan-African Foundation"
   },
-  "base_url": "https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/",
+  "base_url": "https://diamonds10.github.io/infraxis-atlas-nigeria/api/v1/",
   "formats": [
     "GeoJSON",
     "JSON"

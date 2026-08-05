@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Static API · Infraxis Atlas — Nigeria</title>
-  <meta name="description" content="Versioned static API documentation for Infraxis Atlas — Nigeria." />
+  <meta name="description" content="Open-atlas static API for Infraxis Atlas — Nigeria. Public datasource endpoints; premium Infraxis products are separate." />
   <style>
     :root { color-scheme: light dark; --ink:#14201c; --muted:#5f6c63; --paper:#f4f5ef; --card:#fff; --line:#ccd1c5; --accent:#9a5a0c; }
     @media (prefers-color-scheme:dark) { :root { --ink:#edf0e9; --muted:#aab7ac; --paper:#0e1e1a; --card:#16281f; --line:#304137; --accent:#d99a3d; } }
@@ -32,9 +32,9 @@
   <a href="../">← Interactive atlas</a>
   <div class="eyebrow">Developer access · API v1</div>
   <h1>Infraxis Atlas — Nigeria static API</h1>
-  <p class="lede">Versioned, read-only JSON and GeoJSON endpoints served through GitHub Pages. No API key is required.</p>
-  <p class="note">Formerly the Nigeria Infrastructure Atlas API. The existing base URL remains stable for compatibility; resources publish the current Infraxis Atlas product identity.</p>
-  <div class="base"><code>https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/</code></div>
+  <p class="lede">Versioned, read-only open-atlas JSON and GeoJSON endpoints served through GitHub Pages. No API key is required. This is the public datasource layer; premium Infraxis products are separate.</p>
+  <p class="note">Formerly the Nigeria Infrastructure Atlas API. The existing base URL remains stable for compatibility. Every resource publishes <code>product.role&nbsp;=&nbsp;open_datasource</code> so integrators can distinguish this open atlas from premium Infraxis.</p>
+  <div class="base"><code>https://diamonds10.github.io/infraxis-atlas-nigeria/api/v1/</code></div>
   <div class="grid">
     <section class="card"><h2>Manifest</h2><p>Release, endpoint, count, and filter-field contract.</p><a href="./v1/manifest.json">Open manifest.json</a></section>
     <section class="card"><h2>Data catalogue</h2><p>Provenance, quality, dates, licenses, and limitations.</p><a href="./v1/catalogue.json">Open catalogue.json</a></section>
@@ -44,9 +44,9 @@
     <section class="card"><h2>Feature schema</h2><p>JSON Schema for normalized state, status, and year fields.</p><a href="./v1/schema.json">Open schema.json</a></section>
   </div>
   <h2>Example</h2>
-  <pre><code>curl https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/layers/community_minigrids.geojson</code></pre>
+  <pre><code>curl https://diamonds10.github.io/infraxis-atlas-nigeria/api/v1/layers/community_minigrids.geojson</code></pre>
   <p class="note">Time filters include only records with a supported <code>_year</code> at or before the cutoff. Undated records are excluded rather than silently treated as historical.</p>
-  <p>See the <a href="https://github.com/Diamonds10/nigeria-infrastructure-atlas/blob/main/docs/api/v1/README.md">full API notes</a> and <a href="https://github.com/Diamonds10/nigeria-infrastructure-atlas/blob/main/docs/data_sources.md">source register</a>.</p>
+  <p>See the <a href="https://github.com/Diamonds10/infraxis-atlas-nigeria/blob/main/docs/api/v1/README.md">full API notes</a> and <a href="https://github.com/Diamonds10/infraxis-atlas-nigeria/blob/main/docs/data_sources.md">source register</a>.</p>
 </main>
 </body>
 </html>

@@ -2,9 +2,12 @@
   "product": {
     "name": "Infraxis Atlas — Nigeria",
     "master_brand": "Infraxis Atlas",
+    "premium_brand": "Infraxis",
     "country": "Nigeria",
     "former_name": "Nigeria Infrastructure Atlas",
-    "tagline": "Mapping infrastructure. Measuring disruption."
+    "tagline": "Mapping infrastructure. Measuring disruption.",
+    "role": "open_datasource",
+    "relationship": "This open atlas is the public datasource and screening layer; Infraxis is the separate premium analytical layer built on top of it."
   },
   "atlas_release": {
     "version": "0.12.0",
@@ -25,7 +28,7 @@
       "category": "resource",
       "category_label": "Resource",
       "record_count": 33,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/01_resource/goget_fields_nigeria_2023-08.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/01_resource/goget_fields_nigeria_2023-08.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-21",
@@ -46,7 +49,7 @@
       "category": "resource",
       "category_label": "Resource",
       "record_count": 147,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/01_resource/goget_fields_nigeria_2023-08.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/01_resource/goget_fields_nigeria_2023-08.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-21",
@@ -67,7 +70,7 @@
       "category": "resource",
       "category_label": "Resource",
       "record_count": 62,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/01_resource/se4all_gas_fields_nigeria_2026-07.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/01_resource/se4all_gas_fields_nigeria_2026-07.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-24",
@@ -88,7 +91,7 @@
       "category": "resource",
       "category_label": "Resource",
       "record_count": 62,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/01_resource/se4all_gas_fields_nigeria_2026-07.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/01_resource/se4all_gas_fields_nigeria_2026-07.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-24",
@@ -109,7 +112,7 @@
       "category": "infrastructure",
       "category_label": "Infrastructure",
       "record_count": 24,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/ggit_gas_pipelines_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/02_infrastructure/ggit_gas_pipelines_nigeria.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-21",
@@ -130,7 +133,7 @@
       "category": "infrastructure",
       "category_label": "Infrastructure",
       "record_count": 15,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/goit_oil_ngl_pipelines_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/02_infrastructure/goit_oil_ngl_pipelines_nigeria.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-21",
@@ -151,7 +154,7 @@
       "category": "infrastructure",
       "category_label": "Infrastructure",
       "record_count": 24,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/ggit_lng_terminals_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/02_infrastructure/ggit_lng_terminals_nigeria.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-21",
@@ -172,7 +175,7 @@
       "category": "infrastructure",
       "category_label": "Infrastructure",
       "record_count": 193,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/gogpt_oil_gas_plants_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/02_infrastructure/gogpt_oil_gas_plants_nigeria.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-21",
@@ -193,7 +196,7 @@
       "category": "infrastructure",
       "category_label": "Infrastructure",
       "record_count": 7,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/ght_hydropower_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/02_infrastructure/ght_hydropower_nigeria.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-26",
@@ -214,7 +217,7 @@
       "category": "infrastructure",
       "category_label": "Infrastructure",
       "record_count": 4,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/refineries_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/02_infrastructure/refineries_nigeria.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-21",
@@ -235,7 +238,7 @@
       "category": "infrastructure",
       "category_label": "Infrastructure",
       "record_count": 98,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/02_infrastructure/se4all_gas_infrastructure_nigeria_2026-07.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/02_infrastructure/se4all_gas_infrastructure_nigeria_2026-07.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-24",
@@ -256,7 +259,7 @@
       "category": "environmental",
       "category_label": "Environmental",
       "record_count": 16326,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/03_environmental/nosdra_oil_spills_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/03_environmental/nosdra_oil_spills_nigeria.csv",
       "refresh": {
         "cadence": "monthly",
         "last_checked": "2026-07-25",
@@ -277,7 +280,7 @@
       "category": "environmental",
       "category_label": "Environmental",
       "record_count": 1005,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/03_environmental/wdpa_protected_areas_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/03_environmental/wdpa_protected_areas_nigeria.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-22",
@@ -300,14 +303,14 @@
       "category": "security",
       "category_label": "Security Context",
       "record_count": 227,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/06_security/ucdp_organized_violence_grid_nigeria_2016_2025.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/06_security/ucdp_organized_violence_grid_nigeria_2016_2025.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-25",
         "next_review_due": "2027-07-26",
         "review_status": "current"
       },
-      "state_year_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/06_security/ucdp_organized_violence_state_year_nigeria_1989_2025.csv"
+      "state_year_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/06_security/ucdp_organized_violence_state_year_nigeria_1989_2025.csv"
     },
     {
       "description": "Cross-category industrial demand centres covering cement, steel, fertiliser, and refining.",
@@ -322,7 +325,7 @@
       "category": "demand",
       "category_label": "Demand",
       "record_count": 28,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/04_demand/demand_centers_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/04_demand/demand_centers_nigeria.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-21",
@@ -343,7 +346,7 @@
       "category": "connectivity",
       "category_label": "Connectivity",
       "record_count": 5124,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/05_connectivity/osm_roads_major_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/05_connectivity/osm_roads_major_nigeria.csv",
       "refresh": {
         "cadence": "quarterly",
         "last_checked": "2026-07-23",
@@ -364,7 +367,7 @@
       "category": "connectivity",
       "category_label": "Connectivity",
       "record_count": 1381,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/05_connectivity/osm_railways_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/05_connectivity/osm_railways_nigeria.csv",
       "refresh": {
         "cadence": "quarterly",
         "last_checked": "2026-07-23",
@@ -385,7 +388,7 @@
       "category": "connectivity",
       "category_label": "Connectivity",
       "record_count": 141,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/05_connectivity/osm_railways_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/05_connectivity/osm_railways_nigeria.csv",
       "refresh": {
         "cadence": "quarterly",
         "last_checked": "2026-07-23",
@@ -406,7 +409,7 @@
       "category": "connectivity",
       "category_label": "Connectivity",
       "record_count": 931,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/05_connectivity/osm_power_grid_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/05_connectivity/osm_power_grid_nigeria.csv",
       "refresh": {
         "cadence": "quarterly",
         "last_checked": "2026-07-23",
@@ -427,7 +430,7 @@
       "category": "connectivity",
       "category_label": "Connectivity",
       "record_count": 390,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/05_connectivity/osm_power_grid_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/05_connectivity/osm_power_grid_nigeria.csv",
       "refresh": {
         "cadence": "quarterly",
         "last_checked": "2026-07-23",
@@ -448,7 +451,7 @@
       "category": "connectivity",
       "category_label": "Connectivity",
       "record_count": 25,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/05_connectivity/world_port_index_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/05_connectivity/world_port_index_nigeria.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-23",
@@ -471,15 +474,15 @@
       "category": "renewables",
       "category_label": "Distributed Energy",
       "record_count": 81,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
       "refresh": {
         "cadence": "quarterly",
         "last_checked": "2026-07-25",
         "next_review_due": "2026-10-25",
         "review_status": "current"
       },
-      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
-      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
+      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
     },
     {
       "description": "Captive and institutional off-grid systems serving a defined campus, hospital, department, or facility.",
@@ -496,15 +499,15 @@
       "category": "renewables",
       "category_label": "Distributed Energy",
       "record_count": 10,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
       "refresh": {
         "cadence": "quarterly",
         "last_checked": "2026-07-25",
         "next_review_due": "2026-10-25",
         "review_status": "current"
       },
-      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
-      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
+      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
     },
     {
       "description": "Mini-grids designed to operate with, or interconnect to, an existing distribution network.",
@@ -521,15 +524,15 @@
       "category": "renewables",
       "category_label": "Distributed Energy",
       "record_count": 2,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
       "refresh": {
         "cadence": "quarterly",
         "last_checked": "2026-07-25",
         "next_review_due": "2026-10-25",
         "review_status": "current"
       },
-      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
-      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
+      "coverage_audit_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+      "supplement_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/curated/07_renewables/verified_public_offgrid_supplement.csv"
     },
     {
       "description": "Quarter-degree settlement-population grid with night-light and grid-distance screening signals.",
@@ -545,7 +548,7 @@
       "category": "context",
       "category_label": "People & Access",
       "record_count": 1278,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/08_context/population_access_grid_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/08_context/population_access_grid_nigeria.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-24",
@@ -567,7 +570,7 @@
       "category": "context",
       "category_label": "People & Access",
       "record_count": 1480,
-      "download_url": "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main/data/processed/08_context/major_settlements_nigeria.csv",
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main/data/processed/08_context/major_settlements_nigeria.csv",
       "refresh": {
         "cadence": "annual_or_source_release",
         "last_checked": "2026-07-24",

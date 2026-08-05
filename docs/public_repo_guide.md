@@ -1,6 +1,10 @@
 # Infraxis Atlas — Nigeria public repository guide
 
-This repository is designed to help four audiences use the same evidence base in different ways:
+This repository is the **open atlas** / public datasource for Nigeria.
+**Infraxis** premium products are a separate commercial layer and are not
+published here. See `docs/product_identity.md`.
+
+This open atlas is designed to help four audiences use the same evidence base in different ways:
 
 - Investors: screening infrastructure exposure, demand centres, and market adjacency.
 - Academics: reproducible geospatial analysis across resources, infrastructure,

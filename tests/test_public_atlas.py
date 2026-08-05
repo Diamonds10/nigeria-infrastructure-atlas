@@ -388,17 +388,26 @@ class PublicAtlasTests(unittest.TestCase):
             {
                 "name": "Infraxis Atlas — Nigeria",
                 "master_brand": "Infraxis Atlas",
+                "premium_brand": "Infraxis",
                 "country": "Nigeria",
                 "former_name": "Nigeria Infrastructure Atlas",
                 "tagline": "Mapping infrastructure. Measuring disruption.",
+                "role": "open_datasource",
+                "relationship": (
+                    "This open atlas is the public datasource and screening layer; "
+                    "Infraxis is the separate premium analytical layer built on top of it."
+                ),
             },
         )
         self.assertIn("<title>Infraxis Atlas — Nigeria</title>", html_source)
         self.assertIn('<span class="mark">Infraxis Atlas</span>', html_source)
+        self.assertIn("Open atlas · Infraxis premium is separate", html_source)
         self.assertIn("infraxis-atlas-nigeria-", app_source)
         self.assertIn("Infraxis Atlas — Nigeria state report", app_source)
         self.assertNotIn("nigeria-infrastructure-atlas-\" + slug", app_source)
-        self.assertTrue((ROOT / "docs" / "product_identity.md").exists())
+        identity = (ROOT / "docs" / "product_identity.md").read_text(encoding="utf-8")
+        self.assertIn("The atlas is the open datasource. Infraxis is the premium layer.", identity)
+        self.assertIn('role: "open_datasource"', identity)
 
     def test_benchmark_matches_processed_assets(self):
         benchmark = json.loads(
@@ -599,6 +608,8 @@ class PublicAtlasTests(unittest.TestCase):
         )
         self.assertEqual(manifest["product"]["name"], "Infraxis Atlas — Nigeria")
         self.assertEqual(manifest["product"]["master_brand"], "Infraxis Atlas")
+        self.assertEqual(manifest["product"]["premium_brand"], "Infraxis")
+        self.assertEqual(manifest["product"]["role"], "open_datasource")
         self.assertEqual(manifest["product"]["country"], "Nigeria")
         self.assertEqual(len(manifest["layers"]), 27)
         self.assertEqual(manifest["endpoints"]["freshness"], "freshness.json")

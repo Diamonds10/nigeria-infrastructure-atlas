@@ -64,7 +64,7 @@ status only after review, and record the required attribution or restriction in
 3. Add final creator identities and ORCIDs to `CITATION.cff`.
 4. Add Zenodo metadata describing the mixed licences; do not apply the
    repository's CC0 dedication to third-party files.
-5. Connect `Diamonds10/nigeria-infrastructure-atlas` in Zenodo's GitHub
+5. Connect `Diamonds10/infraxis-atlas-nigeria` in Zenodo's GitHub
    integration.
 6. Create a signed semantic-version GitHub release only after the integration
    is enabled. Zenodo will archive the release.

@@ -2,14 +2,22 @@
 
 Base URL:
 
-`https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/`
+`https://diamonds10.github.io/infraxis-atlas-nigeria/api/v1/`
 
-This is a versioned, read-only static API served by GitHub Pages. It needs no
-API key and supports normal HTTP caching. Start with `manifest.json`.
+This is the versioned, read-only **open atlas** API: public datasource
+endpoints for the Nigeria country edition. It needs no API key and supports
+normal HTTP caching. Start with `manifest.json`.
 
-The base URL is retained from the product's former Nigeria Infrastructure
-Atlas name for backward compatibility. Product identity is published in the
-top-level `product` object of the manifest and generated resources.
+It does **not** expose premium Infraxis models or client products. The
+manifest `product` object states that explicitly:
+
+- `role`: `open_datasource`
+- `premium_brand`: `Infraxis`
+- `relationship`: open atlas is the public datasource; Infraxis is the
+  separate premium layer built on top
+
+The base URL path may retain former Nigeria Infrastructure Atlas naming for
+compatibility; product identity is authoritative in the `product` object.
 
 ## Endpoints
 

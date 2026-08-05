@@ -30,13 +30,19 @@ PUBLIC_COORDINATE_PRECISION = 5
 PUBLIC_PROPERTY_PRECISION = 6
 ATLAS_PRODUCT_NAME = "Infraxis Atlas — Nigeria"
 ATLAS_MASTER_BRAND = "Infraxis Atlas"
+ATLAS_PREMIUM_BRAND = "Infraxis"
 ATLAS_COUNTRY = "Nigeria"
 ATLAS_FORMER_NAME = "Nigeria Infrastructure Atlas"
 ATLAS_TAGLINE = "Mapping infrastructure. Measuring disruption."
+ATLAS_PRODUCT_ROLE = "open_datasource"
+ATLAS_PRODUCT_RELATIONSHIP = (
+    "This open atlas is the public datasource and screening layer; "
+    "Infraxis is the separate premium analytical layer built on top of it."
+)
 ATLAS_RELEASE_VERSION = "0.12.0"
 ATLAS_RELEASE_DATE = "2026-08-05"
 ATLAS_RELEASE_TITLE = "Infraxis Atlas Rebrand and Pan-African Foundation"
-REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main"
+REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main"
 DISTRIBUTED_ENERGY_SUBLAYERS = {
     "community_minigrids",
     "captive_offgrid_systems",
@@ -935,9 +941,12 @@ def add_catalogue_and_state_profiles(
     bundle["product"] = {
         "name": ATLAS_PRODUCT_NAME,
         "master_brand": ATLAS_MASTER_BRAND,
+        "premium_brand": ATLAS_PREMIUM_BRAND,
         "country": ATLAS_COUNTRY,
         "former_name": ATLAS_FORMER_NAME,
         "tagline": ATLAS_TAGLINE,
+        "role": ATLAS_PRODUCT_ROLE,
+        "relationship": ATLAS_PRODUCT_RELATIONSHIP,
     }
     bundle["release"] = {
         "version": ATLAS_RELEASE_VERSION,
@@ -1091,7 +1100,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
     )
     schema = {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
-        "$id": "https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/schema.json",
+        "$id": "https://diamonds10.github.io/infraxis-atlas-nigeria/api/v1/schema.json",
         "title": "Infraxis Atlas — Nigeria public GeoJSON feature",
         "type": "object",
         "required": ["type", "properties", "geometry"],
@@ -1170,7 +1179,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
         "product": bundle["product"],
         "api_version": "v1",
         "atlas_release": bundle["release"],
-        "base_url": "https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/",
+        "base_url": "https://diamonds10.github.io/infraxis-atlas-nigeria/api/v1/",
         "formats": ["GeoJSON", "JSON"],
         "filter_fields": {
             "_states": "ADM1 names intersected by the public display geometry",

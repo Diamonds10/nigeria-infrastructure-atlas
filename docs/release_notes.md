@@ -4,7 +4,7 @@
 
 Released: 5 August 2026
 
-- adopted **Infraxis Atlas** as the continental master brand and **Infraxis
+- adopted **Infraxis Atlas** as the continental open-atlas brand and **Infraxis
   Atlas — Nigeria** as its first country edition
 - introduced the tagline *Mapping infrastructure. Measuring disruption.* and
   retained Nigeria Infrastructure Atlas as a transition-only former name
@@ -20,6 +20,17 @@ Released: 5 August 2026
   financial-loss products
 - retained the public data contract of 29,098 mapped records, 26
   content-bearing catalogue datasets, and 27 stable layer endpoints
+
+### Clarification — open atlas vs premium Infraxis
+
+- stated the stack in plain language: this repository is the **open atlas /
+  public datasource**; **Infraxis** is the separate **premium layer**
+- extended the published `product` object with `premium_brand`, `role`
+  (`open_datasource`), and `relationship` so API consumers can distinguish the
+  layers without reading prose docs
+- tightened README, site chrome, API docs, and `docs/product_identity.md` so
+  the open-versus-premium boundary is unmistakable without renaming the open
+  country edition
 
 ## v0.11.1 — Interface and Release Hardening
 

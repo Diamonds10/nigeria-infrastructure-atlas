@@ -1,11 +1,11 @@
 cff-version: 1.2.0
-message: "If you use Infraxis Atlas — Nigeria, cite the repository and the original datasets listed in docs/data_sources.md."
+message: "If you use the open Infraxis Atlas — Nigeria datasource, cite the repository and the original datasets listed in docs/data_sources.md. This citation covers the open atlas only, not premium Infraxis products."
 title: "Infraxis Atlas — Nigeria"
 type: dataset
 authors:
   - name: "Infraxis Atlas contributors"
-repository-code: "https://github.com/Diamonds10/nigeria-infrastructure-atlas"
-url: "https://diamonds10.github.io/nigeria-infrastructure-atlas/"
+repository-code: "https://github.com/Diamonds10/infraxis-atlas-nigeria"
+url: "https://diamonds10.github.io/infraxis-atlas-nigeria/"
 license: CC0-1.0
 version: 0.12.0
 date-released: 2026-08-05
