@@ -3,7 +3,7 @@
 
   var loadingEl = document.getElementById("loading");
 
-  fetch("./assets/atlas_data.json?v=0.12.0")
+  fetch("./assets/atlas_data.json?v=0.12.1")
     .then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
@@ -17,6 +17,19 @@
 
   function runApp(ATLAS) {
   if (loadingEl) loadingEl.remove();
+
+  function featureCount(sub) {
+    if (sub && sub.deferred && typeof sub.deferred.feature_count === "number") {
+      return sub.deferred.feature_count;
+    }
+    return (sub && sub.data && sub.data.features) ? sub.data.features.length : 0;
+  }
+
+  function deferredCacheUrl(sub) {
+    if (!sub || !sub.deferred || !sub.deferred.url) return "";
+    var version = (ATLAS.release && ATLAS.release.version) || "0";
+    return sub.deferred.url + (sub.deferred.url.indexOf("?") === -1 ? "?v=" : "&v=") + encodeURIComponent(version);
+  }
 
   var root = document.documentElement;
   function cssVar(name) {
@@ -546,20 +559,77 @@
     return { layer: layer, children: children };
   }
 
+  function ensureSublayerLoaded(subKey) {
+    var entry = registry[subKey];
+    if (!entry) return Promise.resolve(null);
+    var sub = ATLAS.layers[entry.catKey].sublayers[subKey];
+    if (!sub.deferred || sub.deferred.loaded) return Promise.resolve(entry);
+    if (sub.deferred.loading) return sub.deferred.loading;
+    var countEl = document.querySelector('[data-sub-count="' + subKey + '"]');
+    if (countEl) countEl.textContent = "loading…";
+    sub.deferred.loading = fetch(deferredCacheUrl(sub))
+      .then(function (response) {
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        return response.json();
+      })
+      .then(function (collection) {
+        var wasOnMap = map.hasLayer(entry.leafletLayer);
+        if (wasOnMap) map.removeLayer(entry.leafletLayer);
+        allFeaturesIndex = allFeaturesIndex.filter(function (item) {
+          return item.subKey !== subKey;
+        });
+        sub.data = {
+          type: "FeatureCollection",
+          features: (collection && collection.features) || []
+        };
+        var built = buildSublayer(entry.catKey, subKey, sub);
+        registry[subKey] = {
+          leafletLayer: built.layer,
+          children: built.children,
+          catKey: entry.catKey,
+          geomType: sub.geomType,
+          label: sub.label,
+          count: featureCount(sub)
+        };
+        sub.deferred.loaded = true;
+        sub.deferred.loading = null;
+        if (typeof applyFilters === "function") applyFilters(false);
+        else updateVisibleStat();
+        if (wasOnMap) registry[subKey].leafletLayer.addTo(map);
+        updateVisibleStat();
+        return registry[subKey];
+      })
+      .catch(function (err) {
+        sub.deferred.loading = null;
+        if (countEl) countEl.textContent = featureCount(sub).toLocaleString();
+        throw err;
+      });
+    return sub.deferred.loading;
+  }
+
   var totalFeatures = 0;
   CAT_ORDER.forEach(function (catKey) {
     var cat = ATLAS.layers[catKey];
     if (!cat) return;
     Object.keys(cat.sublayers).forEach(function (subKey) {
       var sub = cat.sublayers[subKey];
-      var count = sub.data.features.length;
+      var count = featureCount(sub);
       totalFeatures += count;
       var built = buildSublayer(catKey, subKey, sub);
       registry[subKey] = {
         leafletLayer: built.layer, children: built.children,
         catKey: catKey, geomType: sub.geomType, label: sub.label, count: count
       };
-      if (DEFAULT_ON[subKey]) built.layer.addTo(map);
+      if (DEFAULT_ON[subKey]) {
+        if (sub.deferred) {
+          ensureSublayerLoaded(subKey).then(function (loaded) {
+            if (loaded) loaded.leafletLayer.addTo(map);
+            updateVisibleStat();
+          });
+        } else {
+          built.layer.addTo(map);
+        }
+      }
     });
   });
   document.getElementById("stat-total").textContent = totalFeatures.toLocaleString();
@@ -618,7 +688,7 @@
     var group = document.createElement("div");
     group.className = "category-group";
     var subKeys = Object.keys(cat.sublayers);
-    var catCount = subKeys.reduce(function (s, k) { return s + cat.sublayers[k].data.features.length; }, 0);
+    var catCount = subKeys.reduce(function (s, k) { return s + featureCount(cat.sublayers[k]); }, 0);
 
     var head = document.createElement("div");
     head.className = "category-head";
@@ -649,12 +719,25 @@
         '<input type="checkbox" ' + (DEFAULT_ON[subKey] ? "checked" : "") + ' data-sub="' + subKey + '"/>' +
         '<span class="glyph">' + glyphHtml + '</span>' +
         '<span class="sname">' + sub.label + caveatHtml + '</span>' +
-        '<span class="scount" data-sub-count="' + subKey + '">' + sub.data.features.length.toLocaleString() + '</span>';
+        '<span class="scount" data-sub-count="' + subKey + '">' + featureCount(sub).toLocaleString() + '</span>';
       subWrap.appendChild(row);
       row.querySelector("input").addEventListener("change", function (e) {
         var entry = registry[subKey];
-        if (e.target.checked) { entry.leafletLayer.addTo(map); } else { map.removeLayer(entry.leafletLayer); }
-        updateVisibleStat();
+        if (e.target.checked) {
+          ensureSublayerLoaded(subKey).then(function (loaded) {
+            if (!loaded) return;
+            if (!e.target.checked) return;
+            loaded.leafletLayer.addTo(map);
+            if (typeof applyFilters === "function") applyFilters(false);
+            updateVisibleStat();
+          }).catch(function (err) {
+            e.target.checked = false;
+            window.alert("Could not load layer: " + err.message);
+          });
+        } else {
+          map.removeLayer(entry.leafletLayer);
+          updateVisibleStat();
+        }
       });
     });
     group.appendChild(subWrap);
@@ -891,17 +974,30 @@
   }
 
   downloadStateButton.addEventListener("click", function () {
-    var data = JSON.stringify(selectedGeoJSON());
-    var blob = new Blob([data], { type: "application/geo+json" });
-    var href = URL.createObjectURL(blob);
-    var anchor = document.createElement("a");
-    var slug = (selectedState || "nigeria").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-    anchor.href = href;
-    anchor.download = "infraxis-atlas-nigeria-" + slug + "-v" + ATLAS.release.version + ".geojson";
-    document.body.appendChild(anchor);
-    anchor.click();
-    anchor.remove();
-    URL.revokeObjectURL(href);
+    var previousLabel = downloadStateButton.textContent;
+    downloadStateButton.disabled = true;
+    downloadStateButton.textContent = "Preparing…";
+    Promise.all(Object.keys(registry).map(ensureSublayerLoaded)).then(function () {
+      var data = JSON.stringify(selectedGeoJSON());
+      var blob = new Blob([data], { type: "application/geo+json" });
+      var href = URL.createObjectURL(blob);
+      var anchor = document.createElement("a");
+      var slug = (selectedState || "nigeria").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      anchor.href = href;
+      anchor.download = "infraxis-atlas-nigeria-" + slug + "-v" + ATLAS.release.version + ".geojson";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      URL.revokeObjectURL(href);
+    }).catch(function (err) {
+      window.alert("Could not prepare GeoJSON: " + err.message);
+    }).then(function () {
+      downloadStateButton.disabled = false;
+      updateDownloadLabel();
+      if (downloadStateButton.textContent === "Preparing…") {
+        downloadStateButton.textContent = previousLabel;
+      }
+    });
   });
 
   function reportRows(values) {

@@ -10,11 +10,11 @@
     "relationship": "This open atlas is the public datasource and screening layer; Infraxis is the separate premium analytical layer built on top of it."
   },
   "atlas_release": {
-    "version": "0.12.0",
+    "version": "0.12.1",
     "date": "2026-08-05",
-    "title": "Infraxis Atlas Rebrand and Pan-African Foundation"
+    "title": "Ports State Join, Deferred Bundle, UI Polish"
   },
-  "method": "Public-map records whose display geometry intersects each ADM1 boundary.",
+  "method": "Public-map records whose display geometry covers or intersects each ADM1 boundary; orphan coastal/offshore points use nearest-state assignment within 75 km.",
   "profiles": {
     "Nigeria": {
       "name": "Nigeria",
@@ -180,7 +180,7 @@
     },
     "Cross River": {
       "name": "Cross River",
-      "mapped_records": 294,
+      "mapped_records": 302,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -193,7 +193,7 @@
         "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 1,
-        "oil_spills": 3,
+        "oil_spills": 8,
         "protected_areas": 22,
         "conflict_exposure": 5,
         "demand_centers": 1,
@@ -207,18 +207,18 @@
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 28,
+        "population_access": 31,
         "settlements": 40
       },
       "category_counts": {
         "resource": 0,
         "infrastructure": 17,
-        "environmental": 25,
+        "environmental": 30,
         "security": 5,
         "demand": 1,
         "connectivity": 176,
         "renewables": 2,
-        "context": 68
+        "context": 71
       },
       "capacity": {
         "power_mw": 1383.0,
@@ -226,22 +226,28 @@
         "minigrid_kw": 68.0
       },
       "oil_spill_intelligence": {
-        "mapped_reports": 3,
-        "confirmed_reports": 3,
+        "mapped_reports": 8,
+        "confirmed_reports": 8,
         "invalid_reports": 0,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.03,
+        "estimated_quantity_reported": 0.17,
         "report_status_counts": {
-          "Confirmed": 3
+          "Confirmed": 8
         },
         "cause_counts": {
-          "Corrosion": 1,
-          "Equipment failure": 1
+          "Corrosion": 2,
+          "Equipment failure": 2,
+          "Operational/maintenance error": 2,
+          "Yet to be determined": 1
         },
         "yearly_counts": {
+          "2014": 1,
+          "2016": 1,
+          "2018": 1,
           "2019": 1,
+          "2022": 1,
           "2023": 1,
-          "2025": 1
+          "2025": 2
         }
       },
       "security_intelligence": {
@@ -267,8 +273,8 @@
         "development": 0,
         "proposed": 6,
         "inactive": 4,
-        "other": 25,
-        "unknown": 250
+        "other": 30,
+        "unknown": 253
       },
       "people_access": {
         "worldpop_population_2025": 2566393.397,
@@ -444,7 +450,7 @@
     },
     "Ogun": {
       "name": "Ogun",
-      "mapped_records": 593,
+      "mapped_records": 598,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -459,7 +465,7 @@
         "gas_infrastructure": 1,
         "oil_spills": 18,
         "protected_areas": 21,
-        "conflict_exposure": 6,
+        "conflict_exposure": 7,
         "demand_centers": 6,
         "roads": 266,
         "railways": 112,
@@ -471,18 +477,18 @@
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 1,
-        "population_access": 23,
+        "population_access": 27,
         "settlements": 39
       },
       "category_counts": {
         "resource": 0,
         "infrastructure": 9,
         "environmental": 39,
-        "security": 6,
+        "security": 7,
         "demand": 6,
         "connectivity": 467,
         "renewables": 4,
-        "context": 62
+        "context": 66
       },
       "capacity": {
         "power_mw": 1154.0,
@@ -545,7 +551,7 @@
         "proposed": 1,
         "inactive": 2,
         "other": 40,
-        "unknown": 535
+        "unknown": 540
       },
       "people_access": {
         "worldpop_population_2025": 12934343.05,
@@ -586,7 +592,7 @@
     },
     "Oyo": {
       "name": "Oyo",
-      "mapped_records": 549,
+      "mapped_records": 552,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 1,
@@ -613,7 +619,7 @@
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 33,
+        "population_access": 36,
         "settlements": 41
       },
       "category_counts": {
@@ -624,7 +630,7 @@
         "demand": 0,
         "connectivity": 436,
         "renewables": 4,
-        "context": 74
+        "context": 77
       },
       "capacity": {
         "power_mw": 0.0,
@@ -669,7 +675,7 @@
         "proposed": 2,
         "inactive": 0,
         "other": 25,
-        "unknown": 516
+        "unknown": 519
       },
       "people_access": {
         "worldpop_population_2025": 8988216.774,
@@ -710,7 +716,7 @@
     },
     "Sokoto": {
       "name": "Sokoto",
-      "mapped_records": 287,
+      "mapped_records": 294,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -725,7 +731,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 36,
-        "conflict_exposure": 5,
+        "conflict_exposure": 8,
         "demand_centers": 1,
         "roads": 107,
         "railways": 0,
@@ -737,18 +743,18 @@
         "captive_offgrid_systems": 1,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 44,
+        "population_access": 48,
         "settlements": 39
       },
       "category_counts": {
         "resource": 0,
         "infrastructure": 0,
         "environmental": 36,
-        "security": 5,
+        "security": 8,
         "demand": 1,
         "connectivity": 158,
         "renewables": 4,
-        "context": 83
+        "context": 87
       },
       "capacity": {
         "power_mw": 0.0,
@@ -789,7 +795,7 @@
         "proposed": 0,
         "inactive": 0,
         "other": 36,
-        "unknown": 246
+        "unknown": 253
       },
       "people_access": {
         "worldpop_population_2025": 4373777.932,
@@ -830,7 +836,7 @@
     },
     "Zamfara": {
       "name": "Zamfara",
-      "mapped_records": 300,
+      "mapped_records": 301,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -857,7 +863,7 @@
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 42,
+        "population_access": 43,
         "settlements": 41
       },
       "category_counts": {
@@ -868,7 +874,7 @@
         "demand": 0,
         "connectivity": 171,
         "renewables": 0,
-        "context": 83
+        "context": 84
       },
       "capacity": {
         "power_mw": 0.0,
@@ -925,7 +931,7 @@
         "proposed": 1,
         "inactive": 0,
         "other": 38,
-        "unknown": 261
+        "unknown": 262
       },
       "people_access": {
         "worldpop_population_2025": 3564209.261,
@@ -966,9 +972,9 @@
     },
     "Lagos": {
       "name": "Lagos",
-      "mapped_records": 885,
+      "mapped_records": 907,
       "counts": {
-        "fields_oil": 0,
+        "fields_oil": 1,
         "fields_gas": 0,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
@@ -979,32 +985,32 @@
         "hydro_plants": 0,
         "refineries": 1,
         "gas_infrastructure": 2,
-        "oil_spills": 47,
+        "oil_spills": 55,
         "protected_areas": 2,
-        "conflict_exposure": 0,
+        "conflict_exposure": 3,
         "demand_centers": 2,
         "roads": 478,
         "railways": 111,
         "rail_stations": 13,
         "power_grid": 109,
         "substations": 42,
-        "ports": 0,
+        "ports": 2,
         "community_minigrids": 0,
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 1,
-        "population_access": 3,
-        "settlements": 40
+        "population_access": 10,
+        "settlements": 41
       },
       "category_counts": {
-        "resource": 0,
+        "resource": 1,
         "infrastructure": 37,
-        "environmental": 49,
-        "security": 0,
+        "environmental": 57,
+        "security": 3,
         "demand": 2,
-        "connectivity": 753,
+        "connectivity": 755,
         "renewables": 1,
-        "context": 43
+        "context": 51
       },
       "capacity": {
         "power_mw": 7560.0,
@@ -1012,37 +1018,38 @@
         "minigrid_kw": 505.0
       },
       "oil_spill_intelligence": {
-        "mapped_reports": 47,
-        "confirmed_reports": 42,
+        "mapped_reports": 55,
+        "confirmed_reports": 50,
         "invalid_reports": 5,
-        "sabotage_attributed_reports": 15,
-        "estimated_quantity_reported": 2884.82,
+        "sabotage_attributed_reports": 19,
+        "estimated_quantity_reported": 2890.82,
         "report_status_counts": {
-          "Confirmed": 42,
+          "Confirmed": 50,
           "Invalid (mistakenly reported)": 5
         },
         "cause_counts": {
           "Corrosion": 7,
-          "Equipment failure": 6,
-          "Operational/maintenance error": 8,
+          "Equipment failure": 7,
+          "Operational/maintenance error": 9,
           "Other": 5,
-          "Sabotage/theft": 15,
+          "Sabotage/theft": 19,
           "Yet to be determined": 5
         },
         "yearly_counts": {
           "2010": 1,
-          "2013": 5,
-          "2014": 11,
-          "2015": 4,
+          "2011": 1,
+          "2013": 7,
+          "2014": 12,
+          "2015": 5,
           "2016": 2,
           "2017": 1,
           "2018": 1,
           "2019": 4,
-          "2020": 5,
+          "2020": 6,
           "2022": 1,
           "2023": 5,
           "2024": 3,
-          "2026": 1
+          "2026": 2
         }
       },
       "security_intelligence": {
@@ -1069,11 +1076,11 @@
       },
       "status": {
         "operating": 14,
-        "development": 1,
+        "development": 2,
         "proposed": 22,
         "inactive": 2,
-        "other": 49,
-        "unknown": 797
+        "other": 57,
+        "unknown": 810
       },
       "people_access": {
         "worldpop_population_2025": 12582855.93,
@@ -1114,10 +1121,10 @@
     },
     "Akwa Ibom": {
       "name": "Akwa Ibom",
-      "mapped_records": 320,
+      "mapped_records": 941,
       "counts": {
-        "fields_oil": 0,
-        "fields_gas": 0,
+        "fields_oil": 4,
+        "fields_gas": 18,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 4,
@@ -1126,8 +1133,8 @@
         "power_plants": 16,
         "hydro_plants": 0,
         "refineries": 0,
-        "gas_infrastructure": 2,
-        "oil_spills": 55,
+        "gas_infrastructure": 6,
+        "oil_spills": 647,
         "protected_areas": 5,
         "conflict_exposure": 3,
         "demand_centers": 0,
@@ -1136,23 +1143,23 @@
         "rail_stations": 0,
         "power_grid": 24,
         "substations": 12,
-        "ports": 0,
+        "ports": 2,
         "community_minigrids": 1,
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 9,
+        "population_access": 10,
         "settlements": 40
       },
       "category_counts": {
-        "resource": 0,
-        "infrastructure": 25,
-        "environmental": 60,
+        "resource": 22,
+        "infrastructure": 29,
+        "environmental": 652,
         "security": 3,
         "demand": 0,
-        "connectivity": 182,
+        "connectivity": 184,
         "renewables": 1,
-        "context": 49
+        "context": 50
       },
       "capacity": {
         "power_mw": 2379.0,
@@ -1160,41 +1167,45 @@
         "minigrid_kw": 80.0
       },
       "oil_spill_intelligence": {
-        "mapped_reports": 55,
-        "confirmed_reports": 53,
-        "invalid_reports": 1,
-        "sabotage_attributed_reports": 11,
-        "estimated_quantity_reported": 34081.1,
+        "mapped_reports": 647,
+        "confirmed_reports": 636,
+        "invalid_reports": 6,
+        "sabotage_attributed_reports": 15,
+        "estimated_quantity_reported": 35794.8,
         "report_status_counts": {
-          "Confirmed": 53,
+          "Confirmed": 636,
           "Inconclusive": 1,
-          "Invalid (mistakenly reported)": 1
+          "Invalid (mistakenly reported)": 6,
+          "Reviewed (awaiting confirmation)": 4
         },
         "cause_counts": {
-          "Corrosion": 4,
-          "Equipment failure": 23,
-          "Operational/maintenance error": 7,
-          "Other": 3,
-          "Sabotage/theft": 11,
-          "Yet to be determined": 5
+          "Corrosion": 91,
+          "Equipment failure": 251,
+          "Operational/maintenance error": 32,
+          "Other": 150,
+          "Sabotage/theft": 15,
+          "Yet to be determined": 31
         },
         "yearly_counts": {
-          "2009": 1,
-          "2010": 2,
-          "2012": 2,
-          "2013": 3,
-          "2014": 2,
-          "2015": 2,
-          "2016": 1,
-          "2018": 1,
-          "2019": 2,
-          "2020": 2,
-          "2021": 1,
-          "2022": 2,
-          "2023": 10,
-          "2024": 13,
-          "2025": 8,
-          "2026": 2
+          "2008": 49,
+          "2009": 36,
+          "2010": 62,
+          "2011": 24,
+          "2012": 39,
+          "2013": 42,
+          "2014": 61,
+          "2015": 42,
+          "2016": 42,
+          "2017": 16,
+          "2018": 34,
+          "2019": 37,
+          "2020": 26,
+          "2021": 28,
+          "2022": 18,
+          "2023": 26,
+          "2024": 37,
+          "2025": 22,
+          "2026": 5
         }
       },
       "security_intelligence": {
@@ -1219,12 +1230,12 @@
         }
       },
       "status": {
-        "operating": 11,
+        "operating": 34,
         "development": 0,
         "proposed": 10,
         "inactive": 5,
-        "other": 59,
-        "unknown": 235
+        "other": 651,
+        "unknown": 241
       },
       "people_access": {
         "worldpop_population_2025": 4281013.948,
@@ -1265,45 +1276,45 @@
     },
     "Bayelsa": {
       "name": "Bayelsa",
-      "mapped_records": 4870,
+      "mapped_records": 4936,
       "counts": {
-        "fields_oil": 1,
-        "fields_gas": 14,
+        "fields_oil": 2,
+        "fields_gas": 20,
         "field_polygons_gas": 14,
         "field_polygons_mixed": 6,
         "gas_pipelines": 1,
         "oil_pipelines": 6,
-        "lng_terminals": 0,
+        "lng_terminals": 3,
         "power_plants": 7,
         "hydro_plants": 0,
         "refineries": 0,
-        "gas_infrastructure": 10,
-        "oil_spills": 4734,
+        "gas_infrastructure": 13,
+        "oil_spills": 4778,
         "protected_areas": 14,
         "conflict_exposure": 1,
-        "demand_centers": 0,
+        "demand_centers": 1,
         "roads": 0,
         "railways": 0,
         "rail_stations": 0,
         "power_grid": 5,
         "substations": 2,
-        "ports": 0,
+        "ports": 3,
         "community_minigrids": 6,
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 12,
-        "settlements": 37
+        "population_access": 15,
+        "settlements": 39
       },
       "category_counts": {
-        "resource": 35,
-        "infrastructure": 24,
-        "environmental": 4748,
+        "resource": 42,
+        "infrastructure": 30,
+        "environmental": 4792,
         "security": 1,
-        "demand": 0,
-        "connectivity": 7,
+        "demand": 1,
+        "connectivity": 10,
         "renewables": 6,
-        "context": 49
+        "context": 54
       },
       "capacity": {
         "power_mw": 780.0,
@@ -1311,47 +1322,47 @@
         "minigrid_kw": 134.0
       },
       "oil_spill_intelligence": {
-        "mapped_reports": 4734,
-        "confirmed_reports": 4034,
-        "invalid_reports": 215,
-        "sabotage_attributed_reports": 4056,
-        "estimated_quantity_reported": 126272.98,
+        "mapped_reports": 4778,
+        "confirmed_reports": 4073,
+        "invalid_reports": 218,
+        "sabotage_attributed_reports": 4068,
+        "estimated_quantity_reported": 130845.94,
         "report_status_counts": {
-          "Confirmed": 4034,
+          "Confirmed": 4073,
           "Inconclusive": 1,
-          "Invalid (mistakenly reported)": 215,
-          "Reviewed (awaiting confirmation)": 484
+          "Invalid (mistakenly reported)": 218,
+          "Reviewed (awaiting confirmation)": 486
         },
         "cause_counts": {
-          "Corrosion": 108,
-          "Equipment failure": 254,
-          "Operational/maintenance error": 42,
-          "Other": 17,
-          "Sabotage/theft": 4056,
-          "Yet to be determined": 112
+          "Corrosion": 114,
+          "Equipment failure": 264,
+          "Operational/maintenance error": 49,
+          "Other": 23,
+          "Sabotage/theft": 4068,
+          "Yet to be determined": 114
         },
         "yearly_counts": {
           "2005": 1,
           "2006": 1,
-          "2008": 11,
-          "2009": 109,
-          "2010": 178,
-          "2011": 289,
-          "2012": 286,
-          "2013": 633,
-          "2014": 803,
-          "2015": 467,
-          "2016": 286,
-          "2017": 137,
-          "2018": 139,
-          "2019": 199,
-          "2020": 100,
+          "2008": 13,
+          "2009": 111,
+          "2010": 181,
+          "2011": 293,
+          "2012": 289,
+          "2013": 640,
+          "2014": 808,
+          "2015": 469,
+          "2016": 287,
+          "2017": 139,
+          "2018": 141,
+          "2019": 202,
+          "2020": 101,
           "2021": 122,
-          "2022": 199,
+          "2022": 200,
           "2023": 128,
-          "2024": 440,
-          "2025": 149,
-          "2026": 36
+          "2024": 441,
+          "2025": 151,
+          "2026": 38
         }
       },
       "security_intelligence": {
@@ -1374,12 +1385,12 @@
         }
       },
       "status": {
-        "operating": 27,
-        "development": 0,
-        "proposed": 7,
+        "operating": 32,
+        "development": 2,
+        "proposed": 11,
         "inactive": 0,
-        "other": 4757,
-        "unknown": 79
+        "other": 4802,
+        "unknown": 89
       },
       "people_access": {
         "worldpop_population_2025": 2523453.676,
@@ -1420,10 +1431,10 @@
     },
     "Ondo": {
       "name": "Ondo",
-      "mapped_records": 221,
+      "mapped_records": 233,
       "counts": {
         "fields_oil": 0,
-        "fields_gas": 2,
+        "fields_gas": 5,
         "field_polygons_gas": 0,
         "field_polygons_mixed": 0,
         "gas_pipelines": 3,
@@ -1432,8 +1443,8 @@
         "power_plants": 8,
         "hydro_plants": 0,
         "refineries": 0,
-        "gas_infrastructure": 0,
-        "oil_spills": 16,
+        "gas_infrastructure": 2,
+        "oil_spills": 20,
         "protected_areas": 27,
         "conflict_exposure": 5,
         "demand_centers": 0,
@@ -1447,18 +1458,18 @@
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 17,
-        "settlements": 39
+        "population_access": 19,
+        "settlements": 40
       },
       "category_counts": {
-        "resource": 2,
-        "infrastructure": 11,
-        "environmental": 43,
+        "resource": 5,
+        "infrastructure": 13,
+        "environmental": 47,
         "security": 5,
         "demand": 0,
         "connectivity": 95,
         "renewables": 9,
-        "context": 56
+        "context": 59
       },
       "capacity": {
         "power_mw": 1866.0,
@@ -1466,17 +1477,17 @@
         "minigrid_kw": 85.0
       },
       "oil_spill_intelligence": {
-        "mapped_reports": 16,
-        "confirmed_reports": 13,
+        "mapped_reports": 20,
+        "confirmed_reports": 17,
         "invalid_reports": 3,
         "sabotage_attributed_reports": 8,
-        "estimated_quantity_reported": 224.58,
+        "estimated_quantity_reported": 237.58,
         "report_status_counts": {
-          "Confirmed": 13,
+          "Confirmed": 17,
           "Invalid (mistakenly reported)": 3
         },
         "cause_counts": {
-          "Equipment failure": 1,
+          "Equipment failure": 4,
           "Operational/maintenance error": 1,
           "Other": 2,
           "Sabotage/theft": 8,
@@ -1486,9 +1497,11 @@
           "2012": 1,
           "2013": 1,
           "2014": 1,
-          "2017": 1,
+          "2015": 1,
+          "2017": 2,
           "2018": 1,
           "2019": 5,
+          "2020": 2,
           "2024": 3,
           "2025": 2
         }
@@ -1515,12 +1528,12 @@
         }
       },
       "status": {
-        "operating": 11,
+        "operating": 14,
         "development": 6,
         "proposed": 5,
         "inactive": 2,
-        "other": 41,
-        "unknown": 156
+        "other": 45,
+        "unknown": 161
       },
       "people_access": {
         "worldpop_population_2025": 5658396.028,
@@ -1561,10 +1574,10 @@
     },
     "Delta": {
       "name": "Delta",
-      "mapped_records": 2841,
+      "mapped_records": 2974,
       "counts": {
-        "fields_oil": 11,
-        "fields_gas": 23,
+        "fields_oil": 13,
+        "fields_gas": 30,
         "field_polygons_gas": 2,
         "field_polygons_mixed": 22,
         "gas_pipelines": 5,
@@ -1573,8 +1586,8 @@
         "power_plants": 47,
         "hydro_plants": 0,
         "refineries": 1,
-        "gas_infrastructure": 27,
-        "oil_spills": 2397,
+        "gas_infrastructure": 33,
+        "oil_spills": 2509,
         "protected_areas": 21,
         "conflict_exposure": 4,
         "demand_centers": 2,
@@ -1583,23 +1596,23 @@
         "rail_stations": 3,
         "power_grid": 34,
         "substations": 11,
-        "ports": 5,
+        "ports": 8,
         "community_minigrids": 0,
         "captive_offgrid_systems": 1,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 22,
+        "population_access": 25,
         "settlements": 41
       },
       "category_counts": {
-        "resource": 58,
-        "infrastructure": 86,
-        "environmental": 2418,
+        "resource": 67,
+        "infrastructure": 92,
+        "environmental": 2530,
         "security": 4,
         "demand": 2,
-        "connectivity": 209,
+        "connectivity": 212,
         "renewables": 1,
-        "context": 63
+        "context": 66
       },
       "capacity": {
         "power_mw": 6312.0,
@@ -1607,46 +1620,46 @@
         "minigrid_kw": 1100.0
       },
       "oil_spill_intelligence": {
-        "mapped_reports": 2397,
-        "confirmed_reports": 2362,
+        "mapped_reports": 2509,
+        "confirmed_reports": 2472,
         "invalid_reports": 8,
-        "sabotage_attributed_reports": 1587,
-        "estimated_quantity_reported": 159062.95,
+        "sabotage_attributed_reports": 1648,
+        "estimated_quantity_reported": 167550.51,
         "report_status_counts": {
-          "Confirmed": 2362,
-          "Inconclusive": 19,
+          "Confirmed": 2472,
+          "Inconclusive": 21,
           "Invalid (mistakenly reported)": 8,
           "Reviewed (awaiting confirmation)": 8
         },
         "cause_counts": {
-          "Corrosion": 298,
-          "Equipment failure": 306,
-          "Operational/maintenance error": 89,
-          "Other": 54,
-          "Sabotage/theft": 1587,
-          "Yet to be determined": 26
+          "Corrosion": 312,
+          "Equipment failure": 327,
+          "Operational/maintenance error": 96,
+          "Other": 60,
+          "Sabotage/theft": 1648,
+          "Yet to be determined": 28
         },
         "yearly_counts": {
           "2006": 29,
-          "2007": 90,
-          "2008": 84,
-          "2009": 49,
-          "2010": 48,
-          "2011": 87,
-          "2012": 99,
-          "2013": 138,
-          "2014": 136,
-          "2015": 115,
-          "2016": 123,
-          "2017": 90,
-          "2018": 124,
-          "2019": 144,
-          "2020": 108,
-          "2021": 123,
-          "2022": 214,
-          "2023": 232,
-          "2024": 182,
-          "2025": 92,
+          "2007": 94,
+          "2008": 86,
+          "2009": 53,
+          "2010": 50,
+          "2011": 90,
+          "2012": 101,
+          "2013": 151,
+          "2014": 142,
+          "2015": 122,
+          "2016": 130,
+          "2017": 94,
+          "2018": 131,
+          "2019": 146,
+          "2020": 112,
+          "2021": 130,
+          "2022": 237,
+          "2023": 240,
+          "2024": 186,
+          "2025": 93,
           "2026": 45
         }
       },
@@ -1672,12 +1685,12 @@
         }
       },
       "status": {
-        "operating": 67,
+        "operating": 77,
         "development": 3,
         "proposed": 20,
         "inactive": 24,
-        "other": 2421,
-        "unknown": 306
+        "other": 2534,
+        "unknown": 316
       },
       "people_access": {
         "worldpop_population_2025": 7712872.39,
@@ -1718,21 +1731,21 @@
     },
     "Rivers": {
       "name": "Rivers",
-      "mapped_records": 7149,
+      "mapped_records": 7314,
       "counts": {
-        "fields_oil": 3,
-        "fields_gas": 17,
+        "fields_oil": 6,
+        "fields_gas": 27,
         "field_polygons_gas": 2,
         "field_polygons_mixed": 20,
         "gas_pipelines": 9,
         "oil_pipelines": 3,
-        "lng_terminals": 15,
+        "lng_terminals": 16,
         "power_plants": 15,
         "hydro_plants": 0,
         "refineries": 1,
-        "gas_infrastructure": 18,
-        "oil_spills": 6796,
-        "protected_areas": 11,
+        "gas_infrastructure": 26,
+        "oil_spills": 6929,
+        "protected_areas": 12,
         "conflict_exposure": 3,
         "demand_centers": 4,
         "roads": 80,
@@ -1740,23 +1753,23 @@
         "rail_stations": 1,
         "power_grid": 31,
         "substations": 18,
-        "ports": 4,
+        "ports": 9,
         "community_minigrids": 5,
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 13,
+        "population_access": 17,
         "settlements": 41
       },
       "category_counts": {
-        "resource": 42,
-        "infrastructure": 61,
-        "environmental": 6807,
+        "resource": 55,
+        "infrastructure": 70,
+        "environmental": 6941,
         "security": 3,
         "demand": 4,
-        "connectivity": 173,
+        "connectivity": 178,
         "renewables": 5,
-        "context": 54
+        "context": 58
       },
       "capacity": {
         "power_mw": 2142.0,
@@ -1764,23 +1777,23 @@
         "minigrid_kw": 81.0
       },
       "oil_spill_intelligence": {
-        "mapped_reports": 6796,
-        "confirmed_reports": 5718,
-        "invalid_reports": 278,
-        "sabotage_attributed_reports": 5874,
-        "estimated_quantity_reported": 312787.28,
+        "mapped_reports": 6929,
+        "confirmed_reports": 5841,
+        "invalid_reports": 281,
+        "sabotage_attributed_reports": 5886,
+        "estimated_quantity_reported": 314548.52,
         "report_status_counts": {
-          "Confirmed": 5718,
-          "Invalid (mistakenly reported)": 278,
-          "Reviewed (awaiting confirmation)": 800
+          "Confirmed": 5841,
+          "Invalid (mistakenly reported)": 281,
+          "Reviewed (awaiting confirmation)": 807
         },
         "cause_counts": {
-          "Corrosion": 283,
-          "Equipment failure": 338,
-          "Operational/maintenance error": 66,
-          "Other": 65,
-          "Sabotage/theft": 5874,
-          "Yet to be determined": 58
+          "Corrosion": 302,
+          "Equipment failure": 388,
+          "Operational/maintenance error": 76,
+          "Other": 91,
+          "Sabotage/theft": 5886,
+          "Yet to be determined": 64
         },
         "yearly_counts": {
           "1994": 1,
@@ -1788,24 +1801,24 @@
           "2005": 2,
           "2007": 20,
           "2008": 39,
-          "2009": 110,
-          "2010": 250,
-          "2011": 311,
-          "2012": 385,
-          "2013": 507,
-          "2014": 469,
-          "2015": 330,
-          "2016": 226,
-          "2017": 342,
-          "2018": 411,
-          "2019": 432,
-          "2020": 278,
-          "2021": 327,
-          "2022": 590,
-          "2023": 989,
-          "2024": 481,
-          "2025": 196,
-          "2026": 49
+          "2009": 112,
+          "2010": 265,
+          "2011": 320,
+          "2012": 395,
+          "2013": 517,
+          "2014": 481,
+          "2015": 341,
+          "2016": 229,
+          "2017": 346,
+          "2018": 428,
+          "2019": 444,
+          "2020": 283,
+          "2021": 331,
+          "2022": 593,
+          "2023": 993,
+          "2024": 486,
+          "2025": 199,
+          "2026": 52
         }
       },
       "security_intelligence": {
@@ -1831,12 +1844,12 @@
         }
       },
       "status": {
-        "operating": 67,
-        "development": 3,
-        "proposed": 9,
+        "operating": 82,
+        "development": 4,
+        "proposed": 12,
         "inactive": 2,
-        "other": 6811,
-        "unknown": 257
+        "other": 6944,
+        "unknown": 270
       },
       "people_access": {
         "worldpop_population_2025": 6863907.13,
@@ -1877,7 +1890,7 @@
     },
     "Kwara": {
       "name": "Kwara",
-      "mapped_records": 393,
+      "mapped_records": 401,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1904,8 +1917,8 @@
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 44,
-        "settlements": 37
+        "population_access": 50,
+        "settlements": 39
       },
       "category_counts": {
         "resource": 0,
@@ -1915,7 +1928,7 @@
         "demand": 0,
         "connectivity": 273,
         "renewables": 1,
-        "context": 81
+        "context": 89
       },
       "capacity": {
         "power_mw": 0.0,
@@ -1965,7 +1978,7 @@
         "proposed": 2,
         "inactive": 0,
         "other": 34,
-        "unknown": 356
+        "unknown": 364
       },
       "people_access": {
         "worldpop_population_2025": 4687187.345,
@@ -2143,7 +2156,7 @@
     },
     "Benue": {
       "name": "Benue",
-      "mapped_records": 317,
+      "mapped_records": 318,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2170,7 +2183,7 @@
         "captive_offgrid_systems": 1,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 39,
+        "population_access": 40,
         "settlements": 37
       },
       "category_counts": {
@@ -2181,7 +2194,7 @@
         "demand": 1,
         "connectivity": 191,
         "renewables": 2,
-        "context": 76
+        "context": 77
       },
       "capacity": {
         "power_mw": 1000.0,
@@ -2232,7 +2245,7 @@
         "proposed": 0,
         "inactive": 1,
         "other": 36,
-        "unknown": 276
+        "unknown": 277
       },
       "people_access": {
         "worldpop_population_2025": 9067209.083,
@@ -2273,7 +2286,7 @@
     },
     "Borno": {
       "name": "Borno",
-      "mapped_records": 405,
+      "mapped_records": 419,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2288,7 +2301,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 78,
-        "conflict_exposure": 23,
+        "conflict_exposure": 28,
         "demand_centers": 0,
         "roads": 113,
         "railways": 28,
@@ -2300,18 +2313,18 @@
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 94,
+        "population_access": 103,
         "settlements": 41
       },
       "category_counts": {
         "resource": 0,
         "infrastructure": 1,
         "environmental": 78,
-        "security": 23,
+        "security": 28,
         "demand": 0,
         "connectivity": 168,
         "renewables": 0,
-        "context": 135
+        "context": 144
       },
       "capacity": {
         "power_mw": 50.0,
@@ -2356,7 +2369,7 @@
         "proposed": 1,
         "inactive": 0,
         "other": 77,
-        "unknown": 326
+        "unknown": 340
       },
       "people_access": {
         "worldpop_population_2025": 6269578.236,
@@ -2397,7 +2410,7 @@
     },
     "Katsina": {
       "name": "Katsina",
-      "mapped_records": 321,
+      "mapped_records": 329,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2424,7 +2437,7 @@
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 31,
+        "population_access": 39,
         "settlements": 40
       },
       "category_counts": {
@@ -2435,7 +2448,7 @@
         "demand": 0,
         "connectivity": 172,
         "renewables": 2,
-        "context": 71
+        "context": 79
       },
       "capacity": {
         "power_mw": 0.0,
@@ -2479,7 +2492,7 @@
         "proposed": 0,
         "inactive": 0,
         "other": 73,
-        "unknown": 246
+        "unknown": 254
       },
       "people_access": {
         "worldpop_population_2025": 10522942.91,
@@ -2520,7 +2533,7 @@
     },
     "Plateau": {
       "name": "Plateau",
-      "mapped_records": 318,
+      "mapped_records": 319,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2541,7 +2554,7 @@
         "railways": 25,
         "rail_stations": 3,
         "power_grid": 22,
-        "substations": 18,
+        "substations": 19,
         "ports": 0,
         "community_minigrids": 5,
         "captive_offgrid_systems": 0,
@@ -2556,7 +2569,7 @@
         "environmental": 39,
         "security": 5,
         "demand": 0,
-        "connectivity": 198,
+        "connectivity": 199,
         "renewables": 5,
         "context": 71
       },
@@ -2609,7 +2622,7 @@
         "proposed": 0,
         "inactive": 0,
         "other": 39,
-        "unknown": 274
+        "unknown": 275
       },
       "people_access": {
         "worldpop_population_2025": 5771080.854,
@@ -2803,7 +2816,7 @@
     },
     "Jigawa": {
       "name": "Jigawa",
-      "mapped_records": 191,
+      "mapped_records": 193,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2830,7 +2843,7 @@
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 29,
+        "population_access": 31,
         "settlements": 40
       },
       "category_counts": {
@@ -2841,7 +2854,7 @@
         "demand": 0,
         "connectivity": 44,
         "renewables": 1,
-        "context": 69
+        "context": 71
       },
       "capacity": {
         "power_mw": 0.0,
@@ -2882,7 +2895,7 @@
         "proposed": 1,
         "inactive": 0,
         "other": 70,
-        "unknown": 119
+        "unknown": 121
       },
       "people_access": {
         "worldpop_population_2025": 7645450.17,
@@ -3315,7 +3328,7 @@
     },
     "Kebbi": {
       "name": "Kebbi",
-      "mapped_records": 321,
+      "mapped_records": 329,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -3330,7 +3343,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 17,
-        "conflict_exposure": 9,
+        "conflict_exposure": 10,
         "demand_centers": 0,
         "roads": 67,
         "railways": 0,
@@ -3342,18 +3355,18 @@
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 47,
+        "population_access": 54,
         "settlements": 40
       },
       "category_counts": {
         "resource": 0,
         "infrastructure": 0,
         "environmental": 17,
-        "security": 9,
+        "security": 10,
         "demand": 0,
         "connectivity": 207,
         "renewables": 1,
-        "context": 87
+        "context": 94
       },
       "capacity": {
         "power_mw": 0.0,
@@ -3391,7 +3404,7 @@
         "proposed": 0,
         "inactive": 0,
         "other": 17,
-        "unknown": 303
+        "unknown": 311
       },
       "people_access": {
         "worldpop_population_2025": 4015574.776,
@@ -3432,7 +3445,7 @@
     },
     "Imo": {
       "name": "Imo",
-      "mapped_records": 595,
+      "mapped_records": 600,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 3,
@@ -3445,7 +3458,7 @@
         "hydro_plants": 0,
         "refineries": 0,
         "gas_infrastructure": 2,
-        "oil_spills": 460,
+        "oil_spills": 465,
         "protected_areas": 5,
         "conflict_exposure": 3,
         "demand_centers": 0,
@@ -3465,7 +3478,7 @@
       "category_counts": {
         "resource": 3,
         "infrastructure": 7,
-        "environmental": 465,
+        "environmental": 470,
         "security": 3,
         "demand": 0,
         "connectivity": 71,
@@ -3478,31 +3491,31 @@
         "minigrid_kw": 0.0
       },
       "oil_spill_intelligence": {
-        "mapped_reports": 460,
-        "confirmed_reports": 404,
+        "mapped_reports": 465,
+        "confirmed_reports": 409,
         "invalid_reports": 18,
-        "sabotage_attributed_reports": 370,
-        "estimated_quantity_reported": 14815.71,
+        "sabotage_attributed_reports": 374,
+        "estimated_quantity_reported": 14842.21,
         "report_status_counts": {
-          "Confirmed": 404,
+          "Confirmed": 409,
           "Invalid (mistakenly reported)": 18,
           "Reviewed (awaiting confirmation)": 38
         },
         "cause_counts": {
           "Corrosion": 23,
-          "Equipment failure": 48,
+          "Equipment failure": 49,
           "Operational/maintenance error": 7,
           "Other": 5,
-          "Sabotage/theft": 370,
+          "Sabotage/theft": 374,
           "Yet to be determined": 2
         },
         "yearly_counts": {
           "2008": 2,
-          "2009": 8,
+          "2009": 10,
           "2010": 27,
           "2011": 17,
-          "2012": 31,
-          "2013": 26,
+          "2012": 32,
+          "2013": 28,
           "2014": 16,
           "2015": 9,
           "2016": 13,
@@ -3543,7 +3556,7 @@
         "development": 3,
         "proposed": 1,
         "inactive": 1,
-        "other": 465,
+        "other": 470,
         "unknown": 119
       },
       "people_access": {
@@ -3713,7 +3726,7 @@
     },
     "Adamawa": {
       "name": "Adamawa",
-      "mapped_records": 306,
+      "mapped_records": 313,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -3728,7 +3741,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 21,
-        "conflict_exposure": 10,
+        "conflict_exposure": 11,
         "demand_centers": 0,
         "roads": 163,
         "railways": 0,
@@ -3740,18 +3753,18 @@
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 55,
+        "population_access": 61,
         "settlements": 40
       },
       "category_counts": {
         "resource": 0,
         "infrastructure": 0,
         "environmental": 21,
-        "security": 10,
+        "security": 11,
         "demand": 0,
         "connectivity": 179,
         "renewables": 1,
-        "context": 95
+        "context": 101
       },
       "capacity": {
         "power_mw": 0.0,
@@ -3796,7 +3809,7 @@
         "proposed": 0,
         "inactive": 0,
         "other": 21,
-        "unknown": 284
+        "unknown": 291
       },
       "people_access": {
         "worldpop_population_2025": 6006481.456,
@@ -3837,7 +3850,7 @@
     },
     "Yobe": {
       "name": "Yobe",
-      "mapped_records": 253,
+      "mapped_records": 264,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -3852,7 +3865,7 @@
         "gas_infrastructure": 0,
         "oil_spills": 0,
         "protected_areas": 40,
-        "conflict_exposure": 13,
+        "conflict_exposure": 14,
         "demand_centers": 0,
         "roads": 68,
         "railways": 19,
@@ -3864,18 +3877,18 @@
         "captive_offgrid_systems": 2,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 61,
+        "population_access": 71,
         "settlements": 41
       },
       "category_counts": {
         "resource": 0,
         "infrastructure": 0,
         "environmental": 40,
-        "security": 13,
+        "security": 14,
         "demand": 0,
         "connectivity": 96,
         "renewables": 2,
-        "context": 102
+        "context": 112
       },
       "capacity": {
         "power_mw": 0.0,
@@ -3920,7 +3933,7 @@
         "proposed": 1,
         "inactive": 0,
         "other": 39,
-        "unknown": 211
+        "unknown": 222
       },
       "people_access": {
         "worldpop_population_2025": 5370897.311,
@@ -4232,7 +4245,7 @@
     },
     "Osun": {
       "name": "Osun",
-      "mapped_records": 183,
+      "mapped_records": 184,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 1,
@@ -4259,7 +4272,7 @@
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 10,
+        "population_access": 11,
         "settlements": 40
       },
       "category_counts": {
@@ -4270,7 +4283,7 @@
         "demand": 0,
         "connectivity": 114,
         "renewables": 1,
-        "context": 50
+        "context": 51
       },
       "capacity": {
         "power_mw": 0.0,
@@ -4320,7 +4333,7 @@
         "proposed": 1,
         "inactive": 0,
         "other": 12,
-        "unknown": 167
+        "unknown": 168
       },
       "people_access": {
         "worldpop_population_2025": 5595659.114,
@@ -4891,7 +4904,7 @@
     },
     "Taraba": {
       "name": "Taraba",
-      "mapped_records": 393,
+      "mapped_records": 401,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -4904,7 +4917,7 @@
         "hydro_plants": 1,
         "refineries": 0,
         "gas_infrastructure": 0,
-        "oil_spills": 0,
+        "oil_spills": 1,
         "protected_areas": 42,
         "conflict_exposure": 12,
         "demand_centers": 0,
@@ -4918,18 +4931,18 @@
         "captive_offgrid_systems": 0,
         "standalone_systems": 0,
         "interconnected_minigrids": 0,
-        "population_access": 79,
-        "settlements": 42
+        "population_access": 85,
+        "settlements": 43
       },
       "category_counts": {
         "resource": 0,
         "infrastructure": 1,
-        "environmental": 42,
+        "environmental": 43,
         "security": 12,
         "demand": 0,
         "connectivity": 216,
         "renewables": 1,
-        "context": 121
+        "context": 128
       },
       "capacity": {
         "power_mw": 3050.0,
@@ -4937,14 +4950,20 @@
         "minigrid_kw": 91.0
       },
       "oil_spill_intelligence": {
-        "mapped_reports": 0,
+        "mapped_reports": 1,
         "confirmed_reports": 0,
-        "invalid_reports": 0,
+        "invalid_reports": 1,
         "sabotage_attributed_reports": 0,
-        "estimated_quantity_reported": 0.0,
-        "report_status_counts": {},
-        "cause_counts": {},
-        "yearly_counts": {}
+        "estimated_quantity_reported": 2.0,
+        "report_status_counts": {
+          "Invalid (mistakenly reported)": 1
+        },
+        "cause_counts": {
+          "Corrosion": 1
+        },
+        "yearly_counts": {
+          "2014": 1
+        }
       },
       "security_intelligence": {
         "period": "2016-2025",
@@ -4973,8 +4992,8 @@
         "development": 1,
         "proposed": 0,
         "inactive": 1,
-        "other": 42,
-        "unknown": 349
+        "other": 43,
+        "unknown": 356
       },
       "people_access": {
         "worldpop_population_2025": 4473844.385,

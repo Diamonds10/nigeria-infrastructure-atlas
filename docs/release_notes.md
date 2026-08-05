@@ -1,5 +1,19 @@
 # Release notes
 
+## v0.12.1 — Ports State Join, Deferred Bundle, UI Polish
+
+Released: 5 August 2026
+
+- assigned coastal/offshore point orphans to the nearest ADM1 within 75 km so
+  ports such as Lagos and Tin Can Island appear in state intelligence
+- deferred heavy default-off layers (`oil_spills`, `roads`, `railways`,
+  `protected_areas`, `settlements`, `population_access`) out of the first-paint
+  web bundle; they load on demand when enabled
+- allowed state-profile metric labels to wrap instead of truncating with
+  ellipsis
+- retained the public data contract of 29,098 mapped records while cutting the
+  inline web bundle to the active screening layers
+
 ## v0.12.0 — Infraxis Atlas Rebrand and Pan-African Foundation
 
 Released: 5 August 2026

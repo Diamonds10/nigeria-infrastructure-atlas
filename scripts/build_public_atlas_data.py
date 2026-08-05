@@ -39,10 +39,25 @@ ATLAS_PRODUCT_RELATIONSHIP = (
     "This open atlas is the public datasource and screening layer; "
     "Infraxis is the separate premium analytical layer built on top of it."
 )
-ATLAS_RELEASE_VERSION = "0.12.0"
+ATLAS_RELEASE_VERSION = "0.12.1"
 ATLAS_RELEASE_DATE = "2026-08-05"
-ATLAS_RELEASE_TITLE = "Infraxis Atlas Rebrand and Pan-African Foundation"
+ATLAS_RELEASE_TITLE = "Ports State Join, Deferred Bundle, UI Polish"
 REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/infraxis-atlas-nigeria/main"
+# Coastal/offshore points often sit just outside ADM1 land polygons. Assign the
+# nearest state when the gap is within this tolerance (~km at the equator).
+NEAR_STATE_MAX_KM = 75.0
+NEAR_STATE_MAX_DEG = NEAR_STATE_MAX_KM / 111.32
+# Heavy, default-off layers are stored beside the web bundle and fetched only
+# when a user enables them. Keeps first paint small without shrinking the API.
+DEFERRED_WEB_LAYERS = {
+    "oil_spills",
+    "roads",
+    "railways",
+    "protected_areas",
+    "settlements",
+    "population_access",
+}
+DEFAULT_DEFERRED_DIR = ROOT / "docs" / "assets" / "layers"
 DISTRIBUTED_ENERGY_SUBLAYERS = {
     "community_minigrids",
     "captive_offgrid_systems",
@@ -61,6 +76,45 @@ QUARTERLY_REFRESH_LAYERS = {
     "standalone_systems",
     "interconnected_minigrids",
 }
+
+
+def assign_states(
+    geometry: Any,
+    state_geometries: list[tuple[str, Any, Any]],
+) -> list[str]:
+    """Return ADM1 names for a feature geometry.
+
+    Points use prepared.covers first. Coastal and offshore points that sit just
+    outside land polygons fall back to the nearest state within
+    NEAR_STATE_MAX_KM so ports like Lagos / Tin Can are not orphaned.
+    """
+    if geometry.geom_type == "Point":
+        covered = [
+            name
+            for name, _, prepared in state_geometries
+            if prepared.covers(geometry)
+        ]
+        if covered:
+            return covered
+        nearest_name = None
+        nearest_distance = None
+        for name, geom, _ in state_geometries:
+            distance = geom.distance(geometry)
+            if nearest_distance is None or distance < nearest_distance:
+                nearest_distance = distance
+                nearest_name = name
+        if (
+            nearest_name is not None
+            and nearest_distance is not None
+            and nearest_distance <= NEAR_STATE_MAX_DEG
+        ):
+            return [nearest_name]
+        return []
+    return [
+        name
+        for name, _, prepared in state_geometries
+        if prepared.intersects(geometry)
+    ]
 
 
 def refresh_policy(sublayer_key: str, source_date: str) -> dict[str, Any]:
@@ -700,18 +754,7 @@ def add_catalogue_and_state_profiles(
                     item["properties"]["_year_label"] = year_label
                     temporal_years.append(year)
                 geometry = shape(item["geometry"])
-                if geometry.geom_type == "Point":
-                    state_names = [
-                        name
-                        for name, _, prepared in state_geometries
-                        if prepared.covers(geometry)
-                    ]
-                else:
-                    state_names = [
-                        name
-                        for name, _, prepared in state_geometries
-                        if prepared.intersects(geometry)
-                    ]
+                state_names = assign_states(geometry, state_geometries)
                 item["properties"]["_states"] = state_names
                 update_profile(
                     profiles["Nigeria"],
@@ -1089,7 +1132,11 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
             {
                 "product": bundle["product"],
                 "atlas_release": bundle["release"],
-                "method": "Public-map records whose display geometry intersects each ADM1 boundary.",
+                "method": (
+                    "Public-map records whose display geometry covers or "
+                    "intersects each ADM1 boundary; orphan coastal/offshore "
+                    f"points use nearest-state assignment within {NEAR_STATE_MAX_KM:g} km."
+                ),
                 "profiles": bundle["state_profiles"],
             },
             ensure_ascii=False,
@@ -1182,7 +1229,11 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
         "base_url": "https://diamonds10.github.io/infraxis-atlas-nigeria/api/v1/",
         "formats": ["GeoJSON", "JSON"],
         "filter_fields": {
-            "_states": "ADM1 names intersected by the public display geometry",
+            "_states": (
+                "ADM1 names for the public display geometry. Points use "
+                "polygon coverage first, then nearest-state assignment within "
+                f"{NEAR_STATE_MAX_KM:g} km for coastal/offshore orphans."
+            ),
             "_status_group": "Normalized status group",
             "_year": "Relevant discovery, start, commissioning, incident, designation, or source release year",
             "_year_label": "Meaning of _year for the record",
@@ -1553,6 +1604,48 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
     return bundle
 
 
+def prepare_web_bundle(
+    bundle: dict[str, Any],
+    deferred_dir: Path,
+) -> dict[str, Any]:
+    """Copy the full bundle and strip deferred layer features for first paint."""
+    web_bundle = json.loads(json.dumps(bundle))
+    deferred_dir.mkdir(parents=True, exist_ok=True)
+    for stale in deferred_dir.glob("*.geojson"):
+        if stale.stem not in DEFERRED_WEB_LAYERS:
+            stale.unlink()
+    for category in web_bundle["layers"].values():
+        for sublayer_key, definition in category["sublayers"].items():
+            if sublayer_key not in DEFERRED_WEB_LAYERS:
+                definition.pop("deferred", None)
+                continue
+            features = definition["data"]["features"]
+            layer_path = deferred_dir / f"{sublayer_key}.geojson"
+            payload = {
+                "type": "FeatureCollection",
+                "name": sublayer_key,
+                "product": web_bundle["product"],
+                "atlas_release": web_bundle["release"],
+                "features": features,
+            }
+            layer_path.write_text(
+                json.dumps(
+                    payload,
+                    ensure_ascii=False,
+                    separators=(",", ":"),
+                    allow_nan=False,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            definition["deferred"] = {
+                "url": f"./assets/layers/{sublayer_key}.geojson",
+                "feature_count": len(features),
+            }
+            definition["data"] = {"type": "FeatureCollection", "features": []}
+    return web_bundle
+
+
 def write_bundle(bundle: dict[str, Any], output_path: Path) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(
@@ -1566,21 +1659,30 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--states", type=Path, default=DEFAULT_STATES)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--api-dir", type=Path, default=DEFAULT_API_DIR)
+    parser.add_argument("--deferred-dir", type=Path, default=DEFAULT_DEFERRED_DIR)
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
     bundle = build_bundle(args.states.resolve())
-    write_bundle(bundle, args.output.resolve())
     write_api_outputs(bundle, args.api_dir.resolve())
-    total = sum(
+    web_bundle = prepare_web_bundle(bundle, args.deferred_dir.resolve())
+    write_bundle(web_bundle, args.output.resolve())
+    api_total = sum(
         len(sub["data"]["features"])
         for layer in bundle["layers"].values()
         for sub in layer["sublayers"].values()
     )
+    web_total = sum(
+        len(sub["data"]["features"])
+        for layer in web_bundle["layers"].values()
+        for sub in layer["sublayers"].values()
+    )
+    deferred_total = api_total - web_total
     print(
-        f"Saved {args.output} with {total:,} public map features "
+        f"Saved {args.output} with {web_total:,} inline features "
+        f"({deferred_total:,} deferred beside the bundle) "
         f"and API resources under {args.api_dir}"
     )
     return 0

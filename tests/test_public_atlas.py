@@ -36,18 +36,34 @@ class PublicAtlasTests(unittest.TestCase):
         builder = load_builder()
         with tempfile.TemporaryDirectory() as directory:
             rebuilt_path = Path(directory) / "atlas_data.json"
-            builder.write_bundle(builder.build_bundle(), rebuilt_path)
+            deferred_dir = Path(directory) / "layers"
+            full_bundle = builder.build_bundle()
+            web_bundle = builder.prepare_web_bundle(full_bundle, deferred_dir)
+            builder.write_bundle(web_bundle, rebuilt_path)
             self.assertEqual(
                 BUNDLE_PATH.read_bytes(),
                 rebuilt_path.read_bytes(),
                 "Run: python scripts/build_public_atlas_data.py",
             )
+            committed_deferred = ROOT / "docs" / "assets" / "layers"
+            for key in sorted(builder.DEFERRED_WEB_LAYERS):
+                self.assertEqual(
+                    (committed_deferred / f"{key}.geojson").read_bytes(),
+                    (deferred_dir / f"{key}.geojson").read_bytes(),
+                    f"Deferred layer drift for {key}; rebuild the public atlas.",
+                )
+
+    def _layer_feature_count(self, definition):
+        deferred = definition.get("deferred") or {}
+        if "feature_count" in deferred:
+            return deferred["feature_count"]
+        return len(definition["data"]["features"])
 
     def test_public_layer_counts(self):
         bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
         layers = bundle["layers"]
         counts = {
-            sublayer: len(definition["data"]["features"])
+            sublayer: self._layer_feature_count(definition)
             for layer in layers.values()
             for sublayer, definition in layer["sublayers"].items()
         }
@@ -83,6 +99,25 @@ class PublicAtlasTests(unittest.TestCase):
                 "settlements": 1480,
             },
         )
+        for key in [
+            "oil_spills",
+            "roads",
+            "railways",
+            "protected_areas",
+            "settlements",
+            "population_access",
+        ]:
+            definition = next(
+                definition
+                for layer in layers.values()
+                for sublayer, definition in layer["sublayers"].items()
+                if sublayer == key
+            )
+            self.assertEqual(definition["data"]["features"], [])
+            self.assertEqual(
+                definition["deferred"]["url"],
+                f"./assets/layers/{key}.geojson",
+            )
         distributed_energy = [
             feature
             for key in [
@@ -373,10 +408,17 @@ class PublicAtlasTests(unittest.TestCase):
             app_source,
         )
 
-        self.assertIn("./assets/app.css?v=0.12.0", html_source)
-        self.assertIn("./assets/app.js?v=0.12.0", html_source)
-        self.assertIn("./assets/atlas_data.json?v=0.12.0", app_source)
+        self.assertIn("./assets/app.css?v=0.12.1", html_source)
+        self.assertIn("./assets/app.js?v=0.12.1", html_source)
+        self.assertIn("./assets/atlas_data.json?v=0.12.1", app_source)
+        self.assertIn("ensureSublayerLoaded", app_source)
         self.assertIn("        - Security Context", issue_template)
+        css_source = (ROOT / "docs" / "assets" / "app.css").read_text(encoding="utf-8")
+        self.assertIn("overflow-wrap: anywhere", css_source)
+        self.assertNotIn(
+            ".profile-metric span {\n    display: block;\n    overflow: hidden;",
+            css_source,
+        )
 
     def test_infraxis_country_edition_brand_contract(self):
         bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
@@ -512,6 +554,24 @@ class PublicAtlasTests(unittest.TestCase):
                     memberships = feature["properties"]["_states"]
                     self.assertTrue(set(memberships).issubset(state_names))
 
+        ports = json.loads(
+            (ROOT / "docs/api/v1/layers/ports.geojson").read_text(encoding="utf-8")
+        )
+        port_states = {
+            (
+                feature["properties"].get("_label")
+                or feature["properties"].get("PORT_NAME")
+            ): feature["properties"].get("_states") or []
+            for feature in ports["features"]
+        }
+        self.assertIn("Lagos", port_states["LAGOS"])
+        self.assertIn("Lagos", port_states["TIN CAN ISLAND"])
+        self.assertTrue(
+            all(port_states.values()),
+            "every port should resolve to at least one state",
+        )
+        self.assertGreaterEqual(profiles["Lagos"]["counts"]["ports"], 2)
+
     def test_catalogue_covers_every_public_sublayer(self):
         bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
         catalogue = {item["key"]: item for item in bundle["catalogue"]}
@@ -523,7 +583,7 @@ class PublicAtlasTests(unittest.TestCase):
         content_bearing = {
             key
             for key, definition in sublayers.items()
-            if definition["data"]["features"]
+            if self._layer_feature_count(definition) > 0
         }
         self.assertEqual(set(catalogue), content_bearing)
         self.assertNotIn("standalone_systems", catalogue)
@@ -539,8 +599,14 @@ class PublicAtlasTests(unittest.TestCase):
             self.assertEqual(metadata, definition["metadata"])
             self.assertEqual(
                 metadata["record_count"],
-                len(definition["data"]["features"]),
+                self._layer_feature_count(definition),
             )
+            if definition.get("deferred"):
+                self.assertEqual(definition["data"]["features"], [])
+                deferred_path = ROOT / "docs" / "assets" / "layers" / f"{key}.geojson"
+                self.assertTrue(deferred_path.exists())
+                deferred = json.loads(deferred_path.read_text(encoding="utf-8"))
+                self.assertEqual(len(deferred["features"]), metadata["record_count"])
             self.assertIn(metadata["quality"], {"A", "B", "C"})
             self.assertTrue(metadata["download_url"].startswith("https://"))
             self.assertTrue((ROOT / metadata["path"]).exists())
@@ -600,11 +666,11 @@ class PublicAtlasTests(unittest.TestCase):
 
         manifest = json.loads((API_DIR / "manifest.json").read_text())
         self.assertEqual(manifest["api_version"], "v1")
-        self.assertEqual(manifest["atlas_release"]["version"], "0.12.0")
+        self.assertEqual(manifest["atlas_release"]["version"], "0.12.1")
         self.assertEqual(manifest["atlas_release"]["date"], "2026-08-05")
         self.assertEqual(
             manifest["atlas_release"]["title"],
-            "Infraxis Atlas Rebrand and Pan-African Foundation",
+            "Ports State Join, Deferred Bundle, UI Polish",
         )
         self.assertEqual(manifest["product"]["name"], "Infraxis Atlas — Nigeria")
         self.assertEqual(manifest["product"]["master_brand"], "Infraxis Atlas")

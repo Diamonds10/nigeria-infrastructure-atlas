@@ -6,7 +6,7 @@ If you use this repository in research, teaching, or public-facing work, the rec
 
 Suggested format:
 
-Infraxis Atlas contributors. 2026. *Infraxis Atlas — Nigeria*, version 0.12.0.
+Infraxis Atlas contributors. 2026. *Infraxis Atlas — Nigeria*, version 0.12.1.
 GitHub. Accessed YYYY-MM-DD. Formerly published as *Nigeria Infrastructure
 Atlas*.
 
