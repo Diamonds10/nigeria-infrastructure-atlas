@@ -3,7 +3,7 @@
 
   var loadingEl = document.getElementById("loading");
 
-  fetch("./assets/atlas_data.json?v=0.11.1")
+  fetch("./assets/atlas_data.json?v=0.12.0")
     .then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
@@ -464,14 +464,14 @@
               fillColor: color,
               fillOpacity: subKey === "conflict_exposure" ? 0.62 : 0.48
             });
-            contextMarker._ngraContextGrid = true;
+            contextMarker._infraxisContextGrid = true;
             return contextMarker;
           }
           var filled = isOperating(feature.properties);
           var marker = L.marker(latlng, {
             icon: divIcon(style.shape, color, filled, style.size)
           });
-          marker._ngraFilled = filled;
+          marker._infraxisFilled = filled;
           return marker;
         },
         onEachFeature: function (feature, lyr) {
@@ -577,10 +577,10 @@
         var color = cssVar(style.colorVar);
         if (entry.geomType === "point") {
           entry.leafletLayer.eachLayer(function (lyr) {
-            if (lyr._ngraContextGrid && lyr.setStyle) {
+            if (lyr._infraxisContextGrid && lyr.setStyle) {
               lyr.setStyle({ color: color, fillColor: color });
             } else if (lyr.setIcon) {
-              lyr.setIcon(divIcon(style.shape, color, lyr._ngraFilled, style.size));
+              lyr.setIcon(divIcon(style.shape, color, lyr._infraxisFilled, style.size));
             }
           });
         } else if (entry.geomType === "line") {
@@ -858,6 +858,7 @@
     var output = {
       type: "FeatureCollection",
       name: selectedState || "Nigeria",
+      product: ATLAS.product,
       atlas_release: ATLAS.release,
       atlas_selection: {
         state: selectedState || null,
@@ -896,7 +897,7 @@
     var anchor = document.createElement("a");
     var slug = (selectedState || "nigeria").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
     anchor.href = href;
-    anchor.download = "nigeria-infrastructure-atlas-" + slug + "-v" + ATLAS.release.version + ".geojson";
+    anchor.download = "infraxis-atlas-nigeria-" + slug + "-v" + ATLAS.release.version + ".geojson";
     document.body.appendChild(anchor);
     anchor.click();
     anchor.remove();
@@ -922,12 +923,12 @@
     var standalone = profile.standalone_solar_programme || {};
     var security = profile.security_intelligence || {};
     var report = '<!doctype html><html lang="en"><meta charset="utf-8"><title>' +
-      escapeHtml(profileName) + ' — Nigeria Infrastructure Atlas report</title><style>' +
+      escapeHtml(profileName) + ' — Infraxis Atlas report</title><style>' +
       'body{font:14px/1.5 system-ui;margin:40px auto;max-width:900px;color:#17231f}h1,h2{font-family:Georgia,serif}' +
       'table{border-collapse:collapse;width:100%;margin:12px 0 28px}th,td{border-bottom:1px solid #ccd2cc;padding:7px;text-align:left}' +
       'th{width:65%}.note{background:#f2f4ef;padding:12px;border-left:4px solid #a86612}small{color:#59645d}' +
       '@media print{body{margin:18mm}.no-print{display:none}}</style><body>' +
-      '<h1>' + escapeHtml(profileName) + '</h1><p>Nigeria Infrastructure Atlas state evidence report · v' +
+      '<h1>' + escapeHtml(profileName) + '</h1><p>Infraxis Atlas — Nigeria state report · v' +
       escapeHtml(ATLAS.release.version) + ' · ' + escapeHtml(ATLAS.release.date) + '</p>' +
       '<p class="note">Public screening evidence, not an official operating registry or substitute for field verification.</p>' +
       '<h2>State overview</h2><table>' +
@@ -975,7 +976,7 @@
     var anchor = document.createElement("a");
     var slug = profileName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
     anchor.href = href;
-    anchor.download = "nigeria-infrastructure-atlas-" + slug + "-state-report-v" + ATLAS.release.version + ".html";
+    anchor.download = "infraxis-atlas-nigeria-" + slug + "-state-report-v" + ATLAS.release.version + ".html";
     document.body.appendChild(anchor);
     anchor.click();
     anchor.remove();

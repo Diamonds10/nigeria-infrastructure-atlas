@@ -1,9 +1,16 @@
 {
+  "product": {
+    "name": "Infraxis Atlas — Nigeria",
+    "master_brand": "Infraxis Atlas",
+    "country": "Nigeria",
+    "former_name": "Nigeria Infrastructure Atlas",
+    "tagline": "Mapping infrastructure. Measuring disruption."
+  },
   "api_version": "v1",
   "atlas_release": {
-    "version": "0.11.1",
-    "date": "2026-07-30",
-    "title": "Interface and Release Hardening"
+    "version": "0.12.0",
+    "date": "2026-08-05",
+    "title": "Infraxis Atlas Rebrand and Pan-African Foundation"
   },
   "base_url": "https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/",
   "formats": [

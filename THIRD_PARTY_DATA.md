@@ -4,6 +4,9 @@ The repository's CC0 dedication applies only to original repository code,
 documentation, and other material for which the contributors hold the necessary
 rights. It does **not** replace or override the licenses, attribution
 requirements, access terms, or other rights attached to third-party source data.
+It also does not publish or license proprietary Infraxis financial-loss models,
+parameters, software, client data, or premium services, which are outside this
+open Infraxis Atlas — Nigeria repository.
 
 Processed datasets and map bundles may contain or derive from third-party data.
 Anyone redistributing or commercially using those materials must review

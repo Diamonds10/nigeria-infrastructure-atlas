@@ -28,9 +28,14 @@ DEFAULT_API_DIR = ROOT / "docs" / "api" / "v1"
 PUBLIC_SIMPLIFY_TOLERANCE = 0.005
 PUBLIC_COORDINATE_PRECISION = 5
 PUBLIC_PROPERTY_PRECISION = 6
-ATLAS_RELEASE_VERSION = "0.11.1"
-ATLAS_RELEASE_DATE = "2026-07-30"
-ATLAS_RELEASE_TITLE = "Interface and Release Hardening"
+ATLAS_PRODUCT_NAME = "Infraxis Atlas — Nigeria"
+ATLAS_MASTER_BRAND = "Infraxis Atlas"
+ATLAS_COUNTRY = "Nigeria"
+ATLAS_FORMER_NAME = "Nigeria Infrastructure Atlas"
+ATLAS_TAGLINE = "Mapping infrastructure. Measuring disruption."
+ATLAS_RELEASE_VERSION = "0.12.0"
+ATLAS_RELEASE_DATE = "2026-08-05"
+ATLAS_RELEASE_TITLE = "Infraxis Atlas Rebrand and Pan-African Foundation"
 REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/nigeria-infrastructure-atlas/main"
 DISTRIBUTED_ENERGY_SUBLAYERS = {
     "community_minigrids",
@@ -927,6 +932,13 @@ def add_catalogue_and_state_profiles(
             )
         ]
 
+    bundle["product"] = {
+        "name": ATLAS_PRODUCT_NAME,
+        "master_brand": ATLAS_MASTER_BRAND,
+        "country": ATLAS_COUNTRY,
+        "former_name": ATLAS_FORMER_NAME,
+        "tagline": ATLAS_TAGLINE,
+    }
     bundle["release"] = {
         "version": ATLAS_RELEASE_VERSION,
         "date": ATLAS_RELEASE_DATE,
@@ -959,6 +971,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
             layer_payload = {
                 "type": "FeatureCollection",
                 "name": sublayer_key,
+                "product": bundle["product"],
                 "atlas_release": bundle["release"],
                 "metadata": definition["metadata"],
                 "features": definition["data"]["features"],
@@ -1011,6 +1024,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
     compatibility_payload = {
         "type": "FeatureCollection",
         "name": "minigrids",
+        "product": bundle["product"],
         "atlas_release": bundle["release"],
         "metadata": {
             "key": "minigrids",
@@ -1039,6 +1053,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
     states_payload = {
         "type": "FeatureCollection",
         "name": "nigeria_adm1",
+        "product": bundle["product"],
         "atlas_release": bundle["release"],
         "features": bundle["states"]["features"],
     }
@@ -1049,6 +1064,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
     (api_dir / "catalogue.json").write_text(
         json.dumps(
             {
+                "product": bundle["product"],
                 "atlas_release": bundle["release"],
                 "datasets": bundle["catalogue"],
                 "compatibility_endpoints": compatibility_endpoints,
@@ -1062,6 +1078,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
     (api_dir / "state-profiles.json").write_text(
         json.dumps(
             {
+                "product": bundle["product"],
                 "atlas_release": bundle["release"],
                 "method": "Public-map records whose display geometry intersects each ADM1 boundary.",
                 "profiles": bundle["state_profiles"],
@@ -1075,7 +1092,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
     schema = {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         "$id": "https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/schema.json",
-        "title": "Nigeria Infrastructure Atlas public GeoJSON feature",
+        "title": "Infraxis Atlas — Nigeria public GeoJSON feature",
         "type": "object",
         "required": ["type", "properties", "geometry"],
         "properties": {
@@ -1118,6 +1135,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
         for definition in category["sublayers"].values()
     ]
     freshness = {
+        "product": bundle["product"],
         "atlas_release": bundle["release"],
         "interpretation": (
             "Review dates are maintenance targets, not guarantees that an "
@@ -1149,6 +1167,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
         encoding="utf-8",
     )
     manifest = {
+        "product": bundle["product"],
         "api_version": "v1",
         "atlas_release": bundle["release"],
         "base_url": "https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/",

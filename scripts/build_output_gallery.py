@@ -158,7 +158,7 @@ def render_category(states: gpd.GeoDataFrame, category_key: str, category: dict,
         legend.get_frame().set_alpha(0.92)
         legend.get_frame().set_edgecolor("#cbd5e1")
     ax.text(
-        0.99, 0.01, "Nigeria Infrastructure Atlas — public screening view",
+        0.99, 0.01, "Infraxis Atlas — Nigeria · public screening view",
         transform=ax.transAxes, fontsize=7.5, color="#57534e", ha="right", va="bottom",
     )
     fig.tight_layout()

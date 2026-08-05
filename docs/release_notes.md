@@ -1,5 +1,26 @@
 # Release notes
 
+## v0.12.0 — Infraxis Atlas Rebrand and Pan-African Foundation
+
+Released: 5 August 2026
+
+- adopted **Infraxis Atlas** as the continental master brand and **Infraxis
+  Atlas — Nigeria** as its first country edition
+- introduced the tagline *Mapping infrastructure. Measuring disruption.* and
+  retained Nigeria Infrastructure Atlas as a transition-only former name
+- added machine-readable product identity to the public bundle, API manifest,
+  catalogue, freshness inventory, state profiles, boundaries, and layer files
+- updated the website, reports, downloads, README, citation metadata,
+  contribution schema, API documentation, scripts, visual outputs, and
+  repository guidance to the new identity
+- documented a uniform country-edition naming system for future African
+  expansion and preserved existing GitHub Pages and API URLs for compatibility
+- established an explicit licensing boundary between the open atlas and
+  proprietary Infraxis *What Might We Lose?* and *What Did We Actually Lose?*
+  financial-loss products
+- retained the public data contract of 29,098 mapped records, 26
+  content-bearing catalogue datasets, and 27 stable layer endpoints
+
 ## v0.11.1 — Interface and Release Hardening
 
 Released: 30 July 2026

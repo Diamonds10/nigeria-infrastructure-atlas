@@ -1,11 +1,11 @@
 name: Distributed-energy record
-description: Propose a new site or correct an existing distributed-energy record
+description: Propose or correct an Infraxis Atlas — Nigeria distributed-energy record
 title: "[Distributed energy]: "
 body:
   - type: markdown
     attributes:
       value: |
-        Submissions are reviewed before publication. Please provide public evidence and do not include private personal data.
+        Infraxis Atlas — Nigeria submissions are reviewed before publication. Please provide public evidence and do not include private personal data.
   - type: dropdown
     id: request_type
     attributes:

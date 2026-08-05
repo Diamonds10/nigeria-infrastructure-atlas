@@ -1,21 +1,34 @@
-# Nigeria Infrastructure Atlas
+# Infraxis Atlas — Nigeria
 
-A national-scale, geospatial evidence atlas for Nigeria's infrastructure
-system, including energy, transport, demand centres, connectivity, renewables,
-population, settlements, electricity-access context, and environmental exposure.
+**Mapping infrastructure. Measuring disruption.**
+
+Infraxis Atlas — Nigeria is the first country edition of Infraxis Atlas, a
+uniform pan-African infrastructure mapping platform. Formerly published as
+Nigeria Infrastructure Atlas, this open edition covers Nigeria's energy,
+transport, demand centres, connectivity, distributed energy, population,
+settlements, electricity-access context, environmental exposure, and
+historical security context.
+
+The open atlas, catalogue, public API, and reproducible processing workflows
+live in this repository. Proprietary Infraxis models—including *What Might We
+Lose?* and *What Did We Actually Lose?*—are separate premium analytical
+products and are not included in, or licensed by, this repository.
 
 ## Quick start
 
 - Clone the repository and install dependencies from `environment.yml`.
 - Process or inspect the cleaned datasets in `data/processed/`.
 - Open the canonical interactive atlas in `docs/index.html` or through GitHub Pages.
-- View the public snapshot image at `outputs/maps/nigeria_public_asset_snapshot.png`.
+- View the public snapshot image at `outputs/maps/infraxis_atlas_nigeria_snapshot.png`.
 - Reproduce the raw data workflow with the download and process scripts in `scripts/`.
 - Read `docs/data_sources.md` before using the data for analysis.
 
 ## Why this repository exists
 
-Nigeria Infrastructure Atlas is a public-interest, reproducible evidence repository for understanding how Nigeria's energy, transport, and infrastructure system is organized across multiple spatial layers.
+Infraxis Atlas — Nigeria is a public-interest, reproducible repository for
+understanding how Nigeria's energy, transport, and infrastructure system is
+organized across multiple spatial layers. Its country-edition structure is
+designed to support consistent future expansion across Africa.
 
 It is designed to support:
 
@@ -46,7 +59,7 @@ The public value of the atlas is not any single output file. It is the combinati
 
 ## Current public-facing value
 
-A live `v0.11` state-intelligence experience is available at
+A live `v0.12` state-intelligence experience is available at
 [diamonds10.github.io/nigeria-infrastructure-atlas](https://diamonds10.github.io/nigeria-infrastructure-atlas/).
 It provides profiles for all 36 states and the FCT, state-specific shareable
 links and GeoJSON downloads, and a searchable catalogue covering the 26
@@ -68,7 +81,7 @@ Developers can use the versioned, read-only static API at
 API v1 publishes a manifest, catalogue, state profiles, ADM1 boundaries, and
 one GeoJSON endpoint per public map layer without requiring an API key.
 
-A ready-to-use public snapshot image is now available in [outputs/maps/nigeria_public_asset_snapshot.png](outputs/maps/nigeria_public_asset_snapshot.png). It presents a concise, state-labeled public atlas view with the current asset-count callouts for the main layer categories.
+A ready-to-use public snapshot image is now available in [outputs/maps/infraxis_atlas_nigeria_snapshot.png](outputs/maps/infraxis_atlas_nigeria_snapshot.png). It presents a concise, state-labeled public atlas view with the current asset-count callouts for the main layer categories.
 
 The snapshot image itself is explicitly framed as a public screening snapshot, not a complete operating registry. A companion benchmark summary JSON is also available in [outputs/maps/public_asset_benchmark_summary.json](outputs/maps/public_asset_benchmark_summary.json), highlighting the public mini-grid evidence strength, status distribution, technology mix, and geographic coverage.
 
@@ -244,3 +257,11 @@ The repository now publishes refresh targets and accepts evidence submissions
 for every atlas section; see `docs/data_governance_and_refresh.md`.
 
 For the detailed dataset inventory and limitations, see `docs/data_sources.md`.
+
+## Brand and product architecture
+
+**Infraxis Atlas** is the continental master brand; **Infraxis Atlas —
+Nigeria** is its first country edition. Future editions should retain the same
+taxonomy, API principles, evidence controls, and country naming pattern.
+See `docs/product_identity.md` for the naming, transition, licensing, and
+open-versus-premium boundary.

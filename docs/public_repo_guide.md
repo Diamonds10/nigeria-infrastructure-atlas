@@ -1,4 +1,4 @@
-# Public repository guide
+# Infraxis Atlas — Nigeria public repository guide
 
 This repository is designed to help four audiences use the same evidence base in different ways:
 
@@ -10,7 +10,7 @@ This repository is designed to help four audiences use the same evidence base in
 
 ## What the atlas contains
 
-The `v0.11` public atlas organizes Nigeria's infrastructure system into eight
+The `v0.12` public atlas organizes Nigeria's infrastructure system into eight
 implemented layers:
 
 1. Resource
@@ -102,7 +102,7 @@ cause, company, and year; clustered rendering keeps the layer usable at
 national scale.
 
 A public snapshot figure is available at
-[outputs/maps/nigeria_public_asset_snapshot.png](../outputs/maps/nigeria_public_asset_snapshot.png).
+[outputs/maps/infraxis_atlas_nigeria_snapshot.png](../outputs/maps/infraxis_atlas_nigeria_snapshot.png).
 It is intended to provide a quick visual summary of the atlas's public asset
 context before readers dive into the layered CSV files.
 

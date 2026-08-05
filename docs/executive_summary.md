@@ -1,10 +1,16 @@
 # Executive summary
 
-Nigeria Infrastructure Atlas is a multi-layer geospatial repository that brings
+Infraxis Atlas — Nigeria is a multi-layer geospatial repository that brings
 together public evidence on Nigeria's resource base, supporting infrastructure,
 environmental footprint, industrial demand centers, connectivity, and
 renewables, historical security exposure, and population, settlement, and
 electricity-access screening context.
+
+It is the first country edition of the pan-African Infraxis Atlas product
+family and was formerly published as Nigeria Infrastructure Atlas. The open
+atlas provides public mapping, provenance, downloads, and API access.
+Proprietary Infraxis disruption and financial-loss models are separate from
+this public repository.
 
 ## What the project shows
 

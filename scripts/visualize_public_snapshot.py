@@ -21,7 +21,7 @@ import shapely.wkt
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = ROOT / "outputs" / "maps"
-OUTPUT_FILE = OUTPUT_DIR / "nigeria_public_asset_snapshot.png"
+OUTPUT_FILE = OUTPUT_DIR / "infraxis_atlas_nigeria_snapshot.png"
 BENCHMARK_FILE = OUTPUT_DIR / "public_asset_benchmark_summary.json"
 
 STATE_BOUNDARY_URL = (
@@ -245,7 +245,7 @@ def main() -> int:
     ]
 
     ax.set_title(
-        "Nigeria public energy atlas snapshot",
+        "Infraxis Atlas — Nigeria",
         fontsize=18,
         weight="bold",
         color="#0f172a",

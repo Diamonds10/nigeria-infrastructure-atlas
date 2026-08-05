@@ -373,10 +373,32 @@ class PublicAtlasTests(unittest.TestCase):
             app_source,
         )
 
-        self.assertIn("./assets/app.css?v=0.11.1", html_source)
-        self.assertIn("./assets/app.js?v=0.11.1", html_source)
-        self.assertIn("./assets/atlas_data.json?v=0.11.1", app_source)
+        self.assertIn("./assets/app.css?v=0.12.0", html_source)
+        self.assertIn("./assets/app.js?v=0.12.0", html_source)
+        self.assertIn("./assets/atlas_data.json?v=0.12.0", app_source)
         self.assertIn("        - Security Context", issue_template)
+
+    def test_infraxis_country_edition_brand_contract(self):
+        bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
+        app_source = APP_PATH.read_text(encoding="utf-8")
+        html_source = INDEX_PATH.read_text(encoding="utf-8")
+
+        self.assertEqual(
+            bundle["product"],
+            {
+                "name": "Infraxis Atlas — Nigeria",
+                "master_brand": "Infraxis Atlas",
+                "country": "Nigeria",
+                "former_name": "Nigeria Infrastructure Atlas",
+                "tagline": "Mapping infrastructure. Measuring disruption.",
+            },
+        )
+        self.assertIn("<title>Infraxis Atlas — Nigeria</title>", html_source)
+        self.assertIn('<span class="mark">Infraxis Atlas</span>', html_source)
+        self.assertIn("infraxis-atlas-nigeria-", app_source)
+        self.assertIn("Infraxis Atlas — Nigeria state report", app_source)
+        self.assertNotIn("nigeria-infrastructure-atlas-\" + slug", app_source)
+        self.assertTrue((ROOT / "docs" / "product_identity.md").exists())
 
     def test_benchmark_matches_processed_assets(self):
         benchmark = json.loads(
@@ -569,12 +591,15 @@ class PublicAtlasTests(unittest.TestCase):
 
         manifest = json.loads((API_DIR / "manifest.json").read_text())
         self.assertEqual(manifest["api_version"], "v1")
-        self.assertEqual(manifest["atlas_release"]["version"], "0.11.1")
-        self.assertEqual(manifest["atlas_release"]["date"], "2026-07-30")
+        self.assertEqual(manifest["atlas_release"]["version"], "0.12.0")
+        self.assertEqual(manifest["atlas_release"]["date"], "2026-08-05")
         self.assertEqual(
             manifest["atlas_release"]["title"],
-            "Interface and Release Hardening",
+            "Infraxis Atlas Rebrand and Pan-African Foundation",
         )
+        self.assertEqual(manifest["product"]["name"], "Infraxis Atlas — Nigeria")
+        self.assertEqual(manifest["product"]["master_brand"], "Infraxis Atlas")
+        self.assertEqual(manifest["product"]["country"], "Nigeria")
         self.assertEqual(len(manifest["layers"]), 27)
         self.assertEqual(manifest["endpoints"]["freshness"], "freshness.json")
         freshness = json.loads((API_DIR / "freshness.json").read_text())
@@ -601,6 +626,7 @@ class PublicAtlasTests(unittest.TestCase):
         for layer in manifest["layers"]:
             endpoint = API_DIR / layer["endpoint"]
             payload = json.loads(endpoint.read_text())
+            self.assertEqual(payload["product"], manifest["product"])
             self.assertEqual(len(payload["features"]), layer["record_count"])
 
 

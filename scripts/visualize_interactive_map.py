@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate an interactive Nigeria Infrastructure Atlas map with layer toggles.
+Generate an exploratory Infraxis Atlas — Nigeria map with layer toggles.
 
 This map includes gas and oil field points as an optional toggleable layer,
 plus power-producing plants, substations, demand centres, and mini-grids.
@@ -16,7 +16,7 @@ import shapely.wkt
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = ROOT / "outputs" / "maps"
-OUTPUT_FILE = OUTPUT_DIR / "nigeria_infrastructure_atlas_interactive.html"
+OUTPUT_FILE = OUTPUT_DIR / "infraxis_atlas_nigeria_interactive.html"
 
 STATE_BOUNDARY_URL = (
     "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/"

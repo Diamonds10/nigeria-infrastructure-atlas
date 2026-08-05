@@ -1,4 +1,4 @@
-name: ngra
+name: infraxis-atlas
 channels:
   - conda-forge
   - defaults

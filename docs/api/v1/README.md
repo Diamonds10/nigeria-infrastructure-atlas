@@ -1,4 +1,4 @@
-# Nigeria Infrastructure Atlas static API v1
+# Infraxis Atlas — Nigeria static API v1
 
 Base URL:
 
@@ -6,6 +6,10 @@ Base URL:
 
 This is a versioned, read-only static API served by GitHub Pages. It needs no
 API key and supports normal HTTP caching. Start with `manifest.json`.
+
+The base URL is retained from the product's former Nigeria Infrastructure
+Atlas name for backward compatibility. Product identity is published in the
+top-level `product` object of the manifest and generated resources.
 
 ## Endpoints
 

@@ -12,7 +12,7 @@ distributed-energy classes.
 
 ## Objective
 
-This workflow provides a first practical intake path for adding renewable off-grid and mini-grid assets into the Nigeria Infrastructure Atlas.
+This workflow provides a first practical intake path for adding renewable off-grid and mini-grid assets into Infraxis Atlas — Nigeria.
 
 ## Intake principles
 

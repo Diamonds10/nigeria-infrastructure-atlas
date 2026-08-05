@@ -1,4 +1,4 @@
-# Contributing to the Nigeria Infrastructure Atlas
+# Contributing to Infraxis Atlas — Nigeria
 
 Thank you for helping improve Nigeria's open infrastructure evidence.
 

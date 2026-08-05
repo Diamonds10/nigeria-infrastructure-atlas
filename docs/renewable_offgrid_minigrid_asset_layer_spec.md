@@ -14,7 +14,7 @@ official-source additions and a 37-state/FCT audit. See `docs/data_sources.md`
 
 ## Purpose
 
-This document proposes the next high-value public dataset to add to the Nigeria Infrastructure Atlas: a distributed renewable energy asset layer for Nigeria.
+This document proposes the next high-value public dataset to add to Infraxis Atlas — Nigeria: a distributed renewable energy asset layer for Nigeria.
 
 The goal is to create a map-ready public-source layer for:
 

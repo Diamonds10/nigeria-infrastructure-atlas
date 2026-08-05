@@ -1,6 +1,6 @@
 # Public map outputs
 
-This folder collects ready-to-share visual artifacts for the Nigeria Infrastructure Atlas.
+This folder collects ready-to-share visual artifacts for Infraxis Atlas — Nigeria.
 
 The canonical interactive public product is the Leaflet/GitHub Pages site in
 `docs/`. HTML files generated in this output folder are exploratory and are not
@@ -27,8 +27,9 @@ python scripts/build_output_gallery.py
 | Layer | Thumbnail | Records |
 |---|---|---|
 | Resource | [gallery/resource.png](gallery/resource.png) | 304 |
-| Infrastructure | [gallery/infrastructure.png](gallery/infrastructure.png) | 358 |
-| Environmental | [gallery/environmental.png](gallery/environmental.png) | 1,005 |
+| Infrastructure | [gallery/infrastructure.png](gallery/infrastructure.png) | 365 |
+| Environmental | [gallery/environmental.png](gallery/environmental.png) | 17,331 |
+| Security Context | [gallery/security.png](gallery/security.png) | 227 |
 | Demand | [gallery/demand.png](gallery/demand.png) | 28 |
 | Connectivity | [gallery/connectivity.png](gallery/connectivity.png) | 7,992 |
 | Distributed Energy | [gallery/renewables.png](gallery/renewables.png) | 93 |
@@ -37,19 +38,20 @@ python scripts/build_output_gallery.py
 ![Resource layer thumbnail](gallery/resource.png)
 ![Infrastructure layer thumbnail](gallery/infrastructure.png)
 ![Environmental layer thumbnail](gallery/environmental.png)
+![Security Context layer thumbnail](gallery/security.png)
 ![Demand layer thumbnail](gallery/demand.png)
 ![Connectivity layer thumbnail](gallery/connectivity.png)
 ![Distributed Energy layer thumbnail](gallery/renewables.png)
 ![People & Access layer thumbnail](gallery/context.png)
 
-All seven thumbnails are clipped to Nigeria's extent (matching `NIGERIA_BOUNDS`
+All eight thumbnails are clipped to Nigeria's extent (matching `NIGERIA_BOUNDS`
 in `docs/assets/app.js`), since a few GEM pipeline routes legitimately extend
 into neighbouring countries (documented in `docs/data_sources.md`) and would
 otherwise dominate the frame.
 
 ## Current snapshot
 
-- `nigeria_public_asset_snapshot.png` — the main public-facing atlas snapshot, showing the current state-labeled context for power-producing plants, substations, demand centres, and mini-grids.
+- `infraxis_atlas_nigeria_snapshot.png` — the main public-facing atlas snapshot, showing the current state-labeled context for power-producing plants, substations, demand centres, and mini-grids.
 - `public_asset_benchmark_summary.json` — a machine-readable benchmark summary for the public atlas, including counts, state coverage, capacity coverage, customer coverage, status mix, and geocode precision.
 
 ## What the current snapshot says

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://diamonds10.github.io/nigeria-infrastructure-atlas/api/v1/schema.json",
-  "title": "Nigeria Infrastructure Atlas public GeoJSON feature",
+  "title": "Infraxis Atlas — Nigeria public GeoJSON feature",
   "type": "object",
   "required": [
     "type",

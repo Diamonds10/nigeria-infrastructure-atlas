@@ -1,16 +1,17 @@
 cff-version: 1.2.0
-message: "If you use this atlas, cite the repository and the original datasets listed in docs/data_sources.md."
-title: "Nigeria Infrastructure Atlas"
+message: "If you use Infraxis Atlas — Nigeria, cite the repository and the original datasets listed in docs/data_sources.md."
+title: "Infraxis Atlas — Nigeria"
 type: dataset
 authors:
-  - name: "Nigeria Infrastructure Atlas contributors"
+  - name: "Infraxis Atlas contributors"
 repository-code: "https://github.com/Diamonds10/nigeria-infrastructure-atlas"
 url: "https://diamonds10.github.io/nigeria-infrastructure-atlas/"
 license: CC0-1.0
-version: 0.11.1
-date-released: 2026-07-30
+version: 0.12.0
+date-released: 2026-08-05
 keywords:
   - Nigeria
+  - Africa
   - infrastructure
   - geospatial
   - energy

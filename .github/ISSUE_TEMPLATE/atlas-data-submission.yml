@@ -1,11 +1,12 @@
-name: Atlas data submission or correction
-description: Propose evidence for any public atlas layer
+name: Infraxis Atlas data submission or correction
+description: Propose evidence for any Infraxis Atlas — Nigeria public layer
 title: "[Data]: "
 body:
   - type: markdown
     attributes:
       value: |
-        Use this form for infrastructure, resource, environmental, demand,
+        Use this form to improve Infraxis Atlas — Nigeria infrastructure,
+        resource, environmental, demand,
         connectivity, or population/access evidence. Distributed-energy records
         may use the dedicated form, which captures that taxonomy in more detail.
         Submissions are reviewed before publication; do not include private
