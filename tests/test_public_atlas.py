@@ -408,7 +408,7 @@ class PublicAtlasTests(unittest.TestCase):
             app_source,
         )
 
-        self.assertIn("./assets/app.css?v=0.12.1", html_source)
+        self.assertIn("./assets/app.css?v=0.12.1.1", html_source)
         self.assertIn("./assets/app.js?v=0.12.1", html_source)
         self.assertIn("./assets/atlas_data.json?v=0.12.1", app_source)
         self.assertIn("ensureSublayerLoaded", app_source)
